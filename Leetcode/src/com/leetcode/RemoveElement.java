@@ -32,8 +32,8 @@ public class RemoveElement {
 
     public static void main(String[] args){
         RemoveElement test = new RemoveElement();
-        int[] nums = {2, 3, 3, 5, 5};
-        int val = 3;
+        int[] nums = {0, 1, 1, 3, 2, 1};
+        int val = 1;
         System.out.print(test.removeElement(nums, val));
 //        for (int i = 0; i < nums.length; i++){
 //            System.out.println(nums[i]);
