@@ -7,6 +7,7 @@ public class GasStation {
      * 解题思路：
      * 1. 首先通过累积和（总加油-总耗油）来计算是否存在这样的成立的情况
      * 2. 只要能够总的算下来 > 0 即可
+     * 这个方法主要是表示只要在这个点之后的debt+remain都能做到 那就是从这个点出发即可
      * @param gas
      * @param cost
      * @return
