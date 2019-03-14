@@ -4,12 +4,13 @@ public class LongestCommonPrefix {
 
     /**
      * LeetCode No.14 Longest Common Prefix
+     * When: 2019/03/12
      * 解题思路：
      * 1. 首先选中第一个作为子串，
      * 2. 使用后面的循环str[i]是否包含（使用indexOf）
      * 3. 不包含就减少一位 （这里要用while 而不是if）
      * 涉及到的数据结构或者方法： substring(), indexOf()
-     * When: 2019/03/12
+     *
      * 疑问： 为什么是！=0 难道相同也会被删除？   因为是求共同最长前缀！！！  并非求最长共同元素
      * @param strs
      * @return

@@ -2,3 +2,5 @@
 *.xml
 *.iml
 *.iml
+*.class
+out/production/Leetcode/META-INF/Leetcode.kotlin_module
