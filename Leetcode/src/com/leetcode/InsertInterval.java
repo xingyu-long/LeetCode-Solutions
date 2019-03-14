@@ -31,6 +31,7 @@ public class InsertInterval {
      *  这里的含义是数组 但是可以理解为就是interval对象 然后有start以及end 属性
      *  这里之前有while的方法容易超时，内存不够（应该是进入死循环）
      *  利用for循环来遍历Interval 然后分上面的三种情况进行处理。
+     *  涉及到的数据结构或者方法： ArrayList<>()
      * @param intervals
      * @param newInterval
      * @return
@@ -63,13 +64,13 @@ public class InsertInterval {
     public static void main(String[] args) {
         System.out.println("1");
         List<Interval> intervals = new ArrayList<>();
-        Interval int1 = new Interval(1,3);
-        Interval int2 = new Interval(4,7);
-        Interval int3 = new Interval(9,10);
+        Interval int1 = new Interval(2,6);
+        Interval int2 = new Interval(8,10);
+        Interval int3 = new Interval(15,18);
         intervals.add(int1);
         intervals.add(int2);
         intervals.add(int3);
-        Interval newInterval = new Interval(5,11);
+        Interval newInterval = new Interval(1,3);
         List<Interval> res = insert(intervals, newInterval);
         System.out.println(res.size());
         for (int i = 0; i < res.size(); i++) {
