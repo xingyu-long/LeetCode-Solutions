@@ -9,9 +9,11 @@ public class MergeIntervals {
     /**
      * LeetCode No 56. Merge Intervals
      * when: 2019/03/14
-     * 思路都与InsertIntervals 一致 只是从中抽出第一个就行（由于现在的数据是可能内部有overlap而不是像之前没有的情况）
+     *
+     * 思路：都与InsertIntervals 一致 只是从中抽出第一个就行（由于现在的数据是可能内部有overlap而不是像之前没有的情况）
      * 利用所谓的扫描线算法 （第一个的interval处理也很重要） 需要先排序
      * 这里需要先sort！！！(这里sort之后 第一个的start 就一直是第一个输入的start！)
+     *
      * 涉及到的数据结构或者方法： 利用new comparator写sort 第一个对象-第二个对象则就是正序
      * @param intervals
      * @return
