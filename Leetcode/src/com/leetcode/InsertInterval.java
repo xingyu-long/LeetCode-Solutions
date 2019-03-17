@@ -22,6 +22,7 @@ public class InsertInterval {
     /**
      * LeetCode No.57 Insert Interval
      * when: 2019/03/13 & 3/14
+     *
      * 解题思路：
      * 首先一个循环表示以前的每一个数组
      * 分三种情况：
@@ -31,6 +32,7 @@ public class InsertInterval {
      *  这里的含义是数组 但是可以理解为就是interval对象 然后有start以及end 属性
      *  这里之前有while的方法容易超时，内存不够（应该是进入死循环）
      *  利用for循环来遍历Interval 然后分上面的三种情况进行处理。
+     *
      *  涉及到的数据结构或者方法： ArrayList<>()
      * @param intervals
      * @param newInterval

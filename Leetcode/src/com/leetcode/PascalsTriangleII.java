@@ -15,7 +15,7 @@ public class PascalsTriangleII {
      * 是否有更加高效的办法？？？？
      * @param rowIndex
      * @return
-     */                 
+     */
     public static List<Integer> getRow(int rowIndex) {
         List<List<Integer>> res = new ArrayList<>();
 
