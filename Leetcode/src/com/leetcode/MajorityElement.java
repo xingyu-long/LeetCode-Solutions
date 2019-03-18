@@ -28,6 +28,21 @@ public class MajorityElement {
          *             然后没出现的就插入，出现过一次然后出现就累加value值
          *            刚刚出错就是因为hashmap多打了() 然后需要有return！ 这里也需要break
          */
+
+        /**
+         * solution3: 利用Morre voting algorithm （只正对于有n/2的数字存在）
+         * 思路：利用count，一开始计算第一个的num存在的count 然后与后面比较 相同就+1
+         * 不同就-1 并且导致res 取到后面。。。依次进行
+         *      int count = 0;
+         *      int res = 0;
+         *      for (int num: nums){
+         *          if (count == 0)
+         *              res = num;
+         *          if (res == num) count++;
+         *          else count --;
+         *      }
+         *      return res
+         */
         HashMap<Integer,Integer> map = new HashMap<>();
         int res = 0;
         for (int num: nums){
