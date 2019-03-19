@@ -22,6 +22,7 @@ public class ShortestWordDistance {
     public static int shortestDistance(String[] words, String word1, String word2){
 
         HashMap<Integer, String> map = new HashMap<>();
+
         for (int i = 0; i < words.length; i++){
             map.put(i, words[i]);
         }
