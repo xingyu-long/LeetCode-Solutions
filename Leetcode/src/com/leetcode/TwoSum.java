@@ -18,6 +18,7 @@ public class TwoSum {
 	}
 	
 	//One-pass Hash Table (O(N))
+	// 这里用值作为key 然后序号作为value，这样方便获取
 	public int[] hashTwoSum(int[] nums, int target){
 		Map<Integer, Integer> map = new Hashtable<>();
 		for (int i = 0; i < nums.length; i++){
