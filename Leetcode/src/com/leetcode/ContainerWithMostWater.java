@@ -26,7 +26,7 @@ public class ContainerWithMostWater {
             }
         return res;
 
-            //solution 2:
+        // solution 2:
         // int res = 0;
         // int l = 0;
         // int r = height.length - 1;
