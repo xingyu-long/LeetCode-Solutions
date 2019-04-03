@@ -8,6 +8,14 @@ public class _7_ReverseInteger {
      *
      *
      * integer range: [−2^31,  2^31 − 1]
+     * Test case:
+     * x = 123:
+     *      res = 0; res = 0 * 10 + x % 10 = 3（得到个位数的1） x / 10 = 12;
+     *      res = 3; res = 3 * 10 + 12 % 10 = 32(得到十位数的2) x / 10 = 1;
+     *      res = 32; res = 32 * 10 + 1 % 10 = 321 （得到百位数的1） x / 10 = 0;
+     * solution:
+     *  某一个数 / 10 表示获取前 n - 1位数
+     *  某一个数 % 10 表示获取最后一位数
      * @param x
      * @return
      */
