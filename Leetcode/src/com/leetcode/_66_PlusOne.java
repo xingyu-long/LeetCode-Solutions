@@ -1,3 +1,5 @@
+package com.leetcode;
+
 class _66_PlusOne {
 
      /**
