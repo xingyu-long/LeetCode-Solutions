@@ -43,8 +43,23 @@ public class _165_CompareVersionNumbers {
         else if (v1Length == v2Length) return 0;
         else return -1;
     }
-
+    public static int compareVersion2(String v1, String v2) {
+        int i1 = 0, i2 = 0, n1 = 0, n2 = 0;
+        while (i1 < v1.length() || i2 < v2.length()) {
+            while (i1 < v1.length() && v1.charAt(i1) != '.') {
+                n1 = n1 * 10 + v1.charAt(i1++) - '0';
+            }
+            while (i2 < v2.length() && v2.charAt(i2) != '.') {
+                n2 = n2 * 10 + v2.charAt(i2++) - '0';
+            }
+            if (n1 > n2) return 1;
+            if (n1 < n2) return -1;
+            n1 = n2 = 0;
+            i1++; i2++;
+        }
+        return 0;
+    }
     public static void main(String[] args) {
-        System.out.println(compareVersion("1.0", "1.0.0"));
+        System.out.println(compareVersion2("1.1", "1.0.1"));
     }
 }

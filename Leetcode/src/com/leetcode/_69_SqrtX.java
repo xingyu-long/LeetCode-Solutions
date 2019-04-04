@@ -47,6 +47,6 @@ public class _69_SqrtX {
     }
 
     public static void main(String[] args) {
-        System.out.println(mySqrt(26));
+        System.out.println(mySqrt(2147395599));
     }
 }
