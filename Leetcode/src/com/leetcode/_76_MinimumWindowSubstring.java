@@ -21,14 +21,16 @@ public class _76_MinimumWindowSubstring {
 
         int from = 0;
         int total = t.length();
-        int min = Integer.MAX_VALUE;
+        int min = Integer.MAX_VALUE;// 用来记录最小的值（这个值是用来记录两者之间的距离）
         for (int i = 0, j = 0; i < s.length(); i++) {
             if (cnt[s.charAt(i)]-- > 0) total--;
+            // total为0表示已经在s找到了包含t的字符串
             while (total == 0) {
                 if (i - j + 1 < min) {
                     min = i - j + 1;
                     from = j;
                 }
+                // j用来记录目标的起始位置
                 if (++cnt[s.charAt(j++)] > 0) total++;
             }
         }
