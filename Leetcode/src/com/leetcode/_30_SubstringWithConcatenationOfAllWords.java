@@ -28,7 +28,7 @@ public class _30_SubstringWithConcatenationOfAllWords {
         // 记录每个单词的出现情况
         for (String str: words) {
             // 这里的getOrDefault 有些问题，JDK原因？？？
-            map.put(str, map.getOrDefault(str, 0) + 1);
+//            map.put(str, map.getOrDefault(str, 0) + 1);
         }
 
         for (int i = 0; i < s.length() - n * m; i++) {
