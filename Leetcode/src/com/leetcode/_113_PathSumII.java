@@ -1,0 +1,104 @@
+package com.leetcode;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class _113_PathSumII {
+
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode(int x) {
+            val = x;
+        }
+    }
+
+    /**
+     * 113. Path Sum II
+     * When: 2019/04/17
+     *
+     * solution: 依然使用先序遍历（DFS）
+     * 用sum 减去里面的要是等于 0 则表示找到了其中的一条路
+     * 其中应该有个bug，最开始没有考虑到cur删除最后一个元素
+     *
+     *
+     * Q:不是很懂这里的cur.remove(cur.size() - 1)操作   (A: 为了删除后面的 向上计算的时候 那个cur要保持当前层需要的样子)
+     *
+     * Q: 但是为什么前面的sum就没删除呢？（后面需要验证） A: 因为这里有栈，所保存了当前的值
+     *
+     * Q: 为什么new ArrayList<>(cur) 才可以用  A: 如果不是新的对象会导致其cur删除，因为remove操作影响cur这个对象（这个对象与res.add 是
+     * 同一个对象，所以cur最后为空，即res也会为空）
+     *
+     * Test case:
+     *     1         sum = 4;
+     *    / \
+     *   2  3
+     *
+     * (1) root = 1 -> cur[1, ]; sum = 3; 不满足添加res条件
+     *
+     * (1.1) 左边
+     *        root = 2 -> cur[1, 2, ] sum = 1; 不满足res条件
+     *        (1.1.1) 左边
+     *              root = null -> return;
+     *        (1.1.2) 右边
+     *              root = null -> return;
+     *        (1.1.3) remove cur的最后一个元素
+     *             #（超级重要） cur = [1, ];
+     * (1.2) 右边
+     *        root = 3 -> [1, 3] sum = 0; 满足res条件 -> res[[1, 3] ];
+     *        (1.2.1) 左边
+     *              root = null -> return;
+     *        (1.2.2) 右边
+     *              root = null -> return;
+     *        (1.2.3) remove
+     *            # (超级重要) cur = [1, ]
+     * (1.3) remove
+     *        # (超级重要) cur = [];
+     * @param root
+     * @param sum
+     * @return
+     */
+    public static List<List<Integer>> pathSum(TreeNode root, int sum) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (root == null) return res;
+        helper(res, new ArrayList<Integer>(),root, sum);
+        return res;
+    }
+
+    public static void helper(List<List<Integer>> res, List<Integer> cur,TreeNode root, int sum) {
+        if (root == null) return;
+        cur.add(root.val);
+        sum -= root.val;
+        if (root.left == null && root.right == null && sum == 0) {
+            res.add(cur);
+        }
+        helper(res, cur, root.left, sum);
+        helper(res, cur, root.right, sum);
+        cur.remove(cur.size() - 1);
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+
+        TreeNode leftOne = new TreeNode(2);
+        TreeNode rightOne = new TreeNode(3);
+
+        root.left = leftOne;
+        root.right = rightOne;
+
+//
+//        TreeNode leftOneRightTwo = leftOne.right;
+//        leftOneRightTwo.val = 1;
+//
+//        TreeNode rightOneLeftTwo = rightOne.left;
+//        rightOneLeftTwo.val = 0;
+//
+//        TreeNode rightOneRightTwo = rightOne.right;
+//        rightOneRightTwo.val = 1;
+
+        int sum = 4;
+        List<List<Integer>> res = pathSum(root, sum);
+        System.out.println(res.toString());
+    }
+}

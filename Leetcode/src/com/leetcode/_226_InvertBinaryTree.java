@@ -51,7 +51,7 @@ public class _226_InvertBinaryTree {
      */
     public static TreeNode invertTree(TreeNode root) {
         // 首先判断边界条件
-        if (root == null) return root;
+        if (root == null) return null;
         // 保留其原来的值 后面做交换使用
         TreeNode left = invertTree(root.left);
         TreeNode right = invertTree(root.right);
