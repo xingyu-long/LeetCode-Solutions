@@ -14,7 +14,7 @@ public class _102_BinaryTreeLevelOrderTraversal {
     }
 
     /**
-     * 145. 102. Binary Tree Level Order Traversal
+     * 102. Binary Tree Level Order Traversal
      * When: 2019/04/12
      *
      * solution:
