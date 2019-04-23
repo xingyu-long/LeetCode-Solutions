@@ -1,17 +1,12 @@
 package com.leetcode;
 
+import com.leetcode.lib.MainClass;
+import com.leetcode.lib.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class _94_BinaryTreeInorderTraversal {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     /**
      * 94. Binary Tree Inorder Traversal
@@ -38,11 +33,10 @@ public class _94_BinaryTreeInorderTraversal {
     }
 
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
-        root.left = null;
-        root.right = new TreeNode(2);
-        TreeNode right = root.right;
-        right.left = new TreeNode(3);
-        System.out.println(inorderTraversal(root).toString());
+        MainClass mainClass = new MainClass();
+        String s = "[1,2,3,4,5,6,7,8]";
+        TreeNode tree =  mainClass.stringToTreeNode(s);
+        System.out.println(inorderTraversal(tree).toString());
+        System.out.println(mainClass.treeNodeToString(tree));
     }
 }
