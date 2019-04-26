@@ -39,6 +39,25 @@ public class _116_PopulatingNextRightPointersInEachNode {
         return root;
     }
 
+    /**
+     * Test case:
+     *               1
+     *              / \
+     *             2   3
+     *            / \ / \
+     *           4  5 6  7
+     *  start, cur:  node (1)
+     *  （1）进入cur的while循环 连接了 2和 3
+     *       cur = null 退出循环
+     *  （2）start = node(1).left, cur: node(2)
+     *       连接4->5以及5->6
+     *       cur = node(2).next node(3)
+     *       连接6->7
+     *       cur = null
+     *  （3）然后到树的最底层 然后cur一直可以next 最后为null 结束
+     * @param root
+     * @return
+     */
     public Node connect2(Node root) {
         Node start = root;
         while (start != null) {
