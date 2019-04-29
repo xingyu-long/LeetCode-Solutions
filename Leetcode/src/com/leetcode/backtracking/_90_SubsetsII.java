@@ -13,6 +13,7 @@ public class _90_SubsetsII {
      * solution:
      * 也是用回溯法，只要的区别是去重的情况
      *
+     * 这里记得注意当i=2的时候 会有continue的情况
      * @param nums
      * @return
      */

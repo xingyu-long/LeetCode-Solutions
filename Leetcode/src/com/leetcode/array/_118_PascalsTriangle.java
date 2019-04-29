@@ -1,28 +1,26 @@
-package com.leetcode;
+package com.leetcode.array;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class _119_PascalsTriangleII {
-
+public class _118_PascalsTriangle {
     /**
-     * LeetCode 119. Pascal's Triangle II
+     * LeetCode 118. Pascal's Triangle
      * When: 2019/03/16
      *
-     * 思路：与之前一样 但是输出不同
+     * 思路：就是按照算法演示来相加 保留current以及previous行然后依次计算
      *
      * 涉及到的数据结构或者方法：ArrayList(), List<>
-     * 是否有更加高效的办法？？？？
-     * @param rowIndex
+     * @param numRows
      * @return
      */
-    public static List<Integer> getRow(int rowIndex) {
+    public static List<List<Integer>> generate(int numRows) {
         List<List<Integer>> res = new ArrayList<>();
-
-        int numRows = rowIndex + 1;
-        List<Integer> list = new ArrayList<>();
         // 这里应该返回空数组并非null值
-        if (rowIndex < 0) return list;
+        if (numRows < 1) return res;
+
+        List<Integer> list = new ArrayList<>();
+
         //赋值第一行
         list.add(0, 1);
         res.add(list);
@@ -46,11 +44,10 @@ public class _119_PascalsTriangleII {
             //添加每一行的最后一个元素 1
             current.add(1);
             res.add(current);
-        }
-        return res.get(rowIndex);
     }
-
-    public static void main(String[] args){
-        System.out.println(getRow(3));
+        return res;
+    }
+    public static void main(String[] args) {
+        System.out.println(generate(6));
     }
 }

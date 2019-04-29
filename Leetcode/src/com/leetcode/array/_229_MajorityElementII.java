@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.array;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +26,8 @@ public class _229_MajorityElementII {
          *
          * solution 1：
          * 依然使用HashMap进行存储并且利用value存储，并且需要一个ArrayList来保存结果 (这里注意res里面可能会有重复的，所以需要排除这种情况)
-         *
+         * time: O(n)
+         * space: O(n)
          **/
         HashMap<Integer, Integer> map = new HashMap<>();
         ArrayList<Integer> res = new ArrayList();
