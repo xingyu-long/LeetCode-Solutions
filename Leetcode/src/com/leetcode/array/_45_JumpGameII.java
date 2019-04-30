@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.array;
 
 public class _45_JumpGameII {
 

@@ -76,6 +76,8 @@ public class _243_ShortestWordDistance {
     /**
      * solution3： 依然用获取其位置后然后比较的方式
      *
+     * space: O(1)
+     * time: O(n)
      * @param words
      * @param word1
      * @param word2

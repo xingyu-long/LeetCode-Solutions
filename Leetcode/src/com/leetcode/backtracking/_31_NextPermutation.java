@@ -23,7 +23,7 @@ public class _31_NextPermutation {
      *    1, 2, 7, 4, 1, 3
      *
      *
-     *    
+     *
      * @param nums
      */
     public void nextPermutation(int[] nums) {

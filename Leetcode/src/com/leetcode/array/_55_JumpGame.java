@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.array;
 
 public class _55_JumpGame {
 
@@ -13,6 +13,7 @@ public class _55_JumpGame {
      * @param nums
      * @return
      */
+    //time : O(n) space : O(1)
     public boolean canJump(int[] nums) {
         // 当前位置最大能走的长度就是max 与 当前的索引值加上对应的nums值 这里的max是指从index=0 走最长的长度
         int max = 0;
