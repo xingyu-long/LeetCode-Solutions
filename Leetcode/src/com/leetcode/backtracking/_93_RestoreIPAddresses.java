@@ -11,6 +11,9 @@ public class _93_RestoreIPAddresses {
      *
      * solution:
      * 利用回溯法，相当于列举全部情况 然后有些可以舍去。并且注意边界条件！
+     *
+     * time: O(3^4) => O(1)
+     * space: O(n)
      * @param s
      * @return
      */
@@ -34,6 +37,7 @@ public class _93_RestoreIPAddresses {
             String temp = s.substring(index, index + i);
             // 不满足的ip规范的情况
             if ((temp.startsWith("0") && temp.length() > 1 ) || (i == 3) && Integer.parseInt(temp) >= 256) continue;
+            // 这里的count 表示前面有几个数，如果是前面有三个最后一个肯定就不需要"." 而是直接 ""
             helper(res, s, index + i, ret + temp + (count == 3 ? "" : "."), count + 1);
         }
     }
