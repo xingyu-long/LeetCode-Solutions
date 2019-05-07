@@ -55,4 +55,17 @@ public class _70_ClimbingStairs {
         }
         return res;
     }
+
+    // 理解为 斐波那契数列
+    // 从下到上开始计算
+    // time: O(n) space: O(n)
+    public int climbStairs3(int n) {
+        int[] dp = new int[n + 1];
+        dp[0] = 1; // 当只有0个梯子，所以只有一种情况，那就是保持不动
+        dp[1] = 1; // 当只有1个梯子，所以有一种情况 就是跳一步
+        for (int i = 2; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2]; //表示要不就是从i-1这个位置跳一步 或者是 i-2这个位置跳两步的所有可能性的和
+        }
+        return dp[n];
+    }
 }
