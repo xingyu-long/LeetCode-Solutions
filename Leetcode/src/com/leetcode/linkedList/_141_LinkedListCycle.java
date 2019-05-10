@@ -10,7 +10,7 @@ public class _141_LinkedListCycle {
     /**
      * 141. Linked List Cycle
      * when: 2019/05/09
-     * 
+     *
      * Given a linked list, determine if it has a cycle in it.
      *
      *
