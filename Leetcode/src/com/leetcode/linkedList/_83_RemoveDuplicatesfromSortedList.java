@@ -38,7 +38,7 @@ public class _83_RemoveDuplicatesfromSortedList {
         return head;
     }
 
-    // time: O(n) space: (n) 
+    // time: O(n) space: (n)
     public ListNode deleteDuplicates2(ListNode head) {
         ListNode dummy = new ListNode(0);
         ListNode pre = dummy;
