@@ -26,7 +26,9 @@ public class _153_FindMinimumInRotatedSortedArray {
         }
 
         while (left <= right) {
-            int mid = (left + right) / 2;
+//            int mid = (left + right) / 2;
+            // prevent overflow
+            int mid = left + (right - left) / 2;
 
             //         left mid   right
             // eg: 4, 5, 6, 7, 2, 3
@@ -46,5 +48,22 @@ public class _153_FindMinimumInRotatedSortedArray {
             }
         }
         return -1;
+    }
+
+    // time: O(logn) space:O(1)
+    public int findMin2(int[] nums) {
+        if (nums == null || nums.length == 0) return -1;
+        int start = 0;
+        int end = nums.length - 1;
+        while (start <= end) {
+            int mid = (end - start) / 2 + start;
+            if (nums[mid] < nums[end]) {
+                end = mid;
+            } else {
+                start = mid + 1;
+            }
+        }
+        if (nums[start] < nums[end]) return nums[start];
+        else return nums[end];
     }
 }
