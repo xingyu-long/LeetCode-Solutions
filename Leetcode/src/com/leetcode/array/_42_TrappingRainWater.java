@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.array;
 
 public class _42_TrappingRainWater {
 
@@ -11,6 +11,7 @@ public class _42_TrappingRainWater {
      * @param height
      * @return
      */
+    // time: O(n) space: O(1)
     public static int trap(int[] height) {
         int res = 0;
         int left = 0;
@@ -34,6 +35,8 @@ public class _42_TrappingRainWater {
 
     public static void main(String[] args){
         int[] height = new int[]{0,1,0,2,1,0,1,3,2,1,2,1};
-        System.out.println(trap(height));
+        String test = "12345";
+        System.out.println(test.substring(1));
+//        System.out.println(trap(height));
     }
 }
