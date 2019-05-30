@@ -22,7 +22,15 @@ public class _240_Searcha2DMatrixII {
         if (matrix == null || matrix.length == 0) return false;
         int row = 0;
         int col = matrix[0].length - 1; // 从右边顶点开始
-
+        /**
+         * 也可以从左下方那个点开始，因为满足 可以减（向上走），可以加（向右走）的特点
+         * 只需要修改 row = matrix.length - 1;
+         *           col = 0;
+         *   while (row >= 0 && col <= matrix[0].length - 1) {
+         *          里面分别是 row -- （向上走）
+         *          col ++ （向右走）
+         *   }
+         */
         while (col >= 0 && row <= matrix.length - 1) {
             if (target == matrix[row][col]) {
                 return true;
