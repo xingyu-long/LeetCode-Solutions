@@ -6,7 +6,7 @@ public class _130_SurroundedRegions {
      * 130. Surrounded Regions
      * When: 2019/05/31
      *
-     * solution: 
+     * solution:
      * 反着来 从O出发 看周围是否存在相同的，如果有的话，
      * 将其置为1，然后循环，如果有1 最后就恢复O 其他是O的 就恢复成X
      * @param board
@@ -49,5 +49,4 @@ public class _130_SurroundedRegions {
         dfs(board, i + 1, j);
         dfs(board, i - 1, j);
     }
-
 }
