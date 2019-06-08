@@ -1,7 +1,7 @@
 package com.leetcode.tree;
 
-import com.leetcode.lib.MainClass;
-import com.leetcode.lib.TreeNode;
+import com.leetcode.common.MainClass;
+import com.leetcode.common.TreeNode;
 
 public class _230_KthSmallestElementInABST {
 

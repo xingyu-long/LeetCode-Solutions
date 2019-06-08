@@ -1,6 +1,6 @@
 package com.leetcode.tree;
 
-import com.leetcode.lib.TreeNode;
+import com.leetcode.common.TreeNode;
 
 public class _98_ValidateBinarySearchTree {
 

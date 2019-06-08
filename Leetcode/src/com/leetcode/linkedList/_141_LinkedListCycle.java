@@ -1,6 +1,6 @@
 package com.leetcode.linkedList;
 
-import com.leetcode.lib.ListNode;
+import com.leetcode.common.ListNode;
 
 import java.util.HashSet;
 import java.util.Set;

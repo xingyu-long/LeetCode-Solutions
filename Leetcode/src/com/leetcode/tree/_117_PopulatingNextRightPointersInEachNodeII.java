@@ -1,6 +1,6 @@
 package com.leetcode.tree;
 
-import com.leetcode.lib.Node;
+import com.leetcode.common.Node;
 
 public class _117_PopulatingNextRightPointersInEachNodeII {
 

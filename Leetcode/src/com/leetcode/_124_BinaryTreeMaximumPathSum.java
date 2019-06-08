@@ -1,6 +1,6 @@
 package com.leetcode;
 
-import com.leetcode.lib.TreeNode;
+import com.leetcode.common.TreeNode;
 
 public class _124_BinaryTreeMaximumPathSum {
 

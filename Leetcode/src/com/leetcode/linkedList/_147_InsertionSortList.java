@@ -1,6 +1,6 @@
 package com.leetcode.linkedList;
 
-import com.leetcode.lib.ListNode;
+import com.leetcode.common.ListNode;
 
 public class _147_InsertionSortList {
 

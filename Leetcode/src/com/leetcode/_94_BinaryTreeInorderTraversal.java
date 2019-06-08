@@ -1,7 +1,7 @@
 package com.leetcode;
 
-import com.leetcode.lib.MainClass;
-import com.leetcode.lib.TreeNode;
+import com.leetcode.common.MainClass;
+import com.leetcode.common.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
