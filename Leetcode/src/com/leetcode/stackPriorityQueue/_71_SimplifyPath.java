@@ -13,6 +13,7 @@ public class _71_SimplifyPath {
      * @param path
      * @return
      */
+    // time: O(n) space: O(n) (due to the stack structure)
     public String simplifyPath(String path) {
         Stack<String> stack = new Stack<>();
         String[] paths = path.split("/+");

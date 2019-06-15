@@ -51,7 +51,7 @@ public class _217_ContainsDuplicate {
     public boolean containsDuplicate3(int[] nums) {
 //        利用set不能放入重复的特性
         HashSet<Integer> set = new HashSet<>();
-        for (int num: nums){
+        for (int num : nums){
             if (! set.add(num)) return true;
         }
         return false;

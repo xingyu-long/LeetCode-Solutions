@@ -1,8 +1,8 @@
-package com.leetcode;
+package com.leetcode.array;
 
 import java.util.HashMap;
 
-public class _80_ContainsDuplicateII {
+public class _219_ContainsDuplicateII {
 
     /**
      *
@@ -17,6 +17,7 @@ public class _80_ContainsDuplicateII {
      * @param k
      * @return
      */
+    // time : O(n * n) space: O(n)
     public static boolean containsNearbyDuplicate(int[] nums, int k){
         if (nums.length <= 1) {
             return false;

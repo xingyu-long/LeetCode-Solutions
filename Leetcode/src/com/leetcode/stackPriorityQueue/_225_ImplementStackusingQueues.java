@@ -17,6 +17,7 @@ public class _225_ImplementStackusingQueues {
     }
 
     /** Push element x onto stack. */
+    // time: O(n)
     public void push(int x) {
         queue.add(x);
         // 将前面的元素 全部反转一遍
