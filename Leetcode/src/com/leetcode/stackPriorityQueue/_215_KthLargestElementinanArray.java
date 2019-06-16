@@ -75,7 +75,7 @@ public class _215_KthLargestElementinanArray {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{3,2,1,4,5,6};
+        int[] nums = new int[]{3, 0, 1, 8, 7, 2, 5, 4, 9, 6};
         int lo = 0;
         int hi = nums.length - 1;
         _215_KthLargestElementinanArray sort = new _215_KthLargestElementinanArray();

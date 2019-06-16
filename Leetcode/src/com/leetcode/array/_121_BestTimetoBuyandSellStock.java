@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.array;
 
 public class _121_BestTimetoBuyandSellStock {
 
@@ -26,6 +26,7 @@ public class _121_BestTimetoBuyandSellStock {
      * @param prices
      * @return
      */
+    // time:O(n) space:O(1)
     public int maxProfit(int[] prices) {
         if (prices.length < 2 || prices == null) return 0;
         int min = prices[0];

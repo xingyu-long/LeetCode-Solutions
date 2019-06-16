@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.array;
 
 public class _122_BestTimetoBuyandSellStockII {
 
@@ -30,6 +30,7 @@ public class _122_BestTimetoBuyandSellStockII {
      * @param prices
      * @return
      */
+    // time:O(n) space:O(1)
     public int maxProfit(int[] prices) {
 //     solution 1:
 //      判断边界条件
@@ -48,17 +49,16 @@ public class _122_BestTimetoBuyandSellStockII {
             maxprofit += peak - valley;
         }
         return maxprofit;
-
-
-        /**
-         * solution2:
-         * if (prices == null || prices.length < 2) return 0;
-         * int maxprofit = 0
-         * for (int i = 1; i < prices.length; i++){
-         *      if(prices[i] > prices[i - 1])
-         *          maxprofit += prices[i] - prices[i - 1];
-         * }
-         * return maxprofit;
-         */
+    }
+    
+    // time:O(n) space:O(1)
+    public int maxProfit2(int[] prices) {
+          if (prices == null || prices.length < 2) return 0;
+          int maxprofit = 0;
+          for (int i = 1; i < prices.length; i++){
+               if(prices[i] > prices[i - 1])
+                   maxprofit += prices[i] - prices[i - 1];
+          }
+          return maxprofit;
     }
 }
