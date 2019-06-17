@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.array;
 
 public class _11_ContainerWithMostWater {
 
@@ -17,6 +17,7 @@ public class _11_ContainerWithMostWater {
      * @param height
      * @return
      */
+    //time:O(n^2) space:O(1)
     public int maxArea(int[] height) {
         //solution 1: 两个for循环
         int res = 0;
@@ -25,16 +26,18 @@ public class _11_ContainerWithMostWater {
                 res = Math.max(res, Math.min(height[i], height[j]) * (j - i));
             }
         return res;
+    }
 
-        // solution 2:
-        // int res = 0;
-        // int l = 0;
-        // int r = height.length - 1;
-        // while ( l < r){
-        //     res = Math.max(res, Math.min(height[l], height[r]) * (r - l));
-        //     if(height[l] < height[r]) l++;
-        //     else r--;
-        // }
-        // return res;
+    //time:O(n) space:O(1)
+    public int maxArea2(int[] height) {
+        int res = 0;
+        int l = 0;
+        int r = height.length - 1;
+        while (l < r){
+            res = Math.max(res, Math.min(height[l], height[r]) * (r - l));
+            if(height[l] < height[r]) l++;
+            else r--;
+        }
+        return res;
     }
 }

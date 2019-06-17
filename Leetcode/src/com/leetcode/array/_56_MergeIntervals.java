@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.array;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,6 +18,7 @@ public class _56_MergeIntervals {
      * @param intervals
      * @return
      */
+    // time:O(nlogn) for sorting space: O(n)
     public List<Interval> merge(List<Interval> intervals) {
         if (intervals == null || intervals.size() < 1) return intervals;
         Collections.sort(intervals, new Comparator<Interval>() {
@@ -29,6 +30,7 @@ public class _56_MergeIntervals {
         int start = intervals.get(0).start;
         int end  = intervals.get(0).end;
         List<Interval> res = new ArrayList<>();
+        // 这里不用比较start是否最小 是因为前面排序了。而57题 插入的newInterval是不确定的，所以需要前后均比较
         for (Interval interval: intervals){
             if (interval.start <= end){
                 end = Math.max(end, interval.end);
@@ -38,6 +40,7 @@ public class _56_MergeIntervals {
                 end = interval.end;
             }
         }
+        // 插入最后一个
         res.add(new Interval(start, end));
         return res;
     }

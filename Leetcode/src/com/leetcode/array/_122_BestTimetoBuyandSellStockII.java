@@ -50,7 +50,7 @@ public class _122_BestTimetoBuyandSellStockII {
         }
         return maxprofit;
     }
-    
+
     // time:O(n) space:O(1)
     public int maxProfit2(int[] prices) {
           if (prices == null || prices.length < 2) return 0;
