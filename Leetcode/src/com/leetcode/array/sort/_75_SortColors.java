@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.array.sort;
 
 public class _75_SortColors {
 
@@ -10,8 +10,10 @@ public class _75_SortColors {
      *
      * @param nums
      */
+
+    //time: O(n) space:O(n/2) = O(n)
     public void sortColors(int[] nums) {
-        /** two-pass solution  来记录每一个颜色的个数
+        //two-pass solution  来记录每一个颜色的个数
         int[] count = new int[]{0, 0, 0};
         for (int num: nums){
             if (num == 0) count[0]++;
@@ -32,18 +34,21 @@ public class _75_SortColors {
                 i++;
             }
         }
-         **/
+    }
 
-        /**
-         * solution2: 利用l, r, index进行操作
-         * 主要是left表示把0交换到左边
-         * right表示把2交换到右边
-         * 所以1 就是在中间
-         */
+    /**
+     * solution2: 利用l, r, index进行操作
+     * 主要是left表示把0交换到左边
+     * right表示把2交换到右边
+     * 所以1 就是在中间
+     */
+    //time: O(n) space:O(1)
+    public void sortColors2(int[] nums) {
         if (nums == null || nums.length == 0) return;
         int left = 0;
         int right = nums.length - 1;
         int index = 0;
+        //因为right本身就是数组的最后一个位置，能用的到。
         while (index <= right) {
             if (nums[index] == 0) {
                 swap(nums, index++, left++);
@@ -54,8 +59,7 @@ public class _75_SortColors {
             }
         }
     }
-
-    public static void swap(int[] nums, int i, int j){
+        public static void swap(int[] nums, int i, int j){
         int temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;
