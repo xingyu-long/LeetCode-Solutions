@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.array.counter;
 
 public class _209_MinimumSizeSubarraySum {
 
@@ -13,6 +13,7 @@ public class _209_MinimumSizeSubarraySum {
      * @param nums
      * @return
      */
+    //time: O(n) space:O(1)
     public static int minSubArrayLen(int s, int[] nums) {
         int res = Integer.MAX_VALUE;
         int left = 0, sum = 0;
