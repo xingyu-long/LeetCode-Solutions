@@ -11,23 +11,23 @@ public class _152_MaximumProductSubarray {
      * @param nums
      * @return
      */
+    //time: O(n^2) space:O(1)
     public int maxProduct(int[] nums) {
-
-        /** solution1: brute solution
          if (nums.length == 1) return nums[0];
          int res = nums[0];
          int prod = 1;
-         for (int i = 0; i < nums.length; i++){
-         for (int j = i; j < nums.length; j++){
-         prod *= nums[j];
-         res = Math.max(res, prod);
-         }
-         prod = 1;
+         for (int i = 0; i < nums.length; i++) {
+            for (int j = i; j < nums.length; j++) {
+                prod *= nums[j];
+                res = Math.max(res, prod);
+            }
+            prod = 1;
          }
          return res;
-         **/
-
-        // solution2: 三种情况，一种是最小，一种最大，一种当前数字 三个比较值则就是所求
+    }
+    // solution2: 三种情况，一种是最小，一种最大，一种当前数字 三个比较值则就是所求
+    // time:O(n) space:O(n)
+    public int maxProduct2(int[] nums) {
         int res = nums[0];
         int[] max = new int[nums.length];
         max[0] = nums[0];
