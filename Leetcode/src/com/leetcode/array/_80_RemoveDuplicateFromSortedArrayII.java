@@ -1,13 +1,15 @@
-package com.leetcode;
+package com.leetcode.array;
 
 import java.util.Arrays;
 
 /**
  * Created by longxingyu on 2019/2/12.
  */
-public class _189_RemoveDuplicateFromSortedArrayII {
+public class _80_RemoveDuplicateFromSortedArrayII {
     /**
-     * LeetCode No. 189
+     *  80. Remove Duplicates from Sorted Array II
+        When: 2019/02/12
+        Review1 : 2019/6/30
      * 错误思路：1. 我以为需要一个flag进行标记个数 2. 之前的count没有搞懂（应该类似于指针的东西） 3. 这里使用i的话，会有覆盖作用，导致i=4的时候等于i=2 4. return错误 应该是count才对
      * 解题思路： 一定有两位保留，所以count=2（相当于从第三个开始）
      * case: [1, 1, 1, 2, 2, 3]

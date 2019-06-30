@@ -1,13 +1,12 @@
-package com.leetcode;
-
+package com.leetcode.array;
 import java.util.Arrays;
 
-/**
- * Created by longxingyu on 2019/2/11.
- */
 public class _26_RemoveDuplicateFromSortedArray {
     /**
      * LeetCode No.26
+        When: 2019/2/11
+        review 1: 2019/6/30
+
      * 错误思路： 最开始认为不能用nums[count-1]
      * 思路解析：count的位置就是待插入的
      * case: [0, 1, 1, 2, 2]

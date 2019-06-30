@@ -1,20 +1,21 @@
-package com.leetcode;
-
+package com.leetcode.array;
 import java.util.Arrays;
-
-/**
- * Created by longxingyu on 2019/2/11.
- */
-
-//LeetCode No.27
-//思维误区：1. 以为需要动态修改原来数组的值，因为题目要求不能有额外的内存支出
-//         2. 以为只是需要返回res的结果 数组没关系
-
-// 利用two pointer： 一个从前往后扫描（i）一个记录结果（r）
-
 
 public class _27_RemoveElement {
 
+    /**
+     *  27. Remove Element
+     *  difficulty: Easy
+        When: 2019/02/11
+        review 1: 2019/06/30
+
+        solution:
+            利用two pointer： 一个从前往后扫描（i）一个记录结果（r）
+            相当于当val等于nums[i]的时候res当前对应的数组值被替换并且向前移动一位
+     * @param nums
+     * @param val
+     * @return
+     */
     public int removeElement(int[] nums, int val){
         //1.判断边界条件
         if(nums==null || nums.length == 0) return 0;
@@ -22,11 +23,8 @@ public class _27_RemoveElement {
         for (int i = 0; i < nums.length; i++){
             if (nums[i] != val){
                 nums[res++] = nums[i];
-//                System.out.println(nums[i]);
-//                System.out.println("length="+nums.length);
             }
         }
-        System.out.println(Arrays.toString(nums));
         return res;
     }
 
