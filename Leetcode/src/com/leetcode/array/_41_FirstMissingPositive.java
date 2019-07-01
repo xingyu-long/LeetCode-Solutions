@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.array;
 
 /**
  * Created by longxingyu on 2019/2/13.
@@ -18,12 +18,19 @@ public class _41_FirstMissingPositive {
      * case: [ 3, 4, -1, 1]
      * i = 0 [-1, 4, 3, 1]
      * i = 1 [-1, 1, 3, 4]
+     *       [1, -1, 3, 4]
+     *
      *  i = 2 不变
-     *  i = 3[
+     *  i = 3 不变
      *  不懂：这里的-1位置不对（由于while 导致多循环了几次交换了位置），为啥要用while
+     *  因为这样才能一直交换 直到符合情况为止
+     *
+     *
      * @param nums
      * @return
      */
+
+    //time:O(n) space:O(1)
     public static int firstMissingPositive(int[] nums){
         if (nums == null || nums.length == 0) return 1;
         for (int i = 0; i < nums.length; i++){

@@ -1,24 +1,23 @@
-package com.leetcode;
-
+package com.leetcode.array;
 import java.util.Arrays;
 
-/**
- * Created by longxingyu on 2019/2/12.
- */
-
-// LeetCode No. 189
 public class _189_RotateArray {
 
     /**
-     * No. 189 Rotate Array
-     * 思路：主要是求余运算刚刚能够达成这个目标并且空间复杂度也是O(n)
+     *  189. Rotate Array
+        When: 2019/2/12
+        review1: 2019/7/1
+
+     思路：主要是求余运算刚刚能够达成这个目标并且空间复杂度也是O(n)
      * @param nums
      * @param k
      */
+    //time: O(n) space:O(n)
     public static void rotate(int[] nums, int k){
         //通过求余运算
         int[] temp = new int[nums.length];
         for (int i = 0; i < nums.length; i++){
+            //i + k就表示应该所在的位置，但是可能超出数组长度，所以这里再%即可。
             temp[ (i + k) % nums.length ] = nums[i];
         }
         //赋值给nums
@@ -32,6 +31,7 @@ public class _189_RotateArray {
      * @param nums
      * @param k
      */
+    //time:O(n) space:O(1)
     public static void rotate2(int[] nums, int k){
         k %= nums.length;
         reverse(nums, 0, nums.length - 1);
@@ -44,8 +44,6 @@ public class _189_RotateArray {
             int temp = nums[start];
             nums[start] = nums[end];
             nums[end] = temp;
-//            System.out.println("Start =" + start);
-//            System.out.println("End =" + end);
             start++;
             end--;
         }
