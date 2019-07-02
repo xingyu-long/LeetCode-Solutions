@@ -1,9 +1,10 @@
-package com.leetcode;
+package com.leetcode.array;
 
 public class _134_GasStation {
     /**
-     * LeetCode No.134 Gas Station
-     * When: 2019/03/12
+     *  134. Gas Station
+     *  When: 2019/03/12
+
      * 解题思路：
      * 1. 首先通过累积和（总加油-总耗油）来计算是否存在这样的成立的情况
      * 2. 只要能够总的算下来 > 0 即可
@@ -12,6 +13,8 @@ public class _134_GasStation {
      * @param cost
      * @return
      */
+
+    //time: O(n) space:O(1)
     public static int canCompleteCircuit(int[] gas, int[] cost) {
         int start = 0; //起始位置
         int remain = 0; //当前剩余燃料
