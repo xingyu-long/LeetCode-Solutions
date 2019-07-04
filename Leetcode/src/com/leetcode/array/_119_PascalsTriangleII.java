@@ -8,11 +8,11 @@ public class _119_PascalsTriangleII {
     /**
      * LeetCode 119. Pascal's Triangle II
      * When: 2019/03/16
+     * Review1 : 2019/7/4
      *
      * 思路：与之前一样 但是输出不同
      *
      * 涉及到的数据结构或者方法：ArrayList(), List<>
-     * 是否有更加高效的办法？？？？
      * @param rowIndex
      * @return
      */
@@ -85,7 +85,12 @@ public class _119_PascalsTriangleII {
         return res;
     }
 
-        public static void main(String[] args){
-        System.out.println(getRow(3));
+    public static void main(String[] args) {
+        List<Integer> test = new ArrayList<>();
+        test.add(0, 1);
+        test.add(0, 2);
+        for (int in : test) {
+            System.out.println(in);
+        }
     }
 }
