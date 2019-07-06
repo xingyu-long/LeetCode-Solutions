@@ -8,7 +8,7 @@ public class _219_ContainsDuplicateII {
      *
      * 219. Contains Duplicate II
      * when: 2019/03/19
-     *
+     * Review1: 2019/7/6
      *
      * 思路的问题：
      * 当时误以为是要求出里面相同数字的最远的长度与k做比较，但其实只需要第一次碰见相同的元素就可以与k比较即可！
@@ -29,6 +29,7 @@ public class _219_ContainsDuplicateII {
             if (hashMap.containsKey(nums[i]) && Math.abs(i - hashMap.get(nums[i])) <= k) {
                 return true;
             }
+            // 表示在存在该key的情况下 也会更新
             hashMap.put(nums[i], i);
         }
 
