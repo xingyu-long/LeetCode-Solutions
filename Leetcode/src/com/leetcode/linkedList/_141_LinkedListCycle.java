@@ -8,9 +8,11 @@ import java.util.Set;
 public class _141_LinkedListCycle {
 
     /**
-     * 141. Linked List Cycle
-     * when: 2019/05/09
-     *
+     *  141. Linked List Cycle
+     *  when: 2019/05/09
+        Review: 2019/7/7
+        Difficulty: Easy
+
      * Given a linked list, determine if it has a cycle in it.
      *
      *

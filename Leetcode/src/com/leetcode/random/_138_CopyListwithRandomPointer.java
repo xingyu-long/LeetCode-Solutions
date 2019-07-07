@@ -4,13 +4,15 @@ import java.util.HashMap;
 
 public class _138_CopyListwithRandomPointer {
 
-
     /**
      *  138. Copy List with Random Pointer
         When: 2019/06/27
+        Review1: 2019/7/7
+        Difficulty: Medium
 
         solution: 使用HashMap进行辅助
     */
+    //time:O(n) space:O(n)
     private class Node {
         int val;
         Node next;

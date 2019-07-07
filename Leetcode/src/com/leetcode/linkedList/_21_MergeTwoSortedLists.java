@@ -7,20 +7,24 @@ public class _21_MergeTwoSortedLists {
     /**
      * 21. Merge Two Sorted Lists
      * when: 2019/05/16
-     *
+     * Review1: 2019/7/7
+     * Difficulty: Easy
+     * <p>
+     * <p>
      * Merge two sorted linked lists and return it as a new list. The new list should be made
      * by splicing together the nodes of the first two lists.
-     *
+     * <p>
      * solution:
      * 1. 类似于归并排序
      * 2. 递归的方式 （没写）
+     *
      * @param l1
      * @param l2
      * @return
      */
     // time: O(l1 + l2) space: O(l1 + l2)
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode dummy =  new ListNode(0);
+        ListNode dummy = new ListNode(0);
         ListNode cur = dummy;
         //这个条件需要确认。
         while (l1 != null && l2 != null) {
@@ -36,11 +40,10 @@ public class _21_MergeTwoSortedLists {
         // 再接上剩下的
         if (l1 != null) {
             cur.next = l1;
-        } else {
+        }
+        if (l2 != null) {
             cur.next = l2;
         }
         return dummy.next;
     }
-
-
 }

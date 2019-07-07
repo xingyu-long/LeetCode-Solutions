@@ -5,20 +5,21 @@ import com.leetcode.common.ListNode;
 public class _160_IntersectionofTwoLinkedLists {
 
     /**
-     * 160. Intersection of Two Linked Lists
-     * When: 2019/05/16
-     *
-     *
-     * For example, the following two linked lists:
-     *
-     *      A:          a1 → a2
-     *                          ↘
-     *                          c1 → c2 → c3
-     *                          ↗
-     *      B:     b1 → b2 → b3
-     *      begin to intersect at node c1.
-     *
-     * solution: 先统一长度，然后再逐步对比。
+     *  160. Intersection of Two Linked Lists
+     *  When: 2019/05/16
+        Review1: 2019/7/7
+        Difficulty: Easy
+        solution: 先统一长度，然后再逐步对比。
+
+      For example, the following two linked lists:
+
+           A:          a1 → a2
+                               ↘
+                               c1 → c2 → c3
+                               ↗
+           B:     b1 → b2 → b3
+           begin to intersect at node c1.
+
      * @param headA
      * @param headB
      * @return
@@ -55,5 +56,18 @@ public class _160_IntersectionofTwoLinkedLists {
             head = head.next;
         }
         return n;
+    }
+
+    // time:O(m + n) space:O(1)
+    public ListNode getIntersectionNode2(ListNode headA, ListNode headB) {
+        //相当于a和b相加的情况下，肯定会有相遇情况出现
+        if (headA == null || headB == null) return null;
+        ListNode a = headA;
+        ListNode b = headB;
+        while (a != b) {
+            a = a == null ? headB : a.next;
+            b = b == null ? headA : b.next;
+        }
+        return a;
     }
 }
