@@ -8,18 +8,19 @@ import java.util.Set;
 public class _83_RemoveDuplicatesfromSortedList {
 
     /**
-     * 83. Remove Duplicates from Sorted List
-     * When: 2019/05/15
-     * <p>
-     * Given a sorted linked list, delete all duplicates such that each element appear only once.
-     * <p>
-     * For example,
-     * Given 1->1->2, return 1->2.
-     * Given 1->1->2->3->3, return 1->2->3.
-     * <p>
-     * solution:
-     * 1. 利用hashset
-     * 2. 因为有序，所以前后比较
+     *  83. Remove Duplicates from Sorted List
+     *  When: 2019/05/15
+        Review1:2019/7/8
+        Difficulty: Easy
+
+     Given a sorted linked list, delete all duplicates such that each element appear only once.
+
+     For example,
+     Given 1->1->2, return 1->2.
+     Given 1->1->2->3->3, return 1->2->3.
+
+     solution:
+     因为有序，所以前后比较
      *
      * @param head
      * @return
@@ -36,22 +37,5 @@ public class _83_RemoveDuplicatesfromSortedList {
             }
         }
         return head;
-    }
-
-    // time: O(n) space: (n)
-    public ListNode deleteDuplicates2(ListNode head) {
-        ListNode dummy = new ListNode(0);
-        ListNode pre = dummy;
-        dummy.next = head;
-        Set<Integer> set = new HashSet<>();
-        while (pre.next != null) {
-            if (set.contains(pre.next.val)) {
-                pre.next = pre.next.next;
-            } else {
-                set.add(pre.next.val);
-                pre = pre.next;
-            }
-        }
-        return dummy.next;
     }
 }

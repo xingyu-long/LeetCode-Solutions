@@ -5,15 +5,18 @@ import com.leetcode.common.ListNode;
 public class _234_PalindromeLinkedList {
 
     /**
-     * 234. Palindrome Linked List
-     * When: 2019/05/16
-     * Input: 1->2
-     * Output: false
-     * Input: 1->2->2->1
-     * Output: true
-     *
-     * solution:
-     * 首先找到中间的部分，将其后面的反转，然后一一比较，如果有不同的，那就不是回文数。
+     *  234. Palindrome Linked List
+     *  When: 2019/05/16
+     *  Review1: 2019/7/8
+     *  Difficulty: Easy
+
+         Input: 1->2
+         Output: false
+         Input: 1->2->2->1
+         Output: true
+
+        solution:
+        首先找到中间的部分，将其后面的反转，然后一一比较，如果有不同的，那就不是回文数。
      * @param head
      * @return
      */

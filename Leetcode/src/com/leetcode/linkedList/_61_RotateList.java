@@ -5,13 +5,14 @@ import com.leetcode.common.ListNode;
 public class _61_RotateList {
 
     /**
-     * 61. Rotate List
-     * When: 2019/05/20
-     *
-     * For example:
-     *   Given 1->2->3->4->5->NULL and k = 2,
-     *   return 4->5->1->2->3->NULL.
-     *
+     *  61. Rotate List
+     *  When: 2019/05/20
+     *  Review1: 2019/7/8
+
+     For example:
+     Given 1->2->3->4->5->NULL and k = 2,
+     return 4->5->1->2->3->NULL.
+
      * solution:
      * 首先计数，并且将链表连起来，然后走到合适位置 断开
      *  @param head

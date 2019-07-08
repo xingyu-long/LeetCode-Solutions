@@ -5,7 +5,11 @@ import com.leetcode.common.ListNode;
 public class _148_SortList {
 
     /**
-     * 148. Sort List
+     *  148. Sort List
+     *  When: 2019/5/17
+     *  Review1: 2019/7/8
+     *  Difficulty: Medium
+
      *  Sort a linked list in O(n log n) time using constant space complexity.
      *
      *
@@ -47,7 +51,8 @@ public class _148_SortList {
         }
         if (a == null) {
             cur.next = b;
-        } else {
+        }
+        if (b == null) {
             cur.next = a;
         }
         return dummy.next;
