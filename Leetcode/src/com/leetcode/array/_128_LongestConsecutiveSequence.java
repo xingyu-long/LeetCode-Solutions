@@ -1,20 +1,24 @@
-package com.leetcode;
+package com.leetcode.array;
 
 import java.util.HashSet;
 
 public class _128_LongestConsecutiveSequence {
 
     /**
-     * 128. Longest Consecutive Sequence
-     * when: 2019/03/25
+     *  128. Longest Consecutive Sequence
+     *  when: 2019/03/25
+     *  Review1: 2019/7/11
      *
-     * solution:
+     *  这里的时间复杂度为O(n)需要注意
+     *  看每个元素最多访问两次，所以worst case: O(n + n)
+     *  https://zxi.mytechroad.com/blog/hashtable/leetcode-128-longest-consecutive-sequence/
      *
-     * 涉及到的数据结构或者方法：
      * hashset
      * @param nums
      * @return
      */
+
+    //time: O(n) space: O(n)
     public int longestConsecutive(int[] nums) {
         if (nums.length == 0 || nums == null) return 0;
         int res = 0;

@@ -5,13 +5,18 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class _225_ImplementStackusingQueues {
-    Queue<Integer> queue;
-    /** Initialize your data structure here. */
     /**
      *  225. Implement Stack using Queues
-        When: 2019/06/08
+     *  When: 2019/06/08
+     *  Difficulty: Easy
+     *  Review1: 2019/7/11
+
         solution: 每次push的时候做一下反转
      */
+
+    Queue<Integer> queue;
+    /** Initialize your data structure here. */
+
     public _225_ImplementStackusingQueues() {
         queue = new LinkedList<>();
     }

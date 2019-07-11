@@ -3,15 +3,20 @@ package com.leetcode.stackPriorityQueue;
 import java.util.Stack;
 
 public class _232_ImplementQueueusingStacks {
+    /**
+     *  232. Implement Queue using Stacks
+     *  When: 2019/06/08
+     *  Difficulty: Easy
+     *  Review1: 2019/7/11
+     *
+     solution：主要使用两个stack，第二个就是用来返回queue的序列，这里就要主要当s2为空的时候把s1的pop然后push进去
+     */
+
     Stack<Integer> s1;
     Stack<Integer> s2;
 
     /** Initialize your data structure here. */
-    /**
-     * 232. Implement Queue using Stacks
-        When: 2019/06/08
-        solution：主要使用两个stack，第二个就是用来返回queue的序列，这里就要主要当s2为空的时候把s1的pop然后push进去
-     */
+
     public _232_ImplementQueueusingStacks() {
         s1 = new Stack<>();
         s2 = new Stack<>();

@@ -2,6 +2,8 @@ package com.leetcode.linkedList;
 
 import com.leetcode.common.ListNode;
 
+import java.util.List;
+
 public class _206_ReverseLinkedList {
 
     /**
@@ -38,5 +40,20 @@ public class _206_ReverseLinkedList {
         }
 
         return newHead;
+    }
+
+    // 头插法。是用ListNode 节点而不是指针变量
+    public ListNode reverseList2(ListNode head) {
+        ListNode tempHead = new ListNode(0);
+        ListNode cur = head;
+
+        while (cur != null) {
+            ListNode temp = head.next;
+            head.next = tempHead.next;
+            tempHead.next = head;
+            head = temp;
+        }
+
+        return tempHead.next;
     }
 }
