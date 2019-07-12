@@ -6,7 +6,9 @@ public class _71_SimplifyPath {
 
     /**
      *  71. Simplify Path
-        When: 2019/06/08
+     *  When: 2019/06/08
+     *  Review1: 2019/7/12
+     *  Difficulty: Medium
 
         solution: 使用stack来保存其字符 遇到.. 就返回上一层 遇到 . 和空白就不管；遇到字符就push
         最后拼接在一起
@@ -27,6 +29,7 @@ public class _71_SimplifyPath {
             }
         }
         String res = "";
+        // 这里用的比较妙，先出来的其实在路径的后方。
         while (!stack.isEmpty()) {
             res = "/" + stack.pop() + res;
         }

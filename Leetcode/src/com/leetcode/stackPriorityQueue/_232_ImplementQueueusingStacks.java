@@ -30,7 +30,7 @@ public class _232_ImplementQueueusingStacks {
 
     /** Removes the element from in front of queue and returns that element. */
     //如果s2为空的话，就把s1里面的pop结果push到s2 然后s2.pop() 不然的话就直接s2.pop()
-    // time: O(n)
+    // worst case: O(n)  Amortized: O(1)
     public int pop() {
         if (!s2.isEmpty()) return s2.pop();
         else {
