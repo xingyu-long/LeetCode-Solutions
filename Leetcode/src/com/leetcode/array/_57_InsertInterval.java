@@ -3,25 +3,11 @@ package com.leetcode.array;
 import java.util.ArrayList;
 import java.util.List;
 
-class Interval {
-    int start;
-    int end;
-
-    Interval() {
-        start = 0;
-        end = 0;
-    }
-
-    Interval(int s, int e) {
-        start = s;
-        end = e;
-    }
-}
-
 public class _57_InsertInterval {
     /**
-     * LeetCode No.57 Insert Interval
-     * when: 2019/03/13 & 3/14
+     *  No.57 Insert Interval
+     *  when: 2019/03/13 & 3/14
+     *  Review1:2019/7/13
      * update: 2019/06/17 应该使用更加易懂的方式进行
      *
      * 解题思路：
@@ -40,42 +26,38 @@ public class _57_InsertInterval {
      * @return
      */
     // time: O(n) space:O(n)
-    public static List<Interval> insert(List<Interval> intervals, Interval newInterval) {
-        if (newInterval == null || intervals == null) {
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+        if (newInterval.length == 0) {
             return intervals;
         }
-        List<Interval> res = new ArrayList<Interval>();
-        int i = 0;
+        List<int[]> resOfEach = new ArrayList<>();
+        int index = 0;
 
-        while (i < intervals.size() && intervals.get(i).end < newInterval.start) {
-            res.add(intervals.get(i++));
+        // 表明新数组的开头都大于前面的结尾，则一直添加原来的
+        while (index < intervals.length && intervals[index][1] < newInterval[0]) {
+            resOfEach.add(intervals[index]);
+            index++;
         }
-        while (i < intervals.size() && intervals.get(i).start < newInterval.end) {
-            newInterval.start = Math.min(intervals.get(i).start, newInterval.start);
-            newInterval.end = Math.max(intervals.get(i).end, newInterval.end);
+
+        // 表明各种能够交叉的情况,并且考虑重合的情况 所以要 <=
+        while (index < intervals.length && intervals[index][0] <= newInterval[1]) {
+            newInterval[0] = Math.min(intervals[index][0], newInterval[0]);
+            newInterval[1] = Math.max(intervals[index][1], newInterval[1]);
+            index++;
         }
-        res.add(newInterval);
-        while (i < intervals.size()) {
-            res.add(intervals.get(i));
+        resOfEach.add(newInterval);
+
+        // 表明新的数组与原来的没有交集，所以最后加入剩下的即可
+        while (index < intervals.length) {
+            resOfEach.add(intervals[index++]);
+        }
+
+        int[][] res = new int[resOfEach.size()][2];
+        int i = 0;
+        for (int[] each : resOfEach) {
+            res[i++] = each;
         }
         return res;
-    }
-
-    public static void main(String[] args) {
-        System.out.println("1");
-        List<Interval> intervals = new ArrayList<>();
-        Interval int1 = new Interval(2,6);
-        Interval int2 = new Interval(8,10);
-        Interval int3 = new Interval(15,18);
-        intervals.add(int1);
-        intervals.add(int2);
-        intervals.add(int3);
-        Interval newInterval = new Interval(1,3);
-        List<Interval> res = insert(intervals, newInterval);
-        System.out.println(res.size());
-        for (int i = 0; i < res.size(); i++) {
-            System.out.println("Start: "+ res.get(i).start + " End: "+ res.get(i).end);
-        }
     }
 }
 

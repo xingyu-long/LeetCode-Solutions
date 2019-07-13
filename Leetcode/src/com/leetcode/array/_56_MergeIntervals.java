@@ -1,9 +1,6 @@
 package com.leetcode.array;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class _56_MergeIntervals {
     /**
@@ -19,32 +16,39 @@ public class _56_MergeIntervals {
      * @return
      */
     // time:O(nlogn) for sorting space: O(n)
-    public List<Interval> merge(List<Interval> intervals) {
-        if (intervals == null || intervals.size() < 1) return intervals;
-        Collections.sort(intervals, new Comparator<Interval>() {
+    public static int[][] merge(int[][] intervals) {
+        if (intervals == null || intervals.length < 1) return intervals;
+        Arrays.sort(intervals, new Comparator<int[]>() {
             @Override
-            public int compare(Interval o1, Interval o2) {
-                return o1.start - o2.start;
+            public int compare(int[] o1, int[] o2) {
+                if (o1[0] > o2[0]) return 1;
+                else if (o1[0] < o2[0]) return -1;
+                else return 0;
             }
         });
-        int start = intervals.get(0).start;
-        int end  = intervals.get(0).end;
-        List<Interval> res = new ArrayList<>();
+        int index = 0;
+        int start = intervals[index][0];
+        int end  = intervals[index][1];
+        int[] newInterval = new int[]{start, end};
+        List<int[]> resOfEach = new ArrayList<>();
+
         // 这里不用比较start是否最小 是因为前面排序了。而57题 插入的newInterval是不确定的，所以需要前后均比较
-        for (Interval interval: intervals){
-            if (interval.start <= end){
-                end = Math.max(end, interval.end);
+        for (int[] interval: intervals){
+            if (interval[0] <= newInterval[1]){
+                newInterval[1] = Math.max(newInterval[1], interval[1]);
             } else {
-                res.add(new Interval(start, end));
-                start = interval.start;
-                end = interval.end;
+                resOfEach.add(new int[]{newInterval[0], newInterval[1]});
+                newInterval[0] = interval[0];
+                newInterval[1] = interval[1];
             }
         }
         // 插入最后一个
-        res.add(new Interval(start, end));
+        resOfEach.add(newInterval);
+        int[][] res = new int[resOfEach.size()][2];
+        int i = 0;
+        for (int[] each : resOfEach) {
+            res[i++] = each;
+        }
         return res;
-    }
-    public static void main(String[] args){
-
     }
 }
