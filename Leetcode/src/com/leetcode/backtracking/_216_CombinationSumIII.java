@@ -25,6 +25,7 @@ public class _216_CombinationSumIII {
     }
 
     public void helper(List<List<Integer>> res, List<Integer> list, int k, int n, int start) {
+        if (n < 0) return;
         if (n == 0 && k == 0) {
             res.add(new ArrayList<>(list));
             return;

@@ -7,15 +7,17 @@ import java.util.List;
 public class _40_CombinationSumII {
 
     /**
-     * 40. Combination Sum II
-     * When: 2019/04/29
+     *  40. Combination Sum II
+     *  When: 2019/04/29
+     *  Review1: 2019/7/15
      *
-     * solution:
-     * 基本与前面一致，只需要排序以及去重工作
+     *  solution:
+     *  基本与前面一致，只需要排序以及去重工作
      * @param candidates
      * @param target
      * @return
      */
+    //time:O(2^n) space:O(n)
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         // 需要注意到排序的部分 以及去重
         List<List<Integer>> res = new ArrayList<>();

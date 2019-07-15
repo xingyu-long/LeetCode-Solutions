@@ -6,9 +6,9 @@ import java.util.List;
 public class _39_CombinationSum {
 
     /**
-     * 39. Combination Sum
-     * When: 2019/04/29
-     *
+     *  39. Combination Sum
+     *  When: 2019/04/29
+     *  Review1: 2019/7/15
      * solution：基本跟前面的回溯法思路一致
      *
      * time: ???
@@ -24,7 +24,7 @@ public class _39_CombinationSum {
         if (candidates == null || candidates.length == 0) {
             return res;
         }
-        helper(res, new ArrayList<Integer>(), candidates, target, 0);
+        helper(res, new ArrayList<>(), candidates, target, 0);
         return res;
     }
 

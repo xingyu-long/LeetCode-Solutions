@@ -6,9 +6,11 @@ import java.util.List;
 public class _51_NQueens {
 
     /**
-     * 51. N-Queens
-     * When: 2019/06/03
+     *  51. N-Queens
+     *  When: 2019/06/03
+     *  Review1: 2019/7/15
      *
+     *  https://www.youtube.com/watch?v=wGbuCyNpxIg
      * solution:
      * 利用backtracking（深度优先 DFS）
      * @param n
