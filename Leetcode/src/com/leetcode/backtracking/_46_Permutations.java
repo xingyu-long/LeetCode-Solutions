@@ -6,11 +6,12 @@ import java.util.List;
 public class _46_Permutations {
 
     /**
-     * 46. Permutations
-     * When: 2019/04/30
+     *  46. Permutations
+     *  When: 2019/04/30
+     *  Review1: 2019/7/16
      *
-     * solution:
-     * 基本思路与前面一致 但是没有start这个参数，因为这次是全部在数组里面获得并且 i 只能从 0开始 这样才能获取全部
+     *  solution:
+     *  基本思路与前面一致 但是没有start这个参数，因为这次是全部在数组里面获得并且 i 只能从 0开始 这样才能获取全部
      *
      * space: O(n)
      * time: O(n * n!)

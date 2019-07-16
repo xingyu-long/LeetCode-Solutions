@@ -3,8 +3,9 @@ package com.leetcode.backtracking;
 public class _31_NextPermutation {
 
     /**
-     * 31. Next Permutation
-     * When: 2019/04/30
+     *  31. Next Permutation
+     *  When: 2019/04/30
+     *  Review1: 2019/7/16
      *
      * solution:
      * 从后往前找
@@ -23,11 +24,11 @@ public class _31_NextPermutation {
      *
      *    1, 2, 7, 4, 1, 3
      *
-     *
-     * time: O(n)
-     * space: O(1)
      * @param nums
      */
+    // 只能反转较大的数 然后变成较小的情况
+    // 记得画图分析，语言不好表达
+    // time:O(n) space:O(1)
     public void nextPermutation(int[] nums) {
         if (nums == null || nums.length == 0) return;
 

@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.tree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +15,12 @@ public class _113_PathSumII {
     }
 
     /**
-     * 113. Path Sum II
-     * When: 2019/04/17
+     *  113. Path Sum II
+     *  When: 2019/04/17
+     *  Review1:2019/7/16
+     *  Difficulty: Medium
      *
-     * solution: 依然使用先序遍历（DFS）
+     *  solution: 依然使用先序遍历（DFS）
      * 用sum 减去里面的要是等于 0 则表示找到了其中的一条路
      * 其中应该有个bug，最开始没有考虑到cur删除最后一个元素
      *
@@ -59,10 +61,11 @@ public class _113_PathSumII {
      * @param sum
      * @return
      */
+    //time: O(n) space:O(n)
     public static List<List<Integer>> pathSum(TreeNode root, int sum) {
         List<List<Integer>> res = new ArrayList<>();
         if (root == null) return res;
-        helper(res, new ArrayList<Integer>(),root, sum);
+        helper(res, new ArrayList<>(),root, sum);
         return res;
     }
 
@@ -76,29 +79,5 @@ public class _113_PathSumII {
         helper(res, cur, root.left, sum);
         helper(res, cur, root.right, sum);
         cur.remove(cur.size() - 1);
-    }
-
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
-
-        TreeNode leftOne = new TreeNode(2);
-        TreeNode rightOne = new TreeNode(3);
-
-        root.left = leftOne;
-        root.right = rightOne;
-
-//
-//        TreeNode leftOneRightTwo = leftOne.right;
-//        leftOneRightTwo.val = 1;
-//
-//        TreeNode rightOneLeftTwo = rightOne.left;
-//        rightOneLeftTwo.val = 0;
-//
-//        TreeNode rightOneRightTwo = rightOne.right;
-//        rightOneRightTwo.val = 1;
-
-        int sum = 4;
-        List<List<Integer>> res = pathSum(root, sum);
-        System.out.println(res.toString());
     }
 }

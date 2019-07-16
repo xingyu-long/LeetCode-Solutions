@@ -7,8 +7,9 @@ import java.util.List;
 public class _47_PermutationsII {
 
     /**
-     * 47. Permutations II
-     * When: 2019/04/30
+     *  47. Permutations II
+     *  When: 2019/04/30
+     *  Review1: 2019/7/16
      *
      * solution:
      * 这里的去重需要保留其used参数
@@ -70,6 +71,7 @@ public class _47_PermutationsII {
      * @param nums
      * @return
      */
+    // time: O(n!) space:O(n)
     public List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         if (nums == null || nums.length == 0) return  res;
@@ -85,6 +87,7 @@ public class _47_PermutationsII {
         }
         for (int i = 0; i < nums.length; i++) {
             // 用used来标记这个值是否被使用过
+            // 表示有相同的元素并且前面那个用完了，现在这个就不用了 continue 跳走
             if (used[i] || i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) continue;
             used[i] = true;
             list.add(nums[i]);

@@ -41,6 +41,7 @@ public class _236_LowestCommonAncestorOfABinaryTree {
         return res;
     }
 
+    //time: O(n) space:O(n)
     public boolean helper(TreeNode current, TreeNode p, TreeNode q) {
         if (current == null) return false;
 
@@ -54,4 +55,36 @@ public class _236_LowestCommonAncestorOfABinaryTree {
 
         return (left + mid + right > 0);
     }
+
+    // 如果左边或者右边没有的情况，则只会找到第一个节点后返回（这个节点肯定就是共同父节点）
+    public static TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null) return null;
+        if (root.val == p.val || root.val == q.val) return root;
+        TreeNode left = lowestCommonAncestor2(root.left, p, q);
+        TreeNode right = lowestCommonAncestor2(root.right, p, q);
+
+        if (left == null) return right;
+        if (right == null) return left;
+        // 表示 left !=null && right != null 的情况
+        return root;
+    }
+
+    public static void main(String[] args){
+        TreeNode root = new TreeNode(1);
+        root.left  = new TreeNode(2);
+        root.right = new TreeNode(3);
+        TreeNode left = root.left;
+        TreeNode right = root.right;
+        left.left = new TreeNode(4);
+        left.right = new TreeNode(5);
+        right.left = new TreeNode(6);
+        right.right = null;
+        TreeNode p = new TreeNode(2);
+        TreeNode q = new TreeNode(5);
+
+        System.out.println(lowestCommonAncestor2(root, p, q).val);
+
+    }
 }
+
+
