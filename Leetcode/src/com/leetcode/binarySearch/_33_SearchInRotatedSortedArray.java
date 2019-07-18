@@ -4,12 +4,13 @@ public class _33_SearchInRotatedSortedArray {
 
 
     /**
-     * 33. Search in Rotated Sorted Array
-     * When: 2019/05/22
+     *  33. Search in Rotated Sorted Array
+     *  When: 2019/05/22
+     *  Review1:2019/7/18
      *
      * solution:
      * 主要还是二分法，只是需要检查哪一半是有序的
-     * 但是这里的 >=, <= (27行和35行) 不太懂
+     * 需要好好记忆
      * @param nums
      * @param target
      * @return
@@ -19,7 +20,6 @@ public class _33_SearchInRotatedSortedArray {
         int left = 0;
         int right = nums.length - 1;
         while (left <= right) {
-//            int mid = (left + right) / 2;
             // prevent overflow
             int mid = left + (right - left) / 2;
 
@@ -27,6 +27,7 @@ public class _33_SearchInRotatedSortedArray {
                 return mid;
             }
             // 表示如果前半部分 有序的话
+            // 走到这里就已经表示取不到mid这个情况，只能向前或者向后
             if (nums[left] <= nums[mid]) {
                 if (target >= nums[left] && target < nums[mid]) {
                     right = mid - 1;
