@@ -3,8 +3,9 @@ package com.leetcode.binarySearch;
 public class _153_FindMinimumInRotatedSortedArray {
 
     /**
-     * 153. Find Minimum in Rotated Sorted Array
-     * When: 2019/05/23
+     *  153. Find Minimum in Rotated Sorted Array
+     *  When: 2019/05/23
+     *  Review1: 2019/7/19
      *
      * solution:
      * 标准的二分查找，但是需要找到inflection那个点
@@ -26,10 +27,10 @@ public class _153_FindMinimumInRotatedSortedArray {
         }
 
         while (left <= right) {
-//            int mid = (left + right) / 2;
             // prevent overflow
             int mid = left + (right - left) / 2;
 
+            // 使用mid 来前后来寻找inflection point
             //         left mid   right
             // eg: 4, 5, 6, 7, 2, 3
             if (nums[mid] > nums[mid + 1]) {
@@ -41,6 +42,7 @@ public class _153_FindMinimumInRotatedSortedArray {
                 return nums[mid];
             }
             // it shows that the inflection point would be on the right side
+            // 与第一个元素比较，看是否sorted
             if (nums[mid] > nums[0]) {
                 left = mid + 1;
             } else {

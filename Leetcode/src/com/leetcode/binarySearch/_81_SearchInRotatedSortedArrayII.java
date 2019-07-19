@@ -3,13 +3,15 @@ package com.leetcode.binarySearch;
 public class _81_SearchInRotatedSortedArrayII {
 
     /**
-     * 81. Search in Rotated Sorted Array II
-     * When: 2019/05/22
-     *
+     *  81. Search in Rotated Sorted Array II
+     *  When: 2019/05/22
+     *  Review1: 2019/7/19
+     *  Difficulty: Medium
      * solution: 主要是要去除那些相同的元素。
-     * 这里的[1] 0 这种情况
+     *
+     * 这里的[1] 0 这种情况。33题后面用 <= 就是防止这个情况
      * 是通过left++ 然后得到false
-     * 而33题 是通过nums[left] <= nums[mid] 进去的。
+     * 这里的 <= 也是防止只有两个数以及一个数的情况
      * @param nums
      * @param target
      * @return
@@ -19,7 +21,6 @@ public class _81_SearchInRotatedSortedArrayII {
         int left = 0;
         int right = nums.length - 1;
         while (left <= right) {
-//            int mid = (left + right) / 2;
             // prevent overflow
             int mid = left + (right - left) / 2;
             if (nums[mid] == target) {
@@ -33,14 +34,14 @@ public class _81_SearchInRotatedSortedArrayII {
                 right--;
                 continue;
             }
-            if (nums[left] < nums[mid]) {
+            if (nums[left] <= nums[mid]) {
                 if (target >= nums[left] && target < nums[mid]) {
                     right = mid - 1;
                 } else {
                     left = mid + 1;
                 }
             }
-            if (nums[mid] < nums[right]) {
+            if (nums[mid] <= nums[right]) {
                 if (target > nums[mid] && target <= nums[right]) {
                     left = mid + 1;
                 } else {

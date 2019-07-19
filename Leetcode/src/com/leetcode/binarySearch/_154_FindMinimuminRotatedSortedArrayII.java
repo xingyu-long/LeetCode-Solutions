@@ -41,7 +41,6 @@ public class _154_FindMinimuminRotatedSortedArrayII {
         }
 
         while (left <= right) {
-//            int mid = (left + right) / 2;
             // prevent overflow
             int mid = left + (right - left) / 2;
 
