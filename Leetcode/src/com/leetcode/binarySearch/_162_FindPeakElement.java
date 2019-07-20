@@ -3,8 +3,9 @@ package com.leetcode.binarySearch;
 public class _162_FindPeakElement {
 
     /**
-     * 162. Find Peak Element
-     * When: 2019/05/24
+     *  162. Find Peak Element
+     *  When: 2019/05/24
+     *  Review1: 2019/7/20
      *
      * solution:
      * 因为这里只需要找一个peak点就行了
@@ -20,7 +21,7 @@ public class _162_FindPeakElement {
     // time: O(logn) space: O(1)
     public int findPeakElement(int[] nums) {
         int left = 0;
-        int right = nums.length - 1;
+        int right = nums.length - 1; // 注意这里的 - 1操作
         while (left < right) {
             int mid = left + (right - left) / 2;
             if (nums[mid] > nums[mid + 1]) {

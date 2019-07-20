@@ -3,11 +3,12 @@ package com.leetcode.binarySearch;
 public class _35_SearchInsertPosition {
 
     /**
-     *  35. Search Insert Position
-     *  When: 2019/05/22
-     *  Review1: 2019/7/17
-     *
+     * 35. Search Insert Position
+     * When: 2019/05/22
+     * Review1: 2019/7/17
+     * <p>
      * solution：使用二分查找法，最后return left即可
+     *
      * @param nums
      * @param target
      * @return
@@ -52,5 +53,20 @@ public class _35_SearchInsertPosition {
             }
         }
         return res;
+    }
+
+    // template写法 找到 >= 的
+    public int searchInsert3(int[] nums, int target) {
+        int lo = 0;
+        int hi = nums.length;
+        while (lo < hi) {
+            int mid = lo + (hi - lo) / 2;
+            if (nums[mid] >= target) {
+                hi = mid;
+            } else {
+                lo = mid + 1;
+            }
+        }
+        return lo;
     }
 }

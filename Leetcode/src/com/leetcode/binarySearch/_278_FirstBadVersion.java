@@ -18,8 +18,23 @@ public class _278_FirstBadVersion {
         int right = n;
         while (left <= right) {
             int mid = (right - left) / 2 + left;
-            if (isBadVersion(mid)) {
+            if (isBadVersion(mid)) { //找到这样的一个数使得满足这个条件
                 right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+
+    // more elegant way
+    public int firstBadVersion2(int n) {
+        int left = 1;
+        int right = n;
+        while (left < right) {
+            int mid = (right - left) / 2 + left;
+            if (isBadVersion(mid)) {
+                right = mid;
             } else {
                 left = mid + 1;
             }
