@@ -8,9 +8,9 @@ import java.util.List;
 public class _49_GroupAnagrams {
 
     /**
-     * 49. Group Anagrams
-     * When: 2019/03/28
-     *
+     *  49. Group Anagrams
+     *  When: 2019/03/28
+     *  Review1:2019/7/21
      * solution:
      *
      * 涉及到的数据结构：
@@ -18,9 +18,9 @@ public class _49_GroupAnagrams {
      * @param strs
      * @return
      */
+    // solution1: 使用sort来进行操作  time: O(n * nlogn) space:O(n)
+    // 使用HashMap进行记录其排完序的str（数目肯定比strs少）key: str value: res.size()（这样方便记录）
     public List<List<String>> groupAnagrams(String[] strs) {
-        /** solution1: 使用sort来进行操作  time: O(m * n * nlogn) space:O(n)
-         * 使用HashMap进行记录其排完序的str（数目肯定比strs少）key: str value: res.size()（这样方便记录）
         List<List<String>> res = new ArrayList<>();
         if (strs == null || strs.length == 0) return res;
         HashMap<String, Integer> map = new HashMap<>();
@@ -42,12 +42,12 @@ public class _49_GroupAnagrams {
             }
         }
         return res;
-         **/
+    }
 
-        /**
-         * counting sort 的思想 利用跟字符的相差来记录每个字符的个数并且进行类似排序操作
-         * time: O(m * n) space: O(n)
-         */
+
+     // counting sort 的思想 利用跟字符的相差来记录每个字符的个数并且进行类似排序操作
+     // time: O(m * n) space: O(n)
+    public List<List<String>> groupAnagrams2(String[] strs) {
         HashMap<String, List<String>> map = new HashMap<>();
         for (String str: strs) {
             int[] count = new int[26]; // 用来记录每个单词对应的个数
@@ -71,6 +71,5 @@ public class _49_GroupAnagrams {
             }
         }
         return new ArrayList<>(map.values());
-
     }
 }

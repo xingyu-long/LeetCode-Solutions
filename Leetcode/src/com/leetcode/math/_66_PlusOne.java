@@ -1,10 +1,18 @@
 package com.leetcode.math;
 
 class _66_PlusOne {
+    /**
+     *  66. Plus one
+     *  When:2019/4/3
+     *  Review1: 2019/7/21
 
-     /**
-     * 66. Plus One
-     * When: 2019/04/03
+        solution:
+        考虑三种情况：
+            case 1: 1011 -> 1012
+            case 2: 1099 -> 1100
+            case 3: 9999 -> 10000 (这里需要新开辟空间，原有的长度+1即可)
+     * @param digits
+     * @return
      */
     public int[] plusOne(int[] digits) {
         /**
@@ -15,7 +23,8 @@ class _66_PlusOne {
         *
         */
         if (digits == null || digits.length == 0) return digits;
-        
+
+        //进位的情况
         for (int i = digits.length - 1; i >= 0; i--) {
             if (digits[i] < 9) {
                 digits[i]++;
@@ -24,9 +33,9 @@ class _66_PlusOne {
                 digits[i] = 0;
             }
         }
-        // 第三种情况
+        // eg: 999 这种情况后面已经全部置为0了，所以需要补一位
         int[] res = new int[digits.length + 1];
         res[0] = 1;
-        return res;
+        return res; //默认后面为0，所以也不需要digits赋给res
     }
 }

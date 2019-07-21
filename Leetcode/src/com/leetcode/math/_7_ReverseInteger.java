@@ -3,8 +3,9 @@ package com.leetcode.math;
 public class _7_ReverseInteger {
 
     /**
-     * 7. Reverse Integer
-     * When: 2019/04/02
+     *  7. Reverse Integer
+     *  When: 2019/04/02
+     *  Review1: 2019/7/21
      *
      *
      * integer range: [−2^31,  2^31 − 1]
@@ -16,10 +17,16 @@ public class _7_ReverseInteger {
      * solution:
      *  某一个数 / 10 表示获取前 n - 1位数
      *  某一个数 % 10 表示获取最后一位数
+     *
+     *
+        要用long来存储res
+        这里取绝对值没用（对于越界的数字）
+        要比较Integer.MAX_VALUE和Integer.MIN_VALUE
+        Java 负数求余的方法
      * @param x
      * @return
      */
-    public int reverse(int x) {
+    public static int reverse(int x) {
         // 记住这种解法
         long res = 0;
         while (x != 0) {
