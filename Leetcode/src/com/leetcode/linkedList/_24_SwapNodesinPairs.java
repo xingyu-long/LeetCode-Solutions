@@ -8,6 +8,7 @@ public class _24_SwapNodesinPairs {
      *  24.Swap Nodes in Pairs
      *  When: 2019/05/10
         Review1: 2019/7/8
+        Review2: 2019/7/23
 
      * Given a linked list, swap every two adjacent nodes and return its head.
      *
@@ -35,5 +36,18 @@ public class _24_SwapNodesinPairs {
             pre = first;
         }
         return dummy.next;
+    }
+
+    // recursion time:O(n) space:O(n)
+    public ListNode swapPairs2(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode newHead = head.next;
+        ListNode nextTwo = head.next.next;
+
+        newHead.next = head;
+        head.next = swapPairs2(nextTwo);
+        return newHead;
     }
 }

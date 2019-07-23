@@ -56,4 +56,32 @@ public class _206_ReverseLinkedList {
 
         return tempHead.next;
     }
+
+    //采取和92题中的一样策略！
+    public ListNode reverseList3(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode first = pre.next;
+        while (first.next != null) {
+            ListNode temp = first.next;
+            first.next = temp.next;
+            temp.next = pre.next;
+            pre.next = temp; // 这个位置不能变的原因，如果放到temp那一行的后面会导致pre.next已经赋值为temp，然后执行temp.next那个进入死循环
+        }
+        return dummy.next;
+    }
+
+    // recursion time:O(n) space:O(n)
+    // 推荐视频演示 https://www.youtube.com/watch?v=MRe3UsRadKw
+    public ListNode reverseList4(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode p = reverseList4(head.next);
+        head.next.next = head;
+        head.next = null;
+        return p;
+    }
 }

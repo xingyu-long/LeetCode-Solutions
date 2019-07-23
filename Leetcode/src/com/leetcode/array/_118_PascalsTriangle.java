@@ -5,9 +5,10 @@ import java.util.List;
 
 public class _118_PascalsTriangle {
     /**
-     * LeetCode 118. Pascal's Triangle
-     * When: 2019/03/16
-     * Review1: 2019/7/4
+     *  118. Pascal's Triangle
+     *  When: 2019/03/16
+     *  Review1: 2019/7/4
+     *  Review2: 2019/7/23
      * <p>
      * <p>
      * 思路：就是按照算法演示来相加 保留current以及previous行然后依次计算
@@ -68,5 +69,30 @@ public class _118_PascalsTriangle {
             res.add(new ArrayList<>(list));
         }
         return res;
+    }
+
+
+    //recursion
+    // time:O(n^2) space:O(n); 方便找规律，是用1开始计数的
+    public List<List<Integer>> generate3(int numRows) {
+        List<List<Integer>> res = new ArrayList<>();
+        // 这里应该返回空数组并非null值
+        if (numRows < 1) return res;
+        List<Integer> list;
+        for (int i = 1; i <= numRows; i++) {
+            list = new ArrayList<>();
+            for (int j = 1; j <= i; j++) {
+                list.add(getNum(i, j));
+            }
+            res.add(list);
+        }
+        return res;
+    }
+
+    public int getNum(int i, int j) {
+        if (j == 1 || j == i) {
+            return 1;
+        }
+        return getNum(i - 1, j - 1) + getNum(i - 1, j);
     }
 }
