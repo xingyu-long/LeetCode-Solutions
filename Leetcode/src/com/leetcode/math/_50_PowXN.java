@@ -1,18 +1,23 @@
-package com.leetcode;
+package com.leetcode.math;
 
 public class _50_PowXN {
 
     /**
-     * 50. Pow(x, n)
-     * when: 2019/04/08
-     *
+     *  50. Pow(x, n)
+     *  when: 2019/04/08
+     *  Review1:2019/7/24
      * Test case:
-     * 7^5 = 7^2 * 7^2 * 7 = (7^1 * 7^1) * (7^1 * 7^1) * 7 =
-     * (7^0 * 7^0 * 7) * (7^0 * 7^0 * 7) * (7^0 * 7^0 * 7) * (7^0 * 7^0 * 7) * 7
+        7^5 = 7^2 * 7^2 * 7 = (7^1 * 7^1) * (7^1 * 7^1) * 7 =
+        (7^0 * 7^0 * 7) * (7^0 * 7^0 * 7) * (7^0 * 7^0 * 7) * (7^0 * 7^0 * 7) * 7
+
+         eg. 2^2 = 2^1 * 2^1 = (2^0 * 2^0 * 2) * (2^0 * 2^0 * 2) = (1 * 1 * 2) * (1 * 1 * 2) = 4
+
+         eg. 2^3 = 2^1 * 2^1 * 2 = (2^0 * 2^0 * 2) * (2^0 * 2^0 * 2) * 2 = (1 * 1 * 2) * (1 * 1 * 2) * 2 = 8
      * @param x
      * @param n
      * @return
      */
+    // time:O(logN) space:O(N)
     public static double myPow(double x, int n) {
         if (n > 0) {
             return pow(x, n);
@@ -21,6 +26,7 @@ public class _50_PowXN {
         }
     }
 
+    // 利用对半分
     public static double pow(double x, int n) {
         if (n == 0) {
             return 1;

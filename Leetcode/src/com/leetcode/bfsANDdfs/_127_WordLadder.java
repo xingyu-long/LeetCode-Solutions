@@ -5,9 +5,10 @@ import java.util.*;
 public class _127_WordLadder {
 
     /**
-     * 127. Word Ladder
-     * When: 2019/06/03
-     *
+     *  127. Word Ladder
+     *  When: 2019/06/03
+     *  Review1:2019/7/24
+     *  估计这里的shortest路径就是仅仅找到的这一条。
      * solution:
      * 利用BFS，寻找那些共同的pattern 变换
      * test case:
@@ -30,8 +31,14 @@ public class _127_WordLadder {
      * @param wordList
      * @return
      */
+
+    /**
+     提出的问题？
+     如何确定相差1，或者高效的方式确定: word的每个位置用'a'-'z'进行循环
+     */
+    //利用set来保存wordList;
     // 利用set来remove那些用过的
-    // time: O(n) ???
+    // time: O(m * n)
     // space: O(n) (set and queue)
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         HashSet<String> set = new HashSet<>(wordList);
@@ -54,7 +61,7 @@ public class _127_WordLadder {
                     String temp = new String(wordUnit); // 这里相当于每次拼装成的字符串，然后看set里面是否有，并且看是否等于endWord 这样的话就可以level + 1
                     if (set.contains(temp)) {
                         if (temp.equals(endWord)) {
-                            return level + 1;
+                            return level + 1; //这里的加1 是把最后的元素加入
                         }
                         nextNum++;
                         queue.offer(temp);
@@ -63,6 +70,7 @@ public class _127_WordLadder {
                 }
             }
             // 相当于一层只有一个元素，前面又被减为0 所以后面操作的就是下一层，则curNum就等于nextNum
+            // cur以及nextNum主要是用来方便记录level
             if (curNum == 0) {
                 curNum = nextNum;
                 nextNum = 0;
