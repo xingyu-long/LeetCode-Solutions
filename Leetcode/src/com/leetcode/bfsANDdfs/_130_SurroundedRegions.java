@@ -3,17 +3,20 @@ package com.leetcode.bfsANDdfs;
 public class _130_SurroundedRegions {
 
     /**
-     * 130. Surrounded Regions
-     * When: 2019/05/31
+     *  130. Surrounded Regions
+     *  When: 2019/05/31
+     *  Review1:2019/7/25
      *
      * solution:
      * 反着来 从O出发 看周围是否存在相同的，如果有的话，
      * 将其置为1，然后循环，如果有1 最后就恢复O 其他是O的 就恢复成X
      * @param board
      */
+    //先检查第一行，最后一行，第一列，最后一列与0连接的情况，如果连接，那么最后结果依旧保持这些O，所以先转换为1暂存
+    // 然后扫描其他O这就是符合情况，可以转换为X 然后再把1 -> O 则正确！
+    // time:O(n * m) space:O(n * m) ？？ 个调用 for stack
     public void solve(char[][] board) {
-        // 反着来 从O出发 看周围是否存在相同的，如果有的话，
-        // 将其置为1，然后循环，如果有1 最后就恢复O 其他是O的 就恢复成X
+
         int m = board.length;
         if (m == 0 || board == null) return;
         int n = board[0].length;
