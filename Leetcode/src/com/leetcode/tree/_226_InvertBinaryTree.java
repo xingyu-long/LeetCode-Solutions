@@ -1,21 +1,16 @@
-package com.leetcode;
+package com.leetcode.tree;
+
+import com.leetcode.common.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class _226_InvertBinaryTree {
 
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) {
-            val = x;
-        }
-    }
     /**
-     * 226. Invert Binary Tree
-     * When: 2019/04/16
+     *  226. Invert Binary Tree
+     *  When: 2019/04/16
+     *  Review1:2019/7/26
      *
      * solution:
      * 算上深度优先DFS
@@ -49,17 +44,21 @@ public class _226_InvertBinaryTree {
      * @param root
      * @return
      */
+    // time:
     public static TreeNode invertTree(TreeNode root) {
         // 首先判断边界条件
         if (root == null) return null;
-        // 保留其原来的值 后面做交换使用
-        TreeNode left = invertTree(root.left);
-        TreeNode right = invertTree(root.right);
-        root.left = right;
-        root.right = left;
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+
+        invertTree(root.left);
+        invertTree(root.right);
+
         return root;
     }
-
+    // BFS
+    // time:O(n) space:O(n)
     public static TreeNode invertTree2(TreeNode root) {
         // 首先判断边界条件
         if (root == null) return null;
@@ -74,14 +73,5 @@ public class _226_InvertBinaryTree {
             if (cur.right != null) queue.add(cur.right);
         }
         return root;
-    }
-
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
-        root.left = null;
-        root.right = new TreeNode(2);
-        TreeNode right = root.right;
-        right.left = new TreeNode(3);
-        invertTree(root);
     }
 }

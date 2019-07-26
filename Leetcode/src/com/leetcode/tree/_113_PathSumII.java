@@ -1,23 +1,17 @@
 package com.leetcode.tree;
 
+import com.leetcode.common.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class _113_PathSumII {
 
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) {
-            val = x;
-        }
-    }
-
     /**
      *  113. Path Sum II
      *  When: 2019/04/17
      *  Review1:2019/7/16
+     *  Review2: 2019/7/26
      *  Difficulty: Medium
      *
      *  solution: 依然使用先序遍历（DFS）
@@ -72,9 +66,9 @@ public class _113_PathSumII {
     public static void helper(List<List<Integer>> res, List<Integer> cur,TreeNode root, int sum) {
         if (root == null) return;
         cur.add(root.val);
-        sum -= root.val;
+        sum -= root.val; // 具有栈的特征，可以在每一层表示那一层的情况
         if (root.left == null && root.right == null && sum == 0) {
-            res.add(cur);
+            res.add(new ArrayList<>(cur)); // 这样才可以保留单独不同的list，否则会被当成同一个处理掉
         }
         helper(res, cur, root.left, sum);
         helper(res, cur, root.right, sum);
