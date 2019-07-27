@@ -24,7 +24,7 @@ public class _110_BalancedBinaryTree {
         depth = maxDepth(root, depth);
         return depth != -1;
     }
-
+    // 解释可以看这个视频 https://www.youtube.com/watch?v=LU4fGD-fgJQ&list=PLiQ766zSC5jND9vxch5-zT7GuMigiWaV_&index=7
     public static int maxDepth(TreeNode root, int depth) {
         if (root == null) return 0;
 
