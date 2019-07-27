@@ -1,12 +1,13 @@
-package com.leetcode.tree;
+package com.leetcode.tree.preorder;
 
 import com.leetcode.common.TreeNode;
 
 public class _98_ValidateBinarySearchTree {
 
     /**
-     * 98. Validate Binary Search Tree
-     * When: 2019/04/23
+     *  98. Validate Binary Search Tree
+     *  When: 2019/04/23
+     *  Review1:2019/7/27
      *
      * solution: 利用递归的形式，并且主要是 使用 min 和 max
      * 在左子树的话，将当前的root.val 设置为max （如果左边有任意一个大于max 则false
@@ -38,6 +39,7 @@ public class _98_ValidateBinarySearchTree {
         return helper(root, null, null);
     }
 
+    // 左边设置最大值，右边设置最小值
     public static boolean helper(TreeNode root, Integer min, Integer max) {
         if (root == null) return true;
         //针对于右子树 （理应当 所有的值大于min）
