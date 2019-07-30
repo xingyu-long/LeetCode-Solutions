@@ -5,17 +5,20 @@ public class _62_UniquePaths {
     /**
      * 62. Unique Paths
      * When: 2019/05/07
-     *
+     * Review1: 2019/6/19
+     * Review2:2019/7/30
+     * <p>
      * solution:
      * 主要还是动态规划，并且使用从下到上
      * 当前位置的路数 等于 左边的值+上面的值
+     *
      * @param m
      * @param n
      * @return
      */
     // time: O(n * m) space: (n * m)
     public int uniquePaths(int m, int n) {
-        int [][] res = new int[m][n];
+        int[][] res = new int[m][n];
         for (int i = 0; i < m; i++) {
             res[i][0] = 1;
         }
@@ -46,4 +49,14 @@ public class _62_UniquePaths {
     }
 
     //这里还有种方法 现在不太能理解（利用排列组合，后面再看）
+    // https://www.youtube.com/watch?v=M8BYckxI8_U
+    public int uniquePaths3(int m, int n) {
+        int count = m + n - 2;
+        int k = m - 1;
+        double res = 1;
+        for (int i = 1; i <= k; i++) {
+            res = res * (count - k + i) / i;
+        }
+        return (int) res;
+    }
 }

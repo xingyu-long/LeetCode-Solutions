@@ -4,7 +4,11 @@ public class _63_UniquePathsII {
 
 
     /**
-     * 63. Unique Paths II
+     *  63. Unique Paths II
+     *  When: 2019/5/7
+     *  Review1:2019/6/19
+     *  Review2:2019/7/30
+     *  Difficulty: Medium
      *
      * Follow up for "Unique Paths":
 
@@ -27,6 +31,7 @@ public class _63_UniquePathsII {
      * @param obstacleGrid
      * @return
      */
+    // 遇到1的时候当前的结果就是0，就是不可行
     // time:O(m * n) space:O(n)
     public static int uniquePathsWithObstacles(int[][] obstacleGrid) {
         int length = obstacleGrid[0].length;

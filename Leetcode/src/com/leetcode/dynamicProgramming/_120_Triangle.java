@@ -5,7 +5,10 @@ import java.util.List;
 public class _120_Triangle {
 
     /**
-     * 120. Triangle
+     *  120. Triangle
+     *  When: 2019/5/7
+     *  Review1: 2019/7/30
+     *
      * Given a triangle, find the minimum path sum from top to bottom. Each step you may move to adjacent numbers
      * on the row below.
 
@@ -35,6 +38,7 @@ public class _120_Triangle {
      * @param triangle
      * @return
      */
+    // 从下往上，最后的结果直接获取
     // time: (n^2) space: O(n)
     public int minimumTotal(List<List<Integer>> triangle) {
         int[] res = new int[triangle.size() + 1]; //这里是因为后面有个j+1 防止溢出
