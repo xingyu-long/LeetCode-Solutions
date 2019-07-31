@@ -2,16 +2,18 @@ package com.leetcode.dynamicProgramming;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.StreamSupport;
 
 public class _139_WordBreak {
 
     /**
-     * 139. Word Break
-     * When: 2019/05/03
+     *  139. Word Break
+     *  When: 2019/05/03
+     *  Review1: 2019/7/31
      *
      * solution:
-     * 目前不是特别了解，尽管说是用动态规划，需要跑一下test case
-     *
+     * 利用动态规划，转移方程就是dp[j] && wordDict.contains(s.substring(j, i)) 则更新，因为这样就是从上一个有效的dp[j]开始
+     * 前一个dp[j] 成立，就是下一个(j,i)的开始
      * test case:
      * s = "leetcode", wordDict = ["leet", "code"]
      * length + 1 = 9
@@ -38,6 +40,7 @@ public class _139_WordBreak {
      * @param wordDict
      * @return
      */
+    // time: O(n^2 ~ n^4) substring:O(n) contains:O(n) space:O(n)
     public static boolean wordBreak(String s, List<String> wordDict) {
         boolean[] dp = new boolean[s.length() + 1];
         dp[0] = true;
@@ -56,10 +59,14 @@ public class _139_WordBreak {
 
 
     public static void main(String[] args) {
-        String s = "leetcode";
+        String s = "catsandog";
         List<String> wordDict = new ArrayList<>();
-        wordDict.add("leet");
-        wordDict.add("code");
+        wordDict.add("cats");
+        wordDict.add("dog");
+        wordDict.add("sand");
+        wordDict.add("and");
+        wordDict.add("cat");
         System.out.println(wordBreak(s, wordDict));
+//        System.out.println(s.substring(2, 8));
     }
 }

@@ -9,15 +9,17 @@ public class _140_WordBreakII {
     static HashMap<Integer, List<String>> map = new HashMap<>();
 
     /**
-     * 140. Word Break II
-     * When: 2019/05/03
+     *  140. Word Break II
+     *  When: 2019/05/03
+     *  Review1: 2019/7/31
      *
      * solution:
-     * 这个的方法 我认为不像是在回溯里面 其中有部分类似于word break里面的 dp算法
+     * 类似于word break里面的规则，但是使用具有memory的DFS算法求解
      * @param s
      * @param wordDict
      * @return
      */
+    // 这个时间复杂度，空间复杂度目前不知。
     public static List<String> wordBreak(String s, List<String> wordDict) {
         return dfs(s, wordDict, 0);
     }
@@ -34,6 +36,7 @@ public class _140_WordBreakII {
 
         for(int end = start + 1; end <= s.length(); end++) {
             if (wordDict.contains(s.substring(start, end))) {
+                // 这一部分用的太妙了，从最后的res = ""开始然后倒着循环出结果
                 List<String> list = dfs(s, wordDict, end);
                 for (String temp : list) {
                     res.add(s.substring(start, end) + (temp.equals("") ? "" : " ") + temp);
