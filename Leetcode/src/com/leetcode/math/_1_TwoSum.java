@@ -1,8 +1,17 @@
-package com.leetcode;
+package com.leetcode.math;
 
 import java.util.*;
 
 public class _1_TwoSum {
+	/**
+	 * 	1. Two Sum
+	 * 	Review1: 2019/8/1
+	 * 	Difficulty: Easy
+	 	利用hashMap
+	 * @param nums
+	 * @param target
+	 * @return
+	 */
 	// O(N * N)
 	public int[] twoSum(int[] nums, int target) {
 		int[] res = new int[2];

@@ -4,19 +4,13 @@ public class _64_MinimumPathSum {
 
     /**
      *  64. Minimum Path Sum
-     *      Given a m x n grid filled with non-negative numbers,
-     *      find a path from top left to bottom right which minimizes the sum of all numbers along its path.
+     *  When: 2019/05/08
+     *  Review1:2019/8/1
+     *  Difficulty: Medium
      *
-     *      Note: You can only move either down or right at any point in time.
-     *
-     *      Example 1:
-     *      [[1,3,1],
-     *      [1,5,1],
-     *      [4,2,1]]
-     *      Given the above grid map, return 7. Because the path 1→3→1→1→1 minimizes the sum.
-     *
-     *  time: 2019/05/08
-     *
+     *  dp[i][j] 表示到这个点所经历的路线和是多少
+     *  状态转移方程: 由于只能向右或者向下，先初始化第一行和第一列，做累加操作
+     *    grid[i][j] += Math.min(grid[i][j - 1], grid[i - 1][j]);
      * @param grid
      * @return
      */
