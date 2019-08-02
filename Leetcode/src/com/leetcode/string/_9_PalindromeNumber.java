@@ -14,7 +14,7 @@ public class _9_PalindromeNumber {
     public boolean isPalindrome(int x) {
         //后面这个条件是怎么想出来的？？？？
         // 应该要考虑overflow的情况！！！
-        if (x < 0 || x != 0 && x % 10 == 0) return false;
+        if (x < 0 || (x != 0 && x % 10 == 0)) return false;
         int res = 0;
         int temp = x;
         while (x != 0) {
@@ -24,4 +24,8 @@ public class _9_PalindromeNumber {
         }
         return res == temp;
     }
+
+
+    // https://www.bilibili.com/video/av51692387/?p=6
+    // 前后减掉的操作
 }

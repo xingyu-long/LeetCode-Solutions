@@ -1,11 +1,13 @@
-package com.leetcode;
+package com.leetcode.string;
 
 public class _6_ZigZagConversion {
 
     /**
-     * 6. ZigZag Conversion
-     * when: 2019/03/29
-     *
+     *  6. ZigZag Conversion
+     *  when: 2019/03/29
+     *  Review1:2019/8/2
+     *  solution:
+        主要找出来坐标的规律，注意反向的时候
      *
      * @param s
      * @param numRows
@@ -16,7 +18,7 @@ public class _6_ZigZagConversion {
         StringBuilder[] sb = new StringBuilder[numRows];
         // init StringBuilder
         for (int i = 0; i < sb.length; i++) {
-            sb[i] = new StringBuilder("");
+            sb[i] = new StringBuilder();
         }
 
         // 数学规律 即每个字母出现在 2 * numRows - 2这个循环里 （但是要注意反向的部分，则就是2 * numRows - 2 - index）
