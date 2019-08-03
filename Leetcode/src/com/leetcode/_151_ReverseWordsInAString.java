@@ -2,13 +2,10 @@ package com.leetcode;
 
 public class _151_ReverseWordsInAString {
 
-
-
     /**
-     *
-     * 151. Reverse Words in a String
-     * when: 2019/03/17
-     *
+     *  151. Reverse Words in a String
+     *  when: 2019/03/17
+     *  Review1: 2019/8/3
      * 思路：
      * solution1: 直接使用split('\\s+')进行分割 反转，然后中途每个单词+“ ”即可
      * solution2:
@@ -18,6 +15,7 @@ public class _151_ReverseWordsInAString {
      * @param s
      * @return
      */
+    // time:O(n) space:O(n)
     public static String reverseWords(String s) {
         if (s==null || s.length() == 0) return s;
         String[] str =  s.split("\\s+");
@@ -26,23 +24,10 @@ public class _151_ReverseWordsInAString {
         String res = "";
         for (String ss: str){
             res = res + ss + " ";
-            System.out.println(ss);
         }
         return res.trim();
-
-
-        /**
-         *
-         * 利用stringBuilder
-         *         StringBuilder sb = new StringBuilder();
-         *         String[] words = s.trim().split("\\s+");
-         *         for (int i = words.length - 1; i >= 0; i--){
-         *             sb.append(words[i]+" ");
-         *         }
-         *         return sb.toString().trim();
-         */
-
     }
+
 
     public static void reverse(String[] Str, int start, int end){
         while (start < end){
@@ -54,7 +39,17 @@ public class _151_ReverseWordsInAString {
         }
     }
 
-    public static void main(String[] args){
+    public static String reverseWords2(String s) {
+        if (s == null || s.length() == 0) return s;
+        StringBuilder sb = new StringBuilder();
+        String[] words = s.trim().split("\\s+");
+        for (int i = words.length - 1; i >=0; i--) {
+            sb.append(words[i] + " ");
+        }
+        return sb.toString().trim();
+    }
+
+        public static void main(String[] args){
         System.out.println(reverseWords("hello world! xx"));
     }
 }

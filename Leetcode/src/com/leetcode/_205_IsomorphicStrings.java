@@ -5,8 +5,8 @@ import java.util.HashMap;
 public class _205_IsomorphicStrings {
 
     /**
-     * 205. Isomorphic Strings
-     * When: 2019/03/25
+     *  205. Isomorphic Strings
+     *  When: 2019/03/25
      *
      * solution：
      * 利用hashmap来记忆其每个对应，如果都是对应的说明结构相同。
@@ -33,6 +33,7 @@ public class _205_IsomorphicStrings {
                 else return false;
             }else {
                 // 没有b变量这个value才插入，因为这样才确保 唯一的对应性
+                // eg: "bar" "foo"
                 if (!map.containsValue(b)){
                     map.put(a, b);
                 } else return false;
