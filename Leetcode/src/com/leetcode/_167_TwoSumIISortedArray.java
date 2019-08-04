@@ -6,9 +6,10 @@ import java.util.Map;
 public class _167_TwoSumIISortedArray {
 
     /**
-     * 167. Two Sum II - Input array is sorted
-     * When: 2019/04/09
-     * <p>
+     *  167. Two Sum II - Input array is sorted
+     *  When: 2019/04/09
+     *  Review1: 2019/8/4
+     *
      * solution:
      * 1. 利用hashmap
      * 2. 利用two pointer approach
@@ -55,7 +56,8 @@ public class _167_TwoSumIISortedArray {
                 j--;
             }
         }
-        return new int[]{i + 1, j + 1};
+        // 不会出现同样的i，j因为题目说了不会复用
+        return new int[]{};
     }
 
     public static void main(String[] args) {
