@@ -6,7 +6,7 @@ public class _73_SetMatrixZeroes {
     /**
      * 73. Set Matrix Zeroes
      * When: 2019/05/29
-     *
+     * review1:2019/8/5
      * solution:
      * 利用[0][j], [i][0]来做标记，然后把这两个的行和列分别置为0  最后注意[0][0]这个点 如果也为0 就将第0列和第0行设置为0
      *
