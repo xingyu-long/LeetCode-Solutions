@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.math.sum;
 
 import java.util.Arrays;
 
@@ -7,7 +7,7 @@ public class _16_3SumClosest {
     /**
      * 16. 3Sum Closest
      * When: 2019/04/10
-     *
+     * Review1: 2019/8/6
      * solution: 跟普通的3 sum 类似。
      *
      * Test case:

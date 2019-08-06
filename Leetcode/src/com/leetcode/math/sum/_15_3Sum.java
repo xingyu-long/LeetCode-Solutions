@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.math.sum;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,9 +9,8 @@ public class _15_3Sum {
     /**
      * 15. 3Sum
      * When: 2019/04/09
-     *
+     * Review1: 2019/8/6
      * 主要排序然后使用two pointer的方法
-     * ? 这里不太懂的地方是
      * time: O(n^2)
      * space: O(n)
      * @param nums
@@ -20,9 +19,8 @@ public class _15_3Sum {
     public static List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         Arrays.sort(nums); // 用来可以使用two sum的two pointer方法（但是要注意去掉重复）
-        for (int i = 0; i < nums.length - 2; i++) { //不太懂这里的nums.length - 2
-//            if (nums[i] == nums[i - 1]) continue;
-            if (i > 0 && nums[i] == nums[i - 1]) continue; //不懂这里为什么不报错
+        for (int i = 0; i < nums.length - 2; i++) { //这里的nums.length - 2 是因为就算长度为3 那k只能取0 因为后面还有两个数
+            if (i > 0 && nums[i] == nums[i - 1]) continue; //从第一个数才开始走这个
             // 这里的low 是除去nums[i]的第一个数
             int low = i + 1, high = nums.length - 1, sum = 0 - nums[i];
             // 下面就是用two pointer的方法

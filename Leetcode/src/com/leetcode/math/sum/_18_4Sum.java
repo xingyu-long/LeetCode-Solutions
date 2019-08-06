@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.math.sum;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,6 +9,7 @@ public class _18_4Sum {
     /**
      * 18. 4Sum
      * When: 2019/04/10
+     * review1:2019/8/6
      *
      * solution:
      * 主要的思想与3 sum一致  只是需要多加一个j变量
