@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.string;
 
 public class _168_ExcelSheetColumnTitle {
 

@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.string;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -17,14 +17,15 @@ public class _179_LargestNumber {
     /**
      * 179. Largest Number
      * When: 2019/03/29
-     *
+     * review1:2019/8/7
      * solution:
-     * 主要利用重写sort函数的意义进行操作（这里还不是特别懂）
+     * 主要利用重写sort函数的意义进行操作（让能够组成越大的字符串放在前面）
      *
      * 涉及到的数据结构：
      * @param nums
      * @return
      */
+    // time:O(nlogn) space:O(n)
     public static String largestNumber(int[] nums) {
         // 主要考察关于重写compare的问题，两个数连接之后不同的比较
         //用来保存上面的int数组

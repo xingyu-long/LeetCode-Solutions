@@ -1,10 +1,10 @@
-package com.leetcode;
+package com.leetcode.string;
 
 public class _38_CountAndSay {
 
     /**
      * 38. Count and Say
-     * 题目有点看不懂
+     * 题目依然理解不懂
      * 1.     1
      * 2.     11
      * 3.     21
@@ -12,7 +12,7 @@ public class _38_CountAndSay {
      * 5.     111221
      * 依次去数上面的个数特征 例如1 表示1 第二个则是表示有一个1 表示为11，然后第三个则就是2个1表示为21
      * When: 2019/04/01
-     *
+     * review1: 2019/8/7
      * Test case:
      * n = 1 （默认）
      *

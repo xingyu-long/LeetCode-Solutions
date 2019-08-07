@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.string.CountSort;
 
 public class _87_ScrambleString {
 

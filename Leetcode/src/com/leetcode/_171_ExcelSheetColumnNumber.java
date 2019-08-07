@@ -5,6 +5,9 @@ public class _171_ExcelSheetColumnNumber {
     /**
      * 171. Excel Sheet Column Number
      *  类似于168
+     * When:2019/4/1
+     * Review1:2019/8/7
+     *
      *  可以考虑为26进制
      *
      *  Test case:
