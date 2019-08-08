@@ -1,11 +1,11 @@
-package com.leetcode;
+package com.leetcode.string;
 
 public class _12_IntegerToRoman {
 
     /**
      * 12. Integer to Roman
      * When: 2019/04/01
-     *
+     * review1:2019/8/8
      * solution:
      * 首先写出预设值（常见的值例如900, 400, 90...），然后一个for循环（这里是values.length）一直相减
      *
@@ -29,7 +29,7 @@ public class _12_IntegerToRoman {
 
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < values.length; i++) {
-            while (num >= values[i]) {
+            while (num >= values[i]) { // 一直停留在比num小的数字这里。
                 num -= values[i];
                 sb.append(strs[i]);
             }

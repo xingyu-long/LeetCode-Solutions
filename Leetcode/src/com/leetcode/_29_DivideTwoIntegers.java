@@ -5,7 +5,7 @@ public class _29_DivideTwoIntegers {
     /**
      * 29. Divide Two Integers
      * When: 2019/04/04
-     *
+     * review1:2019/8/8
      *
      * Test case:
      * dividend = 10, divisor = 3 -> res = 3
@@ -27,7 +27,7 @@ public class _29_DivideTwoIntegers {
         long ldivisor = Math.abs((long)divisor);
         if (ldividend < ldivisor || ldividend == 0) return 0;
         long lres = divide(ldividend, ldivisor);
-        int res = 0;
+        int res;
         if (lres > Integer.MAX_VALUE) {
             res = (sign == 1) ? Integer.MAX_VALUE: Integer.MIN_VALUE;
         } else {

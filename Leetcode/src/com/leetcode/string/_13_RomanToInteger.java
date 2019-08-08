@@ -1,11 +1,12 @@
-package com.leetcode;
+package com.leetcode.string;
 
 public class _13_RomanToInteger {
 
     /**
      * 13. Roman to Integer
      * When: 2019/04/01
-     *
+     * Difficulty: 2019/8/8
+     * 之前的做法就是每次相加，然后扫描，符合情况的减去 2 * 小的那个数
      * 规律：左边的数字小于右边的数字 = 右 - 左
      * Test case:
      * "MCMXCIV" (M 1000, C 100, X 10, V 5, I 1)
@@ -19,6 +20,7 @@ public class _13_RomanToInteger {
      * @param s
      * @return
      */
+    // time:O(n) space:O(1)
     public int romanToInt(String s) {
         // 循环相加，如果遇到左边的数字小于右边的数字则直接相减（由于一开始的res等于第一个数，所以后面相减的时候要减去才对）
         if (s == null || s.length() < 1) return 0;
@@ -47,4 +49,6 @@ public class _13_RomanToInteger {
         }
         return res;
     }
+
+
 }
