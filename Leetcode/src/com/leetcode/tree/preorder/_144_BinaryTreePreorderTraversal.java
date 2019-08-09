@@ -1,9 +1,9 @@
-package com.leetcode;
+package com.leetcode.tree.preorder;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class _145_BinaryTreePostorderTraversal {
+public class _144_BinaryTreePreorderTraversal {
     public static class TreeNode {
         int val;
         TreeNode left;
@@ -14,16 +14,15 @@ public class _145_BinaryTreePostorderTraversal {
     }
 
     /**
-     * 145. Binary Tree Postorder Traversal
+     * 144. Binary Tree Preorder Traversal
      * When: 2019/04/12
      *
      * solution:
-     * 最普通的后序排序，并且这里的输入是root节点而不是数组所以自己不用构造才对。
-     * 后序输出，则就是左遍历到底 再右遍历 再输出值
+     * 最普通的先序排序，并且这里的输入是root节点而不是数组所以自己不用构造才对。
      * @param root
      * @return
      */
-    public static List<Integer> postorderTraversal(TreeNode root) {
+    public static List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         if (root == null) return res;
         helper(res, root);
@@ -32,9 +31,9 @@ public class _145_BinaryTreePostorderTraversal {
 
     public static void helper(List<Integer> res, TreeNode root) {
         if (root == null) return;
+        res.add(root.val);
         helper(res, root.left);
         helper(res, root.right);
-        res.add(root.val);
     }
 
     public static void main(String[] args) {
@@ -43,6 +42,6 @@ public class _145_BinaryTreePostorderTraversal {
         root.right = new TreeNode(2);
         TreeNode right = root.right;
         right.left = new TreeNode(3);
-        System.out.println(postorderTraversal(root).toString());
+        System.out.println(preorderTraversal(root).toString());
     }
 }

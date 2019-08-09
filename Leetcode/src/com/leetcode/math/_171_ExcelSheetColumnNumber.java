@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.math;
 
 public class _171_ExcelSheetColumnNumber {
 

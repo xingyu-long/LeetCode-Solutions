@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.tree.inorder;
 
 import com.leetcode.common.MainClass;
 import com.leetcode.common.TreeNode;
