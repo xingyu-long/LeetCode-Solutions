@@ -1,11 +1,11 @@
-package com.leetcode;
+package com.leetcode.array.sort;
 
 public class _88_MergeSortedArray {
 
     /**
      * 88. Merge Sorted Array
      * When: 2019/03/28
-     *
+     * review1:2019/8/9
      * solution:
      * 从后往前比较，然后把大的放到nums1的后面（完成这样一次操作，index就需要--）
      * 也要考虑到nums2全都小于num1的情况 所以需要加while(j >= 0)
@@ -26,5 +26,6 @@ public class _88_MergeSortedArray {
         while (j >= 0){
             nums1[k--] = nums2[j--];
         }
+        // 因为如果nums2里面大些，肯定都会交换，并且nums1那些小的默认留下来了
     }
 }

@@ -1,11 +1,11 @@
-package com.leetcode;
+package com.leetcode.math;
 
 public class _204_CountPrimes {
 
     /**
      * 204. Count Primes
      * When: 2019/04/08
-     *
+     * review1:2019/8/9
      * solution: 厄拉多塞筛法，时间复杂度O(nloglogn)
      * Test case: n = 10
      * i = 2 res++ -> res = 1;
@@ -35,10 +35,5 @@ public class _204_CountPrimes {
             }
         }
         return res;
-    }
-
-
-    public static void main(String[] args) {
-        countPrimes(10);
     }
 }

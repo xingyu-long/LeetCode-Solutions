@@ -4,7 +4,7 @@ public class _389_FindTheDifference {
     /**
      * 389. Find The Difference
      * When: 2019/06/15
-     *
+     * review1:2019/8/9
      * @param s
      * @param t
      * @return
@@ -56,4 +56,11 @@ public class _389_FindTheDifference {
         return res;
     }
 
+
+    public static void main(String[] args) {
+        char c = 'd';
+        c ^= 'a';
+        c ^= 'a';
+        System.out.println(c);
+    }
 }
