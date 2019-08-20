@@ -54,6 +54,6 @@ public class _1_6_StringCompression {
     }
 
     public static void main(String[] args) {
-        System.out.println(compress2("aabcccccaaa"));
+        System.out.println(compress2("AABCCD"));
     }
 }
