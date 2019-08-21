@@ -1,11 +1,13 @@
-package com.leetcode.array;
+package com.leetcode.array.twoPointer;
 import java.util.Arrays;
 
 public class _26_RemoveDuplicateFromSortedArray {
     /**
-     * LeetCode No.26
-        When: 2019/2/11
-        review 1: 2019/6/30
+     * 26. Remove Duplicate From Sorted Array
+       When: 2019/2/11
+       review 1: 2019/6/30
+       review 2: 2019/8/20
+       错误思路：算做nums[i]与nums[i+1]比较
 
      * 错误思路： 最开始认为不能用nums[count-1]
      * 思路解析：count的位置就是待插入的

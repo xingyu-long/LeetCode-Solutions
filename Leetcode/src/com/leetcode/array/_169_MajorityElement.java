@@ -8,8 +8,8 @@ public class _169_MajorityElement {
     /**
      * 169. Majority Element
      * when: 2019/03/17
-     *
      * Review1: 2019/7/4
+     * review2: 2019/8/20
      *
      * 思路： 下面两种solutions
      *

@@ -1,19 +1,12 @@
 package com.leetcode.array;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-
-    public class _243_ShortestWordDistance {
-
+public class _243_ShortestWordDistance {
     /**
      * 243. Shortest Word Distance
      * When: 2019/03/18
      * Review1: 2019/7/4
-     *
+     * review2: 2019/8/20
      */
-
     // solution2: 依然是n*n 的解法，具体思路跟上面一致，只是更加简单
     // time: O(n^2) space: O(1)
     public static int shortestDistance1(String[] words, String word1, String word2){

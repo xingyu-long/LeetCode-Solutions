@@ -1,5 +1,4 @@
-package com.leetcode.array;
-import java.util.Arrays;
+package com.leetcode.array.twoPointer;
 
 public class _27_RemoveElement {
 
@@ -8,6 +7,7 @@ public class _27_RemoveElement {
      *  difficulty: Easy
         When: 2019/02/11
         review 1: 2019/06/30
+        review 2: 2019/8/20
 
         solution:
             利用two pointer： 一个从前往后扫描（i）一个记录结果（r）

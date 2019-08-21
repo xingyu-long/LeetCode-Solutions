@@ -7,6 +7,7 @@ public class _189_RotateArray {
      *  189. Rotate Array
         When: 2019/2/12
         review1: 2019/7/1
+        review2: 2019/8/20
 
      思路：主要是求余运算刚刚能够达成这个目标并且空间复杂度也是O(n)
      * @param nums
