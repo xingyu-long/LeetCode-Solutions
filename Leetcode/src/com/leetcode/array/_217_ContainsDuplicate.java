@@ -10,7 +10,8 @@ public class _217_ContainsDuplicate {
      * 217. Contains Duplicate
      *  When: 2019/03/19
         Review1: 2019/7/5
-     *
+        review2: 2019/8/21
+
      * 解法：hashmap的key-value；set无法重复的特性；sort 然后前后比较
      *
      * 涉及到的数据结构或者方法：

@@ -9,9 +9,9 @@ public class _219_ContainsDuplicateII {
      * 219. Contains Duplicate II
      * when: 2019/03/19
      * Review1: 2019/7/6
-     *
+     * review2: 2019/8/21
      * 思路的问题：
-     * 当时误以为是要求出里面相同数字的最远的长度与k做比较，但其实只需要第一次碰见相同的元素就可以与k比较即可！
+     * 当时误以为是要求出里面相同数字的最远的长度与k做比较，但其实只需要 "第一次" 碰见相同的元素就可以与k比较即可！
      * 题目是否存在这样两个值之差小于k
      * @param nums
      * @param k
@@ -26,6 +26,7 @@ public class _219_ContainsDuplicateII {
         HashMap<Integer, Integer> hashMap = new HashMap<>();
 
         for (int i = 0; i < nums.length; i++) {
+            // 当前减去以前的 i 位置
             if (hashMap.containsKey(nums[i]) && Math.abs(i - hashMap.get(nums[i])) <= k) {
                 return true;
             }
