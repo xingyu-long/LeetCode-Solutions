@@ -9,6 +9,12 @@ public class _252_MeetingRooms {
      *  When: 2019/8/3
      *  Difficulty: Easy
      *  先按照start 排序，然后开是否有重叠的，重叠就不可以都参加
+
+
+     compareTo()
+     if s1 > s2, it returns positive number
+     if s1 < s2, it returns negative number
+     if s1 == s2, it returns 0
      * @param intervals
      * @return
      */

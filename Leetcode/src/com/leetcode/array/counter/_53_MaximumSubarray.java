@@ -6,8 +6,9 @@ public class _53_MaximumSubarray {
      * 53. Maximum Subarray
      * when: 2019/03/26
      * Review1: 2019/7/28
+     * review2: 2019/8/23
+
      * Difficulty: Easy
-        ? 难道看见负数就不考虑？
 
         涉及到的数据结构或者算法：
             DP（动态规划）
@@ -74,6 +75,7 @@ public class _53_MaximumSubarray {
         dp[0] = nums[0];
         int res = nums[0];
         for (int i = 1; i < nums.length; i++){
+            // DP 代表前i个最大的连续和的情况，如果有跳过一个，那么就会只有一个元素
             // 不考虑当前nums[i]是否小于0 只考虑dp[i-1] 因为要连续，所以当前这个元素肯定要加入
             dp[i] = nums[i] + (dp[i - 1] < 0 ? 0: dp[i - 1]); //这里表示如果前面有小于0的部分肯定越来越小
             res = Math.max(res, dp[i]);

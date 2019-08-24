@@ -6,6 +6,7 @@ public class _88_MergeSortedArray {
      * 88. Merge Sorted Array
      * When: 2019/03/28
      * review1:2019/8/9
+     * review2: 2019/8/23
      * solution:
      * 从后往前比较，然后把大的放到nums1的后面（完成这样一次操作，index就需要--）
      * 也要考虑到nums2全都小于num1的情况 所以需要加while(j >= 0)
