@@ -2,9 +2,10 @@ package com.leetcode.string;
 
 public class _28_ImplementstrStr {
     /**
-     *  28. Implement strStr()
-     *  when: 2019/03/12
-     *  Review1: 2019/8/3
+     * 28. Implement strStr()
+     * when: 2019/03/12
+     * Review1: 2019/8/3
+     * review2: 2019/8/24
      *
      *  解题思路：使用子串比较即可就是从0+needle的长度然后遍历 用equals()
      *  这里的 i <= haystack.length() - needle.length() 是因为 走needle那么长的话 不能走完整个haystack 会溢出

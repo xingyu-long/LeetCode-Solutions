@@ -7,6 +7,8 @@ public class _290_WordPattern {
     /**
      *  290.Word Pattern
      *  When:2019/7/17
+     *  review1: 2019/8/24
+     *  same as LeetCode 205
      *  Difficulty: Easy
      * @param pattern
      * @param str

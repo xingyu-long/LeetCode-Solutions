@@ -6,6 +6,8 @@ public class _14_LongestCommonPrefix {
      *  14. Longest Common Prefix
      *  When: 2019/03/12
      *  Review1: 2019/8/3
+     *  review2: 2019/8/24
+     *
      *  Difficulty: Easy
      *  解题思路：
      *  1. 首先选中第一个作为子串，

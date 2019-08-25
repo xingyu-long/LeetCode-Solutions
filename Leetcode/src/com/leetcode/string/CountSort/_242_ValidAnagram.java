@@ -8,6 +8,7 @@ public class _242_ValidAnagram {
      * 242. Valid Anagram
      * When: 2019/03/28
      * Review1:2019/8/7
+     * review2:2019/8/24
      * solution：
      * 1. 先转换成字符数组然后sort 比较即可
      * 2. 利用counting sort

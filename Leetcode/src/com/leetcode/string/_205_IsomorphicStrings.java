@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.string;
 
 import java.util.HashMap;
 
@@ -7,6 +7,8 @@ public class _205_IsomorphicStrings {
     /**
      *  205. Isomorphic Strings
      *  When: 2019/03/25
+     *  review1:2019/8/3
+     *  review2: 2019/8/24
      *
      * solution：
      * 利用hashmap来记忆其每个对应，如果都是对应的说明结构相同。

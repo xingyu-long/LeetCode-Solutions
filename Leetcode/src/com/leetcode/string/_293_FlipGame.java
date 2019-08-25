@@ -7,6 +7,7 @@ public class _293_FlipGame {
     /**
      *  293. Flip Game
      *  When:2019/8/5
+     *  review1:2019/8/24
      *  Difficulty: Easy
      * @param s
      * @return

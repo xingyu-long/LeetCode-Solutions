@@ -5,6 +5,7 @@ public class _383_RansomNote {
     /**
      *  383.RansomNote
      *  When:2019/7/16
+     *  review1:2019/8/24
      *  solution: 先记录ransomNote 然后magazine中相同存在的character就--
      *  最后肯定是为负则就可以
      * @param ransomNote
