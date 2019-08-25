@@ -8,14 +8,14 @@ public class NestedInteger {
     Integer value;
     List<NestedInteger> list;
 
-    NestedInteger() {
+    public NestedInteger() {
         value = new Integer(0);
         list = new ArrayList<>();
     }
-    NestedInteger(int value) {
+    public NestedInteger(int value) {
         this.value = value;
     }
-    NestedInteger(int value, List<NestedInteger> list) {
+    public NestedInteger(int value, List<NestedInteger> list) {
         this.value = value;
         this.list = list;
     }
