@@ -5,18 +5,20 @@ import com.leetcode.common.ListNode;
 public class _203_RemoveLinkedListElements {
 
     /**
-     *  203. Remove Linked List Elements
-     *  When: 2019/05/16
-     *  Review1: 2019/7/8
-     *  Difficulty: Easy
-        Remove all elements from a linked list of integers that have value val.
-
-        Example
-        Given: 1 --> 2 --> 6 --> 3 --> 4 --> 5 --> 6, val = 6
-        Return: 1 --> 2 --> 3 --> 4 --> 5
-
-        solution:
-        利用一个前置节点pre以及一开始的dummy（用来返回使用）然后通过pre.next.val 来进行比较
+     * 203. Remove Linked List Elements
+     * When: 2019/05/16
+     * Review1: 2019/7/8
+     * review2:2019/8/31
+     * Difficulty: Easy
+     * Remove all elements from a linked list of integers that have value val.
+     * <p>
+     * Example
+     * Given: 1 --> 2 --> 6 --> 3 --> 4 --> 5 --> 6, val = 6
+     * Return: 1 --> 2 --> 3 --> 4 --> 5
+     * <p>
+     * solution:
+     * 利用一个前置节点pre以及一开始的dummy（用来返回使用）然后通过pre.next.val 来进行比较
+     *
      * @param head
      * @param val
      * @return

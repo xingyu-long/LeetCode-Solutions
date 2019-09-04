@@ -28,6 +28,7 @@ public class _232_ImplementQueueusingStacks {
         s1.push(x);
     }
 
+    // 删除操作如何保持两个一致（直到用完s2的情况）
     /** Removes the element from in front of queue and returns that element. */
     //如果s2为空的话，就把s1里面的pop结果push到s2 然后s2.pop() 不然的话就直接s2.pop()
     // worst case: O(n)  Amortized: O(1)

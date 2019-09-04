@@ -5,13 +5,13 @@ import com.leetcode.common.ListNode;
 public class _148_SortList {
 
     /**
-     *  148. Sort List
-     *  When: 2019/5/17
-     *  Review1: 2019/7/8
-     *  Difficulty: Medium
-
-     *  Sort a linked list in O(n log n) time using constant space complexity.
-     *
+     * 148. Sort List
+     * When: 2019/5/17
+     * Review1: 2019/7/8
+     * review2: 2019/9/1
+     * Difficulty: Medium
+     * <p>
+     * Sort a linked list in O(n log n) time using constant space complexity.
      *
      * @param head
      * @return
@@ -49,6 +49,7 @@ public class _148_SortList {
             }
             cur = cur.next;
         }
+        // 这个的顺序不重要
         if (a == null) {
             cur.next = b;
         }

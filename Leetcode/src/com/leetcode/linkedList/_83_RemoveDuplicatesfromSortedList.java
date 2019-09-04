@@ -38,4 +38,45 @@ public class _83_RemoveDuplicatesfromSortedList {
         }
         return head;
     }
+
+    // time:O(n) space:O(n)
+    public ListNode deleteDuplicates2(ListNode head) {
+        if (head == null || head.next == null) return head;
+        // hashset
+        HashSet<Integer> set = new HashSet<>();
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode pre = dummy, cur = head;
+        while (cur != null) { //这种方法只能用在set里面
+            if (!set.add(cur.val)) {
+                pre.next = cur.next;
+            } else {
+                pre = cur;
+            }
+            cur = cur.next;
+        }
+
+        return dummy.next;
+    }
+
+
+    public static ListNode deleteDuplicates3(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode pre = head, cur = head.next;
+        while (cur != null) { // 和hashset思路一样，主要看pre是否更新
+            if (pre.val == cur.val) {
+                pre.next = cur.next;
+            } else {
+                pre = cur;
+            }
+            cur = cur.next;
+        }
+        return head;
+    }
+    public static void main(String[] args) {
+        ListNode root = new ListNode(0);
+        root.next = new ListNode(0);
+        root.next.next = new ListNode(0);
+        deleteDuplicates3(root);
+    }
 }

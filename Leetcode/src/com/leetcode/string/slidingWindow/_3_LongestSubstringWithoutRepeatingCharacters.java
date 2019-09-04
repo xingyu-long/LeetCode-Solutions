@@ -1,4 +1,4 @@
-package com.leetcode.string;
+package com.leetcode.string.slidingWindow;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -21,7 +21,7 @@ public class _3_LongestSubstringWithoutRepeatingCharacters {
      * @return
      */
 
-    // time:O(n) space:O(n)
+    // time: O(n) space:O(n) 利用hashmap然后决定begin的位置
     public int lengthOfLongestSubstring(String s) {
         if (s == null || s.length() == 0) return 0;
         HashMap<Character, Integer> map = new HashMap<>();
@@ -30,6 +30,8 @@ public class _3_LongestSubstringWithoutRepeatingCharacters {
         for (int i = 0, j = 0; i < s.length(); i++) {
             if (map.containsKey(s.charAt(i))) {
                 j = Math.max(j, map.get(s.charAt(i)) + 1);
+                // eg: ABCDDEC 这种情况走到最后一个C的时候 但是begin还是会在第二个d这个位置
+
             }
             map.put(s.charAt(i), i);
             res = Math.max(res, i - j + 1);
@@ -56,13 +58,31 @@ public class _3_LongestSubstringWithoutRepeatingCharacters {
             } else {
                 //表示重复的时候 需要移动begin
                 while (begin < i && count[s.charAt(i)] > 1) {
-                    count[s.charAt(begin)]--; //是begin对应的字符数量减1
+                    count[s.charAt(begin)]--; //为了减去当前i重复的情况, 然后从非重复的地方开始走
                     begin++;
                 }
                 word = "";
                 for (int j = begin; j <= i; j++) {
                     word += s.charAt(j);
                 }
+            }
+        }
+        return res;
+    }
+
+    // 利用hashset
+    public int lengthOfLongestSubstring3(String s) {
+        if (s == null || s.length() == 0) return 0;
+        HashSet<Character> set = new HashSet<>();
+        int res = 0;
+        int from = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (set.contains(s.charAt(i))) {
+                set.remove(s.charAt(from++));
+                i--; // 利用这个保持快指针不动！！
+            } else {
+                set.add(s.charAt(i));
+                res = Math.max(res, set.size()); //如果不在else语句中，这样也没有意义，因为依然有重复
             }
         }
         return res;

@@ -5,12 +5,15 @@ import com.leetcode.common.ListNode;
 public class _147_InsertionSortList {
 
     /**
-     *  147. Insertion Sort List
-     *  When: 2019/05/22
-     *  Difficulty: Medium
-     *  Review1: 2019/7/11
+     * 147. Insertion Sort List
+     * When: 2019/05/22
+     * Difficulty: Medium
+     * Review1: 2019/7/11
+     * review2:2019/9/2
      *
-     *  solution: 主要利用三个指针，实现插入排序
+     * <p>
+     * solution: 主要利用三个指针，实现插入排序
+     * 注意使用pre来从前循环
      * @param head
      * @return
      */

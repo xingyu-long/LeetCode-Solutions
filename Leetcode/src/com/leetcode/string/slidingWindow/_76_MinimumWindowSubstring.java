@@ -1,12 +1,13 @@
-package com.leetcode.string;
+package com.leetcode.string.slidingWindow;
 
 public class _76_MinimumWindowSubstring {
 
     /**
-     *  76. Minimum Window Substring
-     *  When: 2019/04/09
-     *  Review1:2019/7/22
-     *
+     * 76. Minimum Window Substring
+     * When: 2019/04/09
+     * Review1:2019/7/22
+     * review2: 2019/8/29
+     * 依然感觉比较难
      * solution：依然使用双指针的思想，主要是i 从前往后走
      * j 记录规定内的起始位置
      *  这个比较难 也很重要，先背代码

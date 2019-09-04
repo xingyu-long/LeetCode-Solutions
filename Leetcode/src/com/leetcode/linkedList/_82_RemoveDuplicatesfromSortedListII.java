@@ -27,6 +27,7 @@ public class _82_RemoveDuplicatesfromSortedListII {
         dummy.next = head;
         ListNode pre = dummy;
         while (pre.next != null && pre.next.next != null) {
+            // 主要这里把数字拿出来了，所以直接对比
             if (pre.next.val == pre.next.next.val) {
                 int sameNum = pre.next.val;
                 // 越过那些相同的数字

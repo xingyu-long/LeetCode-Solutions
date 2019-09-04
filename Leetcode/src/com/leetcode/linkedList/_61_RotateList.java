@@ -29,7 +29,7 @@ public class _61_RotateList {
             len++;
         }
         index.next = head;
-        // 尽管是要走到len - k % len 这个位置 但只需要 前面-1 这么多步而已
+        // 尽管是要走到len - k % len 这个位置 但只需要走到其减一的位置，下一个就是目标的开头
         for (int i = 1; i < len - k % len; i++) {
             head = head.next;
         }

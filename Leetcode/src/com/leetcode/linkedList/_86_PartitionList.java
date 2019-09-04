@@ -4,9 +4,10 @@ import com.leetcode.common.ListNode;
 
 public class _86_PartitionList {
     /**
-     *  86. Partition List
-     *  When: 2019/05/20
-        Review1: 2019/7/7
+     * 86. Partition List
+     * When: 2019/05/20
+     * Review1: 2019/7/7
+
         Difficulty: Medium
 
         Given a linked list and a value x, partition it such that all nodes less than x come before nodes
@@ -21,7 +22,7 @@ public class _86_PartitionList {
      *  solution:
      *  新建两个左右的点，然后记录其比它小和比它大的情况
      *  然后两个表连起来（这里要注意需要用curRight/left来移动
-     *
+     *  因为本事不是有序的，最后出来左边 小于x 右边大于等于x即可
      * @param head
      * @param x
      * @return

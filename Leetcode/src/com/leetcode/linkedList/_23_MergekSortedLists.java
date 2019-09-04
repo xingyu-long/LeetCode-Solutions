@@ -6,18 +6,18 @@ import java.util.PriorityQueue;
 
 public class _23_MergekSortedLists {
     /**
-     *  23. Merge k Sorted Lists
-     *  When:2019/7/7
-        Difficulty: Hard
-
-        solution:
-        (1) 使用合并排序
-        (2) 使用PriorityQueue （从小到大排序）
-
-     time : O(nlogk) where k is the number of linked lists
-     space : O(n)
-
-
+     * 23. Merge k Sorted Lists
+     * When:2019/7/7
+     * review1:2019/9/2
+     * Difficulty: Hard
+     *
+     * solution:
+     * (1) 使用合并排序
+     * (2) 使用PriorityQueue （从小到大排序）
+     * <p>
+     * time : O(nlogk) where k is the number of linked lists
+     * space : O(n)
+     *
      * @param lists
      * @return
      */
@@ -34,6 +34,7 @@ public class _23_MergekSortedLists {
             }
         }
         while (!pq.isEmpty()) {
+            //放入到返回结果中
             cur.next = pq.poll();
             cur = cur.next;
             if (cur.next != null) {
@@ -43,14 +44,16 @@ public class _23_MergekSortedLists {
         return dummy.next;
     }
 
-    /** 类似于合并排序*/
+    /**
+     * 类似于合并排序
+     */
     public ListNode mergeKLists2(ListNode[] lists) {
         if (lists == null || lists.length == 0) return null;
         return sort(lists, 0, lists.length - 1);
     }
 
     public ListNode sort(ListNode[] lists, int lo, int hi) {
-        if (lo  >= hi) return lists[lo];
+        if (lo >= hi) return lists[lo];
         int mid = (hi - lo) / 2 + lo;
         ListNode l1 = sort(lists, lo, mid);
         ListNode l2 = sort(lists, mid + 1, hi);

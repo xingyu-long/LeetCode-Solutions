@@ -30,6 +30,7 @@ public class _328_OddEvenLinkedList {
         ListNode evenHead = even;
         // 这里面的even最后就直接连接了null。
         while (even != null && even.next != null) {
+            // 这里需要先计算odd的情况，因为不然even会把odd的next打乱
             odd.next = odd.next.next;
             even.next = even.next.next;
             odd = odd.next;

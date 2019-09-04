@@ -5,9 +5,11 @@ import java.util.Stack;
 public class _388_LongestAbsoluteFilePath {
 
     /**
-     *  388. Longest Absolute File Path
-     *  When:2019/7/12
-     *  Difficulty: Medium
+     * 388. Longest Absolute File Path
+     * When:2019/7/12
+     * review1:2019/9/3
+     * Difficulty: Medium
+     *
      * @param input
      * @return
      */

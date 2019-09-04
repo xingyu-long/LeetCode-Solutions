@@ -22,12 +22,12 @@ public class _395_LongestSubstringwithAtLeastKRepeatingCharacters {
         }
         boolean fullString = true;
         for (int i = 0; i < s.length(); i++) {
-            if (count[s.charAt(i) - 'a'] > 0
-                    && count[s.charAt(i) - 'a'] < k) {
+            int val = s.charAt(i) - 'a';
+            if (count[val] > 0 && count[val] < k) {
                 fullString = false;
             }
         }
-        if (fullString == true) return s.length();
+        if (fullString) return s.length();
 
         int begin = 0, end = 0, res = 0;
         while (end < s.length()) {

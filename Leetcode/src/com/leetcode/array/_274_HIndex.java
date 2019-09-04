@@ -7,6 +7,7 @@ public class _274_HIndex {
     /**
      *  274. H-Index
      *  When:2019/7/23 还有另外一种方法
+     *  review1:2019/8/30
      *  Difficulty: Medium
      *  solution:
      *  先进行排序操作 从最后一个元素向前循环，大于count就count++，然后走到小于count的地方为止
@@ -16,6 +17,7 @@ public class _274_HIndex {
      */
 
     // time:O(nlogN) space:O(1)
+    // 这里 > 是因为当前值 > t 统计数的情况就结果+1
     public int hIndex(int[] citations) {
         Arrays.sort(citations);
         int res = 0;

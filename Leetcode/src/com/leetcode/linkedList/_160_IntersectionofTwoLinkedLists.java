@@ -5,9 +5,10 @@ import com.leetcode.common.ListNode;
 public class _160_IntersectionofTwoLinkedLists {
 
     /**
-     *  160. Intersection of Two Linked Lists
-     *  When: 2019/05/16
-        Review1: 2019/7/7
+     * 160. Intersection of Two Linked Lists
+     * When: 2019/05/16
+     * Review1: 2019/7/7
+     * review2: 2019/8/30
         Difficulty: Easy
         solution: 先统一长度，然后再逐步对比。
 
@@ -24,7 +25,7 @@ public class _160_IntersectionofTwoLinkedLists {
      * @param headB
      * @return
      */
-    // time: O(n) space: O(1)
+    // time: O(m + n) space: O(1)
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         if (headA == null || headB == null) return null;
         ListNode p1 = headA, p2 = headB;
@@ -56,6 +57,30 @@ public class _160_IntersectionofTwoLinkedLists {
             head = head.next;
         }
         return n;
+    }
+
+    // 写法和上面差不多
+    public ListNode getIntersectionNode3(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) return null;
+        int lenA = numberOfNode(headA);
+        int lenB = numberOfNode(headB);
+        int diff = Math.abs(lenA - lenB);
+        if (lenA < lenB) {
+            for (int i = 0; i < diff; i++) {
+                headB = headB.next;
+            }
+        } else if (lenA > lenB) {
+            for (int i = 0; i < diff; i++) {
+                headA = headA.next;
+            }
+        }
+        // 比较的是地址 非val！！！记住
+        while (headA != null && headB != null) {
+            if (headA == headB) return headA;
+            headA = headA.next;
+            headB = headB.next;
+        }
+        return null;
     }
 
     // time:O(m + n) space:O(1)

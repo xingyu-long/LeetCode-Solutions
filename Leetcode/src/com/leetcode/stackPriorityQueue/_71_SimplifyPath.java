@@ -5,13 +5,15 @@ import java.util.Stack;
 public class _71_SimplifyPath {
 
     /**
-     *  71. Simplify Path
-     *  When: 2019/06/08
-     *  Review1: 2019/7/12
-     *  Difficulty: Medium
-
-        solution: 使用stack来保存其字符 遇到.. 就返回上一层 遇到 . 和空白就不管；遇到字符就push
-        最后拼接在一起
+     * 71. Simplify Path
+     * When: 2019/06/08
+     * Review1: 2019/7/12
+     * review2: 2019/9/3
+     * Difficulty: Medium
+     * <p>
+     * solution: 使用stack来保存其字符 遇到.. 就返回上一层 遇到 . 和空白就不管；遇到字符就push
+     * 最后拼接在一起
+     *
      * @param path
      * @return
      */

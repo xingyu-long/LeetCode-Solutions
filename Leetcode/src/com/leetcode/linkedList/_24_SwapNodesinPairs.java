@@ -5,16 +5,16 @@ import com.leetcode.common.ListNode;
 public class _24_SwapNodesinPairs {
 
     /**
-     *  24.Swap Nodes in Pairs
-     *  When: 2019/05/10
-        Review1: 2019/7/8
-        Review2: 2019/7/23
-
+     * 24.Swap Nodes in Pairs
+     * When: 2019/05/10
+     * Review1: 2019/7/8
+     * Review2: 2019/7/23
+     * review3: 2019/8/31
+     * <p>
      * Given a linked list, swap every two adjacent nodes and return its head.
-     *
+     * <p>
      * For example,
      * Given 1->2->3->4, you should return the list as 2->1->4->3.
-     *
      *
      * @param head
      * @return

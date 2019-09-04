@@ -4,6 +4,7 @@ public class _275_HIndexII {
     /**
      *  275. H-Index II
      *  When:2019/7/25
+     *  review1: 2019/8/30
      *  Difficulty: Medium
      * @param citations
      * @return
@@ -16,7 +17,7 @@ public class _275_HIndexII {
         int left = 0, right = n;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            if (citations[mid] >= n - mid) { // 写成 citations[n - mid - 1] <= mid
+            if (citations[mid] >= n - mid) { //找到第一个大于 右边的数量的这个变量。
                 right = mid; // 找到第一个对于右边的所有数，左边都小于
             } else {
                 left = mid + 1;

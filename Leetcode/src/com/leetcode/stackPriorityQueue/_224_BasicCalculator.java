@@ -5,10 +5,13 @@ import java.util.Stack;
 public class _224_BasicCalculator {
 
     /**
-     *  224. Basic Calculator
-        When: 2019/06/15
-
-        solution: 如下所示
+     * 224. Basic Calculator
+     * When: 2019/06/15
+     * review1: 2019/9/4
+     *
+     * <p>
+     * solution: 如下所示
+     *
      * @param s
      * @return
      */
@@ -21,7 +24,7 @@ public class _224_BasicCalculator {
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (Character.isDigit(c)) {
-                number = 10 * number + (int)(c - '0');
+                number = 10 * number + (int) (c - '0');
             } else if (c == '+') {
                 res += sign * number;
                 number = 0;
@@ -39,8 +42,8 @@ public class _224_BasicCalculator {
             } else if (c == ')') {
                 res += sign * number;
                 number = 0;
-                res *= stack.pop();
-                res += stack.pop();
+                res *= stack.pop();  // 表示在括号之前的符号+ -
+                res += stack.pop(); // 括号之前的数字
             }
         }
         if (number != 0) res += sign * number;

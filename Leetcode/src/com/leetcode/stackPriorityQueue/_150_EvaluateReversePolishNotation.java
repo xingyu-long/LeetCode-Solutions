@@ -5,12 +5,14 @@ import java.util.Stack;
 public class _150_EvaluateReversePolishNotation {
 
     /**
-     *  150. Evaluate Reverse Polish Notation
-     *  When: 2019/06/08
-     *  Review1: 2019/7/12
-     *  Difficulty: Medium
-
-        solution: 使用stack存储数字，然后遇到符号就pop进行运算。
+     * 150. Evaluate Reverse Polish Notation
+     * When: 2019/06/08
+     * Review1: 2019/7/12
+     * review2: 2019/9/3
+     * Difficulty: Medium
+     * <p>
+     * solution: 使用stack存储数字，然后遇到符号就pop进行运算。
+     *
      * @param tokens
      * @return
      */

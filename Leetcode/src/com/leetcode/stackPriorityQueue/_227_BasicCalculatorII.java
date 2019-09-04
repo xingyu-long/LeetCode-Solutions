@@ -17,6 +17,7 @@ public class _227_BasicCalculatorII {
                     i++;
                 }
             }
+            // 这里也是if是因为需要i= i+1的情况
             // 相当于先都把这些加入 然后再判断
             if (!Character.isDigit(s.charAt(i)) && s.charAt(i) != ' '
                     || i == s.length() - 1) {
