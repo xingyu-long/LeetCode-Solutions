@@ -5,12 +5,13 @@ import java.util.PriorityQueue;
 public class _215_KthLargestElementinanArray {
 
     /**
-     *  215. Kth Largest Element in an Array
-        When: 2019/06/15
-
-        solution:
-        1. 使用快速选择
-        2. 利用优先队列
+     * 215. Kth Largest Element in an Array
+     * When: 2019/06/15
+     * review1: 2019/9/4
+     * solution:
+     * 1. 使用快速选择
+     * 2. 利用优先队列
+     *
      * @param nums
      * @param k
      * @return
@@ -81,7 +82,7 @@ public class _215_KthLargestElementinanArray {
         _215_KthLargestElementinanArray sort = new _215_KthLargestElementinanArray();
         System.out.println(sort.partition(nums, lo, hi));
         for (int num : nums) {
-            System.out.print(" "+ num);
+            System.out.print(" " + num);
         }
     }
 }
