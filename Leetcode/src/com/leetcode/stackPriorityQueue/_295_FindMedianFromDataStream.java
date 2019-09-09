@@ -3,7 +3,7 @@ package com.leetcode.stackPriorityQueue;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class _295_FindMedianFromDataStream {
+public class  _295_FindMedianFromDataStream {
 
     /**
      *  295. Find Median From Data Stream
