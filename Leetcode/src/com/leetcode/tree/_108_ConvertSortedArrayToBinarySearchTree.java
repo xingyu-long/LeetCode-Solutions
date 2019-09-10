@@ -8,6 +8,7 @@ public class _108_ConvertSortedArrayToBinarySearchTree {
     /**
      * 108. Convert Sorted Array to Binary Search Tree
      * When: 2019/04/22
+     * review1: 2019/9/9
      *
      * solution： 利用递归的方式 让其返回，但是要注意那个临界条件！！！
      *
@@ -21,10 +22,11 @@ public class _108_ConvertSortedArrayToBinarySearchTree {
         return helper(nums, 0, nums.length - 1);
     }
 
+    // 这个的构造不一定和答案一模一样，只是符合 inorder之后升序排列
     public static TreeNode helper(int[] nums, int start, int end) {  // average space : O(log^n)
 
         if (start > end) return null; //这个条件真的很重要！！！
-        int mid = (start + end) / 2;
+        int mid = start + (end - start) / 2;
         TreeNode node = new TreeNode(nums[mid]);
         node.left = helper(nums, start, mid - 1); // 这里应该是mid - 1
         node.right = helper(nums, mid + 1, end);
