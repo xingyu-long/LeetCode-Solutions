@@ -8,6 +8,7 @@ public class _110_BalancedBinaryTree {
      *  110. Balanced Binary Tree
      *  When: 2019/04/18
      *  Review1:2019/7/26
+     *  review2: 2019/9/10
      * solution：
      * 利用后序遍历，计算其深度并且计算左右子树的差值。
      *
@@ -21,34 +22,32 @@ public class _110_BalancedBinaryTree {
     public boolean isBalanced(TreeNode root) {
         if (root == null) return true;
         int depth = 0;
-        depth = maxDepth(root, depth);
+        depth = helper(root);
         return depth != -1;
     }
     // 解释可以看这个视频 https://www.youtube.com/watch?v=LU4fGD-fgJQ&list=PLiQ766zSC5jND9vxch5-zT7GuMigiWaV_&index=7
-    public static int maxDepth(TreeNode root, int depth) {
+    public static int helper(TreeNode root) {
         if (root == null) return 0;
 
-        int left = maxDepth(root.left, depth);
-        int right = maxDepth(root.right, depth);
+        int left = helper(root.left);
+        int right = helper(root.right);
 
         if (left == -1 || right == -1) return -1;
         if (Math.abs(left - right) > 1) return -1;
 
-        depth = Math.max(left, right) + 1;
-
-        return depth;
+        return Math.max(left, right) + 1;
     }
 
     // https://leetcode.com/problems/balanced-binary-tree/discuss/35691/The-bottom-up-O(N)-solution-would-be-better
-    // time:O(n^2) 每次比较的时候也重新查找了maxDepth
+    // time:O(nlogn) n个点，每一次都有查找depth的操作，logN
     // top-down
     public boolean isBalanced2(TreeNode root) {
         if (root == null) return true;
-
-        int left = maxDepth(root.left);
-        int right = maxDepth(root.right);
-
-        return Math.abs(left - right) <= 1 && isBalanced2(root.left) && isBalanced2(root.right);
+        int leftN = maxDepth(root.left);
+        int rightN = maxDepth(root.right);
+        int diff = Math.abs(leftN - rightN);
+        if (diff > 1) return false;
+        else return isBalanced2(root.left) && isBalanced2(root.right);
     }
 
     public int maxDepth(TreeNode root) {

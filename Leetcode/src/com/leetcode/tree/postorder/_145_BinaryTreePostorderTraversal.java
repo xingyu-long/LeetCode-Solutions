@@ -1,18 +1,13 @@
 package com.leetcode.tree.postorder;
 
+import com.leetcode.common.TreeNode;
+
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 public class _145_BinaryTreePostorderTraversal {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) {
-            val = x;
-        }
-    }
-
     /**
      * 145. Binary Tree Postorder Traversal
      * When: 2019/04/12
@@ -23,6 +18,7 @@ public class _145_BinaryTreePostorderTraversal {
      * @param root
      * @return
      */
+    //time:O(n) space:O(n) 最差的情况就是O(n)这颗树是偏向于一边。
     public static List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         if (root == null) return res;
@@ -35,6 +31,22 @@ public class _145_BinaryTreePostorderTraversal {
         helper(res, root.left);
         helper(res, root.right);
         res.add(root.val);
+    }
+
+    // 非递归的形式 利用前序的思想，只需要稍作修改，每次将结果放到前面
+    // list与linkedlist是兼容的
+    public static List<Integer> postorderTraversal2(TreeNode root) {
+        if (root == null) return new LinkedList<>();
+        LinkedList<Integer> res = new LinkedList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode cur = stack.pop();
+            res.addFirst(cur.val);
+            if (cur.left != null) stack.push(cur.left);
+            if (cur.right != null) stack.push(cur.right);
+        }
+        return res;
     }
 
     public static void main(String[] args) {

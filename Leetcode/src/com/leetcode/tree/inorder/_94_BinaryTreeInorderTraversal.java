@@ -5,8 +5,22 @@ import com.leetcode.common.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class _94_BinaryTreeInorderTraversal {
+
+    public void inorder(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode cur = root;
+        while (cur != null || !stack.isEmpty()) {
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            cur = stack.pop();
+            cur = cur.right;
+        }
+    }
 
     /**
      * 94. Binary Tree Inorder Traversal

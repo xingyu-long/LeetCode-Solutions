@@ -1,4 +1,4 @@
-package com.leetcode.tree;
+package com.leetcode.tree.preorder;
 
 import com.leetcode.common.TreeNode;
 
@@ -10,10 +10,11 @@ import java.util.Queue;
 public class _102_BinaryTreeLevelOrderTraversal {
 
     /**
-     *  102. Binary Tree Level Order Traversal
-     *  When: 2019/04/12
-     *  Review1:2019/7/25
-     *
+     * 102. Binary Tree Level Order Traversal
+     * When: 2019/04/12
+     * Review1:2019/7/25
+     * review2:2019/9/11
+     * <p>
      * solution:
      * 同样使用先序遍历 只是需要考虑到depth
      *
@@ -21,13 +22,13 @@ public class _102_BinaryTreeLevelOrderTraversal {
      * @return
      */
     // https://www.youtube.com/watch?v=gcR28Hc2TNQ
-
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         if (root == null) return res;
         helper(root, 0, res);
         return res;
     }
+
     // DFS
     public static void helper(TreeNode root, int depth, List<List<Integer>> res) {
         if (root == null) return;
@@ -41,8 +42,8 @@ public class _102_BinaryTreeLevelOrderTraversal {
             List<Integer> cur = res.get(depth);
             cur.add(root.val);
         }
-        helper(root.left, depth+1, res);
-        helper(root.right, depth+1, res);
+        helper(root.left, depth + 1, res);
+        helper(root.right, depth + 1, res);
     }
 
     // BFS

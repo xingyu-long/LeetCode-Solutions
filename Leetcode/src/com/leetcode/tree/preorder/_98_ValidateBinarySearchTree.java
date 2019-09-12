@@ -8,7 +8,7 @@ public class _98_ValidateBinarySearchTree {
      *  98. Validate Binary Search Tree
      *  When: 2019/04/23
      *  Review1:2019/7/27
-     *
+     *  review2:2019/9/11
      * solution: 利用递归的形式，并且主要是 使用 min 和 max
      * 在左子树的话，将当前的root.val 设置为max （如果左边有任意一个大于max 则false
      * 在右子树的话，将当前的root.val 设置为min （如果右边有任意一个小于min 则false
@@ -30,7 +30,7 @@ public class _98_ValidateBinarySearchTree {
      * return false
      *
      * Time: O(n)
-     * Space: O(n)
+     * Space: O(logN)
      * @param root
      * @return
      */

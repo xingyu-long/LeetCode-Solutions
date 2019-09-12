@@ -6,10 +6,12 @@ import java.util.Queue;
 public class _207_CourseSchedule {
 
     /**
-     *  207. Course Schedule
-        When: 2019/06/20
-
-        solution:使用BFS实现
+     * 207. Course Schedule
+     * When: 2019/06/20
+     * review1:2019/9/11
+     * <p>
+     * solution:使用BFS实现
+     * 可以使用dfs，类似于检查图是否有cycle
      * @param numCourses
      * @param prerequisites
      * @return
@@ -25,7 +27,7 @@ public class _207_CourseSchedule {
 
         Queue<Integer> queue = new LinkedList<>();
         for (int i = 0; i < indegree.length; i++) {
-            if (indegree[i] == 0) {
+            if (indegree[i] == 0) { // 注意这里的i，因为course都是0~n-1 所以直接用i代表某门课
                 queue.offer(i);
             }
         }
@@ -44,4 +46,8 @@ public class _207_CourseSchedule {
         }
         return res == 0;
     }
+
+
+    // DFS https://leetcode.com/problems/course-schedule/discuss/58524/Java-DFS-and-BFS-solution
+
 }
