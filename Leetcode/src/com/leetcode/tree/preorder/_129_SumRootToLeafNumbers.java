@@ -1,9 +1,11 @@
-package com.leetcode.tree;
+package com.leetcode.tree.preorder;
 
 import com.leetcode.common.TreeNode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class _129_SumRootToLeafNumbers {
 
@@ -30,7 +32,7 @@ public class _129_SumRootToLeafNumbers {
         if (root.left == null && root.right == null) {
             return sum * 10 + root.val;
         }
-        // 不能先写 sum = 10 * sum + root.val; 会导致计算异常
+        // 不能先写 sum = 10 * sum + root.val; 会导致计算异常 因为左右子树的计算顺序不同
         int left = helper(root.left, 10 * sum + root.val);
         int right = helper(root.right, 10 * sum + root.val);
         return left + right;
@@ -62,8 +64,53 @@ public class _129_SumRootToLeafNumbers {
     }
 
 
-    //BFS
-
+    //BFS 相当于每次直接改变左右的值！
+    public static int sumNumbers3(TreeNode root) {
+        if (root == null) return 0;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        int res = 0;
+        while (!queue.isEmpty()) {
+            TreeNode cur = queue.poll();
+            // 注意这里是cur.val!
+            if (cur.left == null && cur.right == null) {
+                res += cur.val;
+            }
+            if (cur.left != null) {
+                cur.left.val =  10 * cur.val + cur.left.val;
+                queue.offer(cur.left);
+            }
+            if (cur.right != null) {
+                cur.right.val =  10 * cur.val + cur.right.val;
+                queue.offer(cur.right);
+            }
+        }
+        return res;
+    }
+    //BFS不修改原来的值 使用list记录
+    public static int sumNumbers4(TreeNode root) {
+        if (root == null) return 0;
+        Queue<TreeNode> queue = new LinkedList<>();
+        Queue<Integer> sumQueue = new LinkedList<>();
+        queue.offer(root);
+        sumQueue.offer(root.val);
+        int res = 0;
+        while (!queue.isEmpty()) {
+            TreeNode cur = queue.poll();
+            int curSum = sumQueue.poll();
+            // 这个操作很关键！
+            if(cur.left == null && cur.right == null) res += curSum;
+            if (cur.left != null) {
+                sumQueue.offer(curSum * 10 + cur.left.val);
+                queue.offer(cur.left);
+            }
+            if (cur.right != null) {
+                sumQueue.offer(curSum * 10 + cur.right.val);
+                queue.offer(cur.right);
+            }
+        }
+        return res;
+    }
 
     public static void main(String[] args) {
         TreeNode root = new TreeNode(4);
@@ -73,9 +120,9 @@ public class _129_SumRootToLeafNumbers {
 
         root.left = leftOne;
         root.right = rightOne;
-
+//
         leftOne.left = new TreeNode(5);
         leftOne.right = new TreeNode(1);
-        System.out.println(sumNumbers2(root));
+        System.out.println(sumNumbers4(root));
     }
 }

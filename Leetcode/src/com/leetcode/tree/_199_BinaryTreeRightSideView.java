@@ -14,7 +14,7 @@ public class _199_BinaryTreeRightSideView {
      *  When: 2019/04/22
      *  Review1: 2019/7/16
      *
-     * solution: 利用level+类似于preOrder的方式
+     * solution: 利用level+类似于preOrder的方式 终于自己写出来了！！！！
      * 这里的level == res.size()才插入就说明了其完成右边看 （左边的深度更深，所以从右边看也能看见）
      *
      * test case:

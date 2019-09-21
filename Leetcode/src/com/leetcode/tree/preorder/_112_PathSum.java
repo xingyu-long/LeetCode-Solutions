@@ -1,4 +1,4 @@
-package com.leetcode.tree;
+package com.leetcode.tree.preorder;
 
 import com.leetcode.common.TreeNode;
 
@@ -9,11 +9,12 @@ import java.util.Stack;
 public class _112_PathSum {
 
     /**
-     *  112. Path Sum
-     *  When: 2019/04/16
-     *  Review1:2019/7/26
-     *
-     *
+     * 112. Path Sum
+     * When: 2019/04/16
+     * Review1:2019/7/26
+     * review2:2019/9/12
+     * <p>
+     * <p>
      * solution:
      * 1. 跟那个Binary Tree Paths思路一致，然后计算出值
      * 2. 反着来 减去当前的值 然后左右分开
@@ -24,40 +25,19 @@ public class _112_PathSum {
      */
 
     //time:O(n) space:O(n)
-
-    public static boolean hasPathSum(TreeNode root, int sum) {
-        if (root == null) return false;
-        boolean res = false;
-        List<Integer> list = new ArrayList<>();
-        helper(0, root, list);
-        res = list.contains(sum);
-        return res;
-    }
-
-    public static void helper(int sum, TreeNode root, List<Integer> list) {
-        if (root == null) return;
-        sum += root.val;
-
-        if(root.left == null && root.right == null) {
-            list.add(sum);
-        }
-
-        helper(sum, root.left, list);
-        helper(sum, root.right, list);
-    }
-
     // 直接计算出
-    public static boolean hasPathSum2(TreeNode root, int sum) {
+    public static boolean hasPathSum(TreeNode root, int sum) {
 
         if (root == null) return false;
+        // 这里肯定是先减去之后再在跟着验证是否找到。
         sum -= root.val;
         // 满足这个的情况下
         if (sum == 0 && root.left == null && root.right == null) return true;
-        return hasPathSum2(root.left, sum) || hasPathSum2(root.right, sum);
+        return hasPathSum(root.left, sum) || hasPathSum(root.right, sum);
     }
 
     //BFS
-    public boolean hasPathSum3(TreeNode root, int sum) {
+    public boolean hasPathSum2(TreeNode root, int sum) {
         if (root == null && sum >= 0) return false;
         // 利用stack 先序遍历
         Stack<TreeNode> stack = new Stack<>();

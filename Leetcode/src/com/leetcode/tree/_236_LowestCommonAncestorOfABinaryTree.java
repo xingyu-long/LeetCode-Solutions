@@ -69,6 +69,25 @@ public class _236_LowestCommonAncestorOfABinaryTree {
         return root;
     }
 
+    // 类比于BST的方法
+    public TreeNode lowestCommonAncestor3(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null) return null;
+        if (isExist(root.right, p) && isExist(root.right, q)) {
+            return lowestCommonAncestor(root.right, p, q);
+        } else if (isExist(root.left, p) && isExist(root.left, q)) {
+            return lowestCommonAncestor(root.left, p, q);
+        } else {
+            return root;
+        }
+    }
+
+    public boolean isExist(TreeNode root, TreeNode target) {
+        if (root == null) return false;
+        if (root == target) return true;
+        return isExist(root.left, target) || isExist(root.right, target);
+    }
+
+
     public static void main(String[] args){
         TreeNode root = new TreeNode(1);
         root.left  = new TreeNode(2);

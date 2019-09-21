@@ -1,9 +1,11 @@
-package com.leetcode.tree;
+package com.leetcode.tree.preorder;
 
 import com.leetcode.common.TreeNode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 public class _113_PathSumII {
 
@@ -12,6 +14,7 @@ public class _113_PathSumII {
      *  When: 2019/04/17
      *  Review1:2019/7/16
      *  Review2: 2019/7/26
+     *  review3: 2019/9/12
      *  Difficulty: Medium
      *
      *  solution: 依然使用先序遍历（DFS）
@@ -73,5 +76,41 @@ public class _113_PathSumII {
         helper(res, cur, root.left, sum);
         helper(res, cur, root.right, sum);
         cur.remove(cur.size() - 1);
+    }
+
+    // BFS (类似于中序遍历)
+    public static List<List<Integer>> pathSum2(TreeNode root, int sum) {
+        List<List<Integer>> res = new LinkedList<>();
+        if (root == null) return res;
+        TreeNode cur = root;
+        TreeNode prev = null;// 表示当前cur前面的一个（在栈中的顺序）
+        Stack<TreeNode> stack = new Stack<>();
+        List<Integer> path = new ArrayList<>();
+        int totalSum = 0;
+        while (cur != null || !stack.isEmpty()) {
+            while (cur != null) {
+                stack.push(cur);
+                path.add(cur.val);
+                totalSum += cur.val;
+                cur = cur.left;
+            }
+            cur = stack.peek();
+            // 查找右边是否有节点
+            if (cur.right != null && cur.right != prev) {
+                cur = cur.right;
+                continue;
+            }
+            // 判断当前节点是否为叶子节点
+            if (cur.left == null && cur.right == null && totalSum == sum) {
+                res.add(new ArrayList<>(path));
+            }
+            stack.pop();
+            prev = cur;
+            totalSum -= cur.val;
+            path.remove(path.size() - 1);
+            cur = null;
+        }
+
+        return res;
     }
 }

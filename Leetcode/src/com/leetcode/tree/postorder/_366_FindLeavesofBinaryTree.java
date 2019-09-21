@@ -9,6 +9,7 @@ public class _366_FindLeavesofBinaryTree {
     /**
      *  366. Find Leaves of Binary Tree
      *  When:2019/7/27
+     *  review1:2019/9/18
      *  Difficulty: Medium
         Given a binary tree, collect a tree's nodes as if you were doing this: Collect and remove all leaves,
         repeat until the tree is empty.
@@ -30,13 +31,13 @@ public class _366_FindLeavesofBinaryTree {
     // 如何用postOrder记录其中间非叶子节点
     // 计算每个节点的depth 当 depth == res.size() 则表示是下一层
 
-    public List<List<Integer>> findLeaves(TreeNode root) {
+    public static List<List<Integer>> findLeaves(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         helper(res, root);
         return res;
     }
 
-    public int helper(List<List<Integer>> res, TreeNode root) {
+    public static int helper(List<List<Integer>> res, TreeNode root) {
         if (root == null) return -1; // 加1之后为0 然后与res.size()刚好对应
         int left = helper(res, root.left);
         int right = helper(res, root.right);
@@ -49,5 +50,14 @@ public class _366_FindLeavesofBinaryTree {
         root.left = null;
         root.right = null;
         return level;
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        findLeaves(root);
     }
 }
