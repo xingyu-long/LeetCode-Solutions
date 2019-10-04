@@ -9,12 +9,13 @@ public class _114_FlattenBinaryTreetoLinkedList {
     /**
      *  114. Flatten Binary Tree to Linked List
      *  When:2019/7/16
+     *  review1:2019/9/23
      *  Difficulty: Medium
      *
      * @param root
      */
 
-    //利用stack来遍历 time:O(n) space:O(n)
+    //利用stack来遍历 time:O(n) space:O(n) preorder
     public void flatten(TreeNode root) {
         if (root == null) return;
         Stack<TreeNode> stack = new Stack<>();

@@ -31,7 +31,7 @@ public class _105_ConstructBinaryTreefromPreorderandInorderTraversal {
         }
         //分为左子树和右子树
         root.left = helper(preStart + 1, inStart, inIndex - 1, preorder, inorder);
-        // 相隔了左子树的部分则就是inIndex - inStart + 1
+        // 相隔了左子树的部分则就是(inIndex - inStart + 1)左子树的sizeß
         root.right = helper(preStart + inIndex - inStart + 1, inIndex + 1, inEnd, preorder, inorder);
         return root;
     }

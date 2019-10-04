@@ -1,4 +1,4 @@
-package com.leetcode.tree;
+package com.leetcode.tree.bst;
 
 
 import com.leetcode.common.ListNode;
@@ -101,7 +101,7 @@ public class _109_ConvertSortedListToBinarySearchTree {
         if (head == tail) return null; //这里用的很妙
         ListNode slow = head;
         ListNode fast = head;
-        while (fast != tail && fast.next != tail) {
+        while (fast.next != tail && fast.next.next != tail) {
             fast = fast.next.next;
             slow = slow.next;
         }

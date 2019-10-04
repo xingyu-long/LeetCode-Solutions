@@ -5,12 +5,14 @@ import java.util.HashSet;
 public class _136_SingleNumber {
 
     /**
-     *  136. Single Number
-        When: 2019/06/17
-
-        solution:
-        (1) 利用hashset的性质 但是这里的contains操作消耗O(n) 所以总的是 O(n^2)
-        (2) 利用异或运算
+     * 136. Single Number
+     * When: 2019/06/17
+     * review1：2019/6/28
+     * <p>
+     * solution:
+     * (1) 利用hashset的性质 但是这里的contains操作消耗O(n) 所以总的是 O(n^2)
+     * (2) 利用异或运算
+     *
      * @param nums
      * @return
      */
@@ -21,7 +23,7 @@ public class _136_SingleNumber {
             if (set.contains(nums[i])) {
                 set.remove(nums[i]);
             } else {
-            set.add(nums[i]);
+                set.add(nums[i]);
             }
         }
         int res = 0;
@@ -32,6 +34,7 @@ public class _136_SingleNumber {
     }
 
     // time:O(n) space:O(1)
+    // 也是与missing number 采取的 ^同样的原理 a^b^b = a;
     public static int singleNumber2(int[] nums) {
         int res = nums[0];
         for (int i = 1; i < nums.length; i++) {
@@ -40,8 +43,8 @@ public class _136_SingleNumber {
         return res;
     }
 
-        public static void main(String[] args) {
-        int[] nums = new int[]{2,2,1};
+    public static void main(String[] args) {
+        int[] nums = new int[]{2, 2, 1};
         System.out.print(singleNumber(nums));
     }
 }

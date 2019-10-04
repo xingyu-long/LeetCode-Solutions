@@ -3,8 +3,9 @@ package com.leetcode.bitManipulation;
 public class _201_BitwiseANDofNumbersRange {
 
     /**
-     *  201. Bitwise AND of Numbers Range
-        When: 2019/06/17
+     * 201. Bitwise AND of Numbers Range
+     * When: 2019/06/17
+     * review1: 2019/9/28
 
         2 = 0010
         3 = 0011

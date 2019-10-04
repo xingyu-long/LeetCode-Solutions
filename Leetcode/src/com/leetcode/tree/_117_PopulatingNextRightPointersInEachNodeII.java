@@ -2,6 +2,9 @@ package com.leetcode.tree;
 
 import com.leetcode.common.Node;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class _117_PopulatingNextRightPointersInEachNodeII {
 
     /**
@@ -41,8 +44,8 @@ public class _117_PopulatingNextRightPointersInEachNodeII {
      * @return
      */
     public Node connect(Node root) {
-        Node head = null;
-        Node pre = null;
+        Node head = null; // 每一层的开头
+        Node pre = null; // 同一层的prev节点
         Node cur = root;
 
         while (cur != null) {
@@ -68,6 +71,26 @@ public class _117_PopulatingNextRightPointersInEachNodeII {
             cur = head;
             pre = null;
             head = null;
+        }
+        return root;
+    }
+
+
+    // 利用queue做
+    public Node connect2(Node root) {
+        if (root == null) return null;
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                Node cur = queue.poll();
+                if (i < size - 1) { // 在最后一个节点之前的所有情况
+                    cur.next = queue.peek();
+                }
+                if (cur.left != null) queue.offer(cur.left);
+                if (cur.right != null) queue.offer(cur.right);
+            }
         }
         return root;
     }

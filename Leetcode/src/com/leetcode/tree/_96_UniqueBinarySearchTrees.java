@@ -5,7 +5,7 @@ public class _96_UniqueBinarySearchTrees {
     /**
      * 96. Unique Binary Search Trees
      * When: 2019/04/26
-     *
+     * review1:2019/9/25
      * solution:
      * 利用dp的想法来做，因为涉及到子问题
      *
@@ -25,6 +25,7 @@ public class _96_UniqueBinarySearchTrees {
      * @param n
      * @return
      */
+    // https://www.cnblogs.com/grandyang/p/4299608.html
     public int numTrees(int n) {
         int[] res = new int[n + 1];
         res[0] = 1;

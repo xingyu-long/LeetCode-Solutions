@@ -7,7 +7,7 @@ public class _116_PopulatingNextRightPointersInEachNode {
     /**
      * 116. Populating Next Right Pointers in Each Node
      * When: 2019/04/25
-     *
+     * review1:2019/9/24
      * solution:
      * 首先连接左右子节点，然后连接相邻。
      *
@@ -58,6 +58,7 @@ public class _116_PopulatingNextRightPointersInEachNode {
      * @param root
      * @return
      */
+    // 这个算iterative
     public Node connect2(Node root) {
         Node start = root;
         while (start != null) {

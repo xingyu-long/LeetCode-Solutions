@@ -33,7 +33,7 @@ public class _272_ClosestBinarySearchTreeValueII {
         if (res.size() == k) {
             if (Math.abs(root.val - target) < Math.abs(res.peekFirst() - target)) {
                 res.removeFirst();
-            } else ;
+            } else return;
         }
         res.add(root.val);
         helper(res, root.right, target, k);

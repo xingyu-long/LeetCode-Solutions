@@ -28,7 +28,7 @@ public class _112_PathSum {
     // 直接计算出
     public static boolean hasPathSum(TreeNode root, int sum) {
 
-        if (root == null) return false;
+        if (root == null) return false; //这里是false！ 很重要
         // 这里肯定是先减去之后再在跟着验证是否找到。
         sum -= root.val;
         // 满足这个的情况下

@@ -1,4 +1,4 @@
-package com.leetcode.tree;
+package com.leetcode.tree.bst;
 
 import com.leetcode.common.TreeNode;
 
@@ -12,9 +12,8 @@ public class _173_BinarySearchTreeIterator {
     /**
      * 173. Binary Search Tree Iterator
      * When:2019/04/25
-     *
-     * solution:
-     *
+     * review1: 2019/9/21
+     * 考察点应该是 中序的iteration
      * @param root
      */
     public _173_BinarySearchTreeIterator(TreeNode root) {
