@@ -1,4 +1,4 @@
-package com.goldmanSachs;
+package com.intern.GoldmanSachs;
 
 import java.util.ArrayList;
 import java.util.Arrays;

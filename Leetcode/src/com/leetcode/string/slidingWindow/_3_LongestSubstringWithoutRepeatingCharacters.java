@@ -87,4 +87,22 @@ public class _3_LongestSubstringWithoutRepeatingCharacters {
         }
         return res;
     }
+
+
+    // 利用模板的做法，这里记录一个boolean数组
+    public int lengthOfLongestSubstring4(String s) {
+        if (s == null || s.length() == 0) return 0;
+        boolean[] ch = new boolean[128];
+        int start = 0;
+        int max = 0;
+        for (int end = 0; end < s.length(); end++) {
+            while (ch[s.charAt(end)]) {
+                ch[s.charAt(start)] = false;
+                start++;
+            }
+            ch[s.charAt(end)] = true;
+            max = Math.max(max, end - start + 1);
+        }
+        return max;
+    }
 }

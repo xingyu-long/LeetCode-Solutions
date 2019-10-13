@@ -1,6 +1,7 @@
 package com.leetcode.array;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class _118_PascalsTriangle {
@@ -95,5 +96,33 @@ public class _118_PascalsTriangle {
             return 1;
         }
         return getNum(i - 1, j - 1) + getNum(i - 1, j);
+    }
+
+    // recursion with memo. 也可以用dp
+    public List<List<Integer>> generate4(int numRows) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (numRows <= 0) return res;
+        HashMap<String, Integer> map = new HashMap<>(); // how to set proper key-value.
+        for (int i = 0; i < numRows; i++) {
+            List<Integer> cur = new ArrayList<>();
+            for (int j = 0; j <= i; j++) {
+                cur.add(calculate(i, j, map));
+            }
+            res.add(cur);
+        }
+        return res;
+    }
+
+    public int calculate(int i, int j, HashMap<String, Integer> map) {
+        String key = i + "," + j;
+        if (map.containsKey(key)) return map.get(key);
+        int val;
+        if (j == 0 || j == i) {
+            val =  1;//表示在每行的第一个和最后一个都是1
+        } else {
+            val = calculate(i - 1, j - 1, map) + calculate(i - 1, j, map);
+        }
+        map.put(key, val);
+        return val;
     }
 }

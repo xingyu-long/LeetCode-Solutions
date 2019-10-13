@@ -5,15 +5,15 @@ import java.util.Arrays;
 public class _279_PerfectSquares {
 
     /**
-     *  279. Perfect Squares
-     *  When:2019/7/30
-     *  Difficulty: Medium
-     *
+     * 279. Perfect Squares
+     * When:2019/7/30
+     * Difficulty: Medium
+     * 这个是因为一定有解的原因，所以不用考虑返回-1？
      * @param n
      * @return
      */
     // 其实这个跟coin change思路一样
-    // time:O(n^2) space:O(n)
+    // time:O(n * sqrt(n)) space:O(n)
     public int numSquares(int n) {
         // 首先需要保存其完全平方数
         if (n <= 1) return n;
@@ -37,7 +37,8 @@ public class _279_PerfectSquares {
 
     // 简化版
     // time:O(n * sqrt(n)) space:O(n)
-    public int numSquares2(int n) {
+    // 当前i一定由这些数组成，所以有解
+    public static int numSquares2(int n) {
         int[] dp = new int[n + 1];
         Arrays.fill(dp, Integer.MAX_VALUE);
         dp[0] = 0;
@@ -47,5 +48,9 @@ public class _279_PerfectSquares {
             }
         }
         return dp[n];
+    }
+
+    public static void main(String[] args) {
+        numSquares2(2);
     }
 }

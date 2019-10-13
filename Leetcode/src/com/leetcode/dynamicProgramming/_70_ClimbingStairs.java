@@ -1,10 +1,13 @@
 package com.leetcode.dynamicProgramming;
 
+import java.util.HashMap;
+
 public class _70_ClimbingStairs {
 
     /**
      * 70. Climbing Stairs
      * When: 2019/05/03
+     * review2:2019/10/4
      * <p>
      * solution:
      * 分解问题：
@@ -18,13 +21,24 @@ public class _70_ClimbingStairs {
      * @param n
      * @return
      */
-    // 递归的形式  time: O(2^n) (类似于tree) space: O(n)
+    // 递归的形式  time: O(n) space: O(n) 因为有 memoization不然就是2^n(tree的节点数)
     public int climbStairs(int n) {
-        if (n <= 2) {
-            return n;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        return helper(n, map);
+    }
+
+    public int helper(int n, HashMap<Integer, Integer> map) {
+        if (map.containsKey(n)) return map.get(n);
+        int val;
+        if (n < 0) {
+            val = 0;
+        } else if (n == 0) {
+            val = 1;
         } else {
-            return climbStairs(n - 1) + climbStairs(n - 2);
+            val = helper(n - 1, map) + helper(n - 2, map);
         }
+        map.put(n, val);
+        return val;
     }
 
 

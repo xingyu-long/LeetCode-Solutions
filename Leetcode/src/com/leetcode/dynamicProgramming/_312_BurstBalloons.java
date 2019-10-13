@@ -2,16 +2,16 @@ package com.leetcode.dynamicProgramming;
 
 public class _312_BurstBalloons {
     /**
-     *  312. Burst Balloons
-     *  When:2019/8/1
-     *  Difficulty: Hard
-
-
-        DP[i][j] 代表i~j的情况
-        状态转移方程: dp[i][j] = max(dp[i][j], dp[i][x – 1] + nums[i – 1] * nums[x] * nums[j + 1] + dp[x + 1][j]);
-        都是扎最后一个气球
-        https://leetcode.com/problems/burst-balloons/discuss/76228/Share-some-analysis-and-explanations
-        https://www.cnblogs.com/grandyang/p/5006441.html
+     * 312. Burst Balloons
+     * When:2019/8/1
+     * Difficulty: Hard
+     * <p>
+     * <p>
+     * DP[i][j] 代表i~j的情况
+     * 状态转移方程: dp[i][j] = max(dp[i][j], dp[i][x – 1] + nums[i – 1] * nums[x] * nums[j + 1] + dp[x + 1][j]);
+     * 都是扎最后一个气球
+     * https://leetcode.com/problems/burst-balloons/discuss/76228/Share-some-analysis-and-explanations
+     * https://www.cnblogs.com/grandyang/p/5006441.html
      */
     // time:O(n^3) space:O(n^2)
     public int maxCoins(int[] nums) {

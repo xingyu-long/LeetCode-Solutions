@@ -34,7 +34,7 @@ public class _39_CombinationSum {
             res.add(new ArrayList<>(list));
             return;
         }
-
+        // 利用每次按照i开始，消除duplicate因为不能让后面的数再用前面的情况，最多可用到当前的数字
         for (int i = start; i < candidates.length; i++) {
             list.add(candidates[i]);
             helper(res, list, candidates, target - candidates[i], i);

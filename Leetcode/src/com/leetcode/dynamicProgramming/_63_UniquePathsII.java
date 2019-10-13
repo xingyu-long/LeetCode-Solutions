@@ -4,34 +4,20 @@ public class _63_UniquePathsII {
 
 
     /**
-     *  63. Unique Paths II
-     *  When: 2019/5/7
-     *  Review1:2019/6/19
-     *  Review2:2019/7/30
-     *  Difficulty: Medium
+     * 63. Unique Paths II
+     * When: 2019/5/7
+     * Review1:2019/6/19
+     * Review2:2019/7/30
+     * review3:2019/10/4
+     * Difficulty: Medium
+     * time: O(m * n)
+     * space: O(n)
      *
-     * Follow up for "Unique Paths":
-
-         Now consider if some obstacles are added to the grids. How many unique paths would there be?
-
-         An obstacle and empty space is marked as 1 and 0 respectively in the grid.
-
-         For example,
-         There is one obstacle in the middle of a 3x3 grid as illustrated below.
-
-         [
-         [0,0,0],
-         [0,1,0],
-         [0,0,0]
-         ]
-         The total number of unique paths is 2.
-
-     time: O(m * n)
-     space: O(n)
      * @param obstacleGrid
      * @return
      */
-    // 遇到1的时候当前的结果就是0，就是不可行
+    // 遇到1的时候当前的结果就是0，就是不可行。这里直接可以跟原来的方法相加，是因为本身res数组就是0，如果当前行前面出现了wall那么结果就会为0，后面计算也依然为0.
+    // 这种思路要好好思考
     // time:O(m * n) space:O(n)
     public static int uniquePathsWithObstacles(int[][] obstacleGrid) {
         int length = obstacleGrid[0].length;
@@ -41,7 +27,8 @@ public class _63_UniquePathsII {
             for (int j = 0; j < length; j++) {
                 if (obstacleGrid[i][j] == 1) {
                     res[j] = 0;
-                } else if (j > 0){ // 注意这里的 > 0 以及上面是从0开始
+                } else if (j > 0) { // 注意这里的 > 0 以及上面是从0开始。
+                    // 因为第0个位置如果没有wall就是1
                     res[j] += res[j - 1];
                 }
             }
@@ -86,7 +73,7 @@ public class _63_UniquePathsII {
 
 
     public static void main(String[] args) {
-        int[][] test = new  int[1][1];
+        int[][] test = new int[1][1];
         test[0][0] = 1;
         System.out.println(uniquePathsWithObstacles(test));
     }

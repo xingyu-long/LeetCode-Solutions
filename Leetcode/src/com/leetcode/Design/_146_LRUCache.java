@@ -129,6 +129,7 @@ public class _146_LRUCache {
         return itemBeingRemoved;
     }
     /** important operation */
+    // 相当于直接跳过，先保存后面节点的情况，然后
     private void removeNode(DNode node) {
         DNode savedPrev = node.prev;
         DNode savedNext = node.next;
