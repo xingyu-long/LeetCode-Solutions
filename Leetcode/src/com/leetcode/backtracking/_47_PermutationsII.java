@@ -7,10 +7,10 @@ import java.util.List;
 public class _47_PermutationsII {
 
     /**
-     *  47. Permutations II
-     *  When: 2019/04/30
-     *  Review1: 2019/7/16
-     *
+     * 47. Permutations II
+     * When: 2019/04/30
+     * Review1: 2019/7/16
+     * review2:2019/10/13
      * solution:
      * 这里的去重需要保留其used参数
      *
@@ -71,12 +71,13 @@ public class _47_PermutationsII {
      * @param nums
      * @return
      */
+    // https://www.youtube.com/watch?v=43w8tXWKSLw
     // time: O(n!) space:O(n)
     public List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         if (nums == null || nums.length == 0) return  res;
         Arrays.sort(nums);
-        helper(res, new ArrayList<Integer>(), nums, new boolean[nums.length]);
+        helper(res, new ArrayList<>(), nums, new boolean[nums.length]);
         return res;
     }
 

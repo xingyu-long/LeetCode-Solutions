@@ -6,13 +6,14 @@ import java.util.List;
 public class _46_Permutations {
 
     /**
-     *  46. Permutations
-     *  When: 2019/04/30
-     *  Review1: 2019/7/16
-     *
-     *  solution:
-     *  基本思路与前面一致 但是没有start这个参数，因为这次是全部在数组里面获得并且 i 只能从 0开始 这样才能获取全部
-     *
+     * 46. Permutations
+     * When: 2019/04/30
+     * Review1: 2019/7/16
+     * review2:2019/10/13
+     * <p>
+     * solution:
+     * 基本思路与前面一致 但是没有start这个参数，因为这次是全部在数组里面获得并且 i 只能从 0开始 这样才能获取全部
+     * <p>
      * space: O(n)
      * time: O(n * n!)
      *
@@ -22,21 +23,23 @@ public class _46_Permutations {
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         if (nums == null || nums.length == 0) return res;
-        helper(res, new ArrayList<Integer>(), nums);
+        dfs(res, new ArrayList<>(), nums, new boolean[nums.length]);
         return res;
     }
-
-    public void helper(List<List<Integer>> res, List<Integer> list, int[] nums) {
+    // 每一次都可以循环全部，然后用visited作为标记！
+    public void dfs(List<List<Integer>> res, List<Integer> list, int[] nums, boolean[] visited) {
         if (list.size() == nums.length) {
             res.add(new ArrayList<>(list));
             return;
         }
-        // 这里一直从0开始，因为这里需要能够遍历完里面的元素才行，以前的方法就不行
         for (int i = 0; i < nums.length; i++) {
-            if (list.contains(nums[i])) continue;  // O(n)
-            list.add(nums[i]);
-            helper(res, list, nums);
-            list.remove(list.size() - 1);
+            if (!visited[i]) {
+                visited[i] = true;
+                list.add(nums[i]);
+                dfs(res, list, nums, visited);
+                list.remove(list.size() - 1);
+                visited[i] = false;
+            }
         }
     }
 }

@@ -7,12 +7,14 @@ import java.util.List;
 public class _40_CombinationSumII {
 
     /**
-     *  40. Combination Sum II
-     *  When: 2019/04/29
-     *  Review1: 2019/7/15
+     * 40. Combination Sum II
+     * When: 2019/04/29
+     * Review1: 2019/7/15
+     * review2:2019/10/13
+     * <p>
+     * solution:
+     * 基本与前面一致，只需要排序以及去重工作
      *
-     *  solution:
-     *  基本与前面一致，只需要排序以及去重工作
      * @param candidates
      * @param target
      * @return

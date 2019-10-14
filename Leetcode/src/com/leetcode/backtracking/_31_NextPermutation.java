@@ -3,12 +3,12 @@ package com.leetcode.backtracking;
 public class _31_NextPermutation {
 
     /**
-     *  31. Next Permutation
-     *  When: 2019/04/30
-     *  Review1: 2019/7/16
-     *
+     * 31. Next Permutation
+     * When: 2019/04/30
+     * Review1: 2019/7/16
+     * review2:2019/10/13
      * solution:
-     * 从后往前找
+     * 从"后往前找"
      * 首先找到第一个小于后一个数的位置。
      * 然后这个位置如果不能找到，就把当前的进行翻转
      * 再寻找大于前面那个的第一个数
