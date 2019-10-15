@@ -3,13 +3,15 @@ package com.leetcode.binarySearch;
 public class _153_FindMinimumInRotatedSortedArray {
 
     /**
-     *  153. Find Minimum in Rotated Sorted Array
-     *  When: 2019/05/23
-     *  Review1: 2019/7/19
-     *
+     * 153. Find Minimum in Rotated Sorted Array
+     * When: 2019/05/23
+     * Review1: 2019/7/19
+     * review2:2019/10/14
+     * <p>
      * solution:
      * 标准的二分查找，但是需要找到inflection那个点
      * https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/solution/
+     *
      * @param nums
      * @return
      */
@@ -67,5 +69,20 @@ public class _153_FindMinimumInRotatedSortedArray {
         }
         if (nums[start] < nums[end]) return nums[start];
         else return nums[end];
+    }
+
+    public int findMin3(int[] nums) {
+        if (nums == null || nums.length == 0) return -1;
+        int left = 0;
+        int right = nums.length - 1;
+        while (left + 1 < right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] < nums[right]) { // 找到第一个小于right的值，其实就是一直找最小。
+                right = mid;
+            } else {
+                left = mid;
+            }
+        }
+        return Math.min(nums[left], nums[right]);
     }
 }

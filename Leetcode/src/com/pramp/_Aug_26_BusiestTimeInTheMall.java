@@ -1,6 +1,12 @@
 package com.pramp;
 
-public class BusiestTimeInTheMall {
+public class _Aug_26_BusiestTimeInTheMall {
+    /**
+     * 向前看比较i 与 i + 1
+     * 所以在等于数组最后一个元素的时候，需要可以比较前面的情况，并且完成。
+     * @param data
+     * @return
+     */
     static int findBusiestPeriod(int[][] data) {
         // your code goes here
         int timeStamp = data[0][0];

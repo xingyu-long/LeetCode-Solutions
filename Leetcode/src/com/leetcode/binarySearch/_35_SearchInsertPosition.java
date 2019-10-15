@@ -6,6 +6,7 @@ public class _35_SearchInsertPosition {
      * 35. Search Insert Position
      * When: 2019/05/22
      * Review1: 2019/7/17
+     * review2:2019/10/14
      * <p>
      * solution：使用二分查找法，最后return left即可
      *
