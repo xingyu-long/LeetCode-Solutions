@@ -13,56 +13,47 @@ public class _34_FindFirstAndLastPositionOfElementInSortedArray {
      * @param target
      * @return
      */
-    // 删除不好理解的情况
-    // time: O(logn) space:O(1)
-    public int[] searchRange2(int[] nums, int target) {
-        if (nums == null || nums.length == 0) {
-            return new int[]{-1, -1};
-        }
-        int left = findLeft(nums, target);
-        int right = findRight(nums, target);
-        if (left == -1 || right == -1) {
-            return new int[]{-1, -1};
-        } else {
-            return new int[]{left, right};
-        }
+    // time: O(logN) space:O(1)
+    public int[] searchRange(int[] nums, int target) {
+        if(nums == null || nums.length == 0) return new int[]{-1, -1};
+        int one = findFirst(nums, target);
+        int two = findLast(nums, target);
+        return new int[]{one, two};
     }
 
-    public int findLeft(int[] nums, int target) {
+    // 找到第一个等于或者大于target的位置。
+    public int findFirst(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
-        while (left <= right) {
+        while (left + 1 < right) {
             int mid = left + (right - left) / 2;
-            if (target == nums[mid]) {
-                if (mid == 0 || nums[mid - 1] < target) {
-                    return mid;
-                }
-                right = mid - 1;
-            } else if (target > nums[mid]) {
-                left = mid + 1;
+            if (nums[mid] >= target) {
+                right = mid;
             } else {
-                right = mid - 1;
+                left = mid;
             }
         }
+        // System.out.println("first: left = " + left + ", right = " + right);
+        if (nums[left] == target) return left;
+        if (nums[right] == target) return right;
         return -1;
     }
 
-    public int findRight(int[] nums, int target) {
+    // 找到第一个大于target的位置，肯定会有偏移，但这个只有1。
+    public int findLast(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
-        while (left <= right) {
+        while (left + 1 < right) {
             int mid = left + (right - left) / 2;
-            if (target == nums[mid]) {
-                if (mid == nums.length - 1 || nums[mid + 1] > target) {
-                    return mid;
-                }
-                left = mid + 1;
-            } else if (target > nums[mid]) {
-                left = mid + 1;
+            if (nums[mid] > target) {
+                right = mid;
             } else {
-                right = mid - 1;
+                left = mid;
             }
         }
+        // System.out.println("last: left = " + left + ", right = " + right);
+        if (nums[right] == target) return right;
+        if (nums[left] == target) return left;
         return -1;
     }
 }

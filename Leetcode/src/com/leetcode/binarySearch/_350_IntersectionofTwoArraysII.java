@@ -8,9 +8,10 @@ import java.util.List;
 public class _350_IntersectionofTwoArraysII {
 
     /**
-     *  350. Intersection of Two Arrays II
-     *  When: 2019/7/20
-     *  Difficulty: Easy
+     * 350. Intersection of Two Arrays II
+     * When: 2019/7/20
+     * review1:2019/10/15
+     * Difficulty: Easy
      * @param nums1
      * @param nums2
      * @return

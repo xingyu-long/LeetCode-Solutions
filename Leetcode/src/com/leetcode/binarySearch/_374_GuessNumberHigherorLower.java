@@ -7,7 +7,7 @@ public class _374_GuessNumberHigherorLower {
      * When: 2019/7/20
      *
      * solution:
-     * 使用template1，然后注意的是返回结果 my number代表的是pick那个数 而不是guess的数大小
+     * 使用template1，返回结果是 pick相对于现在刚好选中的数字的比较。 lower 表示 pick比我选中的低
      * @param n
      * @return
      */
@@ -25,6 +25,23 @@ public class _374_GuessNumberHigherorLower {
             }
         }
         return -1;
+    }
+
+
+    public int guessNumber2(int n) {
+        if (n < 1) return -1;
+        int left = 1;
+        int right = n;
+        while (left + 1 < right) {
+            int mid = left + (right - left) / 2;
+            if (guess(mid) == -1) { // 这个表示目标更小所以我们只需要缩小右边jie
+             right = mid;
+            } else {
+                left = mid;
+            }
+        }
+        if (guess(left) == 0) return left;
+        else return right;
     }
 
     // 防止编译器报错
