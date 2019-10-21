@@ -33,6 +33,8 @@ public class _5_LongestPalindromicSubstring {
 
     // 中心扩散法
     // time: O(n^2) space:O(1)
+    // 这里考虑到 内部回文一个的话 就是 i，i开始
+    // 如果回文内部是一对，则就是i, i + 1
     String res = "";
     public String longestPalindrome2(String s) {
         if (s == null || s.length() == 0) return "";
@@ -53,5 +55,10 @@ public class _5_LongestPalindromicSubstring {
         if (cur.length() > res.length()) {
             res = cur;
         }
+    }
+
+    public static void main(String[] args) {
+        String s = "01234";
+        System.out.println(s.substring(1,1));
     }
 }
