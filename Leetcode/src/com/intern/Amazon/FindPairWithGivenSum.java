@@ -36,11 +36,11 @@ public class FindPairWithGivenSum {
             if (!map.containsKey(left)) {
                 map.put(nums[i], i);
             } else {
-                int sum = i + map.get(left);
-                if (sum > max) {
+                int temp = Math.max(nums[i], left);
+                if (temp > max) {
                     first = i;
                     second = map.get(left);
-                    max = sum;
+                    max = temp;
                 }
             }
         }
@@ -51,7 +51,7 @@ public class FindPairWithGivenSum {
 
 
     public static void main(String[] args) {
-        int[] nums = new int[]{20, 50, 40, 25, 30, 10};
+        int[] nums = new int[]{40, 5, 20, 55, 1, 7};
         int target = 90;
         int[] res = findPair(nums, target);
         for (int num : res) {

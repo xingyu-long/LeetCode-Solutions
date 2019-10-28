@@ -10,7 +10,8 @@ public class _239_SlidingWindowMaximum {
     /**
      * 239. Sliding Window Maximum
      * when: 2019/03/26
-     *
+     * review1:10/22/2019
+     * <p>
      * 涉及到的数据结构：
      * deque
      * @param nums
@@ -22,24 +23,27 @@ public class _239_SlidingWindowMaximum {
         //solution2: deque Time: O(n) Space: O(n)
         // deque 存的是index 并且从大到小排列
         // https://www.youtube.com/watch?v=J6o_Wz-UGvc
-        if (nums == null || nums.length == 0){
-            return new int[0];
-        }
+        // corner cases.
+        if (nums == null || nums.length == 0 || k == 0) return new int[]{};
+
+        // store index (nums[index] in descending order)
         Deque<Integer> deque = new LinkedList<>();
+        // result array
         int[] res = new int[nums.length - k + 1];
-        for (int i = 0; i < nums.length; i++){
-            // 保持不能越界即k的大小；这种情况 [1, -1] k = 1会发生
-            if (!deque.isEmpty() && deque.peekFirst() == i - k){
+        // int index = 0;
+        for (int i = 0; i < nums.length; i++) {
+            // check if it out of bound (should be in  [i - (k-1), i] eg: i = 3, left:1)
+            while (!deque.isEmpty() && deque.peek() < i - k + 1) {
                 deque.poll();
             }
-            //这里具体的比较有点不太懂：这里主要就是保持递减的排序
-            // as long as nums[i] has value greater than deque, keep popping elements of deque
-            while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]){
-                deque.removeLast();
+            // pop it if this value is greater than the before.
+            while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
+                deque.pollLast();
             }
+
             deque.offer(i);
-            if (i >= k - 1){
-                res[i + 1 - k] = nums[deque.peek()];
+            if (i >= k - 1) {
+                res[i - k + 1] = nums[deque.peek()];
             }
         }
         return res;
@@ -57,14 +61,49 @@ public class _239_SlidingWindowMaximum {
             res.add(max);
         }
         int[] result = new int[res.size()];
-        for (int i  = 0; i < res.size(); i++){
-            result[i]=res.get(i);
+        for (int i = 0; i < res.size(); i++) {
+            result[i] = res.get(i);
         }
         return result;
     }
 
-        public static void main(String[] args){
-        int[] nums = new int[]{1,3,-1,-3,5,3,6,7};
+
+    // 可能求sliding window里min然后求最大
+    public int maxSlidingWindow3(int[] nums, int k) {
+        // corner cases.
+        if (nums == null || nums.length == 0 || k == 0) return Integer.MAX_VALUE;
+
+        // store index (nums[index] in descending order)
+        Deque<Integer> deque = new LinkedList<>();
+        // result array
+        int[] min = new int[nums.length - k + 1];
+        // int index = 0;
+        for (int i = 0; i < nums.length; i++) {
+            // check if it out of bound (should be in  [i - (k-1), i] eg: i = 3, left:1)
+            while (!deque.isEmpty() && deque.peek() < i - k + 1) {
+                deque.poll();
+            }
+            // pop it if this value is less than the before.
+            while (!deque.isEmpty() && nums[deque.peekLast()] > nums[i]) {
+                deque.pollLast();
+            }
+
+            deque.offer(i);
+            if (i >= k - 1) {
+                min[i - k + 1] = nums[deque.peek()];
+            }
+        }
+        // get max
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < nums.length - k + 1; i++) {
+            max = Math.max(max, min[i]);
+        }
+        System.out.println(max);
+        return max;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = new int[]{1, 3, -1, -3, 5, 3, 6, 7};
         int k = 3;
         maxSlidingWindow(nums, k);
     }

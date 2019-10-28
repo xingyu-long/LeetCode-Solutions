@@ -4,6 +4,7 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class KClosestPointstoOrigin {
+    //* 需要注意N=0和M=N的edge case.
     public int[][] kClosest(int[][] points, int K) {
         if (points == null || points.length == 0 ||
                 points[0] == null || points[0].length == 0) return new int[][]{{}};

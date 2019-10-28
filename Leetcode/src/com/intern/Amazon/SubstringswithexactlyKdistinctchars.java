@@ -7,6 +7,7 @@ import java.util.List;
 
 public class SubstringswithexactlyKdistinctchars {
 
+    // ** 有的变形内部是不能重复！
     public static int subarraysWithKDistinct(String s, int K) {
         // sliding window; at Most K的思路
         if (s == null || s.length() == 0) return 0;

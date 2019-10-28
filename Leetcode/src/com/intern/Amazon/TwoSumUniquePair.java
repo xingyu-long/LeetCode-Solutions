@@ -3,6 +3,7 @@ package com.intern.Amazon;
 import java.util.HashSet;
 
 public class TwoSumUniquePair {
+    // *
     public static int uniquePair(int[] nums, int target) {
         HashSet<Integer> set1 = new HashSet<>();
         HashSet<Integer> set2 = new HashSet<>();

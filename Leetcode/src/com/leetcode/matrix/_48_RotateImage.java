@@ -63,4 +63,19 @@ public class _48_RotateImage {
             }
         }
     }
+    // 关于rotate的题目。
+    public void rotateByLeftDiagonal(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            // 这里设置为j=i 是因为否则运行到后面 就会反转回来
+            for (int j = i; j < matrix[0].length; j++) {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
+            }
+        }
+    }
+
+    public void FlipByVertical(int[][] matrix) {
+
+    }
 }
