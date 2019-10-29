@@ -5,6 +5,15 @@ import java.util.List;
 
 public class _320_GeneralizedAbbreviation {
 
+    /**
+     * 320. Generalized Abbreviation
+     * time:10/14/2019
+     * review1:10/28/2019
+     *
+     * 记得画图出来理解整个过程
+     * @param word
+     * @return
+     */
     public static List<String> generateAbbreviations(String word) {
         if (word == null || word.length() == 0) return new ArrayList<>();
         List<String> res = new ArrayList<>();
@@ -33,7 +42,7 @@ public class _320_GeneralizedAbbreviation {
     }
 
     public static void main(String[] args) {
-        List<String> res = generateAbbreviations("word");
+        List<String> res = generateAbbreviations("abc");
         for (String str : res) {
             System.out.print(str + " ");
         }
