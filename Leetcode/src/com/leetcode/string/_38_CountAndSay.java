@@ -48,7 +48,8 @@ public class _38_CountAndSay {
             int count = 0; // 用来计当前的字符的数目
             StringBuilder sb = new StringBuilder();
             char c = res.charAt(0); // 获取第一个数作为比较的字符
-            for (int j = 0; j <= res.length(); j ++) {
+            // 这里设置为<= 只是为了把最后一次结果加入进去，因为我们这里是从前往后看
+            for (int j = 0; j <= res.length(); j++) {
                 if (j != res.length() && res.charAt(j) == c) {
                     count++;
                 } else {

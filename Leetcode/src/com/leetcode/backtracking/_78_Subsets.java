@@ -72,4 +72,19 @@ public class _78_Subsets {
         }
         return res;
     }
+
+
+    // 可以用选择当前或者不选择，然后用index到达length之后结束。
+    public void dfs2 (List<List<Integer>> res, List<Integer> cur, int[] nums, int index) {
+        if (index == nums.length) {
+            res.add(new ArrayList<>(cur));
+            return;
+        }
+        // 不选
+        dfs2(res, cur, nums, index + 1);
+        // 选
+        cur.add(nums[index]);
+        dfs2(res, cur, nums, index + 1);
+        cur.remove(cur.size() - 1);
+    }
 }

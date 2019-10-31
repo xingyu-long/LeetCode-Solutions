@@ -7,54 +7,89 @@ public class _490_TheMaze {
     /**
      * 490. The Maze
      * When:2019/10/4
+     * review1:10/29/2019
      * Difficulty: Medium
      * 利用BFS，主要是注意这个球的状态，不是每次走一步，而是不停。
-     * @param maze
-     * @param start
-     * @param destination
+     *
      * @return
      */
     // BFS
-    public boolean hasPath(int[][] maze, int[] start, int[] destination) {
-        boolean[][] visited = new boolean[maze.length][maze[0].length];
-        int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
-
-        Queue<Point> queue = new LinkedList<>();
-        queue.offer(new Point(start[0], start[1]));
-
-        // 循环周围，并且用while来表示球的状态
+    public static boolean hasPath2(int[][] board, int[] start, int[] end) {
+        if (board == null || board.length == 0 ||
+                board[0] == null || board[0].length == 0) {
+            return false;
+        }
+        Queue<int[]> queue = new LinkedList<>();
+        // define the directions 上,左,右,下
+        int[][] directions = {{-1, 0}, {0, -1}, {0, 1}, {1, 0}};
+//        int [][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+        // 标记数组？
+        boolean[][] visited = new boolean[board.length][board[0].length];
+        queue.offer(start);
         while (!queue.isEmpty()) {
-            Point cur = queue.poll();
-            visited[cur.x][cur.y] = true;
-            if (cur.x == destination[0] && cur.y == destination[1]) {
-                return true;
-            }
+            int[] curPoint = queue.poll();
+            visited[curPoint[0]][curPoint[1]] = true;
+            if (curPoint[0] == end[0] && curPoint[1] == end[1]) return true;
             for (int[] direction : directions) {
-                int newX = cur.x;
-                int newY = cur.y;
-                while (isValid(maze, newX + direction[0], newY + direction[1])) {
-                    newX += direction[0];
-                    newY += direction[1];
+                // 这里需要加一个每次的当前点！！！
+                int row = curPoint[0];
+                int col = curPoint[1];
+                while (isValid(board, row + direction[0], col + direction[1])) {
+                    row += direction[0];
+                    col += direction[1];
                 }
-                if (!visited[newX][newY]) {
-                    queue.offer(new Point(newX, newY));
+                if (!visited[row][col]) {
+                    queue.offer(new int[]{row, col});
                 }
             }
         }
         return false;
     }
-
-    private boolean isValid(int[][] maze, int x, int y) {
-        return x >= 0 && x < maze.length && y >= 0 && y < maze[0].length && maze[x][y] == 0;
-    }
-
-    class Point {
-        int x;
-        int y;
-
-        public Point(int x, int y) {
-            this.x = x;
-            this.y = y;
+    // 这里也是不用还原visited数组，因为这个递归就是栈，到上一层的时候就是自动还原了
+    public static boolean hasPath(int[][] board, int[] start, int[] end) {
+        if (board == null || board.length == 0 ||
+                board[0] == null || board[0].length == 0) {
+            return false;
         }
+        boolean[][] visited = new boolean[board.length][board[0].length];
+        // visited[start[0]][start[1]] = true;
+        return dfs(board, start[0], start[1], end, visited);
     }
+
+    public static boolean dfs(int[][] board, int row, int col, int[] end, boolean[][] visited) {
+        // 记住需要检查visited！！！！！！
+        if (!isValid(board, row, col) || visited[row][col]) return false;
+        visited[row][col] = true;
+        if (row == end[0] && col == end[1]) return true;
+        int[][] directions = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+        for (int[] direction : directions) {
+            int x = row;
+            int y = col;
+            while (isValid(board, x + direction[0], y + direction[1])) {
+                x += direction[0];
+                y += direction[1];
+            }
+            if (dfs(board, x, y, end, visited)) return true;
+        }
+        return false;
+    }
+
+    public static boolean isValid(int[][] board, int row, int col) {
+        return (row >= 0 && row < board.length && col >= 0 && col < board[0].length && board[row][col] == 0);
+    }
+
+
+    public static void main(String[] args) {
+        int[][] board = {{0, 0, 1, 0, 0},
+                {0, 0, 0, 0, 0},
+                {0, 0, 0, 1, 0},
+                {1, 1, 0, 1, 1},
+                {0, 0, 0, 0, 0}};
+        int[] start = {0, 4};
+        int[] end = {4, 4};
+        System.out.println(hasPath(board, start, end));
+//        System.out.println(hasPath2(board, start, end));
+    }
+
+
 }
