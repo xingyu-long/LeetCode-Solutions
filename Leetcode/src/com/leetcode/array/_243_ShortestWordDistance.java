@@ -6,6 +6,7 @@ public class _243_ShortestWordDistance {
      * When: 2019/03/18
      * Review1: 2019/7/4
      * review2: 2019/8/20
+     * review3: 10/31/2019
      */
     // solution2: 依然是n*n 的解法，具体思路跟上面一致，只是更加简单
     // time: O(n^2) space: O(1)

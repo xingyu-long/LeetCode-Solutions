@@ -112,4 +112,53 @@ public class _127_WordLadder {
         }
         return 0;
     }
+
+    // DFS, TLE
+    public static int res;
+    public static int ladderLength3(String beginWord, String endWord, List<String> wordList) {
+        if (wordList == null || wordList.size() == 0) return 0;
+        if (!wordList.contains(endWord)) return 0;
+        if (wordList.contains(beginWord)) wordList.remove(beginWord);
+        res = Integer.MAX_VALUE;
+        List<List<String>> resL = new ArrayList<>();
+        dfs(resL, new ArrayList<>(), beginWord, endWord, wordList, 1, new HashSet<>());
+        for (List<String> each : resL) {
+            System.out.println(each);
+        }
+        return res == Integer.MAX_VALUE ? 0 : res;
+    }
+
+    public static void dfs(List<List<String>> resL, List<String> list, String beginWord, String endWord, List<String> wordList, int level, HashSet<String> set) {
+
+        //string 比较是 .equals()
+        if (beginWord.equals(endWord)) {
+            resL.add(new ArrayList<>(list));
+            res = Math.min(res,level);
+        }
+        for (int i = 0; i < wordList.size(); i++) {
+            String word = wordList.get(i);
+            if (isValid(beginWord, word) && !set.contains(word)) {
+                list.add(word);
+                set.add(word);
+                dfs(resL, list, word, endWord, wordList, level + 1, set);
+                set.remove(word);
+                list.remove(word);
+            }
+        }
+    }
+    public static boolean isValid(String a, String b) {
+        if (a.length() != b.length()) return false;
+        int res = 0;
+        for (int i = 0; i < a.length(); i++) {
+            if (a.charAt(i) != b.charAt(i)) res++;
+        }
+        return res == 1;
+    }
+
+    public static void main(String[] args) {
+        String beginWord = "hot";
+        String endWord = "dog";
+        List<String> list = new ArrayList<>(Arrays.asList("hot","dog","dot"));
+        System.out.println(ladderLength3(beginWord, endWord, list));
+    }
 }

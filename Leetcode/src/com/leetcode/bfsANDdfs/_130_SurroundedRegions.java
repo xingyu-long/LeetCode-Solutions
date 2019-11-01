@@ -1,5 +1,8 @@
 package com.leetcode.bfsANDdfs;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class _130_SurroundedRegions {
 
     /**
@@ -12,8 +15,8 @@ public class _130_SurroundedRegions {
      * 将其置为1，然后循环，如果有1 最后就恢复O 其他是O的 就恢复成X
      * @param board
      */
-    //先检查第一行，最后一行，第一列，最后一列与0连接的情况，如果连接，那么最后结果依旧保持这些O，所以先转换为1暂存
-    // 然后扫描其他O这就是符合情况，可以转换为X 然后再把1 -> O 则正确！
+    // 本质不用visited数组，跟island一样
+    // 无法从border进去链接的O们，肯定会直接变成X，所以只需要查找与border连接的O将其转为'1'转存，然后循环，里面这些1就成O。里面的O就是X
     // time:O(n * m) space:O(n * m) ？？ 个调用 for stack
     public void solve(char[][] board) {
 
@@ -51,5 +54,60 @@ public class _130_SurroundedRegions {
         dfs(board, i, j - 1);
         dfs(board, i + 1, j);
         dfs(board, i - 1, j);
+    }
+
+
+    public void solve2(char[][] board) {
+        // how to flip? 如果有和边界链接的就 不管？
+        if (board == null || board.length == 0 ||
+                board[0] == null || board[0].length == 0) return;
+        for (int i = 0; i < board.length; i++) {
+            bfs(board, i, 0);
+            bfs(board, i, board[0].length - 1);
+        }
+
+        for (int i = 0; i < board[0].length; i++) {
+            bfs(board, 0, i);
+            bfs(board, board.length - 1, i);
+        }
+
+        // 遍历每一个元素，将1反转为O，O为X
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                if (board[i][j] == 'O') {
+                    board[i][j] = 'X';
+                } else if (board[i][j] == '1') {
+                    board[i][j] = 'O';
+                }
+            }
+        }
+    }
+
+    // BFS
+    public void bfs(char[][] board, int row, int col) {
+        if (board[row][col] == 'O') {
+            board[row][col] = '1';
+            Queue<int[]> queue = new LinkedList<>();
+            queue.offer(new int[]{row, col});
+            int[][] dirs = new int[][]{{-1, 0}, {0, -1}, {0, 1}, {1, 0}};
+            while (!queue.isEmpty()) {
+                int[] point = queue.poll();
+                for (int[] dir : dirs) {
+                    int x = point[0];
+                    int y = point[1];
+                    if (isValid(board, x + dir[0], y + dir[1])) {
+                        x += dir[0];
+                        y += dir[1];
+                        board[x][y] = '1';
+                        queue.offer(new int[]{x, y});
+                    }
+                }
+            }
+        }
+    }
+
+    public boolean isValid(char[][] board, int row, int col) {
+        if (row < 0 || row >= board.length || col < 0 || col >= board[0].length || board[row][col] != 'O') return false;
+        return true;
     }
 }
