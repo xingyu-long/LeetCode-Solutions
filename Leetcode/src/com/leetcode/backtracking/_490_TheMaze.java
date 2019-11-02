@@ -45,7 +45,6 @@ public class _490_TheMaze {
         }
         return false;
     }
-    // 这里也是不用还原visited数组，因为这个递归就是栈，到上一层的时候就是自动还原了
     public static boolean hasPath(int[][] board, int[] start, int[] end) {
         if (board == null || board.length == 0 ||
                 board[0] == null || board[0].length == 0) {

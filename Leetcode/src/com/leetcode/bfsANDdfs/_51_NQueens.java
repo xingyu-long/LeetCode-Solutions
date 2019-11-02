@@ -6,13 +6,15 @@ import java.util.List;
 public class _51_NQueens {
 
     /**
-     *  51. N-Queens
-     *  When: 2019/06/03
-     *  Review1: 2019/7/15
-     *
-     *  https://www.youtube.com/watch?v=wGbuCyNpxIg
+     * 51. N-Queens
+     * When: 2019/06/03
+     * Review1: 2019/7/15
+     * review2: 11/1/2019
+     * <p>
+     * https://www.youtube.com/watch?v=wGbuCyNpxIg
      * solution:
      * 利用backtracking（深度优先 DFS）
+     *
      * @param n
      * @return
      */

@@ -5,45 +5,42 @@ import java.util.List;
 
 
 public class _52_NQueensII {
-    int res = 0;
-
     /**
      * 52. N-Queens II
      * When: 2019/06/05
-     *
-     * solution: 跟之前的n queens解法一样，只是这里只是需要计数就行。
-     *
+     * review1:11/1/2019
+     * solution: 利用三个数组来进行判断
      * @param n
      * @return
      */
+    int res = 0;
+    // time:O(n * n) space:O(n)
     public int totalNQueens(int n) {
-        if (n <= 0) return 0;
-        helper(0, new ArrayList<Integer>(), n);
+        // 利用三个boolean array
+        boolean[] cols = new boolean[n];
+        boolean[] diagonalLeft = new boolean[2 * n]; // row - col 相同 '\'
+        boolean[] diagonalRight = new boolean[2 * n]; // row +  col 相同 '/'
+        dfs(n, cols, diagonalLeft, diagonalRight, 0);
         return res;
     }
-
-    public void helper(int row, List<Integer> colPlacements, int n) {
+    // https://leetcode.wang/leetCode-52-N-QueensII.html 看里面的图
+    public void dfs(int n, boolean[] cols, boolean[] diagonalLeft, boolean[] diagonalRight, int row) {
         if (row == n) {
             res++;
+            return;
         } else {
-            for (int col = 0; col < n; col++) {
-                colPlacements.add(col);
-                if (isValid(colPlacements)) {
-                    helper(row + 1, colPlacements, n);
-                }
-                colPlacements.remove(colPlacements.size() - 1);
+            for (int col = 0; col < n; col++) { // 同一列这种情况永远不会出现！因为直接去了下一行里面
+                int d1 = row - col + n;//防止是负数
+                int d2 = row + col;
+                if (cols[col] || diagonalLeft[d1] || diagonalRight[d2]) continue;
+                cols[col] = true;
+                diagonalLeft[d1] = true;
+                diagonalRight[d2] = true;
+                dfs(n, cols, diagonalLeft, diagonalRight, row + 1);
+                cols[col] = false;
+                diagonalLeft[d1] = false;
+                diagonalRight[d2] = false;
             }
         }
-    }
-
-    public boolean isValid(List<Integer> colPlacements) {
-        int currentRow = colPlacements.size() - 1;
-        for (int i = 0; i < currentRow; i++) {
-            int diff = Math.abs(colPlacements.get(i) - colPlacements.get(currentRow));
-            if (diff == 0 || diff == Math.abs(i - currentRow)) {
-                return false;
-            }
-        }
-        return true;
     }
 }
