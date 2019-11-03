@@ -3,6 +3,7 @@ package com.ctci.TreesAndGraphs;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class CycleInGraph {
 
@@ -33,12 +34,37 @@ public class CycleInGraph {
         return false;
     }
 
+    public boolean bfs() {
+        // calculate indegree.
+        int[] indegree = new int[number];
+        for (int i = 0; i < number; i++) {
+            for (int num : adj.get(i)) {
+                indegree[num]++;
+            }
+        }
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < indegree.length; i++) {
+            if (indegree[i] == 0) {
+                queue.offer(i);
+            }
+        }
+        int count = number;
+        while (!queue.isEmpty()) {
+            int cur = queue.poll();
+            count--;
+            for (int adj : adj.get(cur)) {
+                indegree[adj]--;
+                if (indegree[adj] == 0) queue.offer(adj);
+            }
+        }
+        return count != 0; // 表示有环。
+    }
     public void addEdge(int s, int d) {
         adj.get(s).add(d);
     }
 
     public boolean isCycle() {
-        boolean[] visited = new boolean[this.number];
+        boolean[] visited = new boolean[this.number]; // 这个不会backtracking！而是全程记录。
         boolean[] inStack = new boolean[this.number];
 
         for (int i = 0; i < number; i++) {
@@ -57,6 +83,6 @@ public class CycleInGraph {
         cycle.addEdge(2, 0);
         cycle.addEdge(2, 3);
         cycle.addEdge(3, 3);
-        System.out.println(cycle.isCycle());
+        System.out.println(cycle.bfs());
     }
 }

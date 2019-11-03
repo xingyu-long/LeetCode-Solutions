@@ -110,4 +110,11 @@ public class _130_SurroundedRegions {
         if (row < 0 || row >= board.length || col < 0 || col >= board[0].length || board[row][col] != 'O') return false;
         return true;
     }
+
+    // 如果遇到相反的情况，0包围1
+    // 0 0 1 0 0     0 0 1 0 0
+    // 0 1 0 1 0 ->  0 1 1 1 0
+    // 0 1 0 1 0     0 1 1 1 0
+    // 0 0 1 0 0     0 0 1 0 0
+    // 一样的思路，从四边出发遇到0以及相连的就变成2之后将其他没有受关联的0转为1，然后再讲2转为0
 }

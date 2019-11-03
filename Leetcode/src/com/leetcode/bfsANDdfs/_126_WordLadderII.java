@@ -87,6 +87,7 @@ public class _126_WordLadderII {
                 dfs(res, list, map, s, beginWord);
             }
         }
+        // 记住前者是add在第零个位置，也需要在这里删除。
         list.remove(0);
     }
 }

@@ -1,11 +1,11 @@
 package com.leetcode.quickUnion;
 
-public class quickUnion {
+public class UnionFind {
 
     private int[] id;
     private int[] size;
 
-    public quickUnion(int n) {
+    public UnionFind(int n) {
         id = new int[n];
         size = new int[n];
         for (int i = 0; i < n; i++) {
@@ -25,6 +25,7 @@ public class quickUnion {
     public void union(int p, int q) {
         int pRoot = root(p);
         int qRoot = root(q);
+        if (pRoot == qRoot) return;
         if (size[pRoot] > size[qRoot]) {
             id[qRoot] = pRoot;
             size[pRoot] += size[qRoot];
@@ -39,5 +40,21 @@ public class quickUnion {
             res = Math.max(res, num);
         }
         return res;
+    }
+
+    public int[] getId() {
+        return id;
+    }
+
+    public void setId(int[] id) {
+        this.id = id;
+    }
+
+    public int[] getSize() {
+        return size;
+    }
+
+    public void setSize(int[] size) {
+        this.size = size;
     }
 }

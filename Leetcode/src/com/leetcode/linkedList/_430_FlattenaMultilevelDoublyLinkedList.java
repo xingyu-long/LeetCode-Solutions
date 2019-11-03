@@ -1,5 +1,7 @@
 package com.leetcode.linkedList;
 
+import java.util.Stack;
+
 public class _430_FlattenaMultilevelDoublyLinkedList {
 
     public class Node {
@@ -26,6 +28,8 @@ public class _430_FlattenaMultilevelDoublyLinkedList {
      * @param head
      * @return
      */
+
+    // 都需要考虑到cur.next是否为空，如果为空，后面就不需要连接
     public Node flatten(Node head) {
         // 相当于每一层先计算一层一层连接
         if (head == null) return null;
@@ -47,6 +51,29 @@ public class _430_FlattenaMultilevelDoublyLinkedList {
             cur.child.prev = cur;
             cur.child = null;
         }
+        return head;
+    }
+
+    // 利用stack记录
+    public Node flatten2(Node head) {
+        if (head == null) return null;
+        Node curt = head;
+        Stack<Node> stack = new Stack<>(); // store curt.next when curt.child is not null
+
+        while(curt != null) {
+            if(curt.child != null) {
+                stack.push(curt.next); // might be null
+                curt.next = curt.child;
+                curt.next.prev = curt;
+                curt.child = null;
+            } else if(curt.next == null && !stack.isEmpty()) { // reach of tail of child, reconnet the next of parent
+                curt.next = stack.pop();
+                if(curt.next != null) curt.next.prev = curt;
+            }
+
+            curt = curt.next;
+        }
+
         return head;
     }
 }

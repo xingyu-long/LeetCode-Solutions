@@ -1,6 +1,6 @@
 package com.leetcode.array;
 
-import com.leetcode.quickUnion.quickUnion;
+import com.leetcode.quickUnion.UnionFind;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -50,7 +50,7 @@ public class _128_LongestConsecutiveSequence {
     public static int longestConsecutive2(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
         // 利用hashmap记录坐标值（这个用来后面连接使用）
-        quickUnion uf = new quickUnion(nums.length);
+        UnionFind uf = new UnionFind(nums.length);
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             if (map.containsKey(nums[i])) continue; // 移除 duplicate

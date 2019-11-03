@@ -13,7 +13,7 @@ public class _207_CourseSchedule {
      * review1:2019/9/11
      * <p>
      * solution:使用BFS实现
-     * 可以使用dfs，类似于检查图是否有cycle
+     * 可以使用dfs，类似于检查图是否有cycle 这里是类似于有向图！
      * @param numCourses
      * @param prerequisites
      * @return
