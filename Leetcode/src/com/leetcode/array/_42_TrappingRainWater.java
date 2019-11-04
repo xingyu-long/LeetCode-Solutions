@@ -5,7 +5,7 @@ public class _42_TrappingRainWater {
     /**
      * 42. Trapping Rain Water
      * when: 2019/03/25
-     *
+     * review1:11/3/2019
      * solution: two-pointer
      * 分别设置左右max，然后与当前的进行相差则就是对应的乘水量
      * @param height
@@ -18,6 +18,7 @@ public class _42_TrappingRainWater {
         int right = height.length - 1;
         int leftMax = 0;
         int rightMax = 0;
+        // 先计算最大，然后减去当前（最大后面就会保持住！）
         while (left < right){
             if (height[left] < height[right]){
                 leftMax = Math.max(leftMax, height[left]);

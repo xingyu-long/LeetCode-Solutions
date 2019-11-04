@@ -6,21 +6,21 @@ import java.util.HashSet;
 public class _3_LongestSubstringWithoutRepeatingCharacters {
 
     /**
-     *  3. Longest Substring Without Repeating Characters
-     *  When: 2019/04/11
-     *  Review1: 2019/7/22
-     *
-     *
+     * 3. Longest Substring Without Repeating Characters
+     * When: 2019/04/11
+     * Review1: 2019/7/22
+     * review2: 11/3/2019
+     * <p>
      * solution:
      * 1. 利用hashMap<Character, Integer> 存储其值，
      * 当遇到相同的字符的时候就把原来的value+1，移动在重复字符的位置后面一位
      * 从那个位置算起 然后有个 i - j + 1个长度
      *
-     *
      * @param s
      * @return
      */
 
+    // 可以利用hashMap, set, int[] 来标记
     // time: O(n) space:O(n) 利用hashmap然后决定begin的位置
     public int lengthOfLongestSubstring(String s) {
         if (s == null || s.length() == 0) return 0;
@@ -104,5 +104,25 @@ public class _3_LongestSubstringWithoutRepeatingCharacters {
             max = Math.max(max, end - start + 1);
         }
         return max;
+    }
+
+    // 利用数组来做。比较经典！
+    public int lengthOfLongestSubstring5(String s) {
+        if (s == null || s.length() == 0) return 0;
+        int[] counter = new int[128];
+        int start = 0;
+        int end = 0;
+        int res = 0;
+        while (end < s.length()) {
+            int pos = s.charAt(end);
+            counter[pos]--;
+            while (counter[pos] < -1) {
+                counter[s.charAt(start)]++;
+                start++;
+            }
+            end++;
+            res = Math.max(res, end - start);
+        }
+        return res;
     }
 }

@@ -63,6 +63,32 @@ public class _159_LongestSubstringwithAtMostTwoDistinctCharacters {
         }
         return res;
     }
+
+    // 写成这样更好写。
+    public static String getStringNoMoreTwoDistinct(String s) {
+        if (s == null || s.length() == 0) return "";
+        int[] counter = new int[128];
+        int end = 0;
+        int start = 0;
+        int num = 0;
+        int max = 0;
+        String res = "";
+        while (end < s.length()) {
+            if (counter[s.charAt(end)]++ == 0) num++;
+            while (num > 2) {
+                counter[s.charAt(start)]--;
+                if (counter[s.charAt(start)] == 0) num--;
+                start++;
+            }
+            end++;
+            if (end - start > max) {
+                max = end - start;
+                res = s.substring(start, end);
+            }
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
         lengthOfLongestSubstringTwoDistinct("ccaabb");
     }
