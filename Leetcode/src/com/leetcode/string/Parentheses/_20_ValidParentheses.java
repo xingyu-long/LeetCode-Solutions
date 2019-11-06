@@ -6,6 +6,7 @@ public class _20_ValidParentheses {
     /**
      * 20. Valid Parentheses
      * When: 2019/8/9
+     * review1: 11/4/2019
      * Difficulty: Easy
      * solution: 利用stack，后面pop出来然后比较
      * @param s

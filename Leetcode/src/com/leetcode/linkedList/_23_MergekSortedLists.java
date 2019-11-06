@@ -29,7 +29,7 @@ public class _23_MergekSortedLists {
         ListNode cur = dummy;
 
         for (ListNode list : lists) {
-            if (list != null) {
+            if (list != null) { // 这里需要判断是否为空，防止[[]]这样的情况
                 pq.add(list);
             }
         }

@@ -6,7 +6,7 @@ public class _238_ProductofArrayExceptSelf {
 
     /**
      * 238. Product of Array Except Self
-     * When:
+     * Time:27-Mar  21-Jun	4-Nov
      *
      * example:
      * [      1     |    a0   |  a0 * a1 | a0 * a1 * a2]

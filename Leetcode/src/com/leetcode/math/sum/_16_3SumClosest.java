@@ -17,6 +17,7 @@ public class _16_3SumClosest {
      */
     // time: O(n^2)
     // space: O(1)
+    // 其实不用处理duplicate的情况，因为那时候不会小于diff所以不会有影响。
     public int threeSumClosest(int[] nums, int target) {
         if (nums == null || nums.length == 0) return 0;
         Arrays.sort(nums);

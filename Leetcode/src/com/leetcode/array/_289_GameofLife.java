@@ -3,9 +3,11 @@ package com.leetcode.array;
 public class _289_GameofLife {
 
     /**
-     *  289. Game of Life
-     *  When:2019/8/4
-     *  Difficulty: Medium
+     * 289. Game of Life
+     * When:2019/8/4
+     * review1:11/4/2019
+     * Difficulty: Medium
+     *
      * @param board
      */
     // time:O(m * n) space:O(m * n)
@@ -17,7 +19,7 @@ public class _289_GameofLife {
         int m = board.length;
         int n = board[0].length;
 
-        int[][] copyBoard =  new int[m][n];
+        int[][] copyBoard = new int[m][n];
         // copy original data
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {

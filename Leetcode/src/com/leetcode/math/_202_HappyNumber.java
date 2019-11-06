@@ -11,6 +11,7 @@ public class _202_HappyNumber {
      * @param n
      * @return
      */
+    // 如果是unhappy number最后会重复
     public boolean isHappy(int n) {
         HashSet<Integer> set = new HashSet<>();
         int squareSum, remain;

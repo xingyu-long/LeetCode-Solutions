@@ -23,6 +23,7 @@ public class _140_WordBreakII {
         return dfs(s, wordDict, 0, map);
     }
 
+//    https://www.youtube.com/watch?v=pYKGRZwbuzs
     public static List<String> dfs(String s, List<String> wordDict, int start, HashMap<Integer, List<String>> map) {
         if (map.containsKey(start)) {
             return map.get(start);

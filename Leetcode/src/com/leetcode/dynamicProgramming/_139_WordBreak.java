@@ -6,10 +6,10 @@ import java.util.stream.StreamSupport;
 public class _139_WordBreak {
 
     /**
-     *  139. Word Break
-     *  When: 2019/05/03
-     *  Review1: 2019/7/31
-     *
+     * 139. Word Break
+     * When: 2019/05/03
+     * Review1: 2019/7/31
+     * review2: 11/4/2019
      * solution:
      * 利用动态规划，转移方程就是dp[j] && wordDict.contains(s.substring(j, i)) 则更新，因为这样就是从上一个有效的dp[j]开始
      * 前一个dp[j] 成立，就是下一个(j,i)的开始
@@ -18,23 +18,24 @@ public class _139_WordBreak {
      * length + 1 = 9
      * dp[0] = true;
      * (1) i = 1
-     *    j = 0; j < 1; 不满足contains
+     * j = 0; j < 1; 不满足contains
      * (2) i = 2
-     *    j = 0; j < 2; 不满足contains
+     * j = 0; j < 2; 不满足contains
      * (3) i = 3
-     *    j = 0; j < 3; 不满足contains
+     * j = 0; j < 3; 不满足contains
      * (4) i = 4
-     *    j = 0; j < 4; 当 i = 4的时候 则截取出leet这个词 所以dp[4] = true;
+     * j = 0; j < 4; 当 i = 4的时候 则截取出leet这个词 所以dp[4] = true;
      * (5) i = 5
-     *    j = 0; j < 5; 不满足contains
+     * j = 0; j < 5; 不满足contains
      * (6) i = 6
-     *    j = 0; j < 6; 不满足contains
+     * j = 0; j < 6; 不满足contains
      * (7) i = 7
-     *    j = 0; j < 7; 不满足contains
+     * j = 0; j < 7; 不满足contains
      * (8) i = 8
-     *    j = 0; j < 8; 当i = 8的时候 则截取出code这个词语 j = 4 dp[8] = true;
-     *
+     * j = 0; j < 8; 当i = 8的时候 则截取出code这个词语 j = 4 dp[8] = true;
+     * <p>
      * 这里也有子问题 则就是 只有当  j = 4 这样的时候才能得到 dp[8]的结果
+     *
      * @param s
      * @param wordDict
      * @return
@@ -72,7 +73,6 @@ public class _139_WordBreak {
         if (map.containsKey(s)) return map.get(s);
         for (int i = 1; i < s.length(); i++) {
             if (wordDict.contains(s.substring(i)) && dfs(s.substring(0, i), wordDict, map)) {
-//                System.out.println(s.substring(0, i));
                 map.put(s, true);
                 return true;
             }
@@ -92,7 +92,10 @@ public class _139_WordBreak {
         return bfs(s, dict);
     }
 
-    // 这个的思路和DP一直，找出第一个符合的字串，然后从那里出发，继续找
+    // 这个的思路和DP一样，找出第一个符合的字串，然后从那里出发，继续找
+    // 从第一个出发，然后找到第一个符合的单词，之后继续出发
+    // DP是在每次的i范围中找catsandog来理解 continue跳过了哪些。
+    // 利用那个""
     public static boolean bfs(String s, Set<String> dict) {
         if (dict.contains(s)) return true;
         Queue<Integer> queue = new LinkedList<>();
@@ -112,6 +115,7 @@ public class _139_WordBreak {
         }
         return false;
     }
+
     public static void main(String[] args) {
         String s = "catsanddog";
         List<String> wordDict = new ArrayList<>();
