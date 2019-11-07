@@ -46,7 +46,7 @@ public class _297_SerializeandDeserializeBinaryTree {
     }
 
     // Decodes your encoded data to tree.
-    public TreeNode deserialize(String data) {
+    public static TreeNode deserialize(String data) {
         if (data == null || data.length() == 0) return null;
         String[] strs = data.split(",");
         TreeNode head = new TreeNode(Integer.parseInt(strs[0]));
@@ -67,5 +67,9 @@ public class _297_SerializeandDeserializeBinaryTree {
             index++;
         }
         return head;
+    }
+
+    public static void main(String[] args) {
+        deserialize("1,3,null,4,null,null");
     }
 }

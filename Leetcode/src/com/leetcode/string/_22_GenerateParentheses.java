@@ -6,10 +6,12 @@ import java.util.List;
 public class _22_GenerateParentheses {
 
     /**
-     *  22. Generate Parentheses
-     *  When:2019/7/15
-     *  solution:
-     *  使用backtracking，主要是看左右两边均为0的情况则属于合法
+     * 22. Generate Parentheses
+     * When:2019/7/15
+     * review1:11/6/2019
+     * solution:
+     * 使用backtracking，主要是看左右两边均为0的情况则属于合法
+     *
      * @param n
      * @return
      */

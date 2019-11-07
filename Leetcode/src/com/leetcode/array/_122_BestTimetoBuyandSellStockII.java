@@ -3,13 +3,14 @@ package com.leetcode.array;
 public class _122_BestTimetoBuyandSellStockII {
 
     /**
-     *  122. Best Time to Buy and Sell Stock II
-     *  when: 2019/03/21
-     *  Review1: 2019/7/8
-     *
-        solution1 :
-        (1) Peak Valley 方法：相当于寻找每一个连续的valley和peak 然后算出profit再加在一起
-        (2) 跟上面其实一样，只需要关注连续的部分即可
+     * 122. Best Time to Buy and Sell Stock II
+     * when: 2019/03/21
+     * Review1: 2019/7/8
+     * review2: 11/6/2019
+     * <p>
+     * solution1 :
+     * (1) Peak Valley 方法：相当于寻找每一个连续的valley和peak 然后算出profit再加在一起
+     * (2) 跟上面其实一样，只需要关注连续的部分即可
      *
      * @param prices
      * @return
@@ -39,12 +40,12 @@ public class _122_BestTimetoBuyandSellStockII {
 
     // time:O(n) space:O(1)
     public int maxProfit2(int[] prices) {
-          if (prices == null || prices.length < 2) return 0;
-          int maxprofit = 0;
-          for (int i = 1; i < prices.length; i++){
-               if(prices[i] > prices[i - 1])
-                   maxprofit += prices[i] - prices[i - 1];
-          }
-          return maxprofit;
+        if (prices == null || prices.length < 2) return 0;
+        int maxprofit = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > prices[i - 1])
+                maxprofit += prices[i] - prices[i - 1];
+        }
+        return maxprofit;
     }
 }

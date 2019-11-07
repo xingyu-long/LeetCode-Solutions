@@ -40,13 +40,11 @@ public class _300_LongestIncreasingSubsequence {
         dp[0] = 1;
         int res = 1;
         for (int i = 1; i < dp.length; i++) {
-            int max = 0;
             for (int j = 0; j < i; j++) {
                 if (nums[i] > nums[j]) { //表示前面有可以选择的
-                    max = Math.max(max, dp[j]);
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
             }
-            dp[i] = max + 1; // 加入当前i这种情况
             res = Math.max(res, dp[i]);
         }
         return res;

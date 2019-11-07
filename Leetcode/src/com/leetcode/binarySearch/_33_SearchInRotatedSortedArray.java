@@ -8,6 +8,7 @@ public class _33_SearchInRotatedSortedArray {
      * When: 2019/05/22
      * Review1:2019/7/18
      * review2:2019/10/14
+     * review3:11/6/2019
      * solution:
      * 首先找到最小的点，然后判断target在哪个部分里面
      *

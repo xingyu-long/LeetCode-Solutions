@@ -3,8 +3,9 @@ package com.leetcode.array;
 public class _334_IncreasingTripletSubsequence {
 
     /**
-     *  334. Increasing Triplet Subsequence
-     *  When:2019/8/2
+     * 334. Increasing Triplet Subsequence
+     * When:2019/8/2
+     * review1: 11/6/2019
      *
      * @param nums
      * @return
@@ -37,6 +38,29 @@ public class _334_IncreasingTripletSubsequence {
             if (num <= min) min = num;
             else if (num < secondMin) secondMin = num;
             else if (num > secondMin) return true;
+        }
+        return false;
+    }
+
+    //https://www.cnblogs.com/grandyang/p/5194599.html
+    // 利用forward（记录0,i之间最小的数）和backward（i，n之间最大的数）来记录，
+    public boolean increasingTriplet3(int[] nums) {
+        if (nums == null || nums.length == 0) return false;
+        int n = nums.length;
+        int[] forward = new int[n];
+        int[] backward = new int[n];
+        forward[0] = nums[0];
+        backward[n - 1] = nums[n - 1];
+        for (int i = 1; i < n; i++) {
+            forward[i] = Math.min(nums[i], forward[i - 1]);
+        }
+
+        for (int i = n - 2; i >= 0; i--) {
+            backward[i] = Math.max(nums[i], backward[i + 1]);
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (nums[i] > forward[i] && nums[i] < backward[i]) return true;
         }
         return false;
     }
