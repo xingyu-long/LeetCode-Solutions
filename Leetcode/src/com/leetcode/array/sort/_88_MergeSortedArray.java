@@ -29,4 +29,32 @@ public class _88_MergeSortedArray {
         }
         // 因为如果nums2里面大些，肯定都会交换，并且nums1那些小的默认留下来了
     }
+
+    // 典型的merge sort这里的total已经--了
+    public static void merge2(int[] nums1, int m, int[] nums2, int n) {
+        if (nums1 == null || nums1.length == 0) return;
+        if (nums2 == null || nums2.length == 0) return;
+        int total = m + n;
+        total--;
+        m--;
+        n--;
+        while (total >= 0 && m >= 0 && n >= 0) {
+            nums1[total] = (nums2[n] >= nums1[m]) ? nums2[n--] : nums1[m--];
+            total--;
+        }
+        while (n >= 0 && total >= 0) {
+            nums1[total--] = nums2[n--];
+        }
+        while (m >= 0 && total >= 0) {
+            nums1[total--] = nums1[m--];
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] num1 = new int[]{1,2,3,0,0,0};
+        int[] num2 = new int[]{2,5,6};
+        int m = 3;
+        int n = 3;
+        merge2(num1, m, num2, n);
+    }
 }

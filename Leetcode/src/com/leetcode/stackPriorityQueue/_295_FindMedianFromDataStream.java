@@ -3,11 +3,12 @@ package com.leetcode.stackPriorityQueue;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class  _295_FindMedianFromDataStream {
+public class _295_FindMedianFromDataStream {
 
     /**
      *  295. Find Median From Data Stream
      *  When:2019/7/12
+     *  review1:11/17/2019
      *  Difficulty: Hard
      *  Solution:
      *    two heaps
@@ -28,6 +29,7 @@ public class  _295_FindMedianFromDataStream {
         });
     }
 
+    // 最开始会有一个初始化问题，需要插入！
     public void addNum(int num) {
         if (maxHeap.isEmpty()) {
             maxHeap.add(num);

@@ -7,7 +7,7 @@ public class _227_BasicCalculatorII {
         if (s == null || s.length() == 0) return 0;
         Stack<Integer> stack = new Stack<>();
         int res = 0;
-        char sign = '+';
+        char sign = '+';// 一开始就有一个'+'
         int num = 0;
         for (int i = 0; i < s.length(); i++) {
             if (Character.isDigit(s.charAt(i))) {

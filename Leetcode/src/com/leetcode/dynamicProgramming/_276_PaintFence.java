@@ -22,6 +22,9 @@ public class _276_PaintFence {
      * @param k
      * @return
      */
+    // 一步一步的推导，发现当前的要和前面相同的话,需要的是前一个步骤不同的情况。
+    // 发现当前的要和前面不同的话，那就是之前的总和 * (k-1)
+    // 记住只考虑当前和之前一个的颜色，所以才可以用k-1。
     public int numWays(int n, int k) {
         if (n == 0) return 0;
         if (n == 1) return k;

@@ -44,4 +44,33 @@ public class _43_MultiplyStrings {
         }
         return res.length() == 0 ? "0": res.toString();
     }
+
+    // 看起来更加清晰。
+    public String multiply2(String num1, String num2) {
+        if (num1 == null || num1.length() == 0 ||
+                num2 == null || num2.length() == 0) {
+            return "";
+        }
+        int[] digits = new int[num1.length() + num2.length()];
+        for (int i = num1.length() - 1; i >= 0; i--) {
+            for (int j = num2.length() - 1; j >= 0; j--) {
+                int prod = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
+                // position
+                int carry = i + j; // 每次在前面一个
+                int remain = i + j + 1;
+                int sum = prod + digits[remain];
+                digits[carry] += sum / 10;
+                digits[remain] = sum % 10; // 这里不是加，因为前面已经算过sum了
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        int index = 0;
+        for ( ; index < digits.length; index++) {
+            if (digits[index] != 0) break;
+        }
+        while (index < digits.length) {
+            sb.append(digits[index++]);
+        }
+        return sb.length() == 0 ? "0" : sb.toString();
+    }
 }

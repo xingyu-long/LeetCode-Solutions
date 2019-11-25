@@ -30,7 +30,7 @@ public class _72_EditDistance {
      * @return
      */
     // time:O(m * n) space:O(m * n)
-    public int minDistance(String word1, String word2) {
+    public static int minDistance(String word1, String word2) {
         int len1 = word1.length();
         int len2 = word2.length();
 
@@ -51,8 +51,16 @@ public class _72_EditDistance {
                 } else {
                     dp[i][j] = Math.min(dp[i][j - 1] + 1, Math.min(dp[i -1][j] + 1, dp[i - 1][j - 1] + 1));
                 }
+                System.out.print("dp[" + i + "][" + j + "] = " + dp[i][j] + " ");
             }
+            System.out.println();
         }
         return dp[len1][len2];
+    }
+
+    public static void main(String[] args) {
+        String word1 = "horse";
+        String word2 = "ros";
+        minDistance(word1, word2);
     }
 }

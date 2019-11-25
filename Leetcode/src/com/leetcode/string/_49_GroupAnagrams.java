@@ -8,13 +8,15 @@ import java.util.List;
 public class _49_GroupAnagrams {
 
     /**
-     *  49. Group Anagrams
-     *  When: 2019/03/28
-     *  Review1:2019/7/21
+     * 49. Group Anagrams
+     * When: 2019/03/28
+     * Review1:2019/7/21
+     * review2: 11/7/2019
      * solution:
-     *
+     * <p>
      * 涉及到的数据结构：
      * ArrayList<>(), Arrays.sort(), map.containsKey(),list.add
+     *
      * @param strs
      * @return
      */
@@ -25,11 +27,11 @@ public class _49_GroupAnagrams {
         if (strs == null || strs.length == 0) return res;
         HashMap<String, Integer> map = new HashMap<>();
 
-        for (String str: strs){
+        for (String str : strs) {
             char[] arrStr = str.toCharArray();
             Arrays.sort(arrStr);
             String sortStr = new String(arrStr);
-            if (map.containsKey(sortStr)){
+            if (map.containsKey(sortStr)) {
                 // 表示已经有相同的排序元素了，然后使用map得到这个在res的坐标 然后插入这个list中
                 List<String> list = res.get(map.get(sortStr));
                 list.add(str);
@@ -45,19 +47,19 @@ public class _49_GroupAnagrams {
     }
 
 
-     // counting sort 的思想 利用跟字符的相差来记录每个字符的个数并且进行类似排序操作
-     // time: O(m * n) space: O(n)
+    // counting sort 的思想 利用跟字符的相差来记录每个字符的个数并且进行类似排序操作
+    // time: O(m * n) space: O(n)
     public List<List<String>> groupAnagrams2(String[] strs) {
         HashMap<String, List<String>> map = new HashMap<>();
-        for (String str: strs) {
+        for (String str : strs) {
             int[] count = new int[26]; // 用来记录每个单词对应的个数
-            for (Character ch: str.toCharArray()) {
+            for (Character ch : str.toCharArray()) {
                 count[ch - 'a']++;
             }
             String s = "";
             for (int i = 0; i < count.length; i++) {
                 if (count[i] != 0) {
-                    s += String.valueOf(count[i]) + String.valueOf((char)(i + 'a'));
+                    s += String.valueOf(count[i]) + String.valueOf((char) (i + 'a'));
                 }
             }
 

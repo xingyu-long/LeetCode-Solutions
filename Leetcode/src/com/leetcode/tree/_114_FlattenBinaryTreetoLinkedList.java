@@ -41,6 +41,7 @@ public class _114_FlattenBinaryTreetoLinkedList {
         if (root.left == null) return; //表明左边已经排好了
 
         TreeNode left = root.left;
+        // 这一步需要找到最右边的那个。
         while (left.right != null) {
             left = left.right;// 走到左子树的叶子节点
         }

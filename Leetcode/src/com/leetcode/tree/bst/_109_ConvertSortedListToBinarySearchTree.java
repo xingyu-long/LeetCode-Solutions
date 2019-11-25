@@ -106,7 +106,7 @@ public class _109_ConvertSortedListToBinarySearchTree {
             slow = slow.next;
         }
         TreeNode root = new TreeNode(slow.val);
-        root.left = toBST(head, slow); // 这里这里没有用prev
+        root.left = toBST(head, slow); // 这里没有用prev
         root.right = toBST(slow.next, tail);
         return root;
     }

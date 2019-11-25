@@ -3,12 +3,14 @@ package com.leetcode.binarySearch;
 public class _300_LongestIncreasingSubsequence {
 
     /**
-     *  300. Longest Increasing Subsequence
-     *  When:2019/7/21
-     *  review1:2019/10/17
-     *  solution:
-     *  1. DP 记得保存前面的情况
-     *  2.
+     * 300. Longest Increasing Subsequence
+     * When:2019/7/21
+     * review1:2019/10/17
+     * review2: 11/7/2019
+     * solution:
+     * 1. DP 记得保存前面的情况
+     * 2.
+     *
      * @param nums
      * @return
      */
@@ -18,6 +20,7 @@ public class _300_LongestIncreasingSubsequence {
         if (nums == null || nums.length == 0) return 0;
         return lengthOfLIS(nums, Integer.MIN_VALUE, 0);
     }
+
     // https://www.youtube.com/watch?v=fV-TF4OvZpk
     public int lengthOfLIS(int[] nums, int prev, int index) {
         if (index == nums.length) {

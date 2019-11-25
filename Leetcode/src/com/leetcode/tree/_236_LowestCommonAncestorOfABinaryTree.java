@@ -36,6 +36,8 @@ public class _236_LowestCommonAncestorOfABinaryTree {
      * @param q
      * @return
      */
+    // 暴力解法的话，可以打印path然后找第一个相同的。
+
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         helper(root, p, q);
         return res;

@@ -8,8 +8,6 @@ import java.util.Queue;
 
 public class _337_HouseRobberIII {
     // ? 如何做到跳跃
-    // 按层计算 然后比较奇数层的和与偶数层的和
-
     /**
      * 337. House Robber III
      * When:2019/7/27
@@ -52,35 +50,6 @@ public class _337_HouseRobberIII {
         val = Math.max(val + root.val, dfs(root.left, map) + dfs(root.right, map));
         map.put(root, val);
         return val;
-    }
-
-    // 不能用这种方法，因为最好的情况可能并不来自于相隔一行的情况，而是多行
-    public static int rob3(TreeNode root) {
-        if (root == null) return 0;
-        Queue<TreeNode> queue = new LinkedList<>();
-        int odd = root.val;
-        int even = 0;
-        boolean isEven = true;
-        queue.offer(root);
-        while (!queue.isEmpty()) {
-            int size = queue.size(); // 又是这里的问题！！！需要用变量，这样跳出for循环
-            for (int i = 0; i < size; i++) {
-                TreeNode cur = queue.poll();
-                if (cur.left != null) {
-                    queue.offer(cur.left);
-                    if (isEven) even += cur.left.val;
-                    else odd += cur.left.val;
-                }
-                if (cur.right != null) {
-                    queue.offer(cur.right);
-                    if (isEven) even += cur.right.val;
-                    else odd += cur.right.val;
-                }
-            }
-            isEven = true ? false : true;
-        }
-        System.out.println(odd + " " + even);
-        return 0;
     }
 
     public static void main(String[] args) {

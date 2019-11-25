@@ -26,9 +26,10 @@ public class _36_ValidSudoku {
 
      相当于每次检查j的时候，里面循环了9次 这样就结束了。
      */
-
+    // https://www.youtube.com/watch?v=4-SF0-p98NM&list=PLvyIyKZVcfAk4vxVK-QQYha7VfE4SLm9q&index=36
     public boolean isValidSudoku(char[][] board) {
         // 使用三个HashSet来保持其是否有重复
+        // 这个相当于每次检查的是一行，一列以及当前的小格子。
         for (int i = 0; i < board.length; i++) {
             HashSet<Character> rows = new HashSet<>();
             HashSet<Character> cols = new HashSet<>();
@@ -41,7 +42,8 @@ public class _36_ValidSudoku {
                 int rowIndex = 3 * (i / 3);
                 int colIndex = 3 * (i % 3);
 
-                if (board[rowIndex + j / 3][colIndex + j % 3] != '.' && !cube.add(board[rowIndex + j / 3][colIndex + j % 3]))
+                if (board[rowIndex + j / 3][colIndex + j % 3] != '.' &&
+                        !cube.add(board[rowIndex + j / 3][colIndex + j % 3]))
                     return false;
             }
         }
@@ -87,6 +89,56 @@ public class _36_ValidSudoku {
             for (int col = (j / 3) * 3; col < (j / 3 + 1) * 3; col++) {
                 if (row == i && col == j) continue;
                 if (board[row][col] == board[i][j]) return false;
+            }
+        }
+        return true;
+    }
+
+    // 跟上面第二个是等价的。
+    public boolean isValidSudoku3(char[][] board) {
+        // 3* 3 row:0-2 col 0-2, col 3-5, col 6-8
+        // 3* 3 row:3-5 col 0-2, col 3-5, col 6-8
+        // 3* 3 row:6-8 col 0-2, col 3-5, col 6-8
+        if (board == null || board.length == 0 ||
+                board[0] == null || board[0].length == 0) return false;
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                if (board[i][j] != '.') {
+                    if (!checkCol(board, i, j)) return false;
+                    if (!checkRow(board, i, j)) return false;
+                    if (!checkBox(board, i, j)) return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean checkCol(char[][] board, int row, int col) {
+        char ch = board[row][col];
+        for (int i = 0; i < 9; i++) {
+            if (board[row][i] == '.' || i == col) continue;
+            if (board[row][i] == ch) return false;
+        }
+        return true;
+    }
+
+    public boolean checkRow(char[][] board, int row, int col) {
+        char ch = board[row][col];
+        for (int i = 0; i < 9; i++) {
+            if (board[i][col] == '.' || i == row) continue;
+            if (board[i][col] == ch) return false;
+        }
+        return true;
+    }
+
+    public boolean checkBox(char[][] board, int row, int col) {
+        int boxRow = row / 3;
+        int boxCol = col / 3;
+        char ch = board[row][col];
+        for (int i = boxRow * 3; i <= boxRow * 3 + 2; i++) {
+            for (int j = boxCol * 3; j <= boxCol * 3 + 2; j++) {
+                if (i == row && j == col || board[i][j] == '.') continue;
+                if (board[i][j] == ch) return false;
             }
         }
         return true;

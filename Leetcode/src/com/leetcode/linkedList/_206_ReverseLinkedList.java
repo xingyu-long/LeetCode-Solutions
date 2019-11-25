@@ -48,10 +48,10 @@ public class _206_ReverseLinkedList {
         ListNode cur = head;
 
         while (cur != null) {
-            ListNode temp = head.next;
-            head.next = tempHead.next;
-            tempHead.next = head;
-            head = temp;
+            ListNode temp = cur.next;
+            cur.next = tempHead.next;
+            tempHead.next = cur;
+            cur = temp;
         }
 
         return tempHead.next;

@@ -8,6 +8,7 @@ public class _290_WordPattern {
      *  290.Word Pattern
      *  When:2019/7/17
      *  review1: 2019/8/24
+     *  review2: 11/16/2019
      *  same as LeetCode 205
      *  Difficulty: Easy
      * @param pattern
@@ -18,7 +19,7 @@ public class _290_WordPattern {
     public boolean wordPattern(String pattern, String str) {
         //如何做映射关系？？ 使用HashMap
         char[] patternArr = pattern.toCharArray();
-        String[] strArr = str.split(" ");
+        String[] strArr = str.split("\\s+");
         if (patternArr.length != strArr.length) return false;
         HashMap<Character, String> map = new HashMap<>();
         for (int i = 0; i < strArr.length; i++) {

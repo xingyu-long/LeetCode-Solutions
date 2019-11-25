@@ -1,5 +1,6 @@
 package com.leetcode.tree.inorder;
 
+import com.leetcode.common.MainClass;
 import com.leetcode.common.TreeNode;
 
 import java.util.Stack;
@@ -52,16 +53,16 @@ public class _285_InorderSuccessorinBST {
     }
 
     // 递归的形式
-    private TreeNode pre = null, after = null;
+    private static TreeNode pre = null, after = null;
 
-    public TreeNode inorderSuccessor2(TreeNode root, TreeNode p) {
+    public static TreeNode inorderSuccessor2(TreeNode root, TreeNode p) {
         if (p == null) return null;
         helper(root, p);
         return after;
     }
 
     //画图演示
-    public void helper(TreeNode root, TreeNode p) {
+    public static void helper(TreeNode root, TreeNode p) {
         if (root == null) return;
         helper(root.left, p);
         if (pre == p) {
@@ -83,5 +84,13 @@ public class _285_InorderSuccessorinBST {
             }
         }
         return res;
+    }
+
+    public static void main(String[] args) {
+        String s = "[3,1,4,null,2]";
+        MainClass mainClass = new MainClass();
+        TreeNode root = mainClass.stringToTreeNode(s);
+        TreeNode res = inorderSuccessor2(root, new TreeNode(1));
+        System.out.println(res.val);
     }
 }

@@ -8,33 +8,19 @@ import java.util.Arrays;
 public class _80_RemoveDuplicateFromSortedArrayII {
     /**
      * 80. Remove Duplicates from Sorted Array II
-     * When: 2019/02/12
-     * Review1 : 2019/6/30
-     * review2: 2019/8/24 这里面需要用count - 2来表示待插入的位置
-     * 错误思路：1. 我以为需要一个flag进行标记个数 2. 之前的count没有搞懂（应该类似于指针的东西） 3. 这里使用i的话，会有覆盖作用，导致i=4的时候等于i=2 4. return错误 应该是count才对
-     * 解题思路： 一定有两位保留，所以count=2（相当于从第三个开始）
-     * case: [1, 1, 1, 2, 2, 3]
-     *              2
-     *                 c
-     *                    i
-     * result: [1, 1, 2, 2, 3, 3]
      * @param nums
      * @return
      */
-    public static int removeDuplicates(int[] nums) {
-        //判断nums是否满足
-        if (nums.length <= 2) return nums.length;
-        int count = 2;
-        for (int i = 2; i < nums.length; i++){
-            if(nums[count - 2] != nums[i]){
-                nums[count++] = nums[i];
+    public int removeDuplicates(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int slow = 2; // 因为至少有一个
+        for (int fast = 2; fast < nums.length; fast++) {
+            // 通过检查slow-2来确定是否可以插入。
+            if (nums[fast] != nums[slow - 2]) {
+                nums[slow] = nums[fast];
+                slow++;
             }
         }
-        System.out.println(Arrays.toString(nums));
-        return count;
-    }
-
-    public static void main(String[] args){
-        removeDuplicates(new int[]{1, 1, 1, 2, 2, 3});
+        return slow;
     }
 }

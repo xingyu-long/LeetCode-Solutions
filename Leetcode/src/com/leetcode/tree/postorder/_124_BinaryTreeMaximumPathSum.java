@@ -25,7 +25,7 @@ public class _124_BinaryTreeMaximumPathSum {
      * @param root
      * @return
      */
-    // time:O(n) space:O(n) call stack
+    // time:O(n) space:O(h) call stack
     // http://zxi.mytechroad.com/blog/tree/leetcode-124-binary-tree-maximum-path-sum/
     public static int maxPathSum(TreeNode root) {
         if (root == null) return 0;

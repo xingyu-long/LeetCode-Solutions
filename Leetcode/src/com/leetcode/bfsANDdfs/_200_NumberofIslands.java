@@ -1,7 +1,9 @@
 package com.leetcode.bfsANDdfs;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Set;
 
 public class _200_NumberofIslands {
 
@@ -169,6 +171,23 @@ public class _200_NumberofIslands {
                 {'1','1','0','0','0'},
                 {'0','0','1','0','0'},
                 {'0','0','0','1','1'}};
-        System.out.println(numIslands(grid));
+//        System.out.println(numIslands(grid));
+
+        Set<int[]> set = new HashSet<>();
+        int[] p1 = new int[]{1,1};
+        int[] p2 = new int[]{1,1};
+        set.add(p1);
+        set.add(p2);
+        System.out.println(set.size());
+    }
+
+    public static class Point{
+        int x;
+        int y;
+
+        public Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
     }
 }

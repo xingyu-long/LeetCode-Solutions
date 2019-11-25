@@ -33,8 +33,8 @@ public class _239_SlidingWindowMaximum {
         // int index = 0;
         for (int i = 0; i < nums.length; i++) {
             // check if it out of bound (should be in  [i - (k-1), i] eg: i = 3, left:1)
-            while (!deque.isEmpty() && deque.peek() < i - k + 1) {
-                deque.poll();
+            if (!deque.isEmpty() && i - deque.peekFirst() >= k) {
+                deque.pollFirst();
             }
             // pop it if this value is greater than the before.
             while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {

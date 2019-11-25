@@ -9,15 +9,17 @@ public class _68_TextJustification {
      * 68. Text Justification
      * When: 2019/04/02
      * review1:2019/8/8
+     *
      * Input:
      * words = ["This", "is", "an", "example", "of", "text", "justification."]
      * maxWidth = 16
      * Output:
      * [
-     *    "This    is    an",
-     *    "example  of text",
-     *    "justification.  "
+     * "This    is    an",
+     * "example  of text",
+     * "justification.  "
      * ]
+     *
      * @param words
      * @param maxWidth
      * @return
@@ -34,17 +36,10 @@ public class _68_TextJustification {
                 count += 1 + words[last].length();
                 last++;
             }
-            /**
-             * 也可以这么写！！！
-             while (last < words.length && words[last].length() + count + 1 <= maxWidth) {
-             count += words[last].length() + 1;
-             last++;
-             }
-             */
             StringBuilder sb = new StringBuilder(); // 用来存放每一行的结果
             sb.append(words[index]); //加入第一个单词
             int diff = last - index - 1; // 用来计算单词之间的空格数
-            // 最后一种情况，即只有一个单词然后需要填满左边 后面留空
+            // 最后一种情况，属于最后一行，就算有多个单词也是向左对其！
             if (last == words.length || diff == 0) {
                 for (int i = index + 1; i < last; i++) {
                     sb.append(" ");
@@ -60,7 +55,7 @@ public class _68_TextJustification {
                     for (int k = spaces; k > 0; k--) {
                         sb.append(" ");
                     }
-                    if (r > 0) {
+                    if (r > 0) { // 这里每次的可能左边与右边多的部分！！，那个science的example需要注意
                         sb.append(" "); //
                         r--;
                     }
@@ -73,6 +68,7 @@ public class _68_TextJustification {
         }
         return res;
     }
+
     public static List<String> fullJustify2(String[] words, int maxWidth) {
         List<String> res = new ArrayList<>();
         int index = 0;
@@ -115,8 +111,9 @@ public class _68_TextJustification {
         }
         return res;
     }
+
     public static void main(String[] args) {
-        String[] words = new String[]{"Science","is","what","we","understand","well","enough","to","explain","to","a","computer.","Art","is","everything","else","we","do"};
+        String[] words = new String[]{"Science", "is", "what", "we", "understand", "well", "enough", "to", "explain", "to", "a", "computer.", "Art", "is", "everything", "else", "we", "do"};
         int maxWidth = 20;
         System.out.println(fullJustify2(words, maxWidth));
     }

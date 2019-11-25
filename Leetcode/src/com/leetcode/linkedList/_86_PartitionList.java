@@ -50,4 +50,25 @@ public class _86_PartitionList {
         curLeft.next = dummyRight.next;
         return dummyLeft.next;
     }
+
+    // 通过prev跳跃。
+    public ListNode partition2(ListNode head, int x) {
+        if (head == null || head.next == null) return head;
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode prev = dummy;
+        ListNode newHead = new ListNode(0);
+        ListNode cur = newHead;
+        while (prev != null && prev.next != null) {
+            if (prev.next.val < x) {
+                cur.next = new ListNode(prev.next.val);
+                cur = cur.next;
+                prev.next = prev.next.next;
+            } else {
+                prev = prev.next;
+            }
+        }
+        cur.next = dummy.next;
+        return newHead.next;
+    }
 }

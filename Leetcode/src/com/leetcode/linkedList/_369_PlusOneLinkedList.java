@@ -39,31 +39,28 @@ public class _369_PlusOneLinkedList {
         return dummy;
     }
 
-    // 先反转，将其低位放到前面
-    public ListNode plusOne2(ListNode head) {
-        head = reverse(head);
+    public static ListNode plusOne3(ListNode head) {
+        if (head == null) return null;
+        head = reverse2(head);
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-        ListNode cur = dummy;
         int carry = 1;
-        // 对于 9->9->9 这种情况carry一直在 最后会生成新节点
-        // 对于 1->2->3这种情况 则carry 会为0 直到cur走完，结束
-        while (carry > 0 || cur.next != null) {
-            if (cur.next != null) {
-                cur = cur.next;
-                carry += cur.val;
-                cur.val = carry % 10;
-                carry /= 10;
-            } else {
-                cur.next = new ListNode(carry);
-                cur = cur.next;
-                carry = 0;
-            }
+        ListNode prev = dummy;
+        // 可能存在加位的操作，所以用prev.
+        while (prev.next != null) {
+            carry += prev.next.val;
+            prev.next.val = carry % 10;
+            carry /= 10;
+            prev = prev.next;
         }
-        return reverse(dummy.next);
+        if (carry != 0) {
+            prev.next = new ListNode(carry);
+        }
+
+        return reverse2(dummy.next);
     }
 
-    public ListNode reverse(ListNode head) {
+    public static ListNode reverse2(ListNode head) {
         ListNode newHead = null;
         while (head != null) {
             ListNode temp = head.next;
@@ -72,5 +69,16 @@ public class _369_PlusOneLinkedList {
             head = temp;
         }
         return newHead;
+    }
+    public static void main(String[] args) {
+        ListNode root = new ListNode(9);
+        root.next = new ListNode(9);
+        root.next.next = new ListNode(9);
+        ListNode cur = root;
+        cur = plusOne3(root);
+        while (cur != null) {
+            System.out.println(cur.val);
+            cur = cur.next;
+        }
     }
 }

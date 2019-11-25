@@ -14,6 +14,7 @@ public class _336_PalindromePairs {
      * @param words
      * @return
      */
+    // time: O(n * k * k)
     public static List<List<Integer>> palindromePairs(String[] words) {
         List<List<Integer>> res = new ArrayList<>();
         if (words == null || words.length < 2) return res;
@@ -23,7 +24,7 @@ public class _336_PalindromePairs {
         }
 
         for (int i = 0; i < words.length; i++) {
-            for (int j = 0; j <= words[i].length(); j++) {
+            for (int j = 0; j <= words[i].length(); j++) { // 这里是小于等于，因为这样是为了后面的取substring
                 String str1 = words[i].substring(0, j);
                 String str2 = words[i].substring(j);
                 if (isPalindrome(str1)) {
@@ -55,7 +56,7 @@ public class _336_PalindromePairs {
     }
 
     public static void main(String[] args) {
-        String[] words = new String[]{"bat","tab","cat"};
+        String[] words = new String[]{"","a"};
         palindromePairs(words);
     }
 }

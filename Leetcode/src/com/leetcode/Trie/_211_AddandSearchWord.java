@@ -5,9 +5,7 @@ public class _211_AddandSearchWord {
 
     /**
      *  211. Add and Search Word
-        When: 2019/7/3
-
-
+     When: 2019/7/3
      */
 
     /**
@@ -70,7 +68,6 @@ public class _211_AddandSearchWord {
             TrieNode temp = node.children[j];
             return temp != null && find(word, temp, index + 1);
         }
-
     }
 
     /**

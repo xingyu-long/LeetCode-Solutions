@@ -2,9 +2,7 @@ package com.leetcode.tree.preorder;
 
 import com.leetcode.common.TreeNode;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class _112_PathSum {
 
@@ -56,6 +54,29 @@ public class _112_PathSum {
             if (node.left != null) {
                 stack.push(node.left);
                 node.left.val += node.val;
+            }
+        }
+        return false;
+    }
+
+    // 上面的修改原本的值，这样不好。
+    public boolean hasPathSum3(TreeNode root, int sum) {
+        if (root == null) return false;
+        HashMap<TreeNode, Integer> map = new HashMap<>();
+        map.put(root, root.val);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            if (map.get(node) == sum &&
+                    node.left == null && node.right == null) return true;
+            if (node.left != null) {
+                queue.offer(node.left);
+                map.put(node.left, map.get(node) + node.left.val);
+            }
+            if (node.right != null) {
+                queue.offer(node.right);
+                map.put(node.right, map.get(node) + node.right.val);
             }
         }
         return false;

@@ -26,16 +26,17 @@ public class _198_HouseRobber {
      */
 
     // time: O(n) space: O(1)
+    // https://www.youtube.com/watch?v=-i2BFAU25Zk
     public int rob(int[] nums) {
-        int prevNo = 0; // 表示当前这个值不偷，保留前面最大的情况
-        int prevYes = 0; // 表示当前这个值偷，并且需要加上前面最大的。
+        int notRob = 0; // 表示当前这个值不偷，保留前面最大的情况
+        int rob = 0; // 表示当前这个值偷，并且需要加上前面最大的。
 
         for (int num : nums) {
-            int temp = prevNo;
-            prevNo = Math.max(prevNo, prevYes);
-            prevYes = temp + num;
+            int temp = Math.max(notRob, rob);
+            rob = notRob + num;
+            notRob = temp;
         }
-        return Math.max(prevNo, prevYes);
+        return Math.max(rob, notRob);
     }
 
     // space:O(n)

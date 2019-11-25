@@ -45,11 +45,11 @@ public class _117_PopulatingNextRightPointersInEachNodeII {
      */
     public Node connect(Node root) {
         Node head = null; // 每一层的开头
-        Node pre = null; // 同一层的prev节点
+        Node pre = null; // 同一层的prev节点，只要存在，就马上和左边或者右边不为空的部分连接并且移动prev
         Node cur = root;
 
-        while (cur != null) {
-            while (cur != null) {
+        while (cur != null) { // 多少层
+            while (cur != null) {  // 每一层的操作
                 if (cur.left != null) {
                     if (pre != null) {
                         pre.next = cur.left;
@@ -68,6 +68,7 @@ public class _117_PopulatingNextRightPointersInEachNodeII {
                 }
                 cur = cur.next;
             }
+            // 如果到了最后一层，最后cur被head赋值，head为null，所以退出。x
             cur = head;
             pre = null;
             head = null;
@@ -76,7 +77,7 @@ public class _117_PopulatingNextRightPointersInEachNodeII {
     }
 
 
-    // 利用queue做
+    // 利用queue做，这个就需要一些额外的空间了，还是看上面最优的解法
     public Node connect2(Node root) {
         if (root == null) return null;
         Queue<Node> queue = new LinkedList<>();

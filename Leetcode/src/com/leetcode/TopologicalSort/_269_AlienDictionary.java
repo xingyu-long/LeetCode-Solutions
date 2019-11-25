@@ -12,6 +12,7 @@ public class _269_AlienDictionary {
      * @param words
      * @return
      */
+    // 1. 变量名别写错了！ 2. 检查入度的应该使用graph的keyset来看，因为indegree默认本身就是0.
     // https://www.youtube.com/watch?v=RIrTuf4DfPE
     // time : (V + E) -> O(n * words(max))
     // space : O(n) -> O(26) -> O(1)

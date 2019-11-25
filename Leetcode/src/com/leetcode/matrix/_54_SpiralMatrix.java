@@ -6,9 +6,10 @@ import java.util.List;
 public class _54_SpiralMatrix {
 
     /**
-     *  54. Spiral Matrix
-     *  When: 2019/05/29
-     *  Review1: 2019/8/4
+     * 54. Spiral Matrix
+     * When: 2019/05/29
+     * Review1: 2019/8/4
+     * review2: 11/7/2019
      * solution：实现题，然后使用while 循环，上下左右走
      *
      * @param matrix
@@ -41,7 +42,7 @@ public class _54_SpiralMatrix {
             colEnd--;
 
             // 向左走
-            if (rowBegin <= rowEnd) {
+            if (rowBegin <= rowEnd) { // 表示移动col的时候也的看row是否还有
                 for (int i = colEnd; i >= colBegin; i--) {
                     res.add(matrix[rowEnd][i]);
                 }
@@ -49,7 +50,7 @@ public class _54_SpiralMatrix {
             rowEnd--;
 
             //向上走
-            if (colBegin <= colEnd) {
+            if (colBegin <= colEnd) { // 上面同理
                 for (int i = rowEnd; i >= rowBegin; i--) {
                     res.add(matrix[i][colBegin]);
                 }

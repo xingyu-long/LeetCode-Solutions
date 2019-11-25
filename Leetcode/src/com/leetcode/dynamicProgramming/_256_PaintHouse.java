@@ -19,6 +19,7 @@ public class _256_PaintHouse {
         solution: https://www.cnblogs.com/grandyang/p/5319384.html
      */
     // time:O(n) space:O(1)
+    // 考虑的时候应该是当前层以及看前面这样来想这个题。
     public int minCost(int[][] costs) {
         if (costs == null || costs[0].length == 0) return 0;
         for (int i = 1; i < costs.length; i++) {

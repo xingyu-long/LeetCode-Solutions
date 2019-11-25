@@ -59,19 +59,20 @@ public class _83_RemoveDuplicatesfromSortedList {
         return dummy.next;
     }
 
-
+    // 利用prev
     public static ListNode deleteDuplicates3(ListNode head) {
         if (head == null || head.next == null) return head;
-        ListNode pre = head, cur = head.next;
-        while (cur != null) { // 和hashset思路一样，主要看pre是否更新
-            if (pre.val == cur.val) {
-                pre.next = cur.next;
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode prev = dummy;
+        while (prev.next != null && prev.next.next != null) {
+            if (prev.next.val == prev.next.next.val) {
+                prev.next = prev.next.next;
             } else {
-                pre = cur;
+                prev = prev.next;
             }
-            cur = cur.next;
         }
-        return head;
+        return dummy.next;
     }
     public static void main(String[] args) {
         ListNode root = new ListNode(0);

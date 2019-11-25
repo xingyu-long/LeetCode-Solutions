@@ -46,9 +46,6 @@ public class _366_FindLeavesofBinaryTree {
             res.add(new ArrayList<>());
         }
         res.get(level).add(root.val);
-        // 清空左右节点
-        root.left = null;
-        root.right = null;
         return level;
     }
 

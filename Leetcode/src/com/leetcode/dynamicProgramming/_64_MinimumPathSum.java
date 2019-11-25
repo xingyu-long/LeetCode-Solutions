@@ -29,4 +29,31 @@ public class _64_MinimumPathSum {
         }
         return grid[grid.length - 1][grid[0].length - 1];
     }
+
+    // 求路径也可以。
+    static String miniPath = "";
+    static int res = Integer.MAX_VALUE;
+    public static int minPathSum2(int[][] grid) {
+        boolean[][] visited = new boolean[grid.length][grid[0].length];
+        dfs(grid, 0, 0, "", 0, visited);
+        System.out.println("path = " + miniPath);
+        return res;
+    }
+
+    public static void dfs(int[][] grid, int row, int col, String path, int sum, boolean[][] visited) {
+        if (row < 0 || row >= grid.length || col < 0 || col >= grid.length) return;
+        if (visited[row][col]) return;
+        path += grid[row][col] + (row == grid.length - 1 && col == grid[0].length - 1 ? "" : "->");
+        sum += grid[row][col];
+        visited[row][col] = true;
+        if (row == grid.length - 1 && col == grid[0].length - 1) {
+            if (sum < res) {
+                res = sum;
+                miniPath = path;
+            }
+        }
+        dfs(grid, row, col + 1, path, sum, visited);
+        dfs(grid, row + 1, col, path, sum, visited);
+        visited[row][col] = false;
+    }
 }

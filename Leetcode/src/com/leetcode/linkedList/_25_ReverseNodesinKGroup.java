@@ -44,4 +44,34 @@ public class _25_ReverseNodesinKGroup {
         }
         return first;
     }
+
+    // 利用类似于swap pair的方式！
+    public ListNode reverseKGroup2(ListNode head, int k) {
+        if (head == null || head.next == null) return head;
+        int n = numOfNode(head);
+        int times = n / k;
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode prev = dummy;
+        for (int i = 0; i < times; i++) {
+            ListNode first = prev.next;
+            for (int j = 0; j < k - 1; j++) {
+                ListNode temp = prev.next;
+                prev.next = first.next;
+                first.next = prev.next.next;
+                prev.next.next = temp;
+            }
+            prev = first;
+        }
+        return dummy.next;
+    }
+
+    public int numOfNode(ListNode head) {
+        int count = 0;
+        while (head != null) {
+            count++;
+            head = head.next;
+        }
+        return count;
+    }
 }

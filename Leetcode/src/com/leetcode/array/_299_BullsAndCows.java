@@ -20,20 +20,20 @@ public class _299_BullsAndCows {
     public static String getHint(String secret, String guess) {
         if (secret.length() != guess.length()) return "";
         int bull = 0, cow = 0;
-        int[] hash = new int[10];
+        int[] counter = new int[10];
         for (int i = 0; i < secret.length(); i++) {
             if (secret.charAt(i) == guess.charAt(i)) {
                 bull++;
             } else {
-                hash[secret.charAt(i) - '0']++;
+                counter[secret.charAt(i) - '0']++;
             }
         }
 
         for (int i = 0; i < secret.length(); i++) {
-            int val = hash[guess.charAt(i) - '0'];
-            if (secret.charAt(i) != guess.charAt(i) && val > 0) {
+            int index = guess.charAt(i) - '0';
+            if (secret.charAt(i) != guess.charAt(i) && counter[index] > 0) {
                 cow++;
-                val--;
+                counter[index]--;
             }
         }
         return bull + "A" + cow + "B";

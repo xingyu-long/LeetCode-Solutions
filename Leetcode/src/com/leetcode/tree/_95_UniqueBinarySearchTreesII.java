@@ -11,10 +11,10 @@ public class _95_UniqueBinarySearchTreesII {
         if (n == 0) return new ArrayList<>();
         return genTreeList(1, n);
     }
-
+    // https://www.youtube.com/watch?v=hQn61BjdA7M
     public static List<TreeNode> genTreeList(int start, int end) {
         List<TreeNode> list = new ArrayList<>();
-        if (start > end) {
+        if (start > end) { // base case.
             list.add(null);
         }
         for (int idx = start; idx <= end; idx++) {

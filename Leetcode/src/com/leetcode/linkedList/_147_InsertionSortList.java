@@ -30,7 +30,7 @@ public class _147_InsertionSortList {
                 cur = cur.next;
             } else {
                 temp = cur.next;
-                cur.next = temp.next;
+                cur.next = temp.next; // 把temp元素孤立出来，看插入的位置。
                 pre = dummy;
                 // 直到找到比temp大的位置
                 while (pre.next.val <= temp.val) {

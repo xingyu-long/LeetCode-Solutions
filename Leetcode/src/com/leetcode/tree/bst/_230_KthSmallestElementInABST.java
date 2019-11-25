@@ -13,7 +13,7 @@ public class _230_KthSmallestElementInABST {
      * When: 2019/04/25
      * review1:2019/9/21
      * solution: BST中序遍历的时候则就是有序的（注意那个变量的变化）
-     * time: O(log^N)
+     * time: O(n)
      * space: O(n) 因为递归
      * @param root
      * @param k
@@ -58,6 +58,8 @@ public class _230_KthSmallestElementInABST {
         }
         return -1;
     }
+
+
     public static void main(String[] args) {
         String s = "[3,1,4,null,2]";
         MainClass mainClass = new MainClass();
