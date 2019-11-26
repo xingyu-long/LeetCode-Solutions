@@ -5,8 +5,8 @@ public class Insertion<T extends Comparable<T>> extends Sort<T> {
     public void sort(T[] nums) {
         int n = nums.length;
         for (int i = 1; i < n; i++) {
-            for (int j = i; j > 0 && less(nums[j], nums[j - 1]); j--) {
-                exch(nums, j - 1, j);
+            for (int j = i; j - 1 >= 0 && less(nums[j], nums[j - 1]); j--) {
+                exch(nums, j, j - 1);
             }
         }
     }
