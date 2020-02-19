@@ -50,38 +50,42 @@ public class _91_DecodeWays {
             }
         }
         return dp[n];
-}
-
-    // DFS + memo
-    public static int numDecodings2(String s) {
-        if (s == null || s.length() == 0) return 0;
-        int n = s.length();
-        int[] dp = new int[n];
-        Arrays.fill(dp, -1);
-        return dfs2(s, 0, dp);
     }
 
-    public static int dfs2(String s, int start, int[] dp) {
-        if (start >= s.length()) return 1;
-        if (s.charAt(start) == '0') return 0;
-        if (dp[start] > -1) return dp[start];
-        int ways = 0;
-        // for one digit 因为前面check了start肯定小于s.length()
-        int oneDigit = s.charAt(start) - '0';
-        if (oneDigit > 0 && oneDigit <= 9) {
-            ways += dfs2(s, start + 1, dp);
-        }
+    // DFS + memo
+    // time:O(n)
+    public static int numDecodings2(String s) {
+        int n = s.length();
+        if (s == null || n == 0) return 0;
 
-        // for two digit
-        if (start + 1 < s.length()) {
-            int twoDigits = (s.charAt(start) - '0') * 10 +
-                    (s.charAt(start + 1) - '0');
-            if (twoDigits >= 10 && twoDigits <= 26) {
-                ways += dfs2(s, start + 2, dp);
+        int[] memo = new int[n + 1];
+        Arrays.fill(memo, -1);
+        return dfs(s, 0, memo);
+    }
+
+    public static int dfs(String s, int start, int[] memo) {
+        if (memo[start] != -1) return memo[start];
+        if (start > s.length()) return 0;
+        if (start == s.length()) return 1;
+        // move one char
+        int res = 0;
+
+        if (start + 1 <= s.length()) {
+            int oneNum = Integer.parseInt(s.substring(start, start + 1));
+            if (oneNum >= 1 && oneNum <= 9) {
+                res += dfs(s, start + 1, memo);
             }
         }
-        dp[start] = ways;
-        return ways;
+
+        // move two char
+        if (start + 2 <= s.length()) {
+            int twoNum = Integer.parseInt(s.substring(start, start + 2));
+            if (twoNum >= 10 && twoNum <= 26) {
+                res += dfs(s, start + 2, memo);
+            }
+        }
+        memo[start] = res;
+        return memo[start];
     }
 
     public static void main(String[] args) {

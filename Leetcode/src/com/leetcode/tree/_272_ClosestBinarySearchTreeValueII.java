@@ -1,6 +1,6 @@
 package com.leetcode.tree;
 
-import com.leetcode.common.MainClass;
+import com.leetcode.common.ConverterForTreeAndString;
 import com.leetcode.common.TreeNode;
 
 import java.util.LinkedList;
@@ -42,7 +42,7 @@ public class _272_ClosestBinarySearchTreeValueII {
 
     public static void main(String[] args) {
         String treeStr = "[5,3,7,1,4,null,9]";
-        MainClass treeMain = new MainClass();
+        ConverterForTreeAndString treeMain = new ConverterForTreeAndString();
         TreeNode root = treeMain.stringToTreeNode(treeStr);
         List<Integer> res = closestKValues(root, 3.1, 3);
         for (int num : res) {

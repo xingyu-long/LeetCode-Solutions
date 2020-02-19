@@ -59,7 +59,7 @@ public class _289_GameofLife {
     // time:O(m * n) space:O(1)
     // 降低其空间复杂度代表需要 board能够反应以前的状态（在经过改变之后）
     // 如果当前是活的，满足死的条件 则就是赋值为-1
-    // 当前是是的，满足活的条件，则赋值为2
+    // 当前是死的，满足活的条件，则赋值为2
     // 查询周围1的时候用绝对值等于1即可
     public void gameOfLife2(int[][] board) {
         if (board == null || board.length == 0) return;
@@ -107,4 +107,7 @@ public class _289_GameofLife {
             }
         }
     }
+
+    // follow up: 如果board 是infinite。
+    // 这个还需要了解
 }

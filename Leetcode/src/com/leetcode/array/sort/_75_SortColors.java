@@ -35,6 +35,29 @@ public class _75_SortColors {
             }
         }
     }
+    public void sortColors2(int[] nums) {
+        if (nums == null || nums.length == 0) return;
+        int pivot = 1;
+        // two pass
+        int smaller = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] < pivot) exch(nums, smaller++, i);
+        }
+        // print(nums);
+        
+        int larger = nums.length - 1;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            if (nums[i] > pivot) exch(nums, larger--, i);
+        }
+        // print(nums);
+    }
+    
+    public void exch(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+    
 
     /**
      * solution2: 利用l, r, index进行操作
@@ -43,7 +66,7 @@ public class _75_SortColors {
      * 所以1 就是在中间
      */
     //time: O(n) space:O(1)
-    public void sortColors2(int[] nums) {
+    public void sortColors3(int[] nums) {
         if (nums == null || nums.length == 0) return;
         int left = 0;
         int right = nums.length - 1;

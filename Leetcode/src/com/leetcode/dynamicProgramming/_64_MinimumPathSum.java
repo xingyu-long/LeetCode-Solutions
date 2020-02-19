@@ -1,5 +1,7 @@
 package com.leetcode.dynamicProgramming;
 
+import java.util.Arrays;
+
 public class _64_MinimumPathSum {
 
     /**
@@ -55,5 +57,27 @@ public class _64_MinimumPathSum {
         dfs(grid, row, col + 1, path, sum, visited);
         dfs(grid, row + 1, col, path, sum, visited);
         visited[row][col] = false;
+    }
+
+    // 利用dfs + memo
+    // 填充最后一行最后一列的那个右边和下边为0，这样就可以返回min。
+    public int minPathSum3(int[][] grid) {
+        if (grid == null || grid.length == 0 || grid[0] == null || grid[0].length == 0) return 0;
+        int m = grid.length;
+        int n = grid[0].length;
+        int[][] memo = new int[m + 1][n + 1];
+        for (int[] row : memo) Arrays.fill(row, Integer.MAX_VALUE);
+        memo[m][n - 1] = memo[m - 1][n] = 0;
+        return dfs(grid, 0, 0, memo);
+    }
+
+    public int dfs(int[][] grid, int i, int j, int[][] memo) {
+        if (memo[i][j] != Integer.MAX_VALUE) return memo[i][j];
+        if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length) return Integer.MAX_VALUE;
+
+        int res = 0;
+        res += Math.min(dfs(grid, i + 1, j, memo), dfs(grid, i, j + 1, memo)) + grid[i][j];
+        memo[i][j] = res;
+        return res;
     }
 }

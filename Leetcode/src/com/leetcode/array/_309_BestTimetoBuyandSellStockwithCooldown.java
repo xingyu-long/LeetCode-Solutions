@@ -13,6 +13,7 @@ public class _309_BestTimetoBuyandSellStockwithCooldown {
      */
     //  https://www.youtube.com/watch?v=oL6mRyTn56M
     // 三种状态转换
+    // 先开始sold是因为这样不会影响以前的值。
     public int maxProfit(int[] prices) {
         int sold = 0;
         int rest = 0;

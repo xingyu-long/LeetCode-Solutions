@@ -1,5 +1,8 @@
 package com.leetcode.stackPriorityQueue;
 
+import java.util.Arrays;
+import java.util.PriorityQueue;
+
 public class _313_SuperUglyNumber {
 
     /**
@@ -12,22 +15,23 @@ public class _313_SuperUglyNumber {
      */
     // 利用和ugly number II 一样的思路
     // time: O(kn) space:O(n)
-    public static int nthSuperUglyNumber(int n, int[] primes) {
-        if (primes == null || primes.length == 0) return 0;
+    // https://leetcode.com/problems/super-ugly-number/discuss/76291/Java-three-methods-23ms-36-ms-58ms(with-heap)-performance-explained
+    public int nthSuperUglyNumber(int n, int[] primes) {
+        // 如何处理prime这部分是关键。
+        int[] index = new int[primes.length];
         int[] res = new int[n];
-        int[] index = new int[primes.length];// 表示从哪个res开始计算。就是后面的primes[j] * res[index[j]];
-
         res[0] = 1;
         for (int i = 1; i < n; i++) {
-            // find the next ugly number
-            res[i] = Integer.MAX_VALUE;
+            int min = Integer.MAX_VALUE;
             for (int j = 0; j < primes.length; j++) {
-                res[i] = Math.min(res[i], primes[j] * res[index[j]]);
+                min = Math.min(min, res[index[j]] * primes[j]);
             }
 
-            // 用来帮助后面与prime相乘,因为我们需要计算当前的res
+            res[i] = min;
+
+            // 需要给达到min的地方加值，每次会想那个2,3,5的例子
             for (int j = 0; j < primes.length; j++) {
-                while (primes[j] * res[index[j]] <= res[i]) {
+                if (res[i] == res[index[j]] * primes[j]) {
                     index[j]++;
                 }
             }
@@ -35,9 +39,58 @@ public class _313_SuperUglyNumber {
         return res[n - 1];
     }
 
-    public static void main(String[] args) {
-        int n = 6;
-        int[] primes = new int[]{2,7,13,19};
-        nthSuperUglyNumber(n, primes);
+    // time:O(nk) 这个可以减少一定部分的重复计算
+    public int nthSuperUglyNumber2(int n, int[] primes) {
+        // 如何处理prime这部分是关键。
+        int[] index = new int[primes.length];
+        int[] res = new int[n];
+        int[] val = new int[primes.length];
+        Arrays.fill(val, 1);
+        int next = 1;
+
+        for (int i = 0; i < n; i++) {
+            res[i] = next;
+
+            next = Integer.MAX_VALUE;
+            for (int j = 0; j < primes.length; j++) {
+                if (val[j] == res[i]) val[j] = res[index[j]++] * primes[j];
+                next = Math.min(next, val[j]);
+            }
+        }
+        return res[n - 1];
+    }
+
+    // time:O(nlogK)
+    public int nthSuperUglyNumber3(int n, int[] primes) {
+        int[] res = new int[n];
+        PriorityQueue<Num> pq = new PriorityQueue<>();
+        for (int prime : primes)
+            pq.add(new Num(prime, 1, prime));
+        res[0] = 1;
+        for (int i = 1; i < n; i++) {
+            res[i] = pq.peek().val;
+            while (pq.peek().val == res[i]) {
+                Num next = pq.poll();
+                pq.offer(new Num(next.prime * res[next.index], next.index + 1, next.prime));
+            }
+        }
+        return res[n - 1];
+    }
+
+    public class Num implements Comparable<Num> {
+        int val;
+        int index;
+        int prime;
+
+        public Num (int v, int i, int p) {
+            val = v;
+            index = i;
+            prime = p;
+        }
+
+        @Override
+        public int compareTo(Num o) {
+            return this.val - o.val;
+        }
     }
 }

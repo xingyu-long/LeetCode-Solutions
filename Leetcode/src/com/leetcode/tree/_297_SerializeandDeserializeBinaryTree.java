@@ -2,6 +2,7 @@ package com.leetcode.tree;
 
 import com.leetcode.common.TreeNode;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -69,6 +70,33 @@ public class _297_SerializeandDeserializeBinaryTree {
         return head;
     }
 
+
+    // 利用recursion, preorder
+    // Encodes a tree to a single string.
+    public String serialize2(TreeNode root) {
+        if (root == null) return "#";
+        String left = serialize(root.left);
+        String right = serialize(root.right);
+        return root.val + "," + left + "," + right;
+    }
+
+    // Decodes your encoded data to tree.
+    public TreeNode deserialize2(String data) {
+        if (data == null || data.length() == 0) return null;
+        String[] strs = data.split(",");
+        Queue<String> queue = new LinkedList<>();
+        queue.addAll(Arrays.asList(strs));
+        return helper(queue);
+    }
+
+    public TreeNode helper(Queue<String> queue) {
+        String str = queue.poll();
+        if (str.equals("#")) return null;
+        TreeNode newNode = new TreeNode(Integer.parseInt(str));
+        newNode.left = helper(queue);
+        newNode.right = helper(queue);
+        return newNode;
+    }
     public static void main(String[] args) {
         deserialize("1,3,null,4,null,null");
     }

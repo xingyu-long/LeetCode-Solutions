@@ -40,6 +40,9 @@ public class _247_StrobogrammaticNumberII {
     }
 
     public static void main(String[] args) {
-        findStrobogrammatic(5);
+        List<String> res = findStrobogrammatic(4);
+        for (String str : res) {
+            System.out.println(str);
+        }
     }
 }

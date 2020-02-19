@@ -18,6 +18,7 @@ public class _122_BestTimetoBuyandSellStockII {
     // eg: 7, 1, 5, 3, 6, 4 这里的最后走到4这个位置，valley和peak想通过所以直接结果加上0。
     // time:O(n) space:O(1)
     public int maxProfit(int[] prices) {
+
         // solution 1:
         // 判断边界条件
         if (prices == null || prices.length < 2) return 0;
@@ -25,8 +26,7 @@ public class _122_BestTimetoBuyandSellStockII {
         int valley = prices[0];
         int peak = prices[0];
         int maxProfit = 0;
-        // 对于这里的 < prices.length - 1要注意！！！
-        while (i < prices.length - 1) { //这里是因为后面的操作总是会有i+1
+        while (i < prices.length) {
             while (i < prices.length - 1 && prices[i] >= prices[i + 1])
                 i++;
             valley = prices[i];
@@ -34,6 +34,7 @@ public class _122_BestTimetoBuyandSellStockII {
                 i++;
             peak = prices[i];
             maxProfit += peak - valley;
+            i++;
         }
         return maxProfit;
     }

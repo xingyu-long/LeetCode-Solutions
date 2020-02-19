@@ -20,127 +20,39 @@ public class _200_NumberofIslands {
      * @param grid
      * @return
      */
-    // time: O(m * n) space: O(n)
-    public static int numIslands(char[][] grid) {
-        int res = 0;
-        if (grid == null ||  grid.length == 0) return res;
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[0].length; j++) {
-                if (grid[i][j] == '1') {
-                    dfs(grid, i, j);
-                    res++;
-                }
-            }
-        }
-        return res;
-    }
-
-    public static void dfs(char[][] grid, int i, int j) {
-        if (i < 0 || j < 0 || i >= grid.length
-                || j >= grid[0].length || grid[i][j] != '1')
-            return; //这里是i >= 并且j >= 因为0开始，到length的时候就out of index了
-        grid[i][j] = '0';//表示该点已经被搜索过了
-        //上下左右
-        dfs(grid, i, j + 1);
-        dfs(grid, i, j - 1);
-        dfs(grid, i + 1, j);
-        dfs(grid, i - 1, j);
-    }
-
-    // 上面这种方法巧妙的利用了'0'不能访问的情况！
-    boolean[][] visited; // 利用记忆数组的dfs
-    public int numIslands4(char[][] grid) {
+    // union find的解法，先把存在的所有'1'标记为单个的connected component然后使用i * row + j来表示坐标。
+    // 几个方向走，如果成立就union 最后返回count。
+    // https://leetcode.com/problems/number-of-islands/discuss/56354/1D-Union-Find-Java-solution-easily-generalized-to-other-problems
+    // time:O(m * n) space:O(m * n) 也可以改变原有的数组这样就是O(1)的space。
+    public int numIslands(char[][] grid) {
         if (grid == null || grid.length == 0 ||
                 grid[0] == null || grid[0].length == 0) return 0;
+        boolean[][] visited = new boolean[grid.length][grid[0].length];
         int res = 0;
-        visited = new boolean[grid.length][grid[0].length];
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
-                // 这里需要加这个，表示为1并且没有访问过才会访问！
-                if (!visited[i][j] && grid[i][j] == '1') {
-                    dfs(grid, i, j);
-                    res++;
+                if (grid[i][j] == '1' && !visited[i][j]) {
+                    helper(grid, i, j, visited);
+                    res++;// 并不还原状态 不是backtracking。
                 }
             }
         }
         return res;
     }
 
-    public void dfs2(char[][] grid, int row, int col) {
-        if (row < 0 || row >= grid.length || col < 0 || col >= grid[0].length || visited[row][col] || grid[row][col] == '0') return; // 这里不要忘了'0'是不可以访问的。
+    public void helper(char[][] grid, int row, int col, boolean[][] visited) {
+        if (row < 0 || row >= grid.length || col < 0 || col >= grid[0].length) return;
+        if (grid[row][col] != '1') return;
+        if (visited[row][col]) return;
         visited[row][col] = true;
-        dfs2(grid, row, col - 1);
-        dfs2(grid, row, col + 1);
-        dfs2(grid, row - 1, col);
-        dfs2(grid, row + 1, col);
-    }
-
-    //利用bfs实现
-    //time: O(m * n) space:O(n)
-    public int numIslands2(char[][] grid) {
-        int res = 0;
-        if (grid == null ||  grid.length == 0) return res;
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[0].length; j++) {
-                if (grid[i][j] == '1') {
-                    bfs(grid, i, j);
-                    res++;
-                }
-            }
+        int[][] dirs = new int[][]{{-1, 0}, {0, -1}, {0, 1}, {1, 0}};
+        for (int[] dir : dirs) {
+            helper(grid, row + dir[0], col + dir[1], visited);
         }
-        return res;
-    }
-
-    public void bfs(char[][] grid, int x, int y) {
-        Queue<Integer> queue = new LinkedList<>();
-        // 需要把坐标值放入queue里面去，可以使用 当前行*每行个数 + 现在的j就是位置
-        grid[x][y] = '0';
-        int n = grid.length;
-        int m = grid[0].length;
-        int pos = x * m + y;
-        queue.offer(pos);
-        while (!queue.isEmpty()) {
-            pos = queue.poll();
-            int i = pos / m; //求所在行
-            int j = pos % m; //求所在列
-            //四个方向
-            if (i - 1 >= 0 && grid[i - 1][j] == '1') {
-                queue.offer((i - 1) * m + j);
-                grid[i - 1][j] = '0';
-            }
-            if (j - 1 >= 0 && grid[i][j - 1] == '1') {
-                queue.offer(i * m + (j - 1));
-                grid[i][j - 1] = '0';
-            }
-            if (i + 1 < n && grid[i + 1][j] == '1') {
-                queue.offer((i + 1) * m + j);
-                grid[i + 1][j] = '0';
-            }
-            if (j + 1 < m && grid[i][j + 1] == '1') {
-                queue.offer(i * m + (j + 1));
-                grid[i][j + 1] = '0';
-            }
-        }
-    }
-
-    public static int numIslands3(char[][] grid) {
-        if (grid == null || grid.length == 0 ||
-                grid[0] == null || grid[0].length == 0) return 0;
-        int res = 0;
-        // how to deal it with BFS method?  add 1 after entering while loop
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[0].length; j++) {
-                if (grid[i][j] == '1') {
-                    bfs2(grid, i, j);
-                    res++;
-                }
-            }
-        }
-        return res;
     }
 
     // 为啥会TLE? 后面在bfs中，加入这个点之后就表示访问了！
-    public static void bfs2(char[][] grid, int row, int col) {
+    public static void bfs(char[][] grid, int row, int col) {
         // 又是这里的问题！！！
         if (!isValid(grid, row, col)) return;
         Queue<int[]> queue = new LinkedList<>();
@@ -181,13 +93,72 @@ public class _200_NumberofIslands {
         System.out.println(set.size());
     }
 
-    public static class Point{
-        int x;
-        int y;
-
-        public Point(int x, int y) {
-            this.x = x;
-            this.y = y;
+    public class UF {
+        int count;
+        int[] id;
+        int[] size;
+        public UF(char[][] grid) {
+            int m = grid.length;
+            int n = grid[0].length;
+            id = new int[m * n];
+            size = new int[m * n];
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (grid[i][j] == '1') { // 这里需要注意
+                        count++;
+                        int idx = i * n + j;
+                        id[idx] = idx;
+                        size[idx] = 1;
+                    }
+                }
+            }
         }
+
+        public int find(int p) {
+            while (id[p] != p) {
+                p = id[p];
+            }
+            return p;
+        }
+
+        public void union(int p, int q) {
+            int pid = find(p);
+            int qid = find(q);
+            if (pid == qid) return;
+            if (size[pid] > size[qid]) {
+                size[pid] += size[qid];
+                id[qid] = pid;
+            } else {
+                size[qid] += size[pid];
+                id[pid] = qid;
+            }
+            count--;
+        }
+    }
+
+    // union find.
+    public int numIslands3(char[][] grid) {
+        if (grid == null || grid.length == 0 ||
+                grid[0] == null || grid[0].length == 0) return 0;
+        UF uf = new UF(grid);
+        int m = grid.length;
+        int n = grid[0].length;
+        int[][] dirs = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
+        // boolean[][] visited = new boolean[m][n];
+        // 不能用visited数组，否则无法union。
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                // 这里如何走 让其可以union？
+                if (grid[i][j] == '1') {
+                    for (int[] dir : dirs) {
+                        int x2 = i + dir[0];
+                        int y2 = j + dir[1];
+                        if (x2 >= 0 && x2 < m && y2 >= 0 && y2 < n && grid[x2][y2] == '1')
+                            uf.union(i * n + j, x2 * n + y2);
+                    }
+                }
+            }
+        }
+        return uf.count;
     }
 }

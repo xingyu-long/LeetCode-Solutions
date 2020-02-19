@@ -1,7 +1,7 @@
 package com.leetcode.tree.bst;
 
 
-import com.leetcode.common.MainClass;
+import com.leetcode.common.ConverterForTreeAndString;
 import com.leetcode.common.TreeNode;
 
 public class _108_ConvertSortedArrayToBinarySearchTree {
@@ -34,9 +34,9 @@ public class _108_ConvertSortedArrayToBinarySearchTree {
     }
 
     public static void main(String[] args) {
-        MainClass mainClass = new MainClass();
+        ConverterForTreeAndString converterForTreeAndString = new ConverterForTreeAndString();
         int[] nums = new int[]{1,2,3,4,5,6,7};
         TreeNode root = sortedArrayToBST(nums);
-        System.out.println(mainClass.treeNodeToString(root));
+        System.out.println(converterForTreeAndString.treeNodeToString(root));
     }
 }

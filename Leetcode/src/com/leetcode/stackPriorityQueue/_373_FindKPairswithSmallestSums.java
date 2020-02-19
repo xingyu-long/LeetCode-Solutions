@@ -48,6 +48,7 @@ public class _373_FindKPairswithSmallestSums {
 
         List<List<Integer>> res = new ArrayList<>();
 
+        // 这个比较重要，不要忘记了，边界条件
         if (nums1.length == 0 || nums2.length == 0 || k == 0) {
             return res;
         }

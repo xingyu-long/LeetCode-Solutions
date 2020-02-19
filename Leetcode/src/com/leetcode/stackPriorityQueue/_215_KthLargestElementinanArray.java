@@ -35,6 +35,7 @@ public class _215_KthLargestElementinanArray {
         return nums[k];
     }
 
+    // 写法就按照这样来，这样i和j都会在等于hi或者lo的时候 break。
     public int partition(int[] nums, int lo, int hi) {
         int i = lo, j = hi + 1;
         while (true) {

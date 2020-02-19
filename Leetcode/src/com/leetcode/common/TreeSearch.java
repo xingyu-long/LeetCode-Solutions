@@ -58,8 +58,8 @@ public class TreeSearch {
 
     public static void main(String[] args){
         String s = "[1,2,3,4,5,6,7,8,9]";
-        MainClass mainClass = new MainClass();
-        TreeNode root = mainClass.stringToTreeNode(s);
+        ConverterForTreeAndString converterForTreeAndString = new ConverterForTreeAndString();
+        TreeNode root = converterForTreeAndString.stringToTreeNode(s);
 //        BreathFirstSearch(root);
         System.out.println();
         DepthFirstSearch(root);

@@ -1,6 +1,6 @@
 package com.leetcode.tree.inorder;
 
-import com.leetcode.common.MainClass;
+import com.leetcode.common.ConverterForTreeAndString;
 import com.leetcode.common.TreeNode;
 
 import java.util.Stack;
@@ -73,6 +73,7 @@ public class _285_InorderSuccessorinBST {
     }
 
     // 利用BST的性质
+    // logN
     public TreeNode inorderSuccessor3(TreeNode root, TreeNode p) {
         TreeNode res = null;
         while (root != null) {
@@ -88,8 +89,8 @@ public class _285_InorderSuccessorinBST {
 
     public static void main(String[] args) {
         String s = "[3,1,4,null,2]";
-        MainClass mainClass = new MainClass();
-        TreeNode root = mainClass.stringToTreeNode(s);
+        ConverterForTreeAndString converterForTreeAndString = new ConverterForTreeAndString();
+        TreeNode root = converterForTreeAndString.stringToTreeNode(s);
         TreeNode res = inorderSuccessor2(root, new TreeNode(1));
         System.out.println(res.val);
     }

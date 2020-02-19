@@ -1,6 +1,7 @@
 package com.leetcode.bitManipulation;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class _89_GrayCode {
@@ -22,5 +23,16 @@ public class _89_GrayCode {
             res.add(i ^ (i >> 1));
         }
         return res;
+    }
+
+    // time:O(2^n) space:O(n)
+    public List<Integer> grayCode2(int n) {
+        if (n == 0) return new ArrayList<>(Arrays.asList(0));
+        List<Integer> MinusOneList = grayCode2(n - 1);
+        int firstBit = 1 << (n - 1);
+        for (int i = MinusOneList.size() - 1; i >= 0; i--) { // 反着计算
+            MinusOneList.add(firstBit | MinusOneList.get(i));
+        }
+        return MinusOneList;
     }
 }

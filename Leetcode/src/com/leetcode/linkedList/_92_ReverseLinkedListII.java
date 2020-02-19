@@ -25,21 +25,22 @@ public class _92_ReverseLinkedListII {
      */
     // time: O(n) space: O(1)
     //另外一种方法，其中内部交换的部分依然跟206题一致的用法
-    public ListNode reverseBetween2(ListNode head, int m, int n) {
-        if (head == null) return head;
-        // find the prev.
+    // 更加的易懂。
+    public ListNode reverseBetween(ListNode head, int m, int n) {
+        if (head == null || head.next == null) return head;
         ListNode dummy = new ListNode(0);
         dummy.next = head;
         ListNode prev = dummy;
         for (int i = 0; i < m - 1; i++) {
             prev = prev.next;
         }
-        ListNode first = prev.next;
-        for (int i = 0; i < n - m; i++) {
-            ListNode temp = prev.next;
-            prev.next = first.next;
-            first.next = prev.next.next;
-            prev.next.next = temp;
+        int count = n - m;
+        ListNode cur = prev.next;
+        while (count-- > 0) {
+            ListNode next = cur.next;
+            cur.next = next.next;
+            next.next = prev.next;
+            prev.next = next;
         }
         return dummy.next;
     }

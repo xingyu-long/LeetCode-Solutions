@@ -18,4 +18,15 @@ public class _191_Numberof1Bits {
         }
         return res;
     }
+
+    // 利用n & n - 1每次消除最低位的1.
+    // time:O(1) space:O(1)
+    public int hammingWeight2(int n) {
+        int count = 0;
+        while (n != 0) {
+            count++;
+            n &= (n - 1);
+        }
+        return count;
+    }
 }

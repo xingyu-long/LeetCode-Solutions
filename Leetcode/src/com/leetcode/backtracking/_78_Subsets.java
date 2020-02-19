@@ -31,12 +31,11 @@ public class _78_Subsets {
      * <p>
      * res = [[], [1], [1,2], [2]];
      * <p>
-     * time : O(2 ^ n)
-     * space: O(n)
      *
      * @param nums
      * @return
      */
+    //time:O(2^n) space:O(n) 这里space的n表示最大的递归深度
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         if (nums == null || nums.length == 0) return res;

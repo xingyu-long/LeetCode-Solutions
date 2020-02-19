@@ -25,28 +25,30 @@ public class _56_MergeIntervals {
     // 然后用第一道题的方法做。这道题基本上是引导着做出来的。
     // time:O(nlogn) for sorting space: O(n)
     public int[][] merge(int[][] intervals) {
-        // 利用后一个的start与前一个的end作比较
-        if (intervals == null || intervals.length == 0) return new int[][]{};
-        List<List<Integer>> list = new ArrayList<>();
-        // needs to sort first.
-        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+        if (intervals == null || intervals.length == 0 ||
+                intervals[0] == null || intervals[0].length == 0) return new int[][]{};
+        Arrays.sort(intervals, (a, b) -> (a[0] - b[0]));
         int start = intervals[0][0];
         int end = intervals[0][1];
-        for (int i = 1; i < intervals.length; i++) {
+        int n = intervals.length;
+        List<List<Integer>> list = new LinkedList<>();
+        for (int i = 1; i < n; i++) {
             if (intervals[i][0] <= end) {
                 end = Math.max(end, intervals[i][1]);
             } else {
-                list.add(new ArrayList<>(Arrays.asList(start, end)));
+                list.add(Arrays.asList(start, end));
                 start = intervals[i][0];
                 end = intervals[i][1];
             }
         }
-        // add the last pair.
-        list.add(new ArrayList<>(Arrays.asList(start, end)));
+        // add the last one.
+        list.add(Arrays.asList(start, end));
         int[][] res = new int[list.size()][2];
-        for (int i = 0; i < list.size(); i++) {
-            res[i][0] = list.get(i).get(0);
-            res[i][1] = list.get(i).get(1);
+        int k = 0;
+        for (List<Integer> row : list) {
+            res[k][0] = row.get(0);
+            res[k][1] = row.get(1);
+            k++;
         }
         return res;
     }

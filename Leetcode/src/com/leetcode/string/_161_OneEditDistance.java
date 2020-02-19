@@ -3,9 +3,10 @@ package com.leetcode.string;
 public class _161_OneEditDistance {
 
     /**
-     *  161. One Edit Distance
-     *  When:2019/8/6
-     *  Difficulty: Medium
+     * 161. One Edit Distance
+     * When:2019/8/6
+     * Difficulty: Medium
+     *
      * @param s
      * @param t
      * @return
@@ -27,5 +28,39 @@ public class _161_OneEditDistance {
         }
         // 前面相等时候，就只能这样判断
         return Math.abs(s.length() - t.length()) == 1;
+    }
+
+
+    public static boolean isOneEditDistance2(String s, String t) {
+        int diff = Math.abs(s.length() - t.length());
+        if (diff >= 2) return false;
+        if (diff == 1) { // 本来就差1，需要add或者delete，这时候还有不同的就直接false；
+            for (int i = 0; i < Math.min(s.length(), t.length()); i++) {
+                if (s.charAt(i) != t.charAt(i)) return false;
+            }
+        } else { // diff = 0;
+            int count = 0;
+            for (int i = 0; i < s.length(); i++) {
+                if (s.charAt(i) != t.charAt(i)) count++;
+            }
+            return count == 1;
+        }
+        return true;
+    }
+
+    // 简化的写法。这个只是个人写法，但我觉得可行。
+    public static boolean isOneEditDistance3(String s, String t) {
+        int diff = Math.abs(s.length() - t.length());
+        if (diff >= 2) return false;
+        for (int i = 0; i < Math.min(s.length(), t.length()); i++) {
+            if (s.charAt(i) != t.charAt(i)) {
+                if (s.length() == t.length()) {
+                    return s.substring(i + 1).equals(t.substring(i + 1));
+                } else {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }

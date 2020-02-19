@@ -26,35 +26,26 @@ public class _50_PowXN {
         }
     }
 
-    // 利用对半分
+    // 利用对半分 recursion
     public static double pow(double x, int n) {
-        if (n == 0) {
-            return 1;
-        }
-        double y = pow(x, n / 2);
+        if (n == 0) return 1;
+        
+        double half = pow(x, n / 2);
         if (n % 2 == 0) {
-            return y * y;
+            return half * half;
         } else {
-            return y * y * x;
+            return half * half * x;
         }
     }
 
-    public static double MyPow2(double x, int n) {
-        if (n == 0) return 1;
+    // iterative
+    public double myPow2(double x, int n) {
         double res = 1;
-        // int: -2^32 ~ 2^32 - 1 但是这里abs之后可能会溢出 所以使用long
-        long abs = Math.abs((long) n);
-        while (abs > 0) {
-            if (abs % 2 != 0){
-                res *= x;
-            }
+        for (int i = n; i != 0; i /= 2) {
+            if (i % 2 != 0) res *= x;
             x *= x;
-            abs /= 2;
         }
-        if (n < 0) {
-            return 1.0 / res;
-        }
-        return res;
+        return (n < 0) ? 1.0 / res : res;
     }
 
     public static void main(String[] args) {

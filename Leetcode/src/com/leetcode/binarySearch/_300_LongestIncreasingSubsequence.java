@@ -54,6 +54,7 @@ public class _300_LongestIncreasingSubsequence {
     }
 
     // 利用了binary search，相当于在这个途中构造有序的序列
+    // 这个解法比较酷
     public int lengthOfLIS3(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
         int res = 0;

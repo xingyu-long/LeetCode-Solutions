@@ -30,25 +30,23 @@ public class _86_PartitionList {
     //time:O(n) space:O(n)
     public ListNode partition(ListNode head, int x) {
         if (head == null || head.next == null) return head;
-        // 分成左右
-        ListNode dummyLeft = new ListNode(0);
-        ListNode dummyRight = new ListNode(0);
-        // curXXX用来移动
-        ListNode curLeft = dummyLeft;
-        ListNode curRight = dummyRight;
+        ListNode smallerDummy = new ListNode(0);
+        ListNode largerDummy = new ListNode(0);
+        ListNode smaller = smallerDummy;
+        ListNode larger = largerDummy;
         while (head != null) {
             if (head.val < x) {
-                curLeft.next = head;
-                curLeft = curLeft.next;
+                smaller.next = head;
+                smaller = smaller.next;
             } else {
-                curRight.next = head;
-                curRight = curRight.next;
+                larger.next = head;
+                larger = larger.next;
             }
             head = head.next;
         }
-        curRight.next = null;
-        curLeft.next = dummyRight.next;
-        return dummyLeft.next;
+        larger.next = null; // 这里需要，否则会有死循环
+        smaller.next = largerDummy.next;
+        return smallerDummy.next;
     }
 
     // 通过prev跳跃。

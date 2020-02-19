@@ -40,4 +40,5 @@ public class _71_SimplifyPath {
         }
         return res;
     }
+    // 也可以用deque来模拟stack，输出的时候感觉会方便些
 }

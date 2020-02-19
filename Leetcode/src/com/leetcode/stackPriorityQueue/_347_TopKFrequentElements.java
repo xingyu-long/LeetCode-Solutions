@@ -11,21 +11,21 @@ public class _347_TopKFrequentElements {
      * @return
      */
     // 利用PriorityQueue
+    // 这才是nlogK的算法 维持最多k个
     public static List<Integer> topKFrequent(int[] nums, int k) {
+        PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>((a, b) -> a.getValue() - b.getValue());
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
-        // 构造最大堆 这里的x.getValue() 就是hashMap对应的value
-        PriorityQueue<Map.Entry<Integer, Integer>> maxHeap =
-                new PriorityQueue<>((a, b) -> (b.getValue() - a.getValue()));
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            maxHeap.add(entry);
+            pq.offer(entry);
+            if (pq.size() > k) {
+                pq.poll();
+            }
         }
-
         List<Integer> res = new ArrayList<>();
-        while (res.size() < k) {
-            Map.Entry<Integer, Integer> entry = maxHeap.poll();
+        for (Map.Entry<Integer, Integer> entry : pq) {
             res.add(entry.getKey());
         }
         return res;

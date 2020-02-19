@@ -22,6 +22,7 @@ public class _77_Combinations {
      * @param k
      * @return
      */
+    // time: c_{n}^{k}, space:O(k)
     public List<List<Integer>> combine(int n, int k) {
         // 普通写的话，不能表示多个k的情况，这样复杂度会受到影响
         List<List<Integer>> res = new ArrayList<>();

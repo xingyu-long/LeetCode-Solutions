@@ -12,7 +12,7 @@ public class _400_NthDigit {
      */
     public static int findNthDigit(int n) {
         int len = 1;
-        long count = 9;
+        long count = 9; // 防止溢出
         int start = 1;
         while (n > len * count) {
             n -= len * count;

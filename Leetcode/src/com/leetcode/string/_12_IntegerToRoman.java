@@ -28,6 +28,7 @@ public class _12_IntegerToRoman {
         String[] strs = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
         StringBuilder sb = new StringBuilder();
+        // 外面加个循环，没想到。。。。
         for (int i = 0; i < values.length; i++) {
             while (num >= values[i]) { // 一直停留在比num小的数字这里。
                 num -= values[i];

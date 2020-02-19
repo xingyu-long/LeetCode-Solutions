@@ -74,7 +74,7 @@ public class _47_PermutationsII {
      */
     // https://www.youtube.com/watch?v=43w8tXWKSLw
     // time: O(n!) space:O(n)
-    public List<List<Integer>> permuteUnique(int[] nums) {
+    public static List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         if (nums == null || nums.length == 0) return  res;
         Arrays.sort(nums);
@@ -82,7 +82,7 @@ public class _47_PermutationsII {
         return res;
     }
 
-    public void helper(List<List<Integer>> res, List<Integer> list, int[] nums, boolean[] used) {
+    public static void helper(List<List<Integer>> res, List<Integer> list, int[] nums, boolean[] used) {
         if (list.size() == nums.length) {
             res.add(new ArrayList<>(list));
             return;
@@ -97,5 +97,10 @@ public class _47_PermutationsII {
             used[i] = false;
             list.remove(list.size() - 1);
         }
+    }
+
+    public static void main(String[] args) {
+        int[] nums = new int[]{1,1,2};
+        permuteUnique(nums);
     }
 }

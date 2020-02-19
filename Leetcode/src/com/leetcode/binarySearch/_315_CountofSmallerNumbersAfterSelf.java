@@ -91,6 +91,7 @@ public class _315_CountofSmallerNumbersAfterSelf {
                 left = mid;
             }
         }
+        // 这个比较关键。
         if (sortedArray.get(right) < target) return right + 1;
         if (sortedArray.get(left) >= target) return left;
         else return right;

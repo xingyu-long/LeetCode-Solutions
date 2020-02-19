@@ -16,7 +16,8 @@ public class _213_HouseRobberII {
         if (nums == null || nums.length == 0) return 0;
         int n = nums.length;
         if (n == 1) return nums[0];
-        int include = helper(nums, 0, n - 1);
+        // 因为开头和结尾两个不能同时出现。
+        int include = helper(nums, 0, n - 1); 
         int notInclude = helper(nums, 1, n);
         return Math.max(include, notInclude);
     }

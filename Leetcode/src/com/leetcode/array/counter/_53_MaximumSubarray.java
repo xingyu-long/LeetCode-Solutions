@@ -70,6 +70,7 @@ public class _53_MaximumSubarray {
     }
     //使用动态规划。time:O(n) space:O(n)
     // 状态转换方程
+    // dp[i] 表示包含i这个元素下的局部最大值。
     public int maxSubArray2(int[] nums) {
         int[] dp = new int[nums.length];
         dp[0] = nums[0];
@@ -83,8 +84,19 @@ public class _53_MaximumSubarray {
         return res;
     }
 
-    // 这里就不用dp数组。
+    // 优化空间复杂度
     public int maxSubArray3(int[] nums) {
+        int res = nums[0];
+        int sum = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            sum = Math.max(sum + nums[i], nums[i]); // 上面一模一样的操作
+            res = Math.max(res, sum);
+        }
+        return res;
+    }
+
+    // 这里就不用dp数组。
+    public int maxSubArray4(int[] nums) {
         if (nums == null || nums.length == 0) return -1;
         int n = nums.length;
         int max = Integer.MIN_VALUE;
@@ -97,5 +109,31 @@ public class _53_MaximumSubarray {
             }
         }
         return max;
+    }
+
+    // 分治的解法
+    public int maxSubArray5(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        return helper(nums, 0, nums.length - 1);
+    }
+
+    public int helper(int[] nums, int left, int right) {
+        if (left == right) return nums[left];
+        int mid = left + (right - left) / 2;
+        int leftRes = helper(nums, left, mid);
+        int rightRes = helper(nums, mid + 1, right);
+        // cross 类似于merge的过程
+        int leftMax = nums[mid];
+        int rightMax = nums[mid + 1];
+        for (int i = mid, temp = 0; i >= left; i--) {
+            temp += nums[i];
+            if (temp > leftMax) leftMax = temp;
+        }
+
+        for (int i = mid + 1, temp = 0; i <= right; i++) {
+            temp += nums[i];
+            if (temp > rightMax) rightMax = temp;
+        }
+        return Math.max(leftRes, Math.max(rightRes, leftMax + rightMax));
     }
 }

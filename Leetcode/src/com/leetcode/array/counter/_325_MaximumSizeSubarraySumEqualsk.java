@@ -14,7 +14,8 @@ public class _325_MaximumSizeSubarraySumEqualsk {
     // hashMap的做法 首先求累计和，然后看nums[i] - k是否在map中存在
     // 存在的话表明，i - 这个值就是长度 （需要好好理解）
     // 累计和有 == k的情况，那就是 i + 1 所以用map(0, -1) 就方便计算
-    public int maxSubArrayLen2(int[] nums, int k) {
+    // 这里是最长，所以没问题，每次一旦发现没有插入的就记录，记录最早出现的位置。
+    public static int maxSubArrayLen2(int[] nums, int k) {
         if (nums == null || nums.length == 0) return 0;
         int res = 0;
         HashMap<Integer, Integer> map = new HashMap<>();
@@ -35,5 +36,11 @@ public class _325_MaximumSizeSubarraySumEqualsk {
             }
         }
         return res;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 0, -1};
+        int k = -1;
+        maxSubArrayLen2(nums, k);
     }
 }

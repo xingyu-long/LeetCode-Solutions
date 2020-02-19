@@ -73,4 +73,29 @@ public class _43_MultiplyStrings {
         }
         return sb.length() == 0 ? "0" : sb.toString();
     }
+
+    // 完全自己重做的。
+    public String multiply3(String num1, String num2) {
+        if (num1.equals("0") || num2.equals("0")) return "0";
+        int m = num1.length();
+        int n = num2.length();
+        int[] arr = new int[m + n];
+        for (int i = m - 1; i >= 0; i--) {
+            for (int j = n - 1; j >= 0; j--) {
+                int index = i + j + 1;
+                int n1 = num1.charAt(i) - '0';
+                int n2 = num2.charAt(j) - '0';
+                int multi = n1 * n2; 
+                arr[index] += multi;
+                arr[index - 1] += arr[index] / 10;// 需要进位
+                arr[index] = arr[index] % 10;
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int num : arr) {
+            sb.append(num);
+        }
+        if (sb.charAt(0) == '0') return sb.toString().substring(1);
+        return sb.toString();
+    }
 }

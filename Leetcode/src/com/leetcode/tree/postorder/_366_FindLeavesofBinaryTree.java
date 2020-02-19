@@ -38,15 +38,16 @@ public class _366_FindLeavesofBinaryTree {
     }
 
     public static int helper(List<List<Integer>> res, TreeNode root) {
-        if (root == null) return -1; // 加1之后为0 然后与res.size()刚好对应
-        int left = helper(res, root.left);
-        int right = helper(res, root.right);
-        int level = Math.max(left, right) + 1;
+        if (root == null) return -1; // 加1之后为0 然后与res.size()刚好对应 
+        // 这次先加上，否则-1，-1后面比较然后加入结果集会异常。
+        int left = helper(res, root.left) + 1;
+        int right = helper(res, root.right) + 1;
+        int level = Math.max(left, right);
         if (res.size() == level) {
             res.add(new ArrayList<>());
         }
         res.get(level).add(root.val);
-        return level;
+        return Math.max(left, right);
     }
 
     public static void main(String[] args) {
@@ -55,6 +56,12 @@ public class _366_FindLeavesofBinaryTree {
         root.right = new TreeNode(3);
         root.left.left = new TreeNode(4);
         root.left.right = new TreeNode(5);
-        findLeaves(root);
+        List<List<Integer>> res = findLeaves(root);
+        for (List<Integer> list : res) {
+            for (int num : list) {
+                System.out.print(num + " ");
+            }
+            System.out.println();
+        }
     }
 }

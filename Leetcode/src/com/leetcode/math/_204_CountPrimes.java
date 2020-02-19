@@ -22,17 +22,32 @@ public class _204_CountPrimes {
      * res = 4
      * @param n
      * @return
-     */
+     */ 
+    // time:O(n * sqrt(n)) 
     public static int countPrimes(int n) {
         boolean[] notPrime = new boolean[n];
         int res = 0;
         for (int i = 2; i < n; i++) {
-            if (notPrime[i] == false) {
+            if (!notPrime[i]) {
                 res++;
                 for (int j = 2; i * j < n; j++) {
                     notPrime[i * j] = true;
                 }
             }
+        }
+        return res;
+    }
+
+    // brute force, time:O(n * n) space:O(1)
+    public int countPrimes2(int n) {
+        if (n < 1) return 0;
+        int res = 0;
+        for (int i = 2; i < n; i++) {
+            int j;
+            for (j = 2; j < i; j++) {
+                if (i % j == 0) break;
+            }
+            if (j == i) res++;
         }
         return res;
     }

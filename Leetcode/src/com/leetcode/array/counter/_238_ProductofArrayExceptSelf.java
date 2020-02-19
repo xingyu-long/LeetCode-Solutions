@@ -14,6 +14,8 @@ public class _238_ProductofArrayExceptSelf {
      * @param nums
      * @return
      */
+    // 其实主要是思想是，我们需要当前数的前面的乘积 和 当前数的后面的乘积。
+    // 所以two pass就可以。
 
     // time:O(n) space: O(n)
     public static int[] productExceptSelf(int[] nums) {

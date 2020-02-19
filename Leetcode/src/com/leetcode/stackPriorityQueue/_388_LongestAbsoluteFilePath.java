@@ -1,5 +1,6 @@
 package com.leetcode.stackPriorityQueue;
 
+import java.util.HashMap;
 import java.util.Stack;
 
 public class _388_LongestAbsoluteFilePath {
@@ -35,9 +36,46 @@ public class _388_LongestAbsoluteFilePath {
             System.out.println("len = " + len);
             stack.push(len);
             if (s.contains(".")) {
+                // 已经包含了.txt文件
                 // 减去根目录一开始保存的"加1操作"
                 res = Math.max(res, len - 1);
             }
+        }
+        return res;
+    }
+
+    // 利用hashMap 然后当做字符串逐渐读取这样会很好理解
+    public int lengthLongestPath2(String input) {
+        int res = 0, count = 0, level = 1;
+        boolean isFile = false;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(0, 0);
+        int i = 0;
+        int n = input.length();
+        while (i < n) {
+            while (input.charAt(i) == '\t') {
+                level++;
+                i++;
+            }
+            // 每一次换行之前
+            while (i < n && input.charAt(i) != '\n') {
+                if (input.charAt(i) == '.')
+                    isFile = true;
+
+                count++;
+                i++;
+            }
+
+            if (isFile) {
+                res = Math.max(res, map.getOrDefault(level - 1, 0) + count);
+            } else {
+                map.put(level, map.getOrDefault(level - 1, 0) + count + 1);
+            }
+
+            count = 0;
+            level = 1;
+            isFile = false;
+            i++;
         }
         return res;
     }

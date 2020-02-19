@@ -1,6 +1,7 @@
 package com.leetcode.string;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class _271_EncodeandDecodeStrings {
@@ -12,9 +13,9 @@ public class _271_EncodeandDecodeStrings {
      * @param strs
      * @return
      */
-    // 如果使用空格的话，原输入有空格就会有问题
+    // 如果使用空格的话作为分隔的话，原输入有空格就会有问题
     // time:O(n) space:O(n)
-    public String encode(List<String> strs) {
+    public static String encode(List<String> strs) {
         StringBuilder sb = new StringBuilder();
         for (String str : strs) {
             sb.append(str.length()).append('/').append(str);
@@ -22,7 +23,7 @@ public class _271_EncodeandDecodeStrings {
         return sb.toString();
     }
 
-    public List<String> decode(String s) {
+    public static List<String> decode(String s) {
         List<String> res = new ArrayList<>();
         int i = 0;
         while (i < s.length()) {
@@ -32,5 +33,16 @@ public class _271_EncodeandDecodeStrings {
             i = slash + size + 1;// 下一个的开始
         }
         return res;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("hello world");
+        List<String> strs = new ArrayList<>(Arrays.asList("a", "a ", "ab d"));
+        String encode = encode(strs);
+        System.out.println(encode);
+        List<String> decode = decode(encode);
+        for (String str : decode) {
+            System.out.println(str);
+        }
     }
 }

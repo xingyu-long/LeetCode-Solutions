@@ -32,6 +32,7 @@ public class _250_CountUnivalueSubtrees {
         return res;
     }
 
+    // 需要从一开始的brute force开始思考，然后再思考优化的方向，例如在back的过程顺便计数。
     public boolean helper(TreeNode root) {
         // 那种有一个子树的情况如何做决定？
 

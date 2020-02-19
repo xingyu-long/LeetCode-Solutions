@@ -8,6 +8,7 @@ public class _220_ContainsDuplicateIII {
     /**
      *  220. Contains Duplicate III
      *  When:2019/8/2
+     *  11/26
      *  Difficulty: Medium
      *  solution:
      *  bucket, treeSet
@@ -35,7 +36,9 @@ public class _220_ContainsDuplicateIII {
 
     //  https://www.youtube.com/watch?v=yc4hCFzNNQc
     //  利用TreeSet，其实相当于维持一个BST，方便找它的floor和ceil值
-    public boolean containsNearbyAlmostDuplicate2(int[] nums, int k, int t) {
+    //  有点像保持一个sliding window在这里面的是符合k个的相差距离，主要比较的是在这里吗是否有相差<=t.
+    // time:O(nlogK) space:O(k)
+    public static boolean containsNearbyAlmostDuplicate2(int[] nums, int k, int t) {
         if (nums == null || nums.length == 0 || k <= 0 || t < 0) {
             return false;
         }
@@ -70,7 +73,7 @@ public class _220_ContainsDuplicateIII {
         HashMap<Long, Long> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             long reMapperNum = (long) nums[i] - Integer.MIN_VALUE;
-            long bucket = reMapperNum / ((long) t + 1);
+            long bucket = reMapperNum / ((long) t + 1); // 这里用t，可以确定在同一个桶里。
             if (map.containsKey(bucket)
                     || (map.containsKey(bucket - 1) && reMapperNum - map.get(bucket - 1) <= t)
                     || (map.containsKey(bucket + 1) && map.get(bucket + 1) - reMapperNum <= t)) {
@@ -83,5 +86,12 @@ public class _220_ContainsDuplicateIII {
             map.put(bucket, reMapperNum);
         }
         return false;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1,5,9,1,5,9};
+        int k = 2;
+        int t = 3;
+        containsNearbyAlmostDuplicate2(nums, k, t);
     }
 }

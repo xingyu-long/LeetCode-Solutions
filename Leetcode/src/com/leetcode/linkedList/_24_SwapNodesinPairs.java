@@ -21,22 +21,21 @@ public class _24_SwapNodesinPairs {
      */
     // time: O(n) space: O(1)
     public ListNode swapPairs(ListNode head) {
-        if (head == null || head.next == null) return head;
+        if (head == null) return head;
         ListNode dummy = new ListNode(0);
-
         dummy.next = head;
-        ListNode pre = dummy;
-        ListNode first;
-        while (pre.next != null && pre.next.next != null) {
-            // 每一次需要保持其 first 更新
-            first = pre.next;
-            pre.next = first.next;
-            first.next = pre.next.next;
-            pre.next.next = first;
-            pre = first;
+        ListNode prev = dummy, curr = null, next = null;
+        while (prev.next != null && prev.next.next != null) {
+            curr = prev.next;
+            next = curr.next;
+            curr.next = next.next;
+            next.next = prev.next;
+            prev.next = next;
+            prev = curr;
         }
         return dummy.next;
     }
+
 
     // recursion time:O(n) space:O(n)
     public ListNode swapPairs2(ListNode head) {

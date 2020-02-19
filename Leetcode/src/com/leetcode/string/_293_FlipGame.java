@@ -13,23 +13,6 @@ public class _293_FlipGame {
      * @return
      */
     // time: O(n) space:O(n)
-    public static List<String> generatePossibleNextMoves(String s) {
-        List<String> res = new ArrayList<>();
-        if (s == null && s.length() == 0) return res;
-        StringBuilder sb = new StringBuilder(s);
-        for(int i = 0; i < sb.length() - 1; i++) {
-            if(sb.charAt(i) == sb.charAt(i + 1) && sb.charAt(i) == '+') {
-                sb.setCharAt(i, '-');
-                sb.setCharAt(i + 1, '-');
-                res.add(sb.toString());
-                //还原
-                sb.setCharAt(i, '+');
-                sb.setCharAt(i + 1, '+');
-            }
-        }
-        return res;
-    }
-
     // 不用改变当前的数组
     public static List<String> generatePossibleNextMoves2(String s) {
         List<String> res = new ArrayList<>();

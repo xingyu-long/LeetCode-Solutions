@@ -1,5 +1,7 @@
 package com.leetcode.dynamicProgramming;
 
+import java.util.Arrays;
+
 public class _518_CoinChange2 {
     /**
      *
@@ -39,5 +41,34 @@ public class _518_CoinChange2 {
             }
         }
         return dp[amount];
+    }
+
+
+    // dfs + memo
+    // time:O(m * n) space:O(m*n)
+    public int change3(int amount, int[] coins) {
+        if (amount == 0) return 1;
+        if (coins == null || coins.length == 0) return 0;
+        int[][] memo = new int[coins.length][amount + 1];
+        for (int[] row : memo) {
+            Arrays.fill(row, -1);
+        }
+        return dfs(amount, coins, coins.length - 1, memo);
+    }
+
+    public int dfs(int amount, int[] coins, int choice, int[][] memo) {
+        if (amount == 0) return 1;
+        if (amount < 0) return 0;
+        if (choice < 0) return 0;
+        if (memo[choice][amount] != -1) return memo[choice][amount];
+        int res = 0;
+        // 用还是不用。
+        // 用
+        res += dfs(amount - coins[choice], coins, choice, memo);
+        // 不用
+        res += dfs(amount, coins, choice - 1, memo);
+
+        memo[choice][amount] = res;
+        return res;
     }
 }

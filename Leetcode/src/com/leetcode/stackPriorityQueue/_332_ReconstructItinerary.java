@@ -8,6 +8,7 @@ public class _332_ReconstructItinerary {
     public static List<String> res;
 
     //虽然这个算是有环的，但是每次操作都删除了一个点，最后还是有路径的。
+    // 理解成那个后序遍历比较好，
     public static List<String> findItinerary(List<List<String>> tickets) {
         map = new HashMap<>();
         res = new LinkedList<>();

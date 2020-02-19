@@ -14,37 +14,6 @@ public class _165_CompareVersionNumbers {
      * @param version2
      * @return
      */
-    // time: O(max(m,n)) space: O(n)
-    public static int compareVersion(String version1, String version2) {
-        String[] v1 = version1.split("\\.");
-        String[] v2 = version2.split("\\.");
-        int v1Length = v1.length;
-        int v2Length = v2.length;
-        int min = Math.min(v1.length, v2.length);
-        for (int i = 0; i < Math.min(v1.length, v2.length); i++) {
-            int a = Integer.parseInt(v1[i]);
-            int b = Integer.parseInt(v2[i]);
-            System.out.println("a = " + a + "b = "+b);
-            if (a > b) return 1;
-            else if (a < b) return -1;
-        }
-
-        for (int j = min; j < v1.length; j++) {
-            if (Integer.parseInt(v1[j]) == 0) {
-                v1Length--;
-            }
-        }
-        for (int k = min; k < v2.length; k++) {
-            if (Integer.parseInt(v2[k]) == 0) {
-                v2Length--;
-            }
-        }
-
-        if (v1Length > v2Length) return 1;
-        else if (v1Length == v2Length) return 0;
-        else return -1;
-    }
-
     // 计算每次两个点之内的比较
     // time:O(max(m,n)) space:O(1)
     public static int compareVersion2(String version1, String version2) {

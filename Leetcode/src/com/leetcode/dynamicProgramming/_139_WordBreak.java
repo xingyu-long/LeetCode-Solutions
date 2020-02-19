@@ -62,22 +62,26 @@ public class _139_WordBreak {
     // 如何节省重复计算？ 后面的那个部分是可以节约的，如果碰到aaaaaaaaa, indict=["a", "aa", ... ]
     // 应该看成 后面是否在dict中，然后再dfs求解前面的，这样好理解word break II
     // time: (n * n) space:O(n)
-    public static boolean wordBreak2(String s, List<String> wordDict) {
+    public boolean wordBreak2(String s, List<String> wordDict) {
         if (s == null || s.length() == 0) return false;
-        HashMap<String, Boolean> map = new HashMap<>();
-        return dfs(s, wordDict, map);
+        HashMap<Integer, Boolean> map = new HashMap<>();
+        HashSet<String> dict = new HashSet<>(wordDict);
+        return dfs(s, 0, dict, map);
     }
 
-    public static boolean dfs(String s, List<String> wordDict, HashMap<String, Boolean> map) {
-        if (wordDict.contains(s)) return true;
-        if (map.containsKey(s)) return map.get(s);
-        for (int i = 1; i < s.length(); i++) {
-            if (wordDict.contains(s.substring(i)) && dfs(s.substring(0, i), wordDict, map)) {
-                map.put(s, true);
+    public boolean dfs(String s, int index, HashSet<String> dict, HashMap<Integer, Boolean> map) {
+        if (index == s.length()) return true;
+        if (dict.contains(s)) return true;
+        if (map.get(index) != null) return map.get(index);
+
+        for (int i = index + 1; i <= s.length(); i++) {
+            String word = s.substring(index, i);
+            if (dict.contains(word) && dfs(s, i, dict, map)) {
+                map.put(index, true);
                 return true;
             }
         }
-        map.put(s, false);
+        map.put(index, false);
         return false;
     }
 
@@ -124,7 +128,7 @@ public class _139_WordBreak {
         wordDict.add("and");
         wordDict.add("sand");
         wordDict.add("dog");
-        System.out.println(wordBreak2(s, wordDict));
+//        System.out.println(wordBreak2(s, wordDict));
 //        System.out.println(s.substring(2, 8));
     }
 }

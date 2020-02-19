@@ -45,15 +45,16 @@ public class _23_MergekSortedLists {
     }
 
     /**
-     * 类似于合并排序
+     * 合并排序
      */
+    // 另外有一个sort list 需要用ListNode然后找中点
     public ListNode mergeKLists2(ListNode[] lists) {
         if (lists == null || lists.length == 0) return null;
         return sort(lists, 0, lists.length - 1);
     }
 
     public ListNode sort(ListNode[] lists, int lo, int hi) {
-        if (lo >= hi) return lists[lo];
+        if (lo >= hi) return lists[lo]; // 这里需要注意。
         int mid = (hi - lo) / 2 + lo;
         ListNode l1 = sort(lists, lo, mid);
         ListNode l2 = sort(lists, mid + 1, hi);

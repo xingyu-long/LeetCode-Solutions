@@ -77,11 +77,22 @@ public class _206_ReverseLinkedList {
 
     // recursion time:O(n) space:O(n)
     // 推荐视频演示 https://www.youtube.com/watch?v=MRe3UsRadKw
-    public ListNode reverseList4(ListNode head) {
-        if (head == null || head.next == null) return head;
-        ListNode p = reverseList4(head.next);
+    // 相当于每次传递的就是最后一个节点，中间的head变化（调整）与newHead没有关系
+    public static ListNode reverseList4(ListNode head) {
+        if (head.next == null) return head;
+        ListNode newHead = reverseList4(head.next);
         head.next.next = head;
         head.next = null;
-        return p;
+        return newHead;
+    }
+
+    public static void main(String[] args) {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        ListNode node = reverseList4(head);
+        for (ListNode first = node; first != null; first = first.next) {
+            System.out.println(first.val);
+        }
     }
 }

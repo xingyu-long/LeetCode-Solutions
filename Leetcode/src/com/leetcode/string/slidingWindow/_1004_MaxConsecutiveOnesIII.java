@@ -17,7 +17,6 @@ public class _1004_MaxConsecutiveOnesIII {
     public int longestOnes(int[] A, int K) {
         if (A == null || A.length == 0) return 0;
         int res = 0;
-        int max = 0;
         int zeroCount = 0;
         int start = 0;
         for (int end = 0; end < A.length; end++) {

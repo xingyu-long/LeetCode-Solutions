@@ -3,7 +3,7 @@ package com.leetcode.dynamicProgramming;
 public class _375_GuessNumberHigherorLowerII {
     // 这里说需要保证，那么就需要在猜的左右情况取最差，即最大的情况。然后取出最小
     // https://www.youtube.com/watch?v=VfJPDNG0nYM
-
+    // 这个跟另外一个累计和的划分是相同的做法
     /**
      * 375. Guess Number Higher or Lower II
      * When:2019/8/1
@@ -20,6 +20,7 @@ public class _375_GuessNumberHigherorLowerII {
      * 然后依次计算得到
      * dp[i][j] 指 i~j的情况
      */
+    // 分段DP题。和410基本差不多，410是求和的。
     // time: O(n^3) 因为需要i, j, x三个循环 space:O(n^2)
     int[][] memo;
 
@@ -34,6 +35,7 @@ public class _375_GuessNumberHigherorLowerII {
         if (memo[i][j] != 0) return memo[i][j];
         int res = Integer.MAX_VALUE;
         for (int x = i; x <= j; x++) {
+            // 每次做了选择之后，会选其中一边，因为题意的要求。
             res = Math.min(res, x + Math.max(helper(i, x - 1), helper(x + 1, j)));
         }
         memo[i][j] = res;
@@ -44,14 +46,13 @@ public class _375_GuessNumberHigherorLowerII {
     // 这些细节要好好考虑
     public int getMoneyAmount2(int n) {
         int[][] dp = new int[n + 1][n + 1];
-        for (int j = 2; j <= n; j++) {
-            for (int i = j - 1; i > 0; i--) {
-                int globalMin = Integer.MAX_VALUE;
-                for (int k = i + 1; k < j; k++) {
-                    int localMax = k + Math.max(dp[i][k - 1], dp[k + 1][j]);
-                    globalMin = Math.min(globalMin, localMax);
+        for (int i = n - 1; i > 0; i--) {
+            for (int j = i + 1; j <= n; j++) {
+                dp[i][j] = Integer.MAX_VALUE;
+                for (int x = i; x < j; x++) {
+                    dp[i][j] = Math.min(dp[i][j], x +
+                            Math.max(dp[i][x-1],dp[x+1][j]));
                 }
-                dp[i][j] = i + 1 == j ? i : globalMin;
             }
         }
         return dp[1][n];

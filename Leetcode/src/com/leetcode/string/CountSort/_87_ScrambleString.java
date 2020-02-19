@@ -17,7 +17,7 @@ public class _87_ScrambleString {
      * @param s2
      * @return
      */
-    public boolean isScramble(String s1, String s2) {
+    public static boolean isScramble(String s1, String s2) {
         if (s1 == null || s2 == null) return false;
         if (s1.equals(s2)) return true;
 
@@ -34,7 +34,7 @@ public class _87_ScrambleString {
             if (letters[i] != 0) return false;
         }
 
-
+        // 这里要用1，防止死循环，因为为0的话，又会传入原有的字符串进而死循环。
         for (int i = 1; i < len; i++) {
             // 对s1和s2进行同样的分割处理
             if (isScramble(s1.substring(0, i), s2.substring(0, i)) &&
@@ -45,5 +45,11 @@ public class _87_ScrambleString {
                     isScramble(s1.substring(i), s2.substring(0, len - i))) return true;
         }
         return false;
+    }
+
+    public static void main(String[] args) {
+        String s = "great";
+        String t = "eatgr";
+        System.out.println(isScramble(s, t));
     }
 }

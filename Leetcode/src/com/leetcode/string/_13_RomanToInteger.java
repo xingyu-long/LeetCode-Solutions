@@ -23,13 +23,15 @@ public class _13_RomanToInteger {
     // time:O(n) space:O(1)
     public int romanToInt(String s) {
         // 循环相加，如果遇到左边的数字小于右边的数字则直接相减（由于一开始的res等于第一个数，所以后面相减的时候要减去才对）
-        if (s == null || s.length() < 1) return 0;
-        int res = toNumber(s.charAt(0));
+        if (s == null || s.length() == 0) return 0;
+        int res = 0;
+        res += toNumber(s.charAt(0));
         for (int i = 1; i < s.length(); i++) {
-            if (toNumber(s.charAt(i)) > toNumber(s.charAt(i - 1))) {
-                res += toNumber(s.charAt(i)) - 2 * toNumber(s.charAt(i - 1));
-            } else {
-                res += toNumber(s.charAt(i));
+            int before = toNumber(s.charAt(i - 1));
+            int after = toNumber(s.charAt(i));
+            res += after;
+            if (before < after) {
+                res -= 2 * before;
             }
         }
         return res;

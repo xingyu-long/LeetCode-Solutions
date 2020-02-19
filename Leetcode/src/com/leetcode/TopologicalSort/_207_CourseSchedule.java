@@ -48,43 +48,4 @@ public class _207_CourseSchedule {
         }
         return res == 0;
     }
-
-
-    List<List<Integer>> adj;
-    // 构建graph
-    public boolean canFinish2(int numCourses, int[][] prerequisites) {
-        if (prerequisites == null || prerequisites.length == 0) return true;
-        adj = new ArrayList<>();
-        for (int i = 0; i < numCourses; i++) {
-            adj.add(new ArrayList<>());
-        }
-        // add edges.
-        for (int[] course : prerequisites) {
-            adj.get(course[1]).add(course[0]);
-        }
-        boolean[] visited = new boolean[numCourses];
-        boolean[] inStack = new boolean[numCourses];
-        for (int i = 0; i < numCourses; i++) {
-            if (dfs(i, visited, inStack)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    // 利用dfs
-    public boolean dfs(int i, boolean[] visited, boolean[] inStack) {
-        if (inStack[i]) return true;
-        if (!visited[i]) {
-            inStack[i] = true;
-            visited[i] = true;
-            for (int node : adj.get(i)) {
-                if (dfs(node, visited, inStack)) {
-                    return true;
-                }
-            }
-            inStack[i] = false;
-        }
-        return false;
-    }
 }

@@ -47,6 +47,7 @@ public class _249_GroupShiftedStrings {
 
     public static void main(String[] args) {
         String[] strs = new String[]{"abc", "bcd", "acef", "xyz", "az", "ba", "a", "z"};
+
         System.out.println(groupStrings(strs));
     }
 }

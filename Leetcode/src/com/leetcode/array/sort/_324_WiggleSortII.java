@@ -30,4 +30,30 @@ public class _324_WiggleSortII {
         }
         System.arraycopy(temp, 0, nums, 0, n);
     }
+
+    // 这个更加的易懂。分别从中间以及最后，倒着来。偶数位放中间开始的数，奇数位放最后开始的数。
+    public void wiggleSort2(int[] nums) {
+        if (nums == null || nums.length == 0) return;
+        Arrays.sort(nums);
+        int n = nums.length;
+        int[] copy = new int[n];
+        for (int i = 0; i < n; i++) {
+            copy[i] = nums[i];
+        }
+        int end = n - 1;
+        int mid = end / 2;
+        int j = 0;
+        while (mid >= 0 && end > mid) {
+            nums[j] = j % 2 == 0 ? copy[mid--] : copy[end--];
+            j++;
+        }
+
+        while (mid >= 0 && j < n) {
+            nums[j++] = copy[mid--];
+        }
+
+        while (end > mid && j < n) {
+            nums[j++] = copy[end--];
+        }
+    }
 }

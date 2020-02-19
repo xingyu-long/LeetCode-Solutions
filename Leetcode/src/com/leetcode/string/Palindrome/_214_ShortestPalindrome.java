@@ -43,6 +43,6 @@ public class _214_ShortestPalindrome {
     }
 
     public static void main(String[] args) {
-        shortestPalindrome2("aacecaaa");
+        System.out.println(shortestPalindrome2("abbac"));
     }
 }

@@ -26,11 +26,35 @@ public class _32_LongestValidParentheses {
                 if (stack.isEmpty()) {
                     leftMost = i;
                 } else {
-                    int j = stack.pop();
+                    stack.pop();
                     if (stack.isEmpty()) max = Math.max(max, i - leftMost);
                     else max = Math.max(max, i - stack.peek());
                 }
             }
+        }
+        return max;
+    }
+
+    //time:O(n) space:O(1)  two pointer.
+    public int longestValidParentheses2(String s) {
+        if (s == null || s.length() == 0) return 0;
+        int max = 0;
+        int left = 0, right = 0;
+        // first pass: from left to right;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(') left++;
+            else right++;
+            if (left == right) max = Math.max(max, left * 2);
+            else if (right > left) left = right = 0; // 因为这样一定产生更长的有效字符（始终差了左括号）
+        }
+
+        // second pass: from right to left;
+        left = right = 0;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) == '(') left++;
+            else right++;
+            if (left == right) max = Math.max(max, left * 2);
+            else if (left > right) left = right = 0;
         }
         return max;
     }

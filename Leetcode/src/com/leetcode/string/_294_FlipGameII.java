@@ -10,6 +10,7 @@ public class _294_FlipGameII {
      * @param s
      * @return
      */
+    // T(n) = (n - 1) * T(n - 2) = (n - 1) * (n - 3) * T(n - 3) = .. = (n - 1)!! 如果不加memo的话。
     // recursion with memo time:不确定 space:O(n)
     public boolean canWin(String s) {
         if (s == null || s.length() == 0) return false;

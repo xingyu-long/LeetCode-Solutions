@@ -5,6 +5,7 @@ import java.util.Comparator;
 
 public class _354_RussianDollEnvelopes {
 
+    // 将其转化为LIS问题
     public int maxEnvelopes(int[][] envelopes) {
         if (envelopes == null || envelopes.length == 0) return 0;
         Arrays.sort(envelopes, new Comparator<int[]>() {

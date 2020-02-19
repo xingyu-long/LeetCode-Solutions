@@ -24,7 +24,7 @@ public class _37_SudokuSolver {
                         if (isValid(board, i, j, c)) {
                             board[i][j] = c;
                             if (solve(board)) return true;
-                            else board[i][j] = '.';
+                            board[i][j] = '.';
                         }
                     }
                     return false;
@@ -49,5 +49,66 @@ public class _37_SudokuSolver {
             }
         }
         return true;
+    }
+    // 这样写起来更加的elegant。
+    private static boolean canPlaceValue(char[][] board, int row, int col, char charToPlace) {
+        // Check column of the placement
+        for (char[] placementRow: board) {
+            if (charToPlace == placementRow[col]){
+                return false;
+            }
+        }
+
+        // Check row of the placement
+        for (int i = 0; i < board[row].length; i++) {
+            if (charToPlace == board[row][i]) {
+                return false;
+            }
+        }
+
+        // Check region constraints - get the size of the sub-box
+        int regionSize = (int) Math.sqrt(board.length);
+
+        int verticalBoxIndex = row / regionSize;
+        int horizontalBoxIndex = col / regionSize;
+
+        int topLeftOfSubBoxRow = regionSize * verticalBoxIndex;
+        int topLeftOfSubBoxCol = regionSize * horizontalBoxIndex;
+
+        for (int i = 0; i < regionSize; i++) {
+            for (int j = 0; j < regionSize; j++) {
+                if (charToPlace == board[topLeftOfSubBoxRow + i][topLeftOfSubBoxCol + j]) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    // 这个写的比较易懂。
+    public void solveSudoku2(char[][] board) {
+        dfs(board, 0, 0);
+    }
+
+    // 利用返回值boolean，提前结束，否则就会被还原。
+    public boolean dfs(char[][] board, int row, int col) {
+        if (col == board[row].length) {
+            row++;
+            col = 0;
+            if (row == board.length) return true;
+        }
+        if (board[row][col] == '.') {
+            for (char ch = '1'; ch <= '9'; ch++) {
+                if (isValid(board, row, col, ch)) {
+                    board[row][col] = ch;
+                    if (dfs(board, row, col + 1)) return true;
+                    board[row][col] = '.';// restore.
+                }
+            }
+        } else {
+            return dfs(board, row, col + 1);
+        }
+        return false;
     }
 }

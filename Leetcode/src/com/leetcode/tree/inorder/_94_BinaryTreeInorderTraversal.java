@@ -1,6 +1,6 @@
 package com.leetcode.tree.inorder;
 
-import com.leetcode.common.MainClass;
+import com.leetcode.common.ConverterForTreeAndString;
 import com.leetcode.common.TreeNode;
 
 import java.util.ArrayList;
@@ -47,10 +47,10 @@ public class _94_BinaryTreeInorderTraversal {
     }
 
     public static void main(String[] args) {
-        MainClass mainClass = new MainClass();
+        ConverterForTreeAndString converterForTreeAndString = new ConverterForTreeAndString();
         String s = "[1,2,3,4,5,6,7,8]";
-        TreeNode tree =  mainClass.stringToTreeNode(s);
+        TreeNode tree =  converterForTreeAndString.stringToTreeNode(s);
         System.out.println(inorderTraversal(tree).toString());
-        System.out.println(mainClass.treeNodeToString(tree));
+        System.out.println(converterForTreeAndString.treeNodeToString(tree));
     }
 }

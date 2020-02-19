@@ -37,7 +37,7 @@ public class MostCommonWord {
     public static List<String> mostCommonWord2(String paragraph, String[] banned) {
         if (paragraph == null || paragraph.length() == 0) return new ArrayList<>();
         String[] words = paragraph.toLowerCase().split("\\s+"); // 表示分割掉非单词的部分
-        HashSet<String> set = new HashSet();
+        HashSet<String> set = new HashSet<>();
         for (String ban : banned) {
             set.add(ban);
         }

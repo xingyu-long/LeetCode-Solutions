@@ -20,4 +20,14 @@ public class _190_ReverseBits {
         }
         return res;
     }
+
+    public int reverseBits2(int n) {
+        int res = 0;
+        for (int i = 0; i < 32; i++) {
+            res <<= 1;
+            res ^= (n & 1); // 这里是相加最后一位的操作。
+            n >>= 1;
+        }
+        return res;
+    }
 }

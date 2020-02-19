@@ -16,6 +16,7 @@ public class _114_FlattenBinaryTreetoLinkedList {
      */
 
     //利用stack来遍历 time:O(n) space:O(n) preorder
+    //感觉会比较清楚。每次都连接stack的栈顶元素
     public void flatten(TreeNode root) {
         if (root == null) return;
         Stack<TreeNode> stack = new Stack<>();

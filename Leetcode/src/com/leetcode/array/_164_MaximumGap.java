@@ -13,42 +13,44 @@ public class _164_MaximumGap {
      */
     // time:O(n) space:O(n)
     public static int maximumGap(int[] nums) {
-        if (nums == null || nums.length < 2) return 0;
+        int n = nums.length;
+        if (nums == null || n == 0) return 0;
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
 
-        int len = nums.length;
-        int max = nums[0];
-        int min = nums[0];
-        for (int i = 0; i < nums.length; i++) {
-            max = Math.max(max, nums[i]);
-            min = Math.min(min, nums[i]);
-        }
-
-        // 设置桶的大小
-        int gap = (int) Math.ceil((double) (max - min) / (len - 1));
-        int[] bucketsMin = new int[len - 1]; // 设置有len - 1个桶
-        int[] bucketsMax = new int[len - 1];
-        Arrays.fill(bucketsMax, Integer.MIN_VALUE);
-        Arrays.fill(bucketsMin, Integer.MAX_VALUE);
-        //找出每个桶的局部最大最小值
         for (int num : nums) {
-            if (num == min || num == max) continue; // 肯定是局部的最优 所以不用计算
-            int idx = (num - min) / gap;
-            bucketsMin[idx] = Math.min(num, bucketsMin[idx]);
-            bucketsMax[idx] = Math.max(num, bucketsMax[idx]);
+            min = Math.min(min, num);
+            max = Math.max(max, num);
+        }
+        // 设置桶间隔，这样保证最大的gap不会在桶内，而是在两者之间
+        int gap = (max - min) / n + 1;
+        int bucketNum = (max - min) / gap + 1;
+        int[] bucketMin = new int[bucketNum];
+        int[] bucketMax = new int[bucketNum];
+        Arrays.fill(bucketMin, Integer.MAX_VALUE);
+        Arrays.fill(bucketMax, Integer.MIN_VALUE);
+
+        // 将数字放入bucket，并且保留该bucket的最大最小值。
+        for (int i = 0; i < n; i++) {
+            int index = (nums[i] - min) / gap;
+            bucketMin[index] = Math.min(bucketMin[index], nums[i]);
+            bucketMax[index] = Math.max(bucketMax[index], nums[i]);
         }
 
         int res = 0;
-        int pre = min;
-        for (int i = 0; i < len - 1; i++) {
-            if (bucketsMin[i] == Integer.MAX_VALUE &&
-            bucketsMax[i] == Integer.MIN_VALUE) {
-                continue;
-            }
-            res = Math.max(res, bucketsMin[i] - pre);
-            // 这里后面的min减去前面的max，才是连续的！！！
-            pre = bucketsMax[i];
+        int pre = 0;
+        for (int i = 1; i < bucketNum; i++) {
+            if (bucketMin[i] == Integer.MAX_VALUE ||
+                    bucketMax[i] == Integer.MIN_VALUE) continue;
+            // 表示空桶。
+            res = Math.max(res, bucketMin[i] - bucketMax[pre]);
+            pre = i;
         }
-        res = Math.max(res, max - pre);// 更新最后一个
         return res;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 3, 100};
+        System.out.println(maximumGap(nums));
     }
 }

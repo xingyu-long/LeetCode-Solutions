@@ -40,4 +40,26 @@ public class _22_GenerateParentheses {
         }
     }
 
+    // 这样更好理解一些
+    public List<String> generateParenthesis2(int n) {
+        if (n <= 0) return new ArrayList<>();
+        List<String> res = new ArrayList<>();
+        helper(res, "", 0, 0, n);
+        return res;
+    }
+
+    public void helper(List<String> res, String s, int left, int right, int n) {
+        // base case
+        if (left > n || right > n) return;
+        // goal;
+        if (left == n && right == n) {
+            res.add(s);
+        }
+
+        helper(res,  s + "(", left + 1, right, n);
+        if (right < left) { // constraints.
+            helper(res,  s + ")", left, right + 1, n);
+        }
+    }
+
 }

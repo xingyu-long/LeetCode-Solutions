@@ -13,15 +13,12 @@ public class _186_ReverseWordsinaStringII {
     public static void reverseWords(char[] s) {
         if (s == null || s.length == 0) return;
         reverse(s, 0, s.length - 1);
-        int r = 0;
-        while (r < s.length) {
-            int l = r;
-            // 找空格的位置
-            while (r < s.length && s[r] != ' ') {
-                r++;
+        int l = 0;
+        for (int i = 0; i <= s.length; i++) {
+            if (i == s.length || s[i] == ' ') {
+                reverse(s, l, i - 1);
+                l = i + 1;
             }
-            reverse(s, l, r - 1);
-            r++;
         }
     }
 
@@ -34,25 +31,10 @@ public class _186_ReverseWordsinaStringII {
             j--;
         }
     }
-
-    public static void reverseWords2(char[] s) {
-        if (s == null || s.length == 0) return;
-        reverse(s, 0, s.length - 1);
-        int end = 0;
-        System.out.println(end);
-        while (end < s.length) {
-            int start = end;
-            while (end < s.length && s[end] != ' ') {
-                end++;
-            }
-            reverse(s, start, end - 1);
-            end++; // 为了下一个开始。
-        }
-    }
     public static void main(String[] args) {
         char[] s = {'t','h','e',' ','s','k','y',' ','i','s',' ','b','l','u','e'};
         System.out.println(Arrays.toString(s));
-        reverseWords2(s);
+        reverseWords(s);
         System.out.println(Arrays.toString(s));
     }
 }

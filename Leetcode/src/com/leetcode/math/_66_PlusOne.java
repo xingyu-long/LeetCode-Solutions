@@ -1,5 +1,8 @@
 package com.leetcode.math;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class _66_PlusOne {
     /**
      *  66. Plus one
@@ -14,7 +17,44 @@ class _66_PlusOne {
      * @param digits
      * @return
      */
-    public int[] plusOne(int[] digits) {
+    // time:O(n) space:O(n)
+    public int[] plusOne1(int[] digits) {
+        if (digits == null || digits.length == 0) return digits;
+        List<Integer> list = new ArrayList<>();
+        int carry = 1;
+        for (int i = digits.length - 1; i >= 0; i--) {
+            carry += digits[i];
+            list.add(carry % 10);
+            carry /= 10;
+        }
+        // 进位的操作
+        if (carry != 0) {
+            list.add(carry);
+        }
+        int[] res = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            res[list.size() - i - 1] = list.get(i);
+        }
+        return res;
+    }
+
+    public int[] plusOne2(int[] digits) {
+        if (digits == null || digits.length == 0) return digits;
+        List<Integer> list = new ArrayList<>();
+        int carry = 1;
+        for (int i = digits.length - 1; i >= 0; i--) {
+            carry += digits[i];
+            digits[i] = carry % 10;
+            carry /= 10;
+            if (carry == 0) return digits; // 表示下一次计算carry是否为空。
+        }
+        int[] res = new int[digits.length + 1];
+        res[0] = 1;
+        return res;
+    }
+
+    // 跟上面的情况一样
+    public int[] plusOne3(int[] digits) {
         /**
         * 考虑三种情况：
         * case 1: 1011 -> 1012

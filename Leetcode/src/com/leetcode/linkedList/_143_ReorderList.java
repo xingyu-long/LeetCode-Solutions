@@ -19,35 +19,40 @@ public class _143_ReorderList {
     // time: O(n) space: O(1)
     public void reorderList(ListNode head) {
         if (head == null || head.next == null) return;
-        ListNode slow = head, fast = head;
         ListNode l1 = head;
+        ListNode mid = findMid(head);
+        ListNode l2 = reverse(mid.next);
+        mid.next = null;
+        // connect l1 and l2.
+        while (l1 != null && l2 != null) {
+            ListNode l1Next = l1.next;
+            ListNode l2Next = l2.next;
+            l1.next = l2;
+            l2.next = l1Next;
+            l1 = l1Next;
+            l2 = l2Next;
+        }
+    }
+
+    public ListNode findMid(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
         while (fast.next != null && fast.next.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-        ListNode l2 = reverse(slow.next);
-        slow.next = null;
-        merge(l1, l2);
+        return slow;
     }
 
-    private ListNode reverse(ListNode head) {
-        ListNode prev = null;
+    public ListNode reverse(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode newHead = null;
         while (head != null) {
-            ListNode temp = head.next;
-            head.next = prev;
-            prev = head;
-            head = temp;
+            ListNode next = head.next;
+            head.next = newHead;
+            newHead = head;
+            head = next;
         }
-        return prev;
-    }
-
-    private void merge(ListNode l1, ListNode l2) {
-        while (l1 != null && l2 != null) {
-            ListNode temp = l1.next;
-            l1.next = l2;
-            l2 = l2.next;
-            l1.next.next = temp;
-            l1 = temp;
-        }
+        return newHead;
     }
 }

@@ -25,25 +25,19 @@ public class _102_BinaryTreeLevelOrderTraversal {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         if (root == null) return res;
-        helper(root, 0, res);
+        dfs(res, root, 0);
         return res;
     }
 
     // DFS
-    public static void helper(TreeNode root, int depth, List<List<Integer>> res) {
+    public void dfs(List<List<Integer>> res, TreeNode root, int level) {
         if (root == null) return;
-
-        // 考虑到res的size就是指当前的深度
-        if (res.size() == depth) { //每次先添加每层的头一个元素到res，然后size就超过了，后面就用else语句后面的加入
-            ArrayList<Integer> cur = new ArrayList<>();
-            cur.add(root.val);
-            res.add(cur);
-        } else {
-            List<Integer> cur = res.get(depth);
-            cur.add(root.val);
+        if (res.size() == level) { // 利用那个当前的个数与层数的关系
+            res.add(new ArrayList<>());
         }
-        helper(root.left, depth + 1, res);
-        helper(root.right, depth + 1, res);
+        res.get(level).add(root.val);
+        dfs(res, root.left, level + 1);
+        dfs(res, root.right, level + 1);
     }
 
     // BFS

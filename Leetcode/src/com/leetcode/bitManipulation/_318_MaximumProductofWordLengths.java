@@ -5,27 +5,23 @@ public class _318_MaximumProductofWordLengths {
     /**
      * 318. Maximum Product of Word Lengths
      * When:2019/9/28
-     * Difficulty:Hard
+     * Difficulty:Medium
      * @param words
      * @return
      */
     // 利用重新计算的每个word对应的值  如果是不同的字符 & 结果会为0
     public int maxProduct(String[] words) {
-        if (words.length == 0) return 0;
+        int n = words.length;
+        if (words == null || n == 0) return 0;
+        int[] mask = new int[n];
         int res = 0;
-        int[] bytes = new int[words.length];
-        // calculate bytes for each word;
-        for (int i = 0; i < words.length; i++) {
-            int val = 0;
-            for (int j = 0; j < words[i].length(); j++) {
-                val |= 1 << (words[i].charAt(j) - 'a');
+        for (int i = 0; i < n; i++) {
+            for (char ch : words[i].toCharArray()) {
+                mask[i] |= 1 << (ch - 'a');
             }
-            bytes[i] = val;
-        }
-
-        for (int i = 0; i < words.length; i++) {
-            for (int j = i + 1; j < words.length; j++) {
-                if ((bytes[i] & bytes[j]) == 0) {
+            for (int j = 0; j < i; j++) {
+                if ((mask[i] & mask[j]) == 0) {
+                    // 表明没有重复的字符
                     res = Math.max(res, words[i].length() * words[j].length());
                 }
             }

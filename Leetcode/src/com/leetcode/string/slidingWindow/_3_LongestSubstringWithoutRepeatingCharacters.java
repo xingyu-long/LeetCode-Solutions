@@ -39,37 +39,6 @@ public class _3_LongestSubstringWithoutRepeatingCharacters {
         return res;
     }
 
-    // 利用hash数组来做，并且记录其string
-    // 这里使用128的数组是为了防止 " "输入无效，这样不用减'a'
-    // 可以不计算 word 这样降低运行速度
-    public int lengthOfLongestSubstring2(String s) {
-        if (s == null || s.length() == 0) return 0;
-        int[] count = new int[128];
-        int begin = 0;
-        int res = 0;
-        String word = "";
-        for (int i = 0; i < s.length(); i++) {
-            count[s.charAt(i)]++;
-            if (count[s.charAt(i)] == 1) {
-                word += s.charAt(i);
-                if (res < word.length()) {
-                    res = word.length();
-                }
-            } else {
-                //表示重复的时候 需要移动begin
-                while (begin < i && count[s.charAt(i)] > 1) {
-                    count[s.charAt(begin)]--; //为了减去当前i重复的情况, 然后从非重复的地方开始走
-                    begin++;
-                }
-                word = "";
-                for (int j = begin; j <= i; j++) {
-                    word += s.charAt(j);
-                }
-            }
-        }
-        return res;
-    }
-
     // 利用hashset
     public int lengthOfLongestSubstring3(String s) {
         if (s == null || s.length() == 0) return 0;
@@ -86,24 +55,6 @@ public class _3_LongestSubstringWithoutRepeatingCharacters {
             }
         }
         return res;
-    }
-
-
-    // 利用模板的做法，这里记录一个boolean数组
-    public int lengthOfLongestSubstring4(String s) {
-        if (s == null || s.length() == 0) return 0;
-        boolean[] ch = new boolean[128];
-        int start = 0;
-        int max = 0;
-        for (int end = 0; end < s.length(); end++) {
-            while (ch[s.charAt(end)]) {
-                ch[s.charAt(start)] = false;
-                start++;
-            }
-            ch[s.charAt(end)] = true;
-            max = Math.max(max, end - start + 1);
-        }
-        return max;
     }
 
     // 利用数组来做。比较经典！

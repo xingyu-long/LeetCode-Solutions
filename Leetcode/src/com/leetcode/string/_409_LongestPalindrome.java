@@ -1,5 +1,7 @@
 package com.leetcode.string;
 
+import java.util.HashSet;
+
 public class _409_LongestPalindrome {
 
     /**
@@ -14,30 +16,7 @@ public class _409_LongestPalindrome {
      * @param s
      * @return
      */
-
-    // time:O(n) space:O(1)
-    public static int longestPalindrome(String s) {
-        if (s == null || s.length() == 0) return 0;
-        // 利用Hash的做法
-        int[] count = new int[128];
-        int lenOfMax = 0;
-        int flag = 0;
-        int res = 0;
-        for (int i = 0; i < s.length(); i++) {
-            count[s.charAt(i) - '0']++;
-        }
-        for (int i = 0; i < 128; i++) {
-            if (count[i] % 2 == 0) {
-                lenOfMax += count[i];
-            } else {
-                lenOfMax += count[i] - 1;
-                flag = 1;
-            }
-        }
-        res = lenOfMax + flag; //如果有奇数字符，那这个flag就会为1
-        return res;
-    }
-
+    
     // 只是需要考虑有奇数个，但是大于2所以可以配对，但是palindrome肯定就只能有1个odd。
     public int longestPalindrome2(String s) {
         // 其实就是看偶数的个数。
@@ -61,7 +40,44 @@ public class _409_LongestPalindrome {
         }
         return odd ? even * 2 + 1 : even * 2;
     }
+
+    //time:O(n) space:O(n)
+    public int longestPalindrome3(String s) {
+        if (s == null || s.length() == 0) return 0;
+        HashSet<Character> set = new HashSet<>();
+        int count = 0; // for even number;
+        for (char ch : s.toCharArray()) {
+            if (set.contains(ch)) {
+                set.remove(ch);
+                count++;
+            } else {
+                set.add(ch);
+            }
+        }
+        return set.isEmpty() ? count * 2 : count * 2 + 1;
+    }
+
+    // 当然也可以用counting sort那种降低空间复杂度
+    // space:O(1)
+    public int longestPalindrome(String s) {
+        if (s == null || s.length() == 0) return 0;
+        int[] counter = new int[256];
+        int count = 0; // for even number;
+        for (char ch : s.toCharArray()) {
+            if (counter[ch] > 0) {
+                counter[ch]--;
+                count++;
+            } else {
+                counter[ch]++;
+            }
+        }
+        boolean odd = false;
+        for (char ch : s.toCharArray()) {
+            if (counter[ch] != 0) odd = true; 
+        }
+        return odd ? count * 2 + 1 : count * 2;
+    }
     public static void main(String[] args) {
-        longestPalindrome("AAAAAA");
+        // longestPalindrome("AAAAAA");
     }
 }

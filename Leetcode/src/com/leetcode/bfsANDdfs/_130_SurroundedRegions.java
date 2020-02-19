@@ -58,7 +58,6 @@ public class _130_SurroundedRegions {
 
 
     public void solve2(char[][] board) {
-        // how to flip? 如果有和边界链接的就 不管？
         if (board == null || board.length == 0 ||
                 board[0] == null || board[0].length == 0) return;
         for (int i = 0; i < board.length; i++) {

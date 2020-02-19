@@ -13,6 +13,7 @@ public class _312_BurstBalloons {
      * https://leetcode.com/problems/burst-balloons/discuss/76228/Share-some-analysis-and-explanations
      * https://www.cnblogs.com/grandyang/p/5006441.html
      */
+    // 选取的k表示最后一次被打破，所以就是k * 左边填充的1 * 右边填充的1
     // time:O(n^3) space:O(n^2)
     public int maxCoins(int[] nums) {
         int n = nums.length;

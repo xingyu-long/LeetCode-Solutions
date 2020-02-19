@@ -79,9 +79,31 @@ public class _295_FindMedianFromDataStream {
     }
 }
 
-/**
- * Your MedianFinder object will be instantiated and called as such:
- * MedianFinder obj = new MedianFinder();
- * obj.addNum(num);
- * double param_2 = obj.findMedian();
- */
+// 这个看起来更加的简便，当然上面的讨论情况也是很有意义的。
+class MedianFinder2 {
+
+    PriorityQueue<Integer> minHeap;
+    PriorityQueue<Integer> maxHeap;
+    /** initialize your data structure here. */
+    public MedianFinder2() {
+
+        minHeap = new PriorityQueue<>();
+        maxHeap = new PriorityQueue<>((a, b) -> b - a);
+    }
+
+    public void addNum(int num) {
+        minHeap.offer(num);
+        maxHeap.offer(minHeap.poll());
+        if (minHeap.size() < maxHeap.size()) {
+            minHeap.offer(maxHeap.poll());
+        }
+    }
+
+    public double findMedian() {
+        if (minHeap.size() == maxHeap.size()) {
+            return (maxHeap.peek() + minHeap.peek()) / 2.0;
+        } else {
+            return (double) minHeap.peek();
+        }
+    }
+}

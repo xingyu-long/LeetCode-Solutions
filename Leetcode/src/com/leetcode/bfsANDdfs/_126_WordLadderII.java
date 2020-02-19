@@ -22,8 +22,8 @@ public class _126_WordLadderII {
         int nextNum = 0;
         boolean found = false;
 
-        // 一定要用双set
-        HashSet<String> set = new HashSet<>(wordList); // 在当前结束之后的情况！
+        // 一定要用双set,防止其多个对应一个的时候 出现的加入队列错误
+        HashSet<String> set = new HashSet<>(wordList); // 在当前结束之后的情况！其实也是最后一层的时候endWord不会被删除掉
         HashSet<String> visited = new HashSet<>(); // 这个set是为了保持现状用了哪些。
         HashMap<String, List<String>> map = new HashMap<>();
 

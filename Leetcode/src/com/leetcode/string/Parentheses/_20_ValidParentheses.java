@@ -1,5 +1,6 @@
 package com.leetcode.string.Parentheses;
 
+import java.util.HashMap;
 import java.util.Stack;
 
 public class _20_ValidParentheses {
@@ -46,6 +47,28 @@ public class _20_ValidParentheses {
                 else {
                     stack.pop();
                 }
+            }
+        }
+        return stack.isEmpty();
+    }
+
+    // more general. 利用hashmap
+    public boolean isValid3(String s) {
+        if (s == null || s.length() == 0) return true;
+        HashMap<Character, Character> map = new HashMap<>();
+        map.put(')', '(');
+        map.put(']', '[');
+        map.put('}', '{');
+
+        Stack<Character> stack = new Stack<>();
+        for (char ch : s.toCharArray()) {
+            if (map.containsKey(ch)) {
+                if (stack.isEmpty()) return false;
+                if (stack.peek() != map.get(ch)) return false;
+                // 满足条件
+                stack.pop();
+            } else {
+                stack.push(ch);
             }
         }
         return stack.isEmpty();

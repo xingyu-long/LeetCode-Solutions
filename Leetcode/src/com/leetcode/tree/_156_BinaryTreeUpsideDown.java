@@ -11,6 +11,7 @@ public class _156_BinaryTreeUpsideDown {
      * @param root
      * @return
      */
+    // 题目说了右子树只存在叶子节点，这也是为啥一直用左递归的就可以。
     public TreeNode upsideDownBinaryTree(TreeNode root) {
         if (root == null || root.left == null) return root;
         TreeNode left = root.left;

@@ -49,4 +49,44 @@ public class _376_WiggleSubsequence {
         }
         return res;
     }
+
+
+    // time:O(n) space:O(n)
+    public int wiggleMaxLength2(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int n = nums.length;
+        int[] up = new int[n];
+        int[] down = new int[n];
+        up[0] = 1;
+        down[0] = 1;
+        for (int i = 1; i < n; i++) {
+            if (nums[i] > nums[i - 1]) { // up
+                up[i] = down[i - 1] + 1;
+                down[i] = down[i - 1];
+            } else if (nums[i] < nums[i - 1]) { // down
+                down[i] = up[i - 1] + 1;
+                up[i] = up[i - 1];
+            } else {
+                down[i] = down[i - 1];
+                up[i] = up[i - 1];
+            }
+        }
+        return Math.max(down[n - 1], up[n - 1]);
+    }
+
+    // time:O(n) space:O(1)
+    public int wiggleMaxLength3(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int n = nums.length;
+        int up = 1;
+        int down = 1;
+        for (int i = 1; i < n; i++) {
+            if (nums[i] > nums[i - 1]) { // up
+                up = down + 1;
+            } else if (nums[i] < nums[i - 1]) { // down
+                down = up + 1;
+            }
+        }
+        return Math.max(down, up);
+    }
 }

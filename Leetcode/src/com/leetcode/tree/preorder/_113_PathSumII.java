@@ -19,7 +19,6 @@ public class _113_PathSumII {
      *
      *  solution: 依然使用先序遍历（DFS）
      * 用sum 减去里面的要是等于 0 则表示找到了其中的一条路
-     * 其中应该有个bug，最开始没有考虑到cur删除最后一个元素
      *
      *
      * Q:不是很懂这里的cur.remove(cur.size() - 1)操作   (A: 为了删除后面的 向上计算的时候 那个cur要保持当前层需要的样子)
@@ -72,6 +71,7 @@ public class _113_PathSumII {
         sum -= root.val; // 具有栈的特征，可以在每一层表示那一层的情况
         if (root.left == null && root.right == null && sum == 0) {
             res.add(new ArrayList<>(cur)); // 这样才可以保留单独不同的list，否则会被当成同一个处理掉
+            // 这里不用return，因为最后还需要把cur的最后一个元素移除
         }
         helper(res, cur, root.left, sum);
         helper(res, cur, root.right, sum);

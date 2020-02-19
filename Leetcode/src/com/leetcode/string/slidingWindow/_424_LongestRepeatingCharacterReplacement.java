@@ -50,7 +50,7 @@ public class _424_LongestRepeatingCharacterReplacement {
                 begin++;
                 maxCount = 0;
                 // 这一段距离里面的最大元素是多少
-                for (int i = 0; i <= 26; i++) {
+                for (int i = 0; i < 26; i++) {
                     maxCount = Math.max(maxCount, counter[i]);
                 }
             }

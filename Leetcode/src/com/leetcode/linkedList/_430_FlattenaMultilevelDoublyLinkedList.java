@@ -66,7 +66,7 @@ public class _430_FlattenaMultilevelDoublyLinkedList {
                 curt.next = curt.child;
                 curt.next.prev = curt;
                 curt.child = null;
-            } else if(curt.next == null && !stack.isEmpty()) { // reach of tail of child, reconnet the next of parent
+            } else if(curt.next == null && !stack.isEmpty()) { // reach of tail of child, reconnect the next of parent
                 curt.next = stack.pop();
                 if(curt.next != null) curt.next.prev = curt;
             }

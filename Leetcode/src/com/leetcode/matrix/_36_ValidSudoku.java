@@ -50,19 +50,6 @@ public class _36_ValidSudoku {
         return true;
     }
 
-    /**
-     *
-    这里不需要使用额外的space来存放信息
-     i = 0,   1,  2,  3,  4,  5,  6,  7,  8
-  row    0    0   0   3   3   3   6   6   6
-  row <  3    3   3   6   6   6   9   9   9
-
-     j = 0,   1,  2,  3,  4,  5,  6,  7,  8
-  col    0    0   0   3   3   3   6   6   6
-  col <  3    3   3   6   6   6   9   9   9
-
-     对应着九个小部分
-     */
     public boolean isValidSudoku2(char[][] board) {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {

@@ -19,15 +19,16 @@ public class _5_LongestPalindromicSubstring {
     // dp数组的含义是指从i到j是否为回文
     // time:O(n^2) space:O(n^2)
     public String longestPalindrome(String s) {
+        // 其实这个也跟暴力一样，去看完所有可能的 substring。
         if (s == null || s.length() == 0) return "";
         String res = "";
         boolean[][] dp = new boolean[s.length()][s.length()];
         int max = 0;
         for (int j = 0; j < s.length(); j++) {
             for (int i = 0; i <= j; i++) {
-                // j - i <= 2 表示区间在2以内的时候前面(s.charAt(i) == s.charAt(j))就可以判断了
+                // j - i <= 1 表示区间在2以内的时候前面(s.charAt(i) == s.charAt(j))就可以判断了
                 // 但是如果大于2就需要前后移动来确定！
-                dp[i][j] = (s.charAt(i) == s.charAt(j)) && (j - i <= 2 || dp[i + 1][j - 1]);
+                dp[i][j] = (s.charAt(i) == s.charAt(j)) && (j - i <= 1 || dp[i + 1][j - 1]);
                 if (dp[i][j]) {
                     if (j - i + 1 > max) {
                         max = j - i + 1;

@@ -17,7 +17,7 @@ public class _371_SumofTwoIntegers {
         if (b == 0) return a;
         while (b != 0) {
             int carry = a & b;
-            a = a ^ b; // 相当于addition操作
+            a = a ^ b; // 相当于相加的操作
             b = carry << 1; // 进位的部分需要在前面一位这个位置
         }
         return a;

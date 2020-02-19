@@ -20,13 +20,15 @@ public class _284_PeekingIterator {
      * @param iterator
      */
 
-    private Iterator<Integer> iter;
-    private Integer next = null;
-
+    // amortize O(1)
+    // 相当于提前把next缓存出来
+    Iterator<Integer> iterator;
+    Integer next;
     public _284_PeekingIterator(Iterator<Integer> iterator) {
-        iter = iterator;
-        if (iter.hasNext()) {
-            next = iter.next();
+        // initialize any member here.
+        this.iterator = iterator;
+        if (iterator.hasNext()) {
+            next = iterator.next();
         }
     }
 
@@ -35,9 +37,15 @@ public class _284_PeekingIterator {
         return next;
     }
 
+    // hasNext() and next() should behave the same as in the Iterator interface.
+    // Override them if needed.
     public Integer next() {
         Integer res = next;
-        next = iter.hasNext() ? iter.next() : null;
+        if (iterator.hasNext()) {
+            next = iterator.next();
+        } else {
+            next = null;
+        }
         return res;
     }
 

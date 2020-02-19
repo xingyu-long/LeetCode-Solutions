@@ -1,6 +1,6 @@
 package com.leetcode.array;
 
-import com.leetcode.quickUnion.UnionFind;
+import com.leetcode.graph.UnionFind.UnionFind;
 
 import java.util.HashMap;
 import java.util.HashSet;

@@ -40,4 +40,14 @@ public class _341_FlattenNestedListIterator {
         }
         return false;
     }
+
+    // 也可以利用dfs先遍历完。
+    public List<Integer> res;
+
+    public void dfs(List<NestedInteger> nestedList) {
+        for (NestedInteger i : nestedList) {
+            if (i.isInteger()) res.add(i.getInteger());
+            else dfs(i.getList());
+        }
+    }
 }

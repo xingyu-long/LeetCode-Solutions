@@ -38,4 +38,14 @@ public class _1110_DeleteNodesAndReturnForest {
         root.right = dfs2(res, root.right, set, deleted);
         return deleted ? null : root;
     }
+
+    // parent ask for child's response via return value;
+    public boolean helper(List<TreeNode> res, TreeNode root, HashSet<Integer> set, boolean parentDeleted) {
+        if (root == null) return true;
+        boolean deleted = set.contains(root.val);
+        if (parentDeleted && !deleted) res.add(root);
+        if (helper(res, root.left, set, deleted)) root.left = null;
+        if (helper(res, root.right, set, deleted)) root.right = null;
+        return deleted;
+    }
 }

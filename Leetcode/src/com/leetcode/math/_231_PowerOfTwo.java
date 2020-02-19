@@ -32,4 +32,15 @@ public class _231_PowerOfTwo {
         }
         return n == 1;
     }
+
+    // 每一次移动一位。
+    public boolean isPowerOfTwo3(int n) {
+        if (n < 0) return false;
+        int size = 0;
+        while (n != 0) {
+            size += n & 1;
+            n >>= 1;
+        }
+        return size == 1;
+    }  
 }

@@ -1,5 +1,7 @@
 package com.leetcode.dynamicProgramming;
 
+import java.util.Arrays;
+
 public class _322_CoinChange {
     /**
      *  322. Coin Change
@@ -30,5 +32,28 @@ public class _322_CoinChange {
             dp[i] = min == Integer.MAX_VALUE ? -1 : min;
         }
         return dp[amount];
+    }
+
+    // dfs + memo
+    public int coinChange2(int[] coins, int amount) {
+        int[] memo = new int[amount + 1];
+        Arrays.fill(memo, Integer.MAX_VALUE);
+        return dfs(coins, amount, memo);
+    }
+
+    public int dfs(int[] coins, int amount, int[] memo) {
+        if (amount < 0) return -1;
+        if (amount == 0) return 0;
+        if (memo[amount] != Integer.MAX_VALUE) return memo[amount];
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < coins.length; i++) {
+            if (amount - coins[i] >= 0) {
+                int res = dfs(coins, amount - coins[i], memo);
+                // 这里处理的比较妙，先不要用比较后的值相加，这样防止了溢出的问题。
+                if (res >= 0 && res < min) min = 1 + res;
+            }
+        }
+        memo[amount] = (min == Integer.MAX_VALUE) ? -1 : min;
+        return memo[amount]; // 这里是这个才对，不要直接返回min， min如果等于MAX的话，就会返回错误
     }
 }

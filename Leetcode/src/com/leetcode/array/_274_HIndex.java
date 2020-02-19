@@ -28,12 +28,31 @@ public class _274_HIndex {
         return res;
     }
 
+    // time: O(nlogn) space:O(1)
+    public int hIndex2(int[] citations) {
+        if (citations == null || citations.length == 0) return 0;
+        Arrays.sort(citations);
+        reverse(citations, 0, citations.length - 1);
+        for (int i = 0; i < citations.length; i++) {
+            if (i >= citations[i]) return i;
+        }
+        return citations.length;
+    }
 
+    public void reverse(int[] nums, int left, int right) {
+        while (left < right) {
+            int temp = nums[left];
+            nums[left] = nums[right];
+            nums[right] = temp;
+            left++;
+            right--;
+        }
+    }
     // https://leetcode.com/problems/h-index/discuss/70810/A-Clean-O(N)-Solution-in-Java
     // https://leetcode.com/problems/h-index/discuss/70768/Java-bucket-sort-O(n)-solution-with-detail-explanation
 
     //time:O(n) space:O(n)
-    public int hIndex2(int[] citations) {
+    public int hIndex3(int[] citations) {
         int len = citations.length;
         int[] count = new int[len + 1];
 

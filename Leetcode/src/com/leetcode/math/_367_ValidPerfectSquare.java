@@ -40,6 +40,22 @@ public class _367_ValidPerfectSquare {
         return false;
     }
 
+    public boolean isPerfectSquare3(int num) { // 0不用考虑
+        if (num == 1) return true;
+        int left = 0;
+        int right = num;
+        while (left + 1 < right) {
+            long mid = left + (right - left) / 2;
+            if (num == mid * mid) return true;
+            else if (num > mid * mid) {
+                left = (int) mid;
+            } else {
+                right = (int) mid;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         System.out.println(isPerfectSquare2(2147483647));
     }

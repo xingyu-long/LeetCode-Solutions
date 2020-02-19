@@ -37,16 +37,16 @@ public class _270_ClosestBinarySearchTreeValue {
         return helper(root, target, root.val);
     }
 
-    public int helper(TreeNode root, double target, int val) {
-        if (root == null) return val; //这里用的很妙
-        if (Math.abs(root.val - target) < Math.abs(val - target)) {
-            val = root.val;
+    public int helper(TreeNode root, double target, int closest) {
+        if (root == null) return closest; //这里用的很妙
+        if (Math.abs(root.val - target) < Math.abs(closest - target)) {
+            closest = root.val;
         }
         if (root.val < target) {
-            val = helper(root.right, target, val);
+            closest = helper(root.right, target, closest);
         } else if (root.val > target) {
-            val = helper(root.left, target, val);
+            closest = helper(root.left, target, closest);
         }
-        return val;
+        return closest;
     }
 }

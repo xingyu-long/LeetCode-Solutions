@@ -44,6 +44,7 @@ public class _117_PopulatingNextRightPointersInEachNodeII {
      * @return
      */
     public Node connect(Node root) {
+        // 表示如果存在prev，就直接相连，如果没有的话，就把当前的赋值给他。也要注意head的赋值
         Node head = null; // 每一层的开头
         Node pre = null; // 同一层的prev节点，只要存在，就马上和左边或者右边不为空的部分连接并且移动prev
         Node cur = root;
@@ -78,6 +79,7 @@ public class _117_PopulatingNextRightPointersInEachNodeII {
 
 
     // 利用queue做，这个就需要一些额外的空间了，还是看上面最优的解法
+    // 通用解
     public Node connect2(Node root) {
         if (root == null) return null;
         Queue<Node> queue = new LinkedList<>();

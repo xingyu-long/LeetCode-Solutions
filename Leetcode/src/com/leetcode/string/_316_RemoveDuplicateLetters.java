@@ -1,5 +1,7 @@
 package com.leetcode.string;
 
+import java.util.Stack;
+
 public class _316_RemoveDuplicateLetters {
 
     /**
@@ -17,27 +19,53 @@ public class _316_RemoveDuplicateLetters {
      * @return
      */
     //time:O(n) space:O(n)
-    public static String removeDuplicateLetters(String s) {
-        int[] count = new int[26];
-        int[] visited = new int[26];
+    public String removeDuplicateLetters(String s) {
+        if (s == null || s.length() == 0) return "";
+        int[] counter = new int[128];
+        for (char ch : s.toCharArray()) counter[ch]++;
+        boolean[] visited = new boolean[128];
         String res = "0";
         for (int i = 0; i < s.length(); i++) {
-            count[s.charAt(i) - 'a']++;
-        }
-        for (int i = 0; i < s.length(); i++) {
-            int index = s.charAt(i) - 'a';
-            --count[index];
-            if (visited[index] == 1) continue;
-            while (s.charAt(i) < res.charAt(res.length() - 1) &&
-                    count[res.charAt(res.length() - 1) - 'a'] > 0) {
-                visited[res.charAt(res.length() - 1) - 'a'] = 0;
+            char ch = s.charAt(i);
+            counter[ch]--;
+            if (visited[ch]) continue;
+            while (ch < res.charAt(res.length() - 1) && counter[res.charAt(res.length() - 1)] > 0) {
+                visited[res.charAt(res.length() - 1)] = false;
                 res = res.substring(0, res.length() - 1);
-                // 这里要注意 substring(startIndex, length); !!!!
             }
-            res += s.charAt(i);
-            visited[s.charAt(i) - 'a'] = 1;
+            res += ch;
+            visited[ch] = true;
         }
         return res.substring(1);
+    }
+
+    // 利用stack，一样的思路，但这样不会用substring。
+    public String removeDuplicateLetters2(String s) {
+        if (s == null || s.length() == 0) return "";
+        int[] count = new int[128];
+        for (char ch : s.toCharArray()) count[ch]++;
+        boolean[] visited = new boolean[128];
+        Stack<Character> stack = new Stack<>();
+        stack.push('0');
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            count[ch]--;
+            if (visited[ch]) continue;
+            while (ch < stack.peek()
+                    && count[stack.peek()] > 0) {
+                visited[stack.peek()] = false;
+                stack.pop();
+            }
+            stack.push(ch);
+            visited[ch] = true;
+        }
+        StringBuilder sb = new StringBuilder();
+        while (!stack.isEmpty()) {
+            sb.append(stack.pop());
+        }
+        sb.deleteCharAt(sb.length() - 1);
+        return sb.reverse().toString();
+        // "cbacdcbc"
     }
 
     public static void main(String[] args) {

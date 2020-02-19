@@ -3,7 +3,7 @@ package com.leetcode.bfsANDdfs;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class _286_WallsandGates {
+public class    _286_WallsandGates {
     /**
      *  286. Walls and Gates
      *  When:2019/7/25

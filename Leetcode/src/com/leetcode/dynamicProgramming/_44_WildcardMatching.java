@@ -23,24 +23,22 @@ public class _44_WildcardMatching {
     public boolean isMatch(String s, String p) {
         int m = s.length();
         int n = p.length();
-        boolean[][] dp = new boolean[n + 1][m + 1];
-        dp[0][0] = true; // 相当于""对应"";
-        for (int pi = 1; pi <= n; pi++) { // 初始化第一列
-            if (p.charAt(pi - 1) == '*') { // ? 根本和空字符串匹配不上，所以不考虑*
-                dp[pi][0] = dp[pi - 1][0];
-            }
+        boolean[][] dp = new boolean[m + 1][n + 1];
+        dp[0][0] = true;
+        // 关于遇到? * 就会看前面的情况 空字符串和?匹配不上不考虑
+        for (int j = 1; j <= n; j++) {
+            if (p.charAt(j - 1) == '*') dp[0][j] = dp[0][j - 1];
         }
 
-        for (int pi = 1; pi <= n; pi++) {
-            for (int si = 1; si <= m; si++) {
-                // 当前的两个字符串匹配，结果取决于前面
-                if (s.charAt(si - 1) == p.charAt(pi - 1) || p.charAt(pi - 1) == '?') {
-                    dp[pi][si] = dp[pi - 1][si - 1];
-                } else if (p.charAt(pi - 1) == '*') {
-                    dp[pi][si] = dp[pi - 1][si] || dp[pi][si - 1]; // 前面的表示空串的时候，后面这个是any sequence
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (s.charAt(i - 1) == p.charAt(j - 1) || p.charAt(j - 1) == '?') {
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else if (p.charAt(j - 1) == '*') {
+                    dp[i][j] = dp[i][j - 1] || dp[i - 1][j];
                 }
             }
         }
-        return dp[n][m];
+        return dp[m][n];
     }
 }
