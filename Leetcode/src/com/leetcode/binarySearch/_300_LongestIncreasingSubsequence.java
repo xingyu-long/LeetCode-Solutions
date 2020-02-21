@@ -14,6 +14,23 @@ public class _300_LongestIncreasingSubsequence {
      * @param nums
      * @return
      */
+    public int res = 0;
+
+    // backtracking
+    // time:O(2^n) TLE -> 改为有返回值的情况
+    public void dfs(int[] nums, int index, int level, int prev) {
+        if (index == nums.length) {
+            res = Math.max(res, level);
+            return;
+        }
+
+        // 取当前这个数
+        if (nums[index] > prev) {
+            dfs(nums, index + 1, level + 1, nums[index]);
+        }
+        // 不取当前这个数
+        dfs(nums, index + 1, level, prev);
+    }
     // recursive way
     // TLE
     public int lengthOfLIS(int[] nums) {

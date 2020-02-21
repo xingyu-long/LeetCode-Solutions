@@ -1,4 +1,4 @@
-package com.leetcode.array;
+package com.leetcode.TwoPointer;
 
 public class _11_ContainerWithMostWater {
 
