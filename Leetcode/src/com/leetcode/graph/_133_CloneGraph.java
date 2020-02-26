@@ -21,7 +21,7 @@ public class _133_CloneGraph {
 
     /**
      *  133. Clone Graph
-        When: 2019/06/30
+        When: 2019/06/30, 02/25/2020
 
         solution:
         DFS
@@ -79,4 +79,24 @@ public class _133_CloneGraph {
         return map.get(node);
     }
 
+    // BFS写在一起
+    public Node cloneGraph3(Node node) {
+        if (node == null) return null;
+        HashMap<Node, Node> map = new HashMap<>();
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(node);
+        map.put(node, new Node(node.val));
+        while (!queue.isEmpty()) {
+            Node curr = queue.poll();
+            for (Node neig : curr.neighbors) {
+                if (!map.containsKey(neig)) {
+                    queue.offer(neig);
+                    map.put(neig, new Node(neig.val));
+                }
+                // 这里稍微注意下 应该都是选对应的情况
+                map.get(curr).neighbors.add(map.get(neig));
+            }
+        }
+        return map.get(node);
+    }
 }

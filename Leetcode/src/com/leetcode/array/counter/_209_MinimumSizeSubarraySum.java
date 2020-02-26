@@ -4,11 +4,12 @@ public class _209_MinimumSizeSubarraySum {
 
     /**
      * 209. Minimum Size Subarray Sum
-     * When: 2019/03/26
+     * When: 03/26/2019, 02/24/2020
      *
      * solution:
      *  滑动窗口：表示先加数字，然后判断其与s的大小，如果是大于的情况就while循环让其length减到最小
      *  并且符合sum >= s的情况
+     *  binary search：先用累加和构造有序的序列
      * @param s
      * @param nums
      * @return
