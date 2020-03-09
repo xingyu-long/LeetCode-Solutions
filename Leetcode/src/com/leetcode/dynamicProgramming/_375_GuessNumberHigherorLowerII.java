@@ -6,7 +6,7 @@ public class _375_GuessNumberHigherorLowerII {
     // 这个跟另外一个累计和的划分是相同的做法
     /**
      * 375. Guess Number Higher or Lower II
-     * When:2019/8/1
+     * When:8/1/2019, 03/09/2020
      * solution: 相当于计算最差情况下的最小值。
      * Test case:
      * n = 5

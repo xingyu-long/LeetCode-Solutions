@@ -8,7 +8,7 @@ import java.util.List;
 public class _1366_RankTeamsbyVotes {
 
     /**
-     * When: 03/01/2020
+     * When: 03/01/2020, 3/9/2020
      * @param votes
      * @return
      */

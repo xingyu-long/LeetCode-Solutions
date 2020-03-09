@@ -3,8 +3,7 @@ package com.leetcode.dynamicProgramming.Knapsack;
 public class _474_OnesandZeroes {
 
     /**
-     * When: 02/29/2020
-     * 
+     * When: 02/29/2020, 03/09/2020
      * @param strs
      * @param m
      * @param n
@@ -13,6 +12,7 @@ public class _474_OnesandZeroes {
 
     // 反着的背包问题，这样才不会重复。
     // 利用多个0和1能构成的字符串的最大个数（这里应该是+1）
+    // time:O(~ N * m * n)
     public int findMaxForm(String[] strs, int m, int n) {
         int[][] dp = new int[m + 1][n + 1];
         for (String str : strs) {
