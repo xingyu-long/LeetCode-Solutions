@@ -3,6 +3,11 @@ package com.leetcode.dynamicProgramming;
 import java.util.List;
 
 public class _1301_NumberofPathswithMaxScore {
+    /**
+     * When: 02/26/2020
+     * @param board
+     * @return
+     */
     // 依靠同时两个dp操作。
     // time:O(n^2) space:O(n^2)
     // 这个和unique paths 可以比较

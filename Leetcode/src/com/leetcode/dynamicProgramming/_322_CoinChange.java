@@ -5,8 +5,7 @@ import java.util.Arrays;
 public class _322_CoinChange {
     /**
      *  322. Coin Change
-     *  When:2019/7/30
-     *  review1:2019/10/4
+     *  When:7/30/2019, 10/4/2019, 02/27/2020
      *  Difficulty: Medium
      *  solution: 每次计算的次数就是 （金额 - 当前数组的存在）的最好的情况 + 1（当前数组值代表的一张）
      *  DP[x] 代表金额为x的情况下最少的张数。

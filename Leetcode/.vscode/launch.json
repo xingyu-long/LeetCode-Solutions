@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - _650_2KeysKeyboard",
+            "request": "launch",
+            "mainClass": "com.leetcode.dynamicProgramming._650_2KeysKeyboard",
+            "projectName": "Leetcode_58c29dc0"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - _650_2KeysKeyboard",
+            "request": "launch",
+            "mainClass": "com.leetcode.backtracking._650_2KeysKeyboard",
+            "projectName": "Leetcode_58c29dc0"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - _956_TallestBillboard",
+            "request": "launch",
+            "mainClass": "com.leetcode.dynamicProgramming._956_TallestBillboard",
+            "projectName": "Leetcode_58c29dc0"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - _474_OnesandZeroes",
+            "request": "launch",
+            "mainClass": "com.leetcode.dynamicProgramming.Knapsack._474_OnesandZeroes",
+            "projectName": "Leetcode_58c29dc0"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - _StoneDivision",
             "request": "launch",
             "mainClass": "com.leetcode.backtracking._StoneDivision",

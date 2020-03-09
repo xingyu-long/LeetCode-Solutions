@@ -3,11 +3,15 @@ package com.leetcode.graph;
 import java.util.HashSet;
 
 public class _356_LineReflection {
-    /*
-    1. Find the smallest and largest x-value for all points.
-    2. If there is a line then it should be at y = (minX + maxX) / 2.
-    3. For each point, make sure that it has a reflected point in the opposite side.
+    /**
+     * When:02/26/2020
+     * @param points
+     * @return
      */
+    // 1. Find the smallest and largest x-value for all points.
+    // 2. If there is a line then it should be at y = (minX + maxX) / 2.
+    // 3. For each point, make sure that it has a reflected point in the opposite side.
+    // time:O(n) space:O(n)
     public boolean isReflected(int[][] points) {
         HashSet<String> set = new HashSet<>();
         int min = Integer.MAX_VALUE;

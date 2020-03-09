@@ -37,8 +37,9 @@ public class _494_TargetSum {
 
     // 不用保持其prev，因为这里都是直接+ -
     // 2^n 没有cache的话 不知道怎么来cache。。。。
+    // 不用二维数组，是因为会有负数的原因。
+    // time:O(sum * n) space:O(1)
     public int dfs(int[] nums, int index, int target, HashMap<String, Integer> map) {
-        // 这种没办法做memo。 用target减去的值来吧。。。
         String key = index + "-" + target;
         if (index == nums.length) {
             if (target == 0) return 1;

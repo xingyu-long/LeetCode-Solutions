@@ -6,11 +6,14 @@ public class _399_EvaluateDivision {
 
     /**
      * 399. Evaluate Division
+     * When:02/26/2020
      * @param equations
      * @param values
      * @param queries
      * @return
      */
+
+    // time:O(V + E) space:O(n)
     public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
         HashMap<String, HashMap<String, Double>> map = new HashMap<>();
         // build the graph

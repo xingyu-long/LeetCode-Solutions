@@ -6,7 +6,7 @@ public class _518_CoinChange2 {
     /**
      *
      * 518. Coin Change 2
-     * When:2019/10/5
+     * When:10/5/2019, 02/27/2020
      * 状态转移方程
      * table[row][col] = table[row][col - coins[row - 1]](use) + table[row - 1][col](not use)
      * table[row][col] 指当前amount下，利用不同coin的总方法数
@@ -35,7 +35,7 @@ public class _518_CoinChange2 {
     public int change2(int amount, int[] coins) {
         int[] dp = new int[amount + 1];
         dp[0] = 1;
-        for (int coin : coins) {
+        for (int coin : coins) { // 从coin开始遍历
             for (int i = coin; i <= amount; i++) {
                 dp[i] += dp[i - coin];
             }

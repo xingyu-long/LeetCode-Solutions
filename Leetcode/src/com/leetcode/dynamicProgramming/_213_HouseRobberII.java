@@ -2,16 +2,15 @@ package com.leetcode.dynamicProgramming;
 
 public class _213_HouseRobberII {
     /**
-     *  213. House Robber II
-     *  When:2019/7/28
-     *  review1: 11/14
-     *  Difficulty: Medium
+     *
+     *  When:7/28/2019, 11/14/2019
      * @param nums
      * @return
      */
     // 如何表示环状的约束？把circle 拆开成两个row
     //https://leetcode.com/problems/house-robber-ii/discuss/59934/Simple-AC-solution-in-Java-in-O(n)-with-explanation
     // 分成两段去计算（包括开头和不包括的情况）
+    // time:O(n) space:O(n)
     public int rob(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
         int n = nums.length;

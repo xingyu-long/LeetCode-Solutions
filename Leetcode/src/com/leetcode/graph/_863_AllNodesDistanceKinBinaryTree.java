@@ -5,6 +5,13 @@ import com.leetcode.common.TreeNode;
 import java.util.*;
 
 public class _863_AllNodesDistanceKinBinaryTree {
+    /**
+     * time: 02/26/2020
+     * @param root
+     * @param target
+     * @param K
+     * @return
+     */
     // time:O(n) space:O(n)
     public List<Integer> distanceK(TreeNode root, TreeNode target, int K) {
         if (root == null) return new ArrayList<>();
