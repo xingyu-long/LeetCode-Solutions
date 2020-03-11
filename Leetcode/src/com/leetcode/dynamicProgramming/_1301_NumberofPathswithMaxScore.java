@@ -4,11 +4,11 @@ import java.util.List;
 
 public class _1301_NumberofPathswithMaxScore {
     /**
-     * When: 02/26/2020
+     * When: 02/26/2020, 03/10/2020
      * @param board
      * @return
      */
-    // 依靠同时两个dp操作。
+    // 依靠同时两个dp操作。ways这个dp看从哪条最大值的边过来（可能三条边）。dp这个也是看最大的来自哪边。
     // time:O(n^2) space:O(n^2)
     // 这个和unique paths 可以比较
     public int[] pathsWithMaxScore(List<String> board) {

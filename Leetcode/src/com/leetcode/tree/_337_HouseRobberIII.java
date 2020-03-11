@@ -1,30 +1,23 @@
 package com.leetcode.tree;
 
 import com.leetcode.common.TreeNode;
-
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
 
 public class _337_HouseRobberIII {
-    // ? 如何做到跳跃
     /**
-     * 337. House Robber III
-     * When:2019/7/27
-     * Difficulty: Medium
-     * 依然感觉比较难
-     * 其中比较的原则就是 当前root.val + left.left 或者left.right 以及 left+right的比较
+     * When:07/27/2019, 03/10/2020
      * @param root
      * @return
      */
     // 解释 https://www.cnblogs.com/grandyang/p/5275096.html
-    // backtracking.
+    // DP + Memo.
+    // 当前层被选定，下一层肯定不能用，所以每次这样比较即可
     public static int rob(TreeNode root) {
         if (root == null) return 0;
         HashMap<TreeNode, Integer> map = new HashMap<>();
         return helper(root, map);
     }
-    
+    // time:O(n) space:O(n)
     public static int helper(TreeNode root, HashMap<TreeNode, Integer> map) {
         if (map.get(root) != null) return map.get(root);
         if (root == null) return 0;

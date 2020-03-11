@@ -3,7 +3,12 @@ package com.leetcode.binarySearch;
 import java.util.Arrays;
 
 public class _410_SplitArrayLargestSum {
-    //    410. Split Array Largest Sum
+    /**
+     *  When: 3/10/2020
+     * @param nums
+     * @param m
+     * @return
+     */
     // 先讨论如果m=1说明没有分割的情况就是全部加起来
     // m = len(nums) 则全部分割，这样求单个的max即可。
     // 然后left和right分别设置为max, sum. 最后检查的时候检查左边再右边。
