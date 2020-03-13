@@ -3,9 +3,7 @@ package com.leetcode.dynamicProgramming;
 public class _123_BestTimetoBuyandSellStockIII {
 
     /**
-     * 123. Best Time to Buy and Sell Stock III
-     * Time: 11/6/2019
-     * Difficulty: Hard
+     * Time: 11/6/2019, 03/12/2019
      * @param prices
      * @return
      */
