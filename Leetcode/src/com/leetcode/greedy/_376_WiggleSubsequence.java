@@ -2,54 +2,38 @@ package com.leetcode.greedy;
 
 public class _376_WiggleSubsequence {
     /**
-     *  376.Wiggle Subsequence
-     *  When:2019/7/13
-     *  Difficulty: Medium
-     *
+     *  
+     * When:07/13/2019, 12/02/2019, 03/11/2020
      * @param nums
      * @return
      */
-    // time:O(n) space:O(1)
+    // time:O(n^2) space: O(n)
+    // state: up[n]（表示当前数减去前面的数为正的序列的长度）, down[n]表示当前数减去前面的数为负的序列的长度）
+    // init: up[0] = 1, down[0] = 1
+    // func: 
+    // res: Math.max(up[n - 1], down[n - 1]);
     public int wiggleMaxLength(int[] nums) {
-        // 利用状态机思想解决
-        if (nums.length < 2) {
-            return nums.length;
-        }
-        final int BEGIN = 0;
-        final int UP = 1;
-        final int DOWN = 2;
-
-        int STATE = BEGIN;
-        int res = 1;
-
-        for (int i = 1; i < nums.length; i++) {
-            switch (STATE) {
-                case BEGIN:
-                    if (nums[i] > nums[i - 1]) {
-                        STATE = UP;
-                        res++;
-                    } else if (nums[i] < nums[i - 1]) {
-                        STATE = DOWN;
-                        res++;
-                    }
-                    break;
-                case UP:
-                    if (nums[i] < nums[i - 1]) {
-                        STATE = DOWN;
-                        res++;
-                    }
-                    break;
-                case DOWN:
-                    if (nums[i] > nums[i - 1]) {
-                        STATE = UP;
-                        res++;
-                    }
-                    break;
+        if (nums == null || nums.length == 0) return 0;
+        int n = nums.length;
+        int[] up = new int[n];
+        int[] down = new int[n];
+        up[0] = 1;
+        down[0] = 1;
+        // 这个题就类似于求longest increasing subsequences.
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                if (nums[i] > nums[j]) {
+                    up[i] = Math.max(up[i], down[j] + 1);
+                } else if (nums[i] < nums[j]) {
+                    down[i] = Math.max(down[i], up[j] + 1);
+                } else {
+                    up[i] = up[i - 1];
+                    down[i] = down[i - 1];
+                }
             }
         }
-        return res;
+        return Math.max(up[n - 1], down[n - 1]);
     }
-
 
     // time:O(n) space:O(n)
     public int wiggleMaxLength2(int[] nums) {
@@ -74,7 +58,7 @@ public class _376_WiggleSubsequence {
         return Math.max(down[n - 1], up[n - 1]);
     }
 
-    // time:O(n) space:O(1)
+    // time:O(n) space:O(1) 优化空间，因为只是依赖前后的值
     public int wiggleMaxLength3(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
         int n = nums.length;

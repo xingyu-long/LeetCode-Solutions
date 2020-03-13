@@ -1,9 +1,12 @@
 package com.leetcode.string.slidingWindow;
 
 public class _1358_NumberofSubstringsContainingAllThreeCharacters {
-    // When: 2/22/2020
-    // time:O(n)
-    // space:O(1)
+    /**
+     * When: 02/22/2020, 03/11/2020
+     * @param s
+     * @return
+     */
+    // time:O(n) space:O(1)
     public int numberOfSubstrings(String s) {
         // "abcabc"
         if (s == null || s.length() == 0) return 0;
