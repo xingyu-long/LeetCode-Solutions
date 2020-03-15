@@ -7,7 +7,7 @@ public class _309_BestTimetoBuyandSellStockwithCooldown {
      *   Difficulty: Medium
 
          感觉很难。。。
-        hold[i] = max(hold[i - 1], res[i - 1] - price[i])
+        hold[i] = max(hold[i - 1], rest[i - 1] - price[i])
         sold[i] = hold[i - 1] + price[i]
         rest[i] = max(rest[i - 1], sold[i - 1])
      */

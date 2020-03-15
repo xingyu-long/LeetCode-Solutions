@@ -41,4 +41,19 @@ public class _123_BestTimetoBuyandSellStockIII {
         }
         return dp[m][n - 1];
     }
+
+    // 更加的优化，表示buy first, sell first, buy second, sell second.
+    // time:O(n)
+    public int maxProfit3(int[] prices) {
+        if (prices == null || prices.length == 0) return 0;
+        int buyFirst = Integer.MIN_VALUE, buySecond = Integer.MIN_VALUE; // 表示买了当前之后剩下的钱
+        int sellFirst = 0, sellSecond = 0; // 表示卖出之后的钱。
+        for (int price : prices) {
+            buyFirst = Math.max(buyFirst, -price);
+            sellFirst = Math.max(sellFirst, buyFirst + price);
+            buySecond = Math.max(buySecond, sellFirst - price);
+            sellSecond = Math.max(sellSecond, buySecond + price);
+        }
+        return sellSecond;
+    }
 }

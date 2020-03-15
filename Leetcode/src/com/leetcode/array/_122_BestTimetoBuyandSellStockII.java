@@ -4,11 +4,9 @@ public class _122_BestTimetoBuyandSellStockII {
 
     /**
      * 122. Best Time to Buy and Sell Stock II
-     * when: 2019/03/21
-     * Review1: 2019/7/8
-     * review2: 11/6/2019
-     * <p>
-     * solution1 :
+     * when: 2019/03/21, 07/08/2019, 11/06/2019
+     * 03/14/2020
+     * solution :
      * (1) Peak Valley 方法：相当于寻找每一个连续的valley和peak 然后算出profit再加在一起
      * (2) 跟上面其实一样，只需要关注连续的部分即可
      *
