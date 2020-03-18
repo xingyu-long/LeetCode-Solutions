@@ -1,42 +1,31 @@
 package com.leetcode.dynamicProgramming;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-
 public class _552_StudentAttendanceRecordII {
-    // backtracking (TLE)
-    // 552. Student Attendance Record II
+    
+    /**
+     * When: 03/18/2020
+     * @param n
+     * @return
+     */
+    // time:O(n) space:O(n)
     public int checkRecord(int n) {
-        // backtracking.
-        if (n < 0) return 0;
-        List<String> res = new ArrayList<>();
-        HashSet<Character> set = new HashSet<>();
-        set.add('A');
-        set.add('L');
-        set.add('P');
-        helper(res, "", n, set, 0);
-        return res.size();
-    }
-
-    public void helper(List<String> res, String cur, int n, HashSet<Character> set, int index) {
-        if (index > n) return;
-        if (index == n) {
-            res.add(cur);
-            return;
+        int MOD = (int) Math.pow(10, 9) + 7;
+        long[] PorL = new long[n + 1]; // 以P或者L结束，其中没有A的情况
+        long[] P = new long[n + 1]; // 以P结束，其中没有A的情况
+        PorL[0] = P[0] = 1;
+        PorL[1] = 2;// i表示前i个数字能够构成情况
+        P[1] = 1;
+        for (int i = 2; i <= n; i++) {
+            P[i] = PorL[i - 1];
+            PorL[i] = (P[i] + P[i - 1] + P[i - 2]) % MOD;
         }
-        for (char ch : set) {
-            if (isExistA(cur) && ch == 'A') continue;
-            if (index > 1 && ch == 'L' && cur.charAt(index - 1) == cur.charAt(index - 2) && cur.charAt(index - 2) == ch) continue;
-            helper(res, cur + ch, n, set,index + 1);
+        
+        long res = PorL[n];
+        // 需要再放入一个a的情况即可
+        for (int i = 0; i < n; i++) {
+            long times = (PorL[i] * PorL[n - i - 1]) % MOD;
+            res = (res + times) % MOD;
         }
-
-    }
-
-    public boolean isExistA(String s) {
-        for (char ch : s.toCharArray()) {
-            if (ch == 'A') return true;
-        }
-        return false;
+        return (int) res;
     }
 }

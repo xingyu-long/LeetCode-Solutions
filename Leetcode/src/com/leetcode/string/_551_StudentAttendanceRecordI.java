@@ -1,6 +1,12 @@
 package com.leetcode.string;
 
 public class _551_StudentAttendanceRecordI {
+    /**
+     * When: 03/17/2020
+     * @param s
+     * @return
+     */
+    // time:O(n) space:O(1)
     public boolean checkRecord(String s) {
         if (s == null || s.length() == 0) return true;
         int countA = 0;
