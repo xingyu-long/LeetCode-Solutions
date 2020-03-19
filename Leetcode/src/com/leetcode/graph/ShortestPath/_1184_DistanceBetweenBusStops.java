@@ -1,6 +1,13 @@
+/*
+ * @Date: 2020-01-29 09:48:52
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-18 15:37:22
+ */
 package com.leetcode.graph.ShortestPath;
 
 public class _1184_DistanceBetweenBusStops {
+
+    // time:O(n) space: O(1)
     public int distanceBetweenBusStops(int[] distance, int start, int destination) {
         // time:O(n) space:O(1)
         // 咋一看应该是graph search的问题。这个不用search，直接看两边走过去的最小值。

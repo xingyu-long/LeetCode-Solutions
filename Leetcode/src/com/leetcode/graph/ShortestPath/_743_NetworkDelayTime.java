@@ -1,108 +1,117 @@
+/*
+ * @Date: 2020-01-13 09:43:35
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-18 14:46:56
+ */
 package com.leetcode.graph.ShortestPath;
 
 import java.util.*;
 
 public class _743_NetworkDelayTime {
-    // DFS
-    // time:O(nlogn + n^2) space:O(N + E) 这个需要看看别人的解析。
-    HashMap<Integer, Integer> dist;
 
-    public int networkDelayTime(int[][] times, int N, int K) {
-        HashMap<Integer, List<int[]>> graph = new HashMap<>();
-        for (int[] edge : times) {
-            if (!graph.containsKey(edge[0])) {
-                graph.put(edge[0], new ArrayList<int[]>());
-            }
-            graph.get(edge[0]).add(new int[]{edge[2], edge[1]});
-        }
-        for (int node : graph.keySet()) {
-            Collections.sort(graph.get(node), (a, b) -> a[0] - b[0]);
-        }
-        dist = new HashMap<>();
-        for (int i = 1; i <= N; i++) {
-            dist.put(i, Integer.MAX_VALUE);
-        }
-        dfs(graph, K, 0);
-        int res = 0;
-        for (int dis : dist.values()) {
-            if (dis == Integer.MAX_VALUE) return -1;
-            // 就表明这些点都可达，我们选距离最远的那个即可。
-            res = Math.max(res, dis);
-        }
-        return res;
-    }
-
-    public void dfs(HashMap<Integer, List<int[]>> graph, int node, int time) {
-        if (time >= dist.get(node)) return;
-        dist.put(node, time);
-        if (graph.containsKey(node)) {
-            for (int[] info : graph.get(node))
-                dfs(graph, info[1], time + info[0]);
-        }
-    }
-
-    // 不是严格的最短路径，题目的意思是能够从一点走到其余的全部点，其中路径最小的。
     // Dijkstra's based on heap
     // heap 决定保持了最小的访问顺序
     // E : edges
-    // time: O(ElogE)
-    public int networkDelayTime2(int[][] times, int N, int K) {
-        HashMap<Integer, List<int[]>> graph = new HashMap<>();
-        for (int[] edge : times) {
-            if (!graph.containsKey(edge[0])) {
-                graph.put(edge[0], new ArrayList<int[]>());
-            }
-            graph.get(edge[0]).add(new int[]{edge[1], edge[2]});
+    // time: pq: ElogV max: V
+    public int networkDelayTime(int[][] times, int N, int K) {
+        // test 有误导，其实一个点可以由上面多个点过来，所以要更新最小值。
+        // dist[], pq pop出来操作 需要一个邻接表
+        if (times == null || times.length == 0 || 
+            times[0] == null || times[0].length == 0) return 0;
+        HashMap<Integer, HashMap<Integer, Integer>> map = new HashMap<>();
+        for (int[] time : times) {
+            map.putIfAbsent(time[0], new HashMap<>());
+            map.get(time[0]).put(time[1], time[2]);
         }
-        PriorityQueue<int[]> pq = new PriorityQueue<int[]>(
-                (a, b) -> a[0] - b[0]);
-        pq.offer(new int[]{0, K});
-        Map<Integer, Integer> dist = new HashMap<>();
-
+        
+        int[] dist = new int[N + 1];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+        dist[0] = 0; // 因为这个点不存在，需要额外处理
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> Integer.compare(a[1], b[1]));
+        pq.offer(new int[]{K, 0});
+        boolean[] visited = new boolean[N + 1];
         while (!pq.isEmpty()) {
             int[] curr = pq.poll();
-            int dis = curr[0];
-            int node = curr[1];
-            if (dist.containsKey(node)) continue;// 表示已经访问过了
-            dist.put(node, dis);
-            if (graph.containsKey(node)) {
-                for (int[] edge : graph.get(node)) {
-                    int adj = edge[0], d2 = edge[1];
-                    if (!dist.containsKey(adj))
-                        pq.offer(new int[]{dis + d2, adj});
+            int node = curr[0];
+            int currDis = curr[1];
+            if (visited[node]) continue;
+            visited[node] = true;
+            dist[node] = currDis;
+            // 里面的变量需要注意！
+            // explore the neighbors
+            if (map.get(node) != null) {
+                HashMap<Integer, Integer> neigh = map.get(node);
+                for (int adj : neigh.keySet()) {
+                    // 这里需要写成map.get(node).get(adj)
+                    if (currDis + neigh.get(adj) < dist[adj]) {
+                        pq.offer(new int[]{adj, currDis + neigh.get(adj)});
+                    }
                 }
             }
         }
-        if (dist.size() != N) return -1;
-        int res = 0;
-        for (int dis : dist.values()) {
+        int res = Integer.MIN_VALUE;
+        for (int dis : dist) {
+            if (dis == Integer.MAX_VALUE) return -1;
             res = Math.max(res, dis);
         }
         return res;
     }
 
-    // Bellman-Ford algorithm
-    // time:O(V * E) space:O(V)
-    public int networkDelayTime3(int[][] times, int N, int K) {
-        double[] disTo = new double[N];
-        Arrays.fill(disTo, Double.POSITIVE_INFINITY);
-        disTo[K - 1] = 0;
-        // 最多有i-1次，这个也需要记住。
+    // Bellman-Ford
+    // time: O(N * E) space: O(N)
+    // 因为中途有相加的过程，所以需要注意！
+    public int networkDelayTime2(int[][] times, int N, int K) {
+        long [] dist = new long[N + 1];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+        dist[0] = dist[K] = 0;
+        // 这里就是1到N
         for (int i = 1; i < N; i++) {
-            for (int[] edge : times) { // 遍历所有的edges
-                int u = edge[0] - 1;
-                int v = edge[1] - 1;
-                int w = edge[2];
-                // relax ops
-                if (disTo[u] + w < disTo[v]) {
-                    disTo[v] = disTo[u] + w;
+            for (int[] edge : times) {
+                // from u to v
+                int u = edge[0], v = edge[1];
+                long w = edge[2];
+                if (dist[u] + w < dist[v]) 
+                    dist[v] = dist[u] + w;
+            }
+        }
+        long res = Integer.MIN_VALUE;
+        for (long dis : dist) {
+            if (dis == Integer.MAX_VALUE) return -1;
+            res = Math.max(res, dis);
+        }
+        return (int) res;
+    }
+
+    // Floyd–Warshall's Algorithm
+    // time:O(V^3) space:O(V^2)
+    public int networkDelayTime3(int[][] times, int N, int K) {
+        long dist[][] = new long[N + 1][N + 1];
+        for (long[] row : dist) {
+            Arrays.fill(row, Integer.MAX_VALUE);
+        }
+        for (int i = 1; i <= N; i++) {
+            dist[i][i] = 0;
+        }
+        
+        for (int[] edge : times) {
+            int u = edge[0], v = edge[1];
+            int w = edge[2];
+            dist[u][v] = w;
+        }
+        
+        for (int k = 1; k <= N; k++) {
+            for (int i = 1; i <= N; i++) {
+                for (int j = 1; j <= N; j++) {
+                    if (dist[i][k] + dist[k][j] < dist[i][j])
+                        dist[i][j] = dist[i][k] + dist[k][j];
                 }
             }
         }
-        double res = Double.MIN_VALUE;
-        for (double dis : disTo) {
-            res = Math.max(dis, res);
+        long res = Integer.MIN_VALUE;
+        for (int i = 1; i <= N; i++) {
+            if (dist[K][i] == Integer.MAX_VALUE) return -1;
+            res = Math.max(res, dist[K][i]);
         }
-        return res == Double.POSITIVE_INFINITY ? -1 : (int) res;
+        return (int) res;
     }
 }
