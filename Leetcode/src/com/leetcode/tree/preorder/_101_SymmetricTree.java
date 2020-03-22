@@ -1,3 +1,8 @@
+/*
+ * @Date: 2019-09-11 17:16:44
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-21 14:30:24
+ */
 package com.leetcode.tree.preorder;
 
 import com.leetcode.common.TreeNode;
@@ -7,23 +12,10 @@ import java.util.Queue;
 
 public class _101_SymmetricTree {
 
-    /**
-     * 101. Symmetric Tree
-     * When: 2019/04/15
-     * Review1:2019/7/26
-     * review2:2019/9/11
-     * Difficulty: Medium
-     * <p>
-     * solution:
-     * 1. 主要思路利用递归。对称的比较
-     * 2. 使用迭代的形式。 利用队列，分别插入左边的这棵树 和 右边的这棵树的 每一个对应节点
-     * 这里面相当于是 两个一样的树 然后逐个比较
-     * time: O(n)
-     * space: O(n)
-     *
-     * @param root
-     * @return
-     */
+   
+    // 1. 主要思路利用递归。对称的比较
+    // 2. 使用迭代的形式。 利用队列，分别插入左边的这棵树 和 右边的这棵树的 每一个对应节点
+    // 这里面相当于是 两个一样的树 然后逐个比较
     public boolean isSymmetric(TreeNode root) {
         // 基本思想与 same tree一致 使用递归（但是这里比较的是a树的左边和b的右边）
         return isMirror(root, root);

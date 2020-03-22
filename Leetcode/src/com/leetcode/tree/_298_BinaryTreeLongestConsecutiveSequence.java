@@ -1,3 +1,8 @@
+/*
+ * @Date: 2019-09-14 15:08:00
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-21 19:10:30
+ */
 package com.leetcode.tree;
 
 import com.leetcode.common.TreeNode;
@@ -24,7 +29,7 @@ public class _298_BinaryTreeLongestConsecutiveSequence {
      */
     // time:O(n) space:O(n)
     private static int res = 0;
-
+    // preorder
     public static int longestConsecutive(TreeNode root) {
         if (root == null) return 0;
         helper(root, 0, root.val);
@@ -43,15 +48,25 @@ public class _298_BinaryTreeLongestConsecutiveSequence {
         helper(root.right, max, root.val + 1);
     }
 
-
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
-        root.right = new TreeNode(3);
-        root.right.left = new TreeNode(4);
-        root.right.left.left = new TreeNode(5);
-        root.right.left.left.left = new TreeNode(6);
-        root.right.right = new TreeNode(4);
-        root.right.right.right = new TreeNode(5);
-        System.out.println(longestConsecutive(root));
+    // postorder
+    public int longestConsecutive2(TreeNode root) {
+        if (root == null) return 0;
+        dfs(root);
+        return res;
+    }
+    
+    public int dfs(TreeNode root) {
+        if (root == null) return 0;
+        int left = 1 + dfs(root.left);
+        int right = 1 + dfs(root.right);
+        if (root.left != null && root.left.val != root.val + 1) {
+            left = 1;
+        }
+        
+        if (root.right != null && root.right.val != root.val + 1) {
+            right = 1;
+        }
+        res = Math.max(res, Math.max(left, right));
+        return Math.max(left, right);
     }
 }

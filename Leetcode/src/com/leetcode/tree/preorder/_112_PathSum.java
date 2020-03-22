@@ -1,3 +1,8 @@
+/*
+ * @Date: 2019-11-13 16:28:33
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-21 16:55:43
+ */
 package com.leetcode.tree.preorder;
 
 import com.leetcode.common.TreeNode;
@@ -5,23 +10,6 @@ import com.leetcode.common.TreeNode;
 import java.util.*;
 
 public class _112_PathSum {
-
-    /**
-     * 112. Path Sum
-     * When: 2019/04/16
-     * Review1:2019/7/26
-     * review2:2019/9/12
-     * <p>
-     * <p>
-     * solution:
-     * 1. 跟那个Binary Tree Paths思路一致，然后计算出值
-     * 2. 反着来 减去当前的值 然后左右分开
-     *
-     * @param root
-     * @param sum
-     * @return
-     */
-
     //time:O(n) space:O(n)
     // 直接计算出
     public static boolean hasPathSum(TreeNode root, int sum) {

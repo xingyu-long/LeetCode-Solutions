@@ -1,3 +1,8 @@
+/*
+ * @Date: 2019-09-11 16:18:09
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-21 10:25:30
+ */
 package com.leetcode.tree.preorder;
 
 import com.leetcode.common.TreeNode;
@@ -7,17 +12,7 @@ import java.util.List;
 import java.util.Stack;
 
 public class _144_BinaryTreePreorderTraversal {
-
-    /**
-     * 144. Binary Tree Preorder Traversal
-     * When: 2019/04/12
-     * review1:2019/9/11
-     *
-     * solution:
-     * 最普通的先序排序，并且这里的输入是root节点而不是数组所以自己不用构造才对。
-     * @param root
-     * @return
-     */
+    // time: O(n) space:O(n)
     public static List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         if (root == null) return res;

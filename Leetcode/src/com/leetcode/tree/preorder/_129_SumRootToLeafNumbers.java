@@ -1,3 +1,8 @@
+/*
+ * @Date: 2019-11-13 17:18:11
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-21 18:17:20
+ */
 package com.leetcode.tree.preorder;
 
 import com.leetcode.common.TreeNode;
@@ -32,9 +37,7 @@ public class _129_SumRootToLeafNumbers {
     public int dfs(TreeNode root, int sum) {
         if (root == null) return 0;
         sum = sum * 10 + root.val;
-        // System.out.println("sum. = " + sum);
         if (root.left == null && root.right == null) {
-            // System.out.println("sum = " + sum);
             return sum;
         }
         int left = dfs(root.left, sum);
@@ -54,9 +57,7 @@ public class _129_SumRootToLeafNumbers {
     public void dfs2(TreeNode root, int sum) {
         if (root == null) return;
         sum = sum * 10 + root.val;
-        // System.out.println("sum. = " + sum);
         if (root.left == null && root.right == null) {
-            // System.out.println("sum = " + sum);
             res += sum;
         }
         dfs2(root.left, sum);
@@ -110,19 +111,5 @@ public class _129_SumRootToLeafNumbers {
             }
         }
         return res;
-    }
-
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(4);
-
-        TreeNode leftOne = new TreeNode(9);
-        TreeNode rightOne = new TreeNode(0);
-
-        root.left = leftOne;
-        root.right = rightOne;
-//
-        leftOne.left = new TreeNode(5);
-        leftOne.right = new TreeNode(1);
-        System.out.println(sumNumbers4(root));
     }
 }

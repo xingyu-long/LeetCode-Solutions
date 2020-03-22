@@ -1,3 +1,8 @@
+/*
+ * @Date: 2019-09-12 14:32:25
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-21 16:49:54
+ */
 package com.leetcode.tree.preorder;
 
 import com.leetcode.common.TreeNode;
@@ -8,19 +13,6 @@ import java.util.List;
 import java.util.Queue;
 
 public class _257_BinaryTreePaths {
-
-    /**
-     * 257. Binary Tree Paths
-     * When: 2019/04/16
-     * Review1:2019/7/26
-     * review2: 2019/9/12
-     * solution:
-     * 利用先序遍历，只是需要注意什么时候添加其字符串。
-     * 相当于stack 所以string的前面例如前面几层就会保留下来 例如左边进去的时候是 1-> 那就在计算右边的时候继续保留
-     *
-     * @param root
-     * @return
-     */
     // dfs
     public static List<String> binaryTreePaths(TreeNode root) {
         List<String> res = new ArrayList<>();
@@ -99,16 +91,5 @@ public class _257_BinaryTreePaths {
             }
         }
         return res;
-    }
-
-
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(10);
-        root.right = new TreeNode(2);
-        TreeNode right = root.right;
-        right.left = new TreeNode(3);
-        right.right = new TreeNode(4);
-        System.out.println(binaryTreePaths(root).toString());
     }
 }

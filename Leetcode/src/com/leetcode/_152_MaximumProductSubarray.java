@@ -1,16 +1,11 @@
+/*
+ * @Date: 2019-11-16 15:18:56
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-20 11:42:09
+ */
 package com.leetcode;
 
 public class _152_MaximumProductSubarray {
-
-    /**
-     * 152. Maximum Product Subarray
-     * When: 2019/03/27
-     *
-     * solution:
-     * 类似于No.53 可以用暴力解法
-     * @param nums
-     * @return
-     */
     //time: O(n^2) space:O(1)
     public int maxProduct(int[] nums) {
          if (nums.length == 1) return nums[0];
