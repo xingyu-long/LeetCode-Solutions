@@ -1,14 +1,14 @@
+/*
+ * @Date: 2019-11-14 14:37:26
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-22 15:27:13
+ */
 package com.leetcode.tree;
 
 import com.leetcode.common.TreeNode;
 import java.util.HashMap;
 
 public class _337_HouseRobberIII {
-    /**
-     * When:07/27/2019, 03/10/2020
-     * @param root
-     * @return
-     */
     // 解释 https://www.cnblogs.com/grandyang/p/5275096.html
     // DP + Memo.
     // 当前层被选定，下一层肯定不能用，所以每次这样比较即可
@@ -53,17 +53,5 @@ public class _337_HouseRobberIII {
         res[1] = root.val + left[0] + right[0];
         
         return res;
-    }
-
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(4);
-//        root.left = new TreeNode(2);
-//        root.right = new TreeNode(3);
-//        root.left.right = new TreeNode(3);
-//        root.right.right = new TreeNode(1);
-        root.left = new TreeNode(1);
-        root.left.left = new TreeNode(2);
-        root.left.left.left = new TreeNode(3);
-        rob(root);
     }
 }

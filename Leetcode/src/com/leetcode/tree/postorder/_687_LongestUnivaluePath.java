@@ -1,15 +1,14 @@
+/*
+ * @Date: 2019-09-15 16:14:17
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-22 15:06:56
+ */
 package com.leetcode.tree.postorder;
 
 import com.leetcode.common.TreeNode;
 
 public class _687_LongestUnivaluePath {
-
-    /**
-     * 687. Longest Univalue Path
-     * When:2019/9/15
-     * @param root
-     * @return
-     */
+    
     int res = 0;
     public int longestUnivaluePath(TreeNode root) {
         if (root == null) return 0;
@@ -29,7 +28,7 @@ public class _687_LongestUnivaluePath {
         if (root.right != null && root.val == root.right.val) {
             pr = r + 1;
         }
-        res = Math.max(res, pl + pr);
+        res = Math.max(res, pl + pr); // 相当于选择连续的那个边。如果没有相同的，也会返回0
         return Math.max(pl, pr);
     }
 }

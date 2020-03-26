@@ -1,3 +1,8 @@
+/*
+ * @Date: 2019-09-11 10:33:12
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-25 13:48:50
+ */
 package com.leetcode.tree.preorder;
 
 import com.leetcode.common.TreeNode;
@@ -36,17 +41,19 @@ public class _98_ValidateBinarySearchTree {
      */
     public boolean isValidBST(TreeNode root) {
         if (root == null) return true;
-        return helper(root, null, null);
+        return dfs(root, null, null);
     }
 
     // 左边设置最大值，右边设置最小值
-    public static boolean helper(TreeNode root, Integer min, Integer max) {
+    public static boolean dfs(TreeNode root, Integer min, Integer max) {
         if (root == null) return true;
         //针对于右子树 （理应当 所有的值大于min）
         if (min != null && min >= root.val) return false;
         //针对于左子树 （理应当 所有的值小于max）
         if (max != null && max <= root.val) return false;
         // 左边的话 即是当前节点是最大的情况；右边的话，当前节点是最小值
-        return helper(root.left, min, root.val) && helper(root.right, root.val, max);
+        boolean left = dfs(root.left, min, root.val);
+        boolean right = dfs(root.right, root.val, max);
+        return left && right;
     }
 }

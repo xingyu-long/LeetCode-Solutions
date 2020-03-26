@@ -1,22 +1,19 @@
+/*
+ * @Date: 2019-11-24 11:56:25
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-23 18:07:22
+ */
 package com.leetcode.dynamicProgramming;
 
 public class _72_EditDistance {
 
     /**
-     *  72. Edit Distance
-     *  When:2019/8/1
-     *  Difficulty: Hard
-
-
      dp[i][j]表示的是，从字符串1的i的位置转换到字符串2的j的位置，所需要的最少步数。
-
-
      1,字符串中的字符相等: dp[i][j] = dp[i - 1][j - 1]
      2,字符串中的字符不等:
      insert: dp[i][j] = dp[i][j - 1] + 1;
      replace: dp[i][j] = dp[i - 1][j - 1] + 1;
      delete: dp[i][j] = dp[i - 1][j] + 1;
-
            a  b  c  d
         0  1  2  3  4
      a  1  0  1  2  3
@@ -51,16 +48,8 @@ public class _72_EditDistance {
                 } else {
                     dp[i][j] = Math.min(dp[i][j - 1] + 1, Math.min(dp[i -1][j] + 1, dp[i - 1][j - 1] + 1));
                 }
-                System.out.print("dp[" + i + "][" + j + "] = " + dp[i][j] + " ");
             }
-            System.out.println();
         }
         return dp[len1][len2];
-    }
-
-    public static void main(String[] args) {
-        String word1 = "horse";
-        String word2 = "ros";
-        minDistance(word1, word2);
     }
 }

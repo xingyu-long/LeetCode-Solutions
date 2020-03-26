@@ -1,22 +1,13 @@
+/*
+ * @Date: 2019-11-13 17:56:37
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-22 14:41:59
+ */
 package com.leetcode.tree.postorder;
 
 import com.leetcode.common.TreeNode;
 
 public class _110_BalancedBinaryTree {
-
-    /**
-     *  110. Balanced Binary Tree
-     *  When: 2019/04/18
-     *  Review1:2019/7/26
-     *  review2: 2019/9/10
-     * solution：
-     * 利用后序遍历，计算其深度并且计算左右子树的差值。
-     *
-     * 也可以使用之前的先计算出左右两个子树的maxDepth 然后差值
-     * @param root
-     * @return
-     */
-
     // time:O(n)
     // bottom-up
     public boolean isBalanced(TreeNode root) {

@@ -1,3 +1,8 @@
+/*
+ * @Date: 2019-09-20 16:15:21
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-22 15:55:02
+ */
 package com.leetcode.tree.preorder;
 
 import com.leetcode.common.TreeNode;
@@ -8,22 +13,6 @@ import java.util.List;
 import java.util.Queue;
 
 public class _107_BinaryTreeLevelOrderTraversalII {
-
-    /**
-     * 107. Binary Tree Level Order Traversal II
-     * When: 2019/04/22
-     * Review1:2019/7/27
-     * review2:2019/9/20
-     * <p>
-     * solution:
-     * 利用queue 进行广度遍历 并且使用ArrayList的特性.add(0,x)这样可以逆序
-     * <p>
-     * Time: O(n)
-     * Space: O(n)
-     *
-     * @param root
-     * @return
-     */
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         if (root == null) return res;
@@ -63,14 +52,5 @@ public class _107_BinaryTreeLevelOrderTraversalII {
         res.get(res.size() - depth - 1).add(root.val);
         helper(root.left, res, depth + 1);
         helper(root.right, res, depth + 1);
-    }
-
-    public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>();
-        int a = 1;
-        int b = 2;
-        list.add(0, a);
-        list.add(0, b); // 每次插入0这个位置，会把其他放在后面
-        System.out.println(list.toString());
     }
 }

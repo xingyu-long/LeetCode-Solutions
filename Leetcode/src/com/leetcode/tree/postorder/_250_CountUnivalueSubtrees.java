@@ -1,29 +1,14 @@
+/*
+ * @Date: 2019-09-15 17:05:50
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-22 15:19:48
+ */
 package com.leetcode.tree.postorder;
 
 import com.leetcode.common.TreeNode;
 
 public class _250_CountUnivalueSubtrees {
-
-    /**
-     *  250. Count Univalue Subtrees
-     Given a binary tree, count the number of uni-value subtrees.
-
-     A Uni-value subtree means all nodes of the subtree have the same value.
-
-     For example:
-     Given binary tree,
-          5
-         / \
-        1   5
-       / \   \
-      5   5   5
-     return 4.
-
-     root = 5 res = 2
-     root = 1
-     root = 5 res = 3
-     root = 5 res = 4
-     */
+    
     private int res;
     // time:O(n) space:O(n)
     public int countUnivalSubtrees(TreeNode root) {
@@ -34,8 +19,6 @@ public class _250_CountUnivalueSubtrees {
 
     // 需要从一开始的brute force开始思考，然后再思考优化的方向，例如在back的过程顺便计数。
     public boolean helper(TreeNode root) {
-        // 那种有一个子树的情况如何做决定？
-
         if (root == null) return true;
         boolean left = helper(root.left);
         boolean right = helper(root.right);
@@ -49,8 +32,7 @@ public class _250_CountUnivalueSubtrees {
                 return false;
             }
             res++;
-            return true;
         }
-        return false;
+        return left && right;
     }
 }

@@ -1,3 +1,8 @@
+/*
+ * @Date: 2019-11-13 18:03:29
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-22 14:27:42
+ */
 package com.leetcode.tree;
 
 
@@ -60,22 +65,10 @@ public class _111_MinimumDepthOfBinaryTree {
         if (root == null) return 0;
         int left = minDepth(root.left);
         int right = minDepth(root.right);
-        if (left != 0 && right != 0) return Math.min(left, right) + 1;
-        else if (left == 0) return right + 1;
-        return left + 1;
-    }
-
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(4);
-
-        TreeNode leftOne = new TreeNode(9);
-        TreeNode rightOne = new TreeNode(0);
-
-        root.left = leftOne;
-        root.right = rightOne;
-//
-        leftOne.left = new TreeNode(5);
-        leftOne.right = new TreeNode(1);
-        System.out.println(minDepth3(root));
+        // 需要考虑到左子树或者右子树为空的情况。
+        if (left == 0) return right + 1; 
+        if (right == 0) return left + 1;
+        return Math.min(left, right) + 1;
+        // 这样可以避免[1, 2]这棵树，右边应该是0。
     }
 }

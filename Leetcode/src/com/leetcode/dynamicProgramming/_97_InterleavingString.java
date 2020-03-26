@@ -1,38 +1,37 @@
+/*
+ * @Date: 2019-08-01 07:12:49
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-23 18:06:27
+ */
 package com.leetcode.dynamicProgramming;
 
 public class _97_InterleavingString {
-    /**
-     *  97. Interleaving String
-     *  When:2019/8/1
-     *  Difficulty: Hard
-
-     这里的true表示可以达到的意思，然后依次检查就是s1和s2中
-     */
     // time:O(m * n) space:O(m * n)
     public boolean isInterleave(String s1, String s2, String s3) {
-        if ((s1.length() + s2.length()) != s3.length()) {
-            return false;
-        }
-
-        boolean[][] dp = new boolean[s2.length() + 1][s1.length() + 1];
+        if (s1.length() + s2.length() != s3.length()) return false;
+        int m = s1.length();
+        int n = s2.length();
+        boolean[][] dp = new boolean[m + 1][n + 1];
         dp[0][0] = true;
-
-        //初始化第一列和第一行，找寻与s3中相等的情况
-        for (int i = 1; i < dp.length; i++) {
-            dp[i][0] = dp[i - 1][0] && (s2.charAt(i - 1) == s3.charAt(i - 1));
+        // init first row and col;
+        for (int i = 1; i <= m; i++) {
+            dp[i][0] = dp[i - 1][0] && s1.charAt(i - 1) == s3.charAt(i - 1);
         }
-
-        for (int i = 1; i < dp[0].length; i++) {
-            dp[0][i] = dp[0][i - 1] && (s1.charAt(i - 1) == s3.charAt(i - 1));
+        for (int j = 1; j <= n; j++) {
+            dp[0][j] = dp[0][j - 1] && s2.charAt(j - 1) == s3.charAt(j - 1);
         }
-
-        // 为true的话表示这个点在s3中有对应，并且看最后个点判断是否interleave
-        for (int i = 1; i < dp.length; i++) {
-            for (int j = 1; j < dp[0].length; j++) {
-                dp[i][j] = (dp[i - 1][j] && s2.charAt(i - 1) == s3.charAt(i + j - 1))
-                        || (dp[i][j - 1] && s1.charAt(j - 1) == s3.charAt(i + j - 1));
+        
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                int index = i + j - 1; // for s3;
+                char ch = s3.charAt(index);
+                // 可能来自的两个方向。
+                if (ch == s1.charAt(i - 1) || ch == s2.charAt(j - 1)) {
+                    dp[i][j] = (dp[i][j - 1] && s2.charAt(j - 1) == ch) || 
+                        (dp[i - 1][j] && s1.charAt(i - 1) == ch);
+                }
             }
         }
-        return dp[s2.length()][s1.length()];
+        return dp[m][n];
     }
 }
