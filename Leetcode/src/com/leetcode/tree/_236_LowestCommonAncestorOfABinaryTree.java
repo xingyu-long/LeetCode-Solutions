@@ -1,3 +1,8 @@
+/*
+ * @Date: 2019-11-14 20:43:15
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-26 14:34:38
+ */
 package com.leetcode.tree;
 
 import com.leetcode.common.TreeNode;
@@ -5,37 +10,6 @@ import com.leetcode.common.TreeNode;
 public class _236_LowestCommonAncestorOfABinaryTree {
 
     TreeNode res = null;
-
-    /**
-     * 236. Lowest Common Ancestor of a Binary Tree
-     * When: 2019/04/22
-     *
-     * solution:
-     * 设置left, mid, right三个变量
-     * 只要当前有一个等于p或者q 则就会有true 当三个 加起来 > 2这个时候就已经是该节点了
-     *
-     * Test case:
-     *  p = 4, q = 10
-     *           5
-     *          / \
-     *         4   9
-     *        /   / \
-     *       2   6  10
-     *
-     *  5 ---> 4 (found)---> 2
-     *  then left = 1;
-     *  5 ---> 9 ---> 6
-     *  backtrack
-     *  6 ---> 9
-     *  5 ---> 9 ---> 10 (found)
-     *  right = 1
-     *  只有5这个点的时候left和right = 1 满足
-     *  return 5
-     * @param root
-     * @param p
-     * @param q
-     * @return
-     */
     // 暴力解法的话，可以打印path然后找第一个相同的。
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
@@ -59,6 +33,7 @@ public class _236_LowestCommonAncestorOfABinaryTree {
     }
 
     // 如果左边或者右边没有的情况，则只会找到第一个节点后返回（这个节点肯定就是共同父节点）
+    // 相当于返回p或q这个点。
     public static TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null) return null;
         if (root.val == p.val || root.val == q.val) return root;
