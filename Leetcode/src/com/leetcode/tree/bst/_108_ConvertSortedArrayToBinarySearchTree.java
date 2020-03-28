@@ -1,3 +1,8 @@
+/*
+ * @Date: 2019-09-21 10:59:20
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-27 15:10:26
+ */
 package com.leetcode.tree.bst;
 
 
@@ -5,18 +10,7 @@ import com.leetcode.common.ConverterForTreeAndString;
 import com.leetcode.common.TreeNode;
 
 public class _108_ConvertSortedArrayToBinarySearchTree {
-    /**
-     * 108. Convert Sorted Array to Binary Search Tree
-     * When: 2019/04/22
-     * review1: 2019/9/9
-     * review2: 2019/9/21
-     * solution： 利用递归的方式 让其返回，但是要注意那个临界条件！！！
-     *
-     * time: O(n)
-     * Space: O(n)
-     * @param nums
-     * @return
-     */
+    // time:O(N) space:O(N)
     public static TreeNode sortedArrayToBST(int[] nums) {
         if (nums == null || nums.length == 0) return null;
         return helper(nums, 0, nums.length - 1);

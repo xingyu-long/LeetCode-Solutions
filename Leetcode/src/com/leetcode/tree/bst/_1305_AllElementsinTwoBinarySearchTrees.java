@@ -1,3 +1,8 @@
+/*
+ * @Date: 2020-01-03 10:13:32
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-27 17:07:39
+ */
 package com.leetcode.tree.bst;
 
 import com.leetcode.common.TreeNode;
@@ -7,13 +12,15 @@ import java.util.List;
 import java.util.Stack;
 
 public class _1305_AllElementsinTwoBinarySearchTrees {
-    // 核心思想依然是使用非递归的中序遍历算法
+    // 核心思想依然是使用非递归的中序遍历算法。这个需要多注意
     public void pushLeft(Stack<TreeNode> stack, TreeNode root) {
-        if (root == null) return;
-        stack.push(root);
-        pushLeft(stack, root.left);
+        while (root != null) {
+            stack.push(root);
+            root = root.left;
+        }
     }
 
+    // time:O(M + N)
     public List<Integer> getAllElements(TreeNode root1, TreeNode root2) {
         List<Integer> res = new ArrayList<>();
         Stack<TreeNode> s1 = new Stack<>();
@@ -31,7 +38,8 @@ public class _1305_AllElementsinTwoBinarySearchTrees {
             }
             TreeNode current = s.pop();
             res.add(current.val);
-            pushLeft(s, current.right);
+            current = current.right;
+            pushLeft(s, current); // 这个相当于那个前面的while过程。
         }
         return res;
     }

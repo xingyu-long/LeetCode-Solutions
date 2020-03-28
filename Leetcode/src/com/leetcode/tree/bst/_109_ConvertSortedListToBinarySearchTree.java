@@ -1,28 +1,16 @@
+/*
+ * @Date: 2019-11-14 21:02:42
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-27 15:17:02
+ */
 package com.leetcode.tree.bst;
 
 
 import com.leetcode.common.ListNode;
 import com.leetcode.common.TreeNode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class _109_ConvertSortedListToBinarySearchTree {
-
-    /**
-     * 109. Convert Sorted List to Binary Search Tree
-     * When: 2019/04/25
-     *
-     * solution:
-     * 将其转化为array 然后使用108的方法
-     *
-     * Time: O(n)
-     * space: O(n)
-     *
-     *
-     * @param head
-     * @return
-     */
+    // time:O(NlogN) space:O(logN)
     public TreeNode sortedListToBST(ListNode head) {
         if (head == null) return null;
         return helper(head, null);

@@ -1,3 +1,8 @@
+/*
+ * @Date: 2019-11-17 10:27:02
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-27 21:39:26
+ */
 package com.leetcode.tree.bst;
 
 import com.leetcode.common.ConverterForTreeAndString;
@@ -6,19 +11,7 @@ import com.leetcode.common.TreeNode;
 import java.util.Stack;
 
 public class _230_KthSmallestElementInABST {
-
-
-    /**
-     * 230. Kth Smallest Element in a BST
-     * When: 2019/04/25
-     * review1:2019/9/21
-     * solution: BST中序遍历的时候则就是有序的（注意那个变量的变化）
-     * time: O(n)
-     * space: O(n) 因为递归
-     * @param root
-     * @param k
-     * @return
-     */
+    
     private static int count = 0;
     private static int res = 0;
     // DFS
