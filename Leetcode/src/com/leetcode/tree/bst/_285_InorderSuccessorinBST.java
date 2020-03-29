@@ -1,4 +1,9 @@
-package com.leetcode.tree.inorder;
+/*
+ * @Date: 2019-11-15 15:57:52
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-28 14:44:59
+ */
+package com.leetcode.tree.bst;
 
 import com.leetcode.common.ConverterForTreeAndString;
 import com.leetcode.common.TreeNode;
@@ -6,33 +11,6 @@ import com.leetcode.common.TreeNode;
 import java.util.Stack;
 
 public class _285_InorderSuccessorinBST {
-
-    // inorder traversal iteratively
-    public void inorder(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode cur = root;
-        while (cur != null || !stack.isEmpty()) {
-            while (cur != null) {
-                stack.push(cur);
-                cur = cur.left;
-            }
-            cur = stack.pop();
-            System.out.println(cur.val);
-            cur = cur.right;
-        }
-    }
-
-    /**
-     * 285.Inorder Successor in BST
-     * When:2019/7/28
-     * review1:2019/9/11
-     * Difficulty: Medium
-     * solution: 中序排序的非递归形式
-     *
-     * @param root
-     * @param p
-     * @return
-     */
     // https://www.cnblogs.com/grandyang/p/5306162.html
     public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
         boolean before = false;
@@ -72,7 +50,7 @@ public class _285_InorderSuccessorinBST {
         helper(root.right, p);
     }
 
-    // 利用BST的性质
+    // 利用BST的性质。这个不要忘记
     // logN
     public TreeNode inorderSuccessor3(TreeNode root, TreeNode p) {
         TreeNode res = null;

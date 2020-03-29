@@ -1,3 +1,8 @@
+/*
+ * @Date: 2019-07-28 02:16:05
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-28 15:16:23
+ */
 package com.leetcode.tree;
 
 import com.leetcode.common.TreeNode;
@@ -20,14 +25,15 @@ public class _270_ClosestBinarySearchTreeValue {
     // https://www.cnblogs.com/grandyang/p/5237170.html
     // 利用BST的性质 time:O(logN) space:O(1)
     public int closestValue(TreeNode root, double target) {
-        int res = root.val;
-        while (root != null) {
-            // 差值更小的更新
-            if (Math.abs(res - target) >= root.val - target) {
-                // 更新res
-                res = root.val;
+        double diff = Double.MAX_VALUE;
+        int res = -1;
+        TreeNode curr = root;
+        while (curr != null) {
+            if (Math.abs(target - curr.val) < diff) {
+                diff = Math.abs(target - curr.val);
+                res = curr.val;
             }
-            root = target < root.val ? root.left : root.right;
+            curr = curr.val > target ? curr.left : curr.right;
         }
         return res;
     }

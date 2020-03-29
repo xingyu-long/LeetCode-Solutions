@@ -1,3 +1,8 @@
+/*
+ * @Date: 2020-01-23 14:39:38
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-28 14:47:24
+ */
 package com.leetcode.tree.bst;
 
 public class _510_InorderSuccessorinBSTII {
@@ -5,13 +10,13 @@ public class _510_InorderSuccessorinBSTII {
     // https://www.cnblogs.com/grandyang/p/10424982.html
     static class Node {
 
-        int key;
+        int val;
         Node left;
         Node right;
         Node parent;
 
-        Node(int key) {
-            this.key = key;
+        Node(int val) {
+            this.val = val;
             left = null;
             right = null;
             parent = null;
@@ -25,13 +30,12 @@ public class _510_InorderSuccessorinBSTII {
             // find the left most;
             res = node.right;
             while (res != null && res.left != null) res = res.left;
-            return res;
         } else {
             // go to the parent node and compare the value.
             res = node.parent;
-            while (res != null && res.key < node.key) res = res.parent;
-            return res;
+            while (res != null && res.val < node.val) res = res.parent;
         }
+        return res;
     }
 
     // 不能比较其值，这样在第二种情况的时候就需要向上的过程中确定child从right过来的。

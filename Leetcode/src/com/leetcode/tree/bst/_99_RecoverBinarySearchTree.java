@@ -1,18 +1,11 @@
 package com.leetcode.tree.bst;
 
-import com.leetcode.common.ListNode;
 import com.leetcode.common.TreeNode;
 
 import java.util.Stack;
 
 public class _99_RecoverBinarySearchTree {
 
-    /**
-     * 99. Recover Binary Search Tree
-     * When:2019/9/22
-     * review1: 11/7
-     * Difficulty: Hard
-     */
     TreeNode first = null;
     TreeNode second = null;
     TreeNode prev = null;
