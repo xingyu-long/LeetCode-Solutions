@@ -1,7 +1,11 @@
+/*
+ * @Date: 2020-01-06 11:09:42
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-29 23:11:19
+ */
 package com.leetcode.dynamicProgramming;
 
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class _1312_MinimumInsertionStepstoMakeaStringPalindrome {
     // 就先了解到Top-Down形式就可以了
@@ -28,5 +32,26 @@ public class _1312_MinimumInsertionStepstoMakeaStringPalindrome {
         }
         memo[start][end] = res;
         return memo[start][end];
+    }
+
+    // Bottom Up: 仔细观察转移方程并且画图发现 是一小块一小块构造。分别代表了不同长度的时候的构造
+    // 1 2 3
+    // - - -
+    // --|--
+    // -----
+    public int minInsertions2(String s) {
+        if (s == null || s.length() == 0) return 0;
+        int n = s.length();
+        int[][] dp = new int[n][n];
+        for (int len = 2; len <= n; len++) {
+            for (int i = 0, j = len - 1; j < n; i++, j++) {
+                if (s.charAt(i) == s.charAt(j)) {
+                    dp[i][j] = dp[i + 1][j - 1];
+                } else {
+                    dp[i][j] = 1 + Math.min(dp[i + 1][j], dp[i][j - 1]);
+                }
+            }
+        }
+        return dp[0][n - 1];
     }
 }

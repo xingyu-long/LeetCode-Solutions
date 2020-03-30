@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Contest_182",
+            "request": "launch",
+            "mainClass": "com.Contest_182",
+            "projectName": "Leetcode_58c29dc0"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - _121_BestTimetoBuyandSellStock",
             "request": "launch",
             "mainClass": "com.leetcode.array._121_BestTimetoBuyandSellStock",
