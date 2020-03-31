@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - _1391_CheckifThereisaValidPathinaGrid",
+            "request": "launch",
+            "mainClass": "com.leetcode.bfsANDdfs._1391_CheckifThereisaValidPathinaGrid",
+            "projectName": "Leetcode_58c29dc0"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Contest_182",
             "request": "launch",
             "mainClass": "com.Contest_182",
