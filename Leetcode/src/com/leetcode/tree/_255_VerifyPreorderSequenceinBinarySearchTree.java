@@ -1,18 +1,13 @@
+/*
+ * @Date: 2019-11-16 10:32:40
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-03-30 21:54:49
+ */
 package com.leetcode.tree;
-
-import org.junit.jupiter.api.Test;
 
 import java.util.Stack;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class _255_VerifyPreorderSequenceinBinarySearchTree {
-    /**
-     * 255. Verify Preorder Sequence in Binary Search Tree
-     * When:2019/9/24
-     * @param preorder
-     * @return
-     */
     // 利用bst性质来做
     // 还是需要多记忆
     // time:O(n) space:O(n)
@@ -50,18 +45,14 @@ public class _255_VerifyPreorderSequenceinBinarySearchTree {
     public static boolean validBSTByBoundary(int[] preorder, Integer min, Integer max,  int start, int end) {
         if (start > end) return true;
         int val = preorder[start];
-        if (val <= min || val >= max) return false;
+        if (val < min || val > max) return false;
         int i = 0; // find the break;
         for (i = start + 1; i <= end; i++) {
-            if (preorder[i] >= val) break; // 居然是这个等号的问题。一个元素的时候可以用的上。
+            if (preorder[i] > val) break; 
         }
+        // 防止[2, 1]的情况 这里用i作为参数，这样才可以取到最后一位
         boolean left = validBSTByBoundary(preorder, min, val, start + 1, i - 1);
         boolean right = validBSTByBoundary(preorder, val, max, i, end);
         return  left && right;
-    }
-    @Test
-    void validate() {
-        assertEquals(true, verifyPreorder3(new int[]{6,2,1,3,8,7,9}));
-        assertEquals(false, verifyPreorder3(new int[]{6,2,1,3,8,9,7}));
     }
 }
