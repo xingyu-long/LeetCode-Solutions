@@ -5,6 +5,8 @@
  */
 package com.leetcode.tree;
 
+import com.leetcode.common.TreeNode;
+
 public class _998_MaximumBinaryTreeII {
     // time:O(n) space:O(n)
     public TreeNode insertIntoMaxTree(TreeNode root, int val) {

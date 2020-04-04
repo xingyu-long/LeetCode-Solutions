@@ -63,7 +63,7 @@ public class _333_LargestBSTSubtree {
         }
     }
 
-    public int largestBSTSubtree(TreeNode root) {
+    public int largestBSTSubtree2(TreeNode root) {
         // 应该需要构造一个结构？ count, min, max, node
         if (root == null)
             return 0;

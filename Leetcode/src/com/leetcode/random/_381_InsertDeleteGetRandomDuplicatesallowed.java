@@ -1,3 +1,8 @@
+/*
+ * @Date: 2019-11-09 15:31:46
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-04-03 22:47:38
+ */
 package com.leetcode.random;
 
 import java.util.*;
@@ -34,10 +39,10 @@ public class _381_InsertDeleteGetRandomDuplicatesallowed {
             map.remove(val);
         }
         int lastVal = list.remove(list.size() - 1);
-        if (index != list.size()) {// 这里需要好好反思
-            list.set(index, lastVal);
-            map.get(lastVal).remove(list.size());
-            map.get(lastVal).add(index);
+        if (index != list.size()) {// 这里代表说被删除的index是否刚好为我们需要的
+            list.set(index, lastVal); // 更新被删除的最后一个元素到正确的位置
+            map.get(lastVal).add(index); //更新map里面对应的位置。 
+            map.get(lastVal).remove(list.size()); // 删除原来的lastVal的位置，因为前面list.remove了一次所以这里直接取没问题！ 
         }
         return true;
     }

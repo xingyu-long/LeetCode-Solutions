@@ -78,6 +78,6 @@ public class _993_CousinsinBinaryTree {
         ConverterForTreeAndString converter = new ConverterForTreeAndString();
         TreeNode root = converter.stringToTreeNode(input);
         System.out.println(root.val);
-        cousinsinBinaryTree.isCousins4(root, x, y);
+        cousinsinBinaryTree.isCousins(root, x, y);
     }
 }

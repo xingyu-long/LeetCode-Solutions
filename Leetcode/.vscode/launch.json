@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - _368_LargestDivisibleSubset",
+            "request": "launch",
+            "mainClass": "com.leetcode.dynamicProgramming._368_LargestDivisibleSubset",
+            "projectName": "Leetcode_58c29dc0"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - _1335_MinimumDifficultyofaJobSchedule",
             "request": "launch",
             "mainClass": "com.leetcode.dynamicProgramming._1335_MinimumDifficultyofaJobSchedule",
