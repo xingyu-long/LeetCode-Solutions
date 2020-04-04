@@ -1,3 +1,8 @@
+/*
+ * @Date: 2019-09-24 21:30:39
+ * @LastEditors: Clark long
+ * @LastEditTime: 2020-04-02 15:56:14
+ */
 package com.leetcode.tree;
 
 import com.leetcode.common.Node;
@@ -31,6 +36,7 @@ public class _116_PopulatingNextRightPointersInEachNode {
         if (root.left != null) {
             root.left.next = root.right;
         }
+        // 需要一层层连。只能这么写，不能用root写成 root.left.right.next = root.right.left; 这样会导致中间有的没有链接上
         if (root.right != null && root.next != null) {
             root.right.next = root.next.left;
         }

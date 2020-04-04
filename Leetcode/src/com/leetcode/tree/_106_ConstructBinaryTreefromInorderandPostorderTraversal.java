@@ -1,38 +1,34 @@
+/*
+ * @Date: 2019-08-25 17:07:38
+ * 
+ * @LastEditors: Clark long
+ * 
+ * @LastEditTime: 2020-04-02 15:00:27
+ */
 package com.leetcode.tree;
 
 import com.leetcode.common.TreeNode;
 
 public class _106_ConstructBinaryTreefromInorderandPostorderTraversal {
-    /**
-     * 106. Construct Binary Tree from Inorder and Postorder Traversal
-     * When:2019/8/25
-     * Difficulty: medium
-     * 使用和105一样的idea
-     * @param inorder
-     * @param postorder
-     * @return
-     */
+
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-        if (inorder == null || inorder.length == 0
-                || postorder == null || postorder.length == 0) return null;
-        return helper(inorder, postorder, 0, inorder.length - 1, 0, postorder.length - 1);
+        return dfs(inorder, postorder, 0, inorder.length - 1, 0, postorder.length - 1);
     }
 
-    public TreeNode helper(int[] inorder, int[] postorder, int inStart, int inEnd, int postStart, int postEnd) {
-        if (inStart > inEnd || postStart > postEnd) {
+    public TreeNode dfs(int[] inorder, int[] postorder, int istart, int iend, int pstart,
+            int pend) {
+        if (istart > iend || pstart > pend)
             return null;
-        }
-        TreeNode root = new TreeNode(postorder[postEnd]);
+        TreeNode root = new TreeNode(postorder[pend]);
         int index = 0;
-        for (int i = inStart; i <= inEnd; i++) {
-            if (inorder[i] == root.val) {
-                index = i;
+        for (index = istart; index <= iend; index++) {
+            if (postorder[pend] == inorder[index]) {
                 break;
             }
         }
-
-        root.left = helper(inorder, postorder, inStart, index - 1, postStart, postStart + index - inStart - 1);
-        root.right = helper(inorder, postorder, index + 1, inEnd, postStart + index - inStart, postEnd - 1);
+        int len = index - istart;
+        root.left = dfs(inorder, postorder, istart, istart + len - 1, pstart, pstart + len - 1);// 就让len和start这些产生关系！
+        root.right = dfs(inorder, postorder, index + 1, iend, pstart + len, pend - 1);
         return root;
     }
 }
