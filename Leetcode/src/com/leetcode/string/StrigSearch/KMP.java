@@ -1,4 +1,4 @@
-package com.leetcode.string;
+package com.leetcode.string.StrigSearch;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +12,7 @@ public class KMP {
         0 0 0 0 0 1 2 0
           A B C D A B D $
     */
+//    https://www.youtube.com/watch?v=uKr9qIZMtzw
     public int[] build(String p) {
         int m = p.length();
         int[] next = new int[m + 1];

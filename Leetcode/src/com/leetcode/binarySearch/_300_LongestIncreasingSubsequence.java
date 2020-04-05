@@ -2,22 +2,9 @@ package com.leetcode.binarySearch;
 
 public class _300_LongestIncreasingSubsequence {
 
-    /**
-     * 300. Longest Increasing Subsequence
-     * When:2019/7/21
-     * review1:2019/10/17
-     * review2: 11/7/2019
-     * solution:
-     * 1. DP 记得保存前面的情况
-     * 2.
-     *
-     * @param nums
-     * @return
-     */
     public int res = 0;
 
-    // backtracking
-    // time:O(2^n) TLE -> 改为有返回值的情况
+    // backtracking time:O(2^n) TLE -> 改为有返回值的情况
     public void dfs(int[] nums, int index, int level, int prev) {
         if (index == nums.length) {
             res = Math.max(res, level);
@@ -31,8 +18,7 @@ public class _300_LongestIncreasingSubsequence {
         // 不取当前这个数
         dfs(nums, index + 1, level, prev);
     }
-    // recursive way
-    // TLE
+    // recursive way TLE
     public int lengthOfLIS(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
         return lengthOfLIS(nums, Integer.MIN_VALUE, 0);
@@ -52,19 +38,21 @@ public class _300_LongestIncreasingSubsequence {
     }
 
     // Dynamic Programming
-    // 记得要画图演示
+    // 记得要画图演示，往回看DP
     // time:O(n^2) space:O(n)
     public int lengthOfLIS2(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
-        int[] dp = new int[nums.length];
-        dp[0] = 1;
-        int res = 1;
-        for (int i = 1; i < dp.length; i++) {
+        int n = nums.length;
+        int[] dp = new int[n];
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            int max = 1;// 每次默认自己算为1
             for (int j = 0; j < i; j++) {
-                if (nums[i] > nums[j]) { //表示前面有可以选择的
-                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                if (nums[i] > nums[j] && dp[j] + 1 > max) {
+                    max = dp[j] + 1;
                 }
             }
+            dp[i] = max;
             res = Math.max(res, dp[i]);
         }
         return res;

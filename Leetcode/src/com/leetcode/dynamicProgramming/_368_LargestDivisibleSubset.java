@@ -45,7 +45,7 @@ public class _368_LargestDivisibleSubset {
         return res;
     }
 
-    // time:O(n^2) space:O(n) 
+    // time:O(n^2) space:O(n) 利用prev来记录之前的情况，这个做法很不错！！！
     public List<Integer> largestDivisibleSubset2(int[] nums) {
         if (nums == null || nums.length == 0) return new ArrayList<>();
         int n = nums.length;
@@ -76,10 +76,5 @@ public class _368_LargestDivisibleSubset {
             index = prev[index];
         }
         return res;
-    }
-
-    public static void main(String[] args) {
-        _368_LargestDivisibleSubset subset = new _368_LargestDivisibleSubset();
-        subset.largestDivisibleSubset(new int[]{1, 2, 3, 4});
     }
 }

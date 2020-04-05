@@ -1,14 +1,14 @@
-package com.leetcode.array;
+package com.leetcode.dynamicProgramming;
 
 public class _122_BestTimetoBuyandSellStockII {
 
     /**
      * 122. Best Time to Buy and Sell Stock II
      * when: 2019/03/21, 07/08/2019, 11/06/2019
-     * 03/14/2020
+     * 03/14/2020, 04/05/2020
      * solution :
      * (1) Peak Valley 方法：相当于寻找每一个连续的valley和peak 然后算出profit再加在一起
-     * (2) 跟上面其实一样，只需要关注连续的部分即可
+     * (2) 动态规划的方法更加的直接，并且更加广泛的使用
      *
      * @param prices
      * @return
@@ -37,14 +37,25 @@ public class _122_BestTimetoBuyandSellStockII {
         return maxProfit;
     }
 
-    // time:O(n) space:O(1)
+    /**
+     画图
+     i - 1   Buy    Sell
+     i      Buy    Sell
+     当前的Buy可以来自上一层的sell然后我们买当前的，或者是这层从上一层的buy状态延续下来，表示啥也没做。sell同样分析
+     */
     public int maxProfit2(int[] prices) {
-        if (prices == null || prices.length < 2) return 0;
-        int maxprofit = 0;
-        for (int i = 1; i < prices.length; i++) {
-            if (prices[i] > prices[i - 1])
-                maxprofit += prices[i] - prices[i - 1];
+        if (prices == null || prices.length == 0) return 0;
+        int n = prices.length;
+        int[][] dp = new int[n][2];
+        // 0 buy
+        // 1 sell
+        int res = 0;
+        dp[0][0] = -prices[0];
+        for (int i = 1; i < n; i++) {
+            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] - prices[i]);//buy
+            dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] + prices[i]);//sell
+            res = Math.max(res, dp[i][1]);
         }
-        return maxprofit;
+        return res;
     }
 }
