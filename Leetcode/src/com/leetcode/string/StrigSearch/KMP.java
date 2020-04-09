@@ -17,7 +17,7 @@ public class KMP {
         int m = p.length();
         int[] next = new int[m + 1];
         int idx = 2;
-        for (int i = 1, j = 0; i < m; i++) {
+        for (int i = 1, j = 0; i < m; i++) { // 这里的i从1开始因为是同样的字符串前后比较
             while (j > 0 && p.charAt(j) != p.charAt(i)) {
                 j = next[j];
             }

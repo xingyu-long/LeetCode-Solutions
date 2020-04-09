@@ -4,8 +4,7 @@ public class _67_AddBinary {
 
     /**
      *  67. Add Binary
-     *  When: 2019/04/04
-     *  Review1:2019/7/24
+     *  When: 2019/04/04, 2019/7/24, 04/07/2020
      * solution: 用一个 数来保存进位操作，并且这里的%2和/2操作用的很妙
      * 最后使用reverse
      * @param a
