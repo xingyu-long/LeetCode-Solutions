@@ -54,7 +54,8 @@ public class _212_WordSearchII {
         }
         return res;
     }
-
+    // [["a","a"]]
+    //["aaa"] 所以需要visited数组
     public void dfs(List<String> res, TrieNode root, int i, int j, char[][] board, boolean[][] visited) {
         // 这里root查找是否有就当做了visited数组
         if (i < 0 || i >= board.length || j < 0 || j >= board[0].length) return;

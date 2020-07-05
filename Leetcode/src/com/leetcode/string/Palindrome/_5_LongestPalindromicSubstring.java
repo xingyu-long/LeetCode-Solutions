@@ -1,15 +1,11 @@
 package com.leetcode.string.Palindrome;
 
+/**
+ * @Date: 2019/8/25, 11/3/2019, 04/30/2020,
+ * 05/09/2020
+ * @Description: Palindrome
+ **/
 public class _5_LongestPalindromicSubstring {
-    /**
-     * 5. Longest Palindromic Substring
-     * When:2019/8/25
-     * difficulty: Medium
-     * review1:11/3/2019
-     *
-     * @param s
-     * @return
-     */
 
     //dp[i, j] = true  if i == j
     //
@@ -20,7 +16,9 @@ public class _5_LongestPalindromicSubstring {
     // time:O(n^2) space:O(n^2)
     public String longestPalindrome(String s) {
         // 其实这个也跟暴力一样，去看完所有可能的 substring。
-        if (s == null || s.length() == 0) return "";
+        if (s == null || s.length() == 0) {
+            return "";
+        }
         String res = "";
         boolean[][] dp = new boolean[s.length()][s.length()];
         int max = 0;
@@ -47,7 +45,9 @@ public class _5_LongestPalindromicSubstring {
     String res = "";
 
     public String longestPalindrome2(String s) {
-        if (s == null || s.length() == 0) return "";
+        if (s == null || s.length() == 0) {
+            return "";
+        }
         for (int i = 0; i < s.length(); i++) {
             helper(s, i, i);
             helper(s, i, i + 1);
@@ -57,7 +57,7 @@ public class _5_LongestPalindromicSubstring {
 
     public void helper(String s, int left, int right) {
         while (left >= 0 && right < s.length() &&
-                s.charAt(left) == s.charAt(right)) {
+            s.charAt(left) == s.charAt(right)) {
             left--;
             right++;
         }

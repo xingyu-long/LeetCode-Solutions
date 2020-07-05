@@ -55,8 +55,8 @@ public class _76_MinimumWindowSubstring {
         int num = t.length();
         while (end < s.length()) {
             if (counter[s.charAt(end)]-- > 0) num--;
-            while (num <= 0) {
-                if (end - start + 1 < min) {
+            while (num == 0) {
+                if (end - start + 1 < min) { // 防止a a这种test case
                     min = end - start + 1;
                     res = s.substring(start, end + 1);
                 }

@@ -16,7 +16,7 @@ public class _174_DungeonGame {
         for (int i = m - 1; i >= 0; i--) {
             for (int j = n - 1; j >= 0; j--) {
                 dp[i][j] = Math.min(dp[i+1][j], dp[i][j+1]) - dungeon[i][j];
-                if (dp[i][j] < 0) dp[i][j] = 1; // 表示只init HP为1就可以（因为这个PK是加血的那种）
+                if (dp[i][j] <= 0) dp[i][j] = 1; // 表示只init HP为1就可以（因为这个PK是加血的那种）
                 // 要写成1，我分析的时候写成了0
                 System.out.print("dp[" + i+"]["+j+"] = " + dp[i][j]+" ");
             }

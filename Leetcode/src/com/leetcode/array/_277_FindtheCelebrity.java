@@ -2,17 +2,12 @@ package com.leetcode.array;
 
 import java.util.Arrays;
 
+/**
+ * @Date: 2019/7/25, 2019/8/24, 05/10/2020
+ * @Description: DP, word break
+ **/
 public class _277_FindtheCelebrity {
 
-    /**
-     * 277. Find the Celebrity
-     * When:2019/7/25
-     * review1:2019/8/24
-     * Difficulty: Medium
-     *
-     * @param n
-     * @return
-     */
     // 如果候选i知道j或者j不知道i，则表示i不能为候选。
     public int findCelebrity1(int n) {
         boolean[] candidates = new boolean[n];
@@ -20,12 +15,16 @@ public class _277_FindtheCelebrity {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (candidates[i] && i != j) {
-                    if (knows(i, j) || !knows(j, i)) candidates[i] = false;
+                    if (knows(i, j) || !knows(j, i)) {
+                        candidates[i] = false;
+                    }
                 }
             }
         }
         for (int i = 0; i < n; i++) {
-            if (candidates[i]) return i;
+            if (candidates[i]) {
+                return i;
+            }
         }
         return -1;
     }
@@ -35,16 +34,25 @@ public class _277_FindtheCelebrity {
         for (int i = 0; i < n; i++) {
             int j;
             for (j = 0; j < n; j++) {
-                if (knows(i, j) || !knows(j, i)) break;
+                if (i == j) {
+                    continue;
+                }
+                if (knows(i, j) || !knows(j, i)) {
+                    break;
+                }
             }
-            if (j == n) return i;
+            if (j == n) {
+                return i;
+            }
         }
         return -1;
     }
 
     // 先假定是0这个为celebrity 然后只要有人认识就更新res（因为只有这样才可能称为celebrity）
     public int findCelebrity(int n) {
-        if (n < 2) return -1;
+        if (n < 2) {
+            return -1;
+        }
         int res = 0;
         for (int i = 1; i < n; i++) {
             if (knows(res, i)) {

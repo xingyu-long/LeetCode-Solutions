@@ -2,7 +2,10 @@ package com.leetcode.dynamicProgramming;
 
 import java.util.*;
 import java.util.stream.StreamSupport;
-
+/**
+ * @Date: 2019/05/03, 2019/7/31, 11/4/2019, 04/23/2020, 05/14/2020
+ * @Description: DP, DFS
+ **/
 public class _139_WordBreak {
 
     /**

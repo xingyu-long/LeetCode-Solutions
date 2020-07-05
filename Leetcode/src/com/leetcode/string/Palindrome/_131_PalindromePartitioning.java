@@ -5,42 +5,17 @@ import java.util.List;
 
 import static com.leetcode.string.Palindrome._336_PalindromePairs.isPalindrome;
 
+/**
+ * @Date: 2019/8/9, 05/09/2020
+ * @Description: Palindrome, Backtracking
+ **/
 public class _131_PalindromePartitioning {
 
-    /**
-     * 131. Palindrome Partitioning when:2019/8/9 Difficulty: Medium solution:
-     * backtracking
-     * 
-     * @param s
-     * @return
-     */
-    // time: 这个后面再看 space:O(n)
-    public List<List<String>> partition(String s) {
+    public static List<List<String>> partition(String s) {
         List<List<String>> res = new ArrayList<>();
-        if (s == null || s.length() == 0)
+        if (s == null || s.length() == 0) {
             return res;
-        helper(s, res, new ArrayList<>());
-        return res;
-    }
-
-    public void helper(String s, List<List<String>> res, List<String> list) {
-        if (s.length() == 0) {
-            res.add(new ArrayList<>(list));
-            return;
         }
-        for (int i = 0; i < s.length(); i++) {
-            if (isPalindrome(s.substring(0, i + 1))) {
-                list.add(s.substring(0, i + 1));
-                helper(s.substring(i + 1), res, list);
-                list.remove(list.size() - 1);
-            }
-        }
-    }
-
-    public static List<List<String>> partition2(String s) {
-        List<List<String>> res = new ArrayList<>();
-        if (s == null || s.length() == 0)
-            return res;
         helper(res, new ArrayList<>(), s, 0);
         return res;
     }
@@ -64,22 +39,46 @@ public class _131_PalindromePartitioning {
         int left = 0;
         int right = s.length() - 1;
         while (left < right) {
-            if (s.charAt(left) != s.charAt(right))
+            if (s.charAt(left) != s.charAt(right)) {
                 return false;
+            }
             left++;
             right--;
         }
         return true;
     }
-
-    public static void main(String[] args) {
-        String s = "aab";
-        List<List<String>> res = partition2(s);
-        for (List<String> in : res) {
-            for (String str : in) {
-                System.out.print(str + " ");
+    // 利用dp先报存其Palindrome的情况，注意下标
+    public List<List<String>> partition2(String s) {
+        if (s == null || s.length() == 0) {
+            return new ArrayList<>();
+        }
+        // 先构造其pali的关系的dp数组，用backtracking去找 但是如何验证？？ 每次向前走的时候验证？
+        int n = s.length();
+        boolean[][] dp = new boolean[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <= i; j++) {
+                if (s.charAt(i) == s.charAt(j) && (i - j <= 2 || dp[j + 1][i - 1])) {
+                    dp[j][i] = true;
+                }
             }
-            System.out.println();
+        }
+        List<List<String>> res = new ArrayList<>();
+        dfs(res, new ArrayList<>(), 0, s, dp);
+        return res;
+    }
+
+    private void dfs(List<List<String>> res, List<String> list, int index, String s,
+        boolean[][] dp) {
+        if (index == s.length()) {
+            res.add(new ArrayList<>(list));
+            return;
+        }
+        for (int i = index; i < s.length(); i++) {
+            if (dp[index][i]) {
+                list.add(s.substring(index, i + 1));
+                dfs(res, list, i + 1, s, dp);
+                list.remove(list.size() - 1);
+            }
         }
     }
 }
