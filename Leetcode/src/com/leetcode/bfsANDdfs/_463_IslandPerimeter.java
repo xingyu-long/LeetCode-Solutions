@@ -1,7 +1,7 @@
 package com.leetcode.bfsANDdfs;
 
 /**
- * @Date: 06/06/2020
+ * @Date: 06/06/2020, 07/07/2020
  * @Description: traversal
  **/
 public class _463_IslandPerimeter {
@@ -35,5 +35,36 @@ public class _463_IslandPerimeter {
             }
         }
         return res;
+    }
+
+    // time:O(m * n * 4) space:O(1)
+    // 一样的思路
+    public int islandPerimeter2(int[][] grid) {
+        // how to compute????
+        // 直接遍历
+        int[][] dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+        int m = grid.length, n = grid[0].length;
+        int res = 0;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == 1) {
+                    res += 4 + search(grid, dirs, i, j);
+                }
+            }
+        }
+        return res;
+    }
+
+    private int search(int[][] grid, int[][] dirs, int i, int j) {
+        int count = 0;
+        for (int[] dir : dirs) {
+            int x = i + dir[0];
+            int y = j + dir[1];
+            if (x < 0 || x >= grid.length || y < 0 || y >= grid[0].length) continue;
+            if (grid[x][y] == 1) {
+                count -= 1;
+            }
+        }
+        return count;
     }
 }
