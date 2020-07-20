@@ -1,22 +1,25 @@
 package com.leetcode.dynamicProgramming;
 
+/**
+ * @Date: 07/18/2020
+ * @Description: 时间顺序DP
+ **/
 public class _213_HouseRobberII {
-    /**
-     *
-     *  When:7/28/2019, 11/14/2019
-     * @param nums
-     * @return
-     */
+
     // 如何表示环状的约束？把circle 拆开成两个row
     //https://leetcode.com/problems/house-robber-ii/discuss/59934/Simple-AC-solution-in-Java-in-O(n)-with-explanation
     // 分成两段去计算（包括开头和不包括的情况）
     // time:O(n) space:O(n)
     public int rob(int[] nums) {
-        if (nums == null || nums.length == 0) return 0;
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
         int n = nums.length;
-        if (n == 1) return nums[0];
+        if (n == 1) {
+            return nums[0];
+        }
         // 因为开头和结尾两个不能同时出现。
-        int include = helper(nums, 0, n - 1); 
+        int include = helper(nums, 0, n - 1);
         int notInclude = helper(nums, 1, n);
         return Math.max(include, notInclude);
     }

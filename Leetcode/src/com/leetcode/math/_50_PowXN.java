@@ -2,7 +2,7 @@ package com.leetcode.math;
 
 /**
  * @Date: 2019/04/08, 2019/7/24, 05/24/2020, 07/16/2020
- * @Description: binary search
+ * @Description: divide and conquer
  **/
 public class _50_PowXN {
 

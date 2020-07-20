@@ -18,20 +18,17 @@ public class _547_FriendCircles {
             // 这里应该是m[i][i] 当前出发
             if (!visited[i] && M[i][i] == 1) {
                 res++;
-                dfs(M, i, n, visited);
+                merge(M, i, n, visited);
             }
         }
         return res;
     }
 
-    public void dfs(int[][] M, int i, int n, boolean[] visited) {
-        if (visited[i]) {
-            return;
-        }
+    public void merge(int[][] M, int i, int n, boolean[] visited) {
         visited[i] = true;
         for (int j = 0; j < n; j++) {
             if (!visited[j] && M[i][j] == 1) {
-                dfs(M, j, n, visited);
+                merge(M, j, n, visited);
             }
         }
     }
