@@ -1,36 +1,30 @@
 package com.leetcode.array.counter;
 
+/**
+ * @Date: 03/26/2019, 02/24/2020, 04/10/2020, 07/20/2020
+ * @Description: Sliding Window
+ **/
 public class _209_MinimumSizeSubarraySum {
 
-    /**
-     * 209. Minimum Size Subarray Sum
-     * When: 03/26/2019, 02/24/2020, 04/10/2020
-     *
-     * solution:
-     *  滑动窗口：表示先加数字，然后判断其与s的大小，如果是大于的情况就while循环让其length减到最小
-     *  并且符合sum >= s的情况
-     *  binary search：先用累加和构造有序的序列
-     * @param s
-     * @param nums
-     * @return
-     */
     //time: O(n) space:O(1)
     public static int minSubArrayLen(int s, int[] nums) {
         int res = Integer.MAX_VALUE;
         int left = 0, sum = 0;
-        for (int i = 0; i < nums.length; i++){
+        for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
-            while (sum >= s){
+            while (sum >= s) {
                 res = Math.min(res, i - left + 1);
                 sum -= nums[left++];
             }
         }
-        return res == Integer.MAX_VALUE ? 0: res;
+        return res == Integer.MAX_VALUE ? 0 : res;
     }
 
     // time:O(nlogn)space:O(n + 1)
     public int minSubArrayLen2(int s, int[] nums) {
-        if (nums == null || nums.length == 0) return 0;
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
         int[] sum = new int[nums.length + 1];
         for (int i = 1; i < sum.length; i++) {
             sum[i] = sum[i - 1] + nums[i - 1];
@@ -49,15 +43,23 @@ public class _209_MinimumSizeSubarraySum {
     public int find(int[] nums, int left, int right, int target) {
         while (left + 1 < right) {
             int mid = left + (right - left) / 2;
-            if (nums[mid] >= target) right = mid;
-            else left = mid;
+            if (nums[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid;
+            }
         }
-        if (nums[left] >= target) return left;
-        if (nums[right] >= target) return right;
+        if (nums[left] >= target) {
+            return left;
+        }
+        if (nums[right] >= target) {
+            return right;
+        }
         return -1;
     }
-    public static void main(String[] args){
-        int[] nums = new int[]{1,4,4};
+
+    public static void main(String[] args) {
+        int[] nums = new int[]{1, 4, 4};
         int s = 4;
         System.out.println(minSubArrayLen(s, nums));
     }
