@@ -6,13 +6,6 @@ package com.leetcode.matrix;
  **/
 public class _79_WordSearch {
 
-    /**
-     * 79. Word Search When: 2019/05/30 review: 02/06/2020
-     *
-     * @param board
-     * @param word
-     * @return
-     */
     public boolean exist(char[][] board, String word) {
         // go to 4 directions
         // use dfs to search -> index == word.length -> found.  提前结束的backtracking类型。 返回值boolean
