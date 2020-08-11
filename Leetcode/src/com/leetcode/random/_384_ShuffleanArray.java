@@ -18,13 +18,15 @@ public class _384_ShuffleanArray {
     }
 
     //time:O(n)
+    // Fisher–Yates shuffle Algorithm
     /** Returns a random shuffling of the array. */
     public int[] shuffle() {
         if (nums == null) return null;
         int[] clone = nums.clone();
-        for (int i = 0; i < clone.length; i++) {
-            int random = i + rmd.nextInt(clone.length - i);
-            exch(clone, i, random);
+        int n = clone.length;
+        for (int i = n - 1; i > 0; i--) {
+            int j = rmd.nextInt(i + 1);
+            exch(clone, i, j);
         }
         return clone;
     }

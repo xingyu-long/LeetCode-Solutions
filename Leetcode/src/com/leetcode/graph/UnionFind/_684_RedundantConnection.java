@@ -3,10 +3,16 @@ package com.leetcode.graph.UnionFind;
 import java.util.HashMap;
 import java.util.HashSet;
 
+/**
+ * @Date: 07/21/2020
+ * @Description: UF, DFS
+ **/
 public class _684_RedundantConnection {
+
     // 684. Redundant Connection
     // time:O(nlog*n) ~ O(n)
     public class UF {
+
         int[] id;
         int[] size;
 
@@ -31,7 +37,9 @@ public class _684_RedundantConnection {
         public boolean union(int p, int q) {
             int pid = find(p);
             int qid = find(q);
-            if (pid == qid) return false;
+            if (pid == qid) {
+                return false;
+            }
             if (size[pid] > size[qid]) {
                 size[pid] += size[qid];
                 id[qid] = pid;
@@ -45,7 +53,9 @@ public class _684_RedundantConnection {
 
     public int[] findRedundantConnection(int[][] edges) {
         if (edges == null || edges.length == 0 ||
-                edges[0] == null || edges[0].length == 0) return new int[]{};
+            edges[0] == null || edges[0].length == 0) {
+            return new int[]{};
+        }
         UF uf = new UF(edges.length);
         for (int[] edge : edges) {
             if (!uf.union(edge[0], edge[1])) {
@@ -59,30 +69,46 @@ public class _684_RedundantConnection {
     // DFS O(n^2) 每次最长走n个长度。有n个edge需要验证。
     public int[] findRedundantConnection2(int[][] edges) {
         if (edges == null || edges.length == 0 ||
-                edges[0] == null || edges[0].length == 0) return new int[]{};
+            edges[0] == null || edges[0].length == 0) {
+            return new int[]{};
+        }
         HashMap<Integer, HashSet<Integer>> map = new HashMap<>();
         for (int[] edge : edges) {
             int u = edge[0];
             int v = edge[1];
             HashSet<Integer> visited = new HashSet<>();
-            if (dfs(u, v, map, visited)) return edge;
+            // 没有加入u,v这个edge的时候，是否能够到达，能够的话就是circle
+            if (canReach(u, v, map, visited)) {
+                return edge;
+            }
 
-            if (!map.containsKey(u)) map.put(u, new HashSet<>());
-            if (!map.containsKey(v)) map.put(v, new HashSet<>());
+            if (!map.containsKey(u)) {
+                map.put(u, new HashSet<>());
+            }
+            if (!map.containsKey(v)) {
+                map.put(v, new HashSet<>());
+            }
             map.get(u).add(v);
             map.get(v).add(u);
         }
         return new int[]{};
     }
 
-    public boolean dfs(int source, int dest, HashMap<Integer, HashSet<Integer>> map, HashSet<Integer> visited) {
-        if (source == dest) return true;
-        if (!map.containsKey(source) || !map.containsKey(dest)) return false;
-        visited.add(source);
-        if (map.get(source) != null) {
-            for (int next : map.get(source)) {
-                if (visited.contains(next)) continue;
-                if (dfs(next, dest, map, visited)) return true;
+    // 只在是否能从u到达v
+    public boolean canReach(int u, int v, HashMap<Integer, HashSet<Integer>> map,
+        HashSet<Integer> visited) {
+        if (u == v) {
+            return true;
+        }
+        visited.add(u);
+        if (map.get(u) != null) {
+            for (int next : map.get(u)) {
+                if (visited.contains(next)) {
+                    continue;
+                }
+                if (canReach(next, v, map, visited)) {
+                    return true;
+                }
             }
         }
         return false;

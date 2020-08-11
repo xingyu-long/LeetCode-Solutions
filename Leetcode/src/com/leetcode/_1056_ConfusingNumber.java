@@ -1,14 +1,13 @@
 package com.leetcode;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 import java.util.HashMap;
 
 public class _1056_ConfusingNumber {
 
     public boolean isConfusingNumber(int n) {
-        if (n < 0) return false;
+        if (n < 0) {
+            return false;
+        }
         HashMap<Integer, Integer> map = new HashMap<>();
         map.put(0, 0);
         map.put(1, 1);
@@ -18,7 +17,9 @@ public class _1056_ConfusingNumber {
         int rev = reverse(n);
         int confuse = 0;
         while (rev != 0) {
-            if (map.get(rev % 10) == null) return false;
+            if (map.get(rev % 10) == null) {
+                return false;
+            }
             confuse = confuse * 10 + map.get(rev % 10);
             rev /= 10;
         }
@@ -32,13 +33,5 @@ public class _1056_ConfusingNumber {
             n /= 10;
         }
         return res;
-    }
-
-    @Test
-    void test() {
-        Assertions.assertEquals(true, isConfusingNumber(6));
-        Assertions.assertEquals(true, isConfusingNumber(89));
-        Assertions.assertEquals(false, isConfusingNumber(11));
-        Assertions.assertEquals(false, isConfusingNumber(25));
     }
 }

@@ -72,6 +72,7 @@ public class _75_SortColors {
         int right = nums.length - 1;
         int index = 0;
         //因为right本身就是数组的最后一个位置，能用的到。
+        //应该是小于等right！！！
         while (index <= right) {
             if (nums[index] == 0) {
                 swap(nums, index++, left++);

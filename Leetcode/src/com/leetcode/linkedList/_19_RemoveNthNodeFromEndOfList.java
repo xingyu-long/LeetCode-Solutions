@@ -2,24 +2,13 @@ package com.leetcode.linkedList;
 
 import com.leetcode.common.ListNode;
 
+/**
+ * @Date: 07/11/2020
+ * @Solution: 利用fast先走，然后再同步slow一起走，这样保持着n的距离。
+ **/
 public class _19_RemoveNthNodeFromEndOfList {
 
-    /**
-     *  19. Remove Nth Node From End of List
-     *  When: 2019/05/15
-        Review1: 2019/7/8
-        Difficulty: Medium
-
-        Given linked list: 1->2->3->4->5, and n = 2.
-        After removing the second node from the end, the linked list becomes 1->2->3->5.
-
-     * solution:
-     * 首先计算出有多少个元素，然后相减，遍历删除（要考虑一种情况，则就是删除第一个元素即n == num）
-     *
-     * @param head
-     * @param n
-     * @return
-     */
+    // 需要考虑n等于节点个数的case
     // time: O(n) space: O(1)
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode node = head;

@@ -5,6 +5,9 @@
  */
 package com.leetcode.dynamicProgramming;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class _446_ArithmeticSlicesIISubsequence {
     public int numberOfArithmeticSlices(int[] A) {
         // 多一个循环？

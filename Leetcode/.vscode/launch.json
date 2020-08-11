@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - _1335_MinimumDifficultyofaJobSchedule",
+            "request": "launch",
+            "mainClass": "com.leetcode.dynamicProgramming._1335_MinimumDifficultyofaJobSchedule",
+            "projectName": "Leetcode_58c29dc0"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - _1391_CheckifThereisaValidPathinaGrid",
             "request": "launch",
             "mainClass": "com.leetcode.bfsANDdfs._1391_CheckifThereisaValidPathinaGrid",

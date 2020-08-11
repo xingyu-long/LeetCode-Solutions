@@ -10,6 +10,7 @@ public class _416_PartitionEqualSubsetSum {
      * @param nums
      * @return
      */
+    // 算是背包问题？
     public boolean canPartition(int[] nums) {
         if (nums == null || nums.length == 0) return false;
         int sum = 0;

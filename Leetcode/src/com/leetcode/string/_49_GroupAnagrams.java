@@ -9,11 +9,8 @@ public class _49_GroupAnagrams {
 
     /**
      * 49. Group Anagrams
-     * When: 2019/03/28
-     * Review1:2019/7/21
-     * review2: 11/7/2019
-     * solution:
-     * <p>
+     * When: 2019/03/28, 2019/7/21, 11/7/2019
+     * 04/06/2020
      * 涉及到的数据结构：
      * ArrayList<>(), Arrays.sort(), map.containsKey(),list.add
      *
@@ -22,6 +19,7 @@ public class _49_GroupAnagrams {
      */
     // solution1: 使用sort来进行操作  time: O(n * nlogn) space:O(n)
     // 使用HashMap进行记录其排完序的str（数目肯定比strs少）key: str value: res.size()（这样方便记录）
+    // 这种方法还不如直接最后添加呢
     public List<List<String>> groupAnagrams(String[] strs) {
         List<List<String>> res = new ArrayList<>();
         if (strs == null || strs.length == 0) return res;
@@ -48,30 +46,34 @@ public class _49_GroupAnagrams {
 
 
     // counting sort 的思想 利用跟字符的相差来记录每个字符的个数并且进行类似排序操作
-    // time: O(m * n) space: O(n)
+    // time: O(maxLen * n) space: O(n)
     public List<List<String>> groupAnagrams2(String[] strs) {
+        List<List<String>> res = new ArrayList<>();
+        if (strs == null || strs.length == 0) return res;
         HashMap<String, List<String>> map = new HashMap<>();
         for (String str : strs) {
-            int[] count = new int[26]; // 用来记录每个单词对应的个数
-            for (Character ch : str.toCharArray()) {
+            int[] count = new int[26];
+            for (char ch : str.toCharArray()) {
                 count[ch - 'a']++;
             }
-            String s = "";
-            for (int i = 0; i < count.length; i++) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < 26; i++) {
+                // 这里没有成功转为字符
                 if (count[i] != 0) {
-                    s += String.valueOf(count[i]) + String.valueOf((char) (i + 'a'));
+                    sb.append(count[i]);
+                    sb.append((char)(i + 'a')); // count[i]和当前两个连在一起写的话，会以为是在相加，中间应该+""+
                 }
             }
+            // char[] chs = str.toCharArray();
+            // Arrays.sort(chs); // 可以直接用排序的结果构造，这样看起来运行结果会快些，但是不一定。因为这里排序要nlogn
+            String key = sb.toString();
 
-            if (map.containsKey(s)) {
-                List<String> list = map.get(s);
-                list.add(str);
-            } else {
-                List<String> list = new ArrayList<>();
-                list.add(str);
-                map.put(s, list);
+            if (!map.containsKey(key)) {
+                map.put(key, new ArrayList<>());
             }
+            map.get(key).add(str);
         }
-        return new ArrayList<>(map.values());
+        res.addAll(map.values());
+        return res;
     }
 }

@@ -5,48 +5,43 @@ import java.util.Arrays;
 public class _274_HIndex {
 
     /**
-     *  274. H-Index
-     *  When:2019/7/23 还有另外一种方法
-     *  review1:2019/8/30
-     *  Difficulty: Medium
-     *  solution:
-     *  先进行排序操作 从最后一个元素向前循环，大于count就count++，然后走到小于count的地方为止
-     *  这里的count就是表示大于count的个数。剩下的就小于
+     * 274. H-Index When:2019/7/23 还有另外一种方法 review1:2019/8/30 Difficulty: Medium solution: 先进行排序操作
+     * 从最后一个元素向前循环，大于count就count++，然后走到小于count的地方为止 这里的count就是表示大于count的个数。剩下的就小于
+     *
      * @param citations
      * @return
      */
 
     // time:O(nlogN) space:O(1)
-    // 这里 > 是因为当前值 > t 统计数的情况就结果+1
+    // 反着想
     public int hIndex(int[] citations) {
+        if (citations == null || citations.length == 0) {
+            return 0;
+        }
+        int n = citations.length;
         Arrays.sort(citations);
         int res = 0;
-        while (res < citations.length
-                && citations[citations.length - 1 - res] > res) {
-            res++;
+        for (int i = n - 1; i >= 0; i--) {
+            if (res >= citations[i]) {
+                break;
+            } else {
+                res++;
+            }
         }
         return res;
     }
 
-    // time: O(nlogn) space:O(1)
+    // 正着想
     public int hIndex2(int[] citations) {
-        if (citations == null || citations.length == 0) return 0;
+        if (citations == null || citations.length == 0) {
+            return 0;
+        }
+        int n = citations.length;
         Arrays.sort(citations);
-        reverse(citations, 0, citations.length - 1);
-        for (int i = 0; i < citations.length; i++) {
-            if (i >= citations[i]) return i;
+        for (int i = 0; i < n; i++) {
+            if (citations[i] >= n - i) return n - i;
         }
-        return citations.length;
-    }
-
-    public void reverse(int[] nums, int left, int right) {
-        while (left < right) {
-            int temp = nums[left];
-            nums[left] = nums[right];
-            nums[right] = temp;
-            left++;
-            right--;
-        }
+        return 0;
     }
     // https://leetcode.com/problems/h-index/discuss/70810/A-Clean-O(N)-Solution-in-Java
     // https://leetcode.com/problems/h-index/discuss/70768/Java-bucket-sort-O(n)-solution-with-detail-explanation
@@ -57,7 +52,7 @@ public class _274_HIndex {
         int[] count = new int[len + 1];
 
         for (int c : citations) {
-            if (c > len) {
+            if (c >= len) {
                 count[len]++;
             } else {
                 count[c]++;

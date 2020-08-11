@@ -1,17 +1,18 @@
+/*
+ * @Date: 2019-11-04 19:24:09
+ * 
+ * @LastEditors: Clark long
+ * 
+ * @LastEditTime: 2020-04-02 11:15:50
+ */
 package com.leetcode.math;
 
 import java.util.HashSet;
 
 public class _202_HappyNumber {
-
-    /**
-     * 202. Happy Number
-     * When:2019/8/10
-     * Difficulty: Easy
-     * @param n
-     * @return
-     */
     // 如果是unhappy number最后会重复
+    // 主要是看取出的位数
+    // time:O(logN) space:O(logN)
     public boolean isHappy(int n) {
         HashSet<Integer> set = new HashSet<>();
         int squareSum, remain;
@@ -24,9 +25,8 @@ public class _202_HappyNumber {
             }
             if (squareSum == 1) {
                 return true;
-            } else {
-                n = squareSum;
-            }
+            } 
+            n = squareSum;
         }
         return false;
     }

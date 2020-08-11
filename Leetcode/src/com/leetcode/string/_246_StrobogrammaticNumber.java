@@ -2,12 +2,12 @@ package com.leetcode.string;
 
 import java.util.HashMap;
 
+/**
+ * @Date: 2019/8/6, 05/27/2020
+ * @Description: Map, two pointer
+ **/
 public class _246_StrobogrammaticNumber {
-    /**
-     * 246. Strobogrammatic Number
-     * When:2019/8/6
-     * Difficulty: Easy
-     */
+
     // 可以看做回文数的变形
     // time:O(n) space:O(n)
     public boolean isStrobogrammatic(String num) {

@@ -2,6 +2,10 @@ package com.leetcode.tree;
 
 import com.leetcode.common.Node;
 
+/**
+ * @Date: 05/20/2020
+ * @Description: Tree, populating right pointer
+ **/
 public class _116_PopulatingNextRightPointersInEachNode {
 
     /**
@@ -31,6 +35,7 @@ public class _116_PopulatingNextRightPointersInEachNode {
         if (root.left != null) {
             root.left.next = root.right;
         }
+        // 需要一层层连。只能这么写，不能用root写成 root.left.right.next = root.right.left; 这样会导致中间有的没有链接上
         if (root.right != null && root.next != null) {
             root.right.next = root.next.left;
         }
@@ -60,19 +65,19 @@ public class _116_PopulatingNextRightPointersInEachNode {
      */
     // 这个算iterative
     public Node connect2(Node root) {
-        Node start = root;
-        while (start != null) {
-            Node cur = start;
-            while (cur != null) {
-                if (cur.left != null) {
-                    cur.left.next = cur.right;
+        Node curr = root;
+        while (curr != null) {
+            Node next = curr.left;
+            while (curr != null) {
+                if (curr.left != null) {
+                    curr.left.next = curr.right;
                 }
-                if (cur.right != null && cur.next != null) {
-                    cur.right.next = cur.next.left;
+                if (curr.right != null && curr.next != null) {
+                    curr.right.next = curr.next.left;
                 }
-                cur = cur.next;
+                curr = curr.next;
             }
-            start = start.left;
+            curr = next;
         }
         return root;
     }

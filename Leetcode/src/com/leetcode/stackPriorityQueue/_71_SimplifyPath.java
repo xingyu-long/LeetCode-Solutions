@@ -2,21 +2,12 @@ package com.leetcode.stackPriorityQueue;
 
 import java.util.Stack;
 
+/**
+ * @Date: 2019/06/08, 2019/7/12, 2019/9/3, 05/20/2020
+ * @Description: Sliding Window
+ **/
 public class _71_SimplifyPath {
-
-    /**
-     * 71. Simplify Path
-     * When: 2019/06/08
-     * Review1: 2019/7/12
-     * review2: 2019/9/3
-     * Difficulty: Medium
-     * <p>
-     * solution: 使用stack来保存其字符 遇到.. 就返回上一层 遇到 . 和空白就不管；遇到字符就push
-     * 最后拼接在一起
-     *
-     * @param path
-     * @return
-     */
+    // 关注..会需要返回上一层即可以及后面构建的时候注意顺序
     // time: O(n) space: O(n) (due to the stack structure)
     public String simplifyPath(String path) {
         Stack<String> stack = new Stack<>();

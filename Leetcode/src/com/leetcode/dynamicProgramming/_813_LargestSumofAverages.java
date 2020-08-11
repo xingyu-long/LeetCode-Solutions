@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-03-31 18:03:26
  * @LastEditors: Clark long
- * @LastEditTime: 2020-03-31 18:05:16
+ * @LastEditTime: 2020-04-02 18:14:22
  */
 package com.leetcode.dynamicProgramming;
 
@@ -13,31 +13,31 @@ public class _813_LargestSumofAverages {
     // 求和那部分还可以优化
     // time: O(k * n * n * sum) space: O(n * k)
     public double largestSumOfAverages(int[] A, int K) {
+        // 分组DP
         if (A == null || A.length == 0) return 0.0;
         int n = A.length;
-        double[][] memo = new double[n + 1][K + 1];
-        for (double[] arr : memo) {
-            Arrays.fill(arr, -1);
+        double[] prefix = new double[n];
+        prefix[0] = A[0];
+        for (int i = 1; i < n; i++) {
+            prefix[i] = prefix[i - 1] + A[i];
         }
-        return dfs(A, A.length - 1, K, memo);
+        double[][] memo = new double[n + 1][n + 1];
+        for (double[] arr : memo) {
+            Arrays.fill(arr, -1.0);
+        }
+        return dfs(A, prefix, K, n - 1, memo);
     }
     
-    public double dfs(int[] A, int j, int k, double[][] memo) {
+    public double dfs(int[] A, double[] prefix, int k, int j, double[][] memo) {
+        if (k == 1) {
+            return prefix[j] / (j + 1); // 这个不要忘记！
+        }
         if (memo[j][k] != -1) return memo[j][k];
-        if (k == 1) return 1.0 * sum(A, 0, j) / (j + 1);
-        double res = 0.0;
+        double res = Double.MIN_VALUE;
         for (int i = j - 1; i >= 0; i--) {
-            res = Math.max(res, dfs(A, i, k - 1, memo) + 1.0 * sum(A, i + 1, j) / (j - i));
+            res = Math.max(res, dfs(A, prefix, k - 1, i, memo) + (prefix[j]- prefix[i]) / (j - i));
         }
         memo[j][k] = res;
         return res;
-    }
-    
-    public int sum (int[] nums, int i, int j) {
-        int sum = 0;
-        for (int k = i; k <= j; k++) {
-            sum += nums[k];
-        }
-        return sum;
     }
 }
