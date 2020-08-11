@@ -5,8 +5,7 @@ import java.util.*;
 public class _56_MergeIntervals {
     /**
      * LeetCode No 56. Merge Intervals
-     * when: 2019/03/14
-     * review1:11/4/2019
+     * when: 2019/03/14, 11/4/2019, 04/08/2020
      * 注意end的比较。
      * 思路：都与InsertIntervals 一致 只是从中抽出第一个就行（由于现在的数据是可能内部有overlap而不是像之前没有的情况）
      * 利用所谓的扫描线算法 （第一个的interval处理也很重要） 需要先排序

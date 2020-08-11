@@ -3,28 +3,34 @@ package com.leetcode.stackPriorityQueue;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
+/**
+ * @Date: 2019/7/12, 11/17/2019, 05/29/2020
+ * @Description: PQ
+ **/
 public class _295_FindMedianFromDataStream {
 
     /**
-     *  295. Find Median From Data Stream
-     *  When:2019/7/12
-     *  review1:11/17/2019
-     *  Difficulty: Hard
-     *  Solution:
-     *    two heaps
+     * 295. Find Median From Data Stream When:2019/7/12 review1:11/17/2019 Difficulty: Hard
+     * Solution: two heaps
      */
     private PriorityQueue<Integer> minHeap;
     private PriorityQueue<Integer> maxHeap;
 
-    /** initialize your data structure here. */
+    /**
+     * initialize your data structure here.
+     */
     public _295_FindMedianFromDataStream() {
         minHeap = new PriorityQueue<>(); //放置大的一半
         maxHeap = new PriorityQueue<>(new Comparator<Integer>() { // 放置小的那一半
             @Override
             public int compare(Integer o1, Integer o2) {
-                if (o1 > o2) return -1;
-                else if (o1 < o2) return 1;
-                else return 0;
+                if (o1 > o2) {
+                    return -1;
+                } else if (o1 < o2) {
+                    return 1;
+                } else {
+                    return 0;
+                }
             }
         });
     }
@@ -63,7 +69,7 @@ public class _295_FindMedianFromDataStream {
 
     public double findMedian() {
         if (minHeap.size() == maxHeap.size()) {
-            return (double)(maxHeap.peek() + minHeap.peek()) / 2;
+            return (double) (maxHeap.peek() + minHeap.peek()) / 2;
         } else if (minHeap.size() > maxHeap.size()) {
             return minHeap.peek();
         } else {
@@ -84,7 +90,10 @@ class MedianFinder2 {
 
     PriorityQueue<Integer> minHeap;
     PriorityQueue<Integer> maxHeap;
-    /** initialize your data structure here. */
+
+    /**
+     * initialize your data structure here.
+     */
     public MedianFinder2() {
 
         minHeap = new PriorityQueue<>();

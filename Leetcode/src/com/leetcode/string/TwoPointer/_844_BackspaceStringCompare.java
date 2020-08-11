@@ -59,4 +59,20 @@ public class _844_BackspaceStringCompare {
         }
         return true;
     }
+
+    public boolean backspaceCompare3(String S, String T) {
+        return getStr(S.toCharArray()).equals(getStr(T.toCharArray()));
+    }
+
+    public String getStr(char[] chs) {
+        int j = 0;
+        for (int i = 0; i < chs.length; i++) {
+            if (chs[i] != '#') {
+                chs[j++] = chs[i];
+            } else if (chs[i] == '#' && j > 0){
+                j--;
+            }
+        }
+        return new String(chs, 0, j);
+    }
 }

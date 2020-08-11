@@ -68,5 +68,4 @@ public class _286_WallsandGates {
             }
         }
     }
-
 }

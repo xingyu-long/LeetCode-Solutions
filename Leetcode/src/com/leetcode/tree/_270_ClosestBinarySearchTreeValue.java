@@ -1,23 +1,24 @@
-/*
- * @Date: 2019-07-28 02:16:05
- * @LastEditors: Clark long
- * @LastEditTime: 2020-03-28 15:16:23
- */
 package com.leetcode.tree;
 
 import com.leetcode.common.TreeNode;
 
+/**
+ * @Date: 05/13/2020
+ * @Description: Tree,
+ **/
 public class _270_ClosestBinarySearchTreeValue {
 
     /**
-     *  270. Closest Binary Search Tree Value
+     * 270. Closest Binary Search Tree Value
+     * <p>
+     * Given a non-empty binary search tree and a target value, find the value in the BST that is
+     * closest to the target.
+     * <p>
+     * Note:
+     * <p>
+     * Given target value is a floating point. You are guaranteed to have only one unique value in
+     * the BST that is closest to the target.
      *
-     Given a non-empty binary search tree and a target value, find the value in the BST that is closest to the target.
-
-     Note:
-
-     Given target value is a floating point.
-     You are guaranteed to have only one unique value in the BST that is closest to the target.
      * @param root
      * @param target
      * @return
@@ -44,7 +45,9 @@ public class _270_ClosestBinarySearchTreeValue {
     }
 
     public int helper(TreeNode root, double target, int closest) {
-        if (root == null) return closest; //这里用的很妙
+        if (root == null) {
+            return closest; //这里用的很妙
+        }
         if (Math.abs(root.val - target) < Math.abs(closest - target)) {
             closest = root.val;
         }

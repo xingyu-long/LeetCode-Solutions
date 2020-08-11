@@ -1,15 +1,11 @@
 package com.leetcode.bitManipulation;
 
+/**
+ * @Date: 07/17/2020
+ * @Description: xor
+ **/
 public class _389_FindTheDifference {
-    /**
-     * 389. Find The Difference
-     * When: 2019/06/15
-     * review1:2019/8/9
-     * review2:2019/9/28
-     * @param s
-     * @param t
-     * @return
-     */
+
     // 使用两个string的和之差就知道是哪个char
     // time: O(n) space: O(n)
     public char findTheDifference2(String s, String t) {
@@ -18,12 +14,12 @@ public class _389_FindTheDifference {
         int sums = 0;
         int sumt = 0;
         for (char c : chs) {
-            sums += (int)c;
+            sums += (int) c;
         }
         for (char c : cht) {
-            sumt += (int)c;
+            sumt += (int) c;
         }
-        return (char)(sumt - sums);
+        return (char) (sumt - sums);
     }
 
     //利用位运算。其中异或 （相同为0，不同为1） time:O(n) space:O(1)

@@ -47,16 +47,15 @@ public class _31_NextPermutation {
         }
 
         int firstLarge = -1;
+        // 尽量找的时候大于firstSmall 但最小的情况 因为firstSmall后面不会存在 升序的情况！
         for (int i = nums.length - 1; i > firstSmall; i--) {
             if (nums[i] > nums[firstSmall]) {
                 firstLarge = i;
                 break;
             }
         }
-
         swap(nums, firstSmall, firstLarge);
         reverse(nums, firstSmall + 1, nums.length - 1);
-        return;
     }
 
 

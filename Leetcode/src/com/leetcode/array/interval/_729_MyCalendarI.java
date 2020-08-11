@@ -27,7 +27,7 @@ public class _729_MyCalendarI {
             intervals.add(new Interval(start, end));
             return true;
         } else {
-            // 先遍历全部。
+            // 先遍历全部。这个包括了所有的交叉的情况
             for (Interval interval : intervals) {
                 int maxS = Math.max(interval.start, start);
                 int minE = Math.min(interval.end, end);

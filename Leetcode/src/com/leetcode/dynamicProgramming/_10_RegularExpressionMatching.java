@@ -29,7 +29,7 @@ public class _10_RegularExpressionMatching {
                     if (p.charAt(pi - 2) == s.charAt(si - 1) || p.charAt(pi - 2) == '.') {
                         dp[pi][si] = dp[pi - 2][si] || dp[pi][si - 1]; // 前面是-2是因为有.*这种情况
                     } else {
-                        // empty: a*, ''
+                        // empty: abcd, abcde*
                         dp[pi][si] = dp[pi - 2][si];
                     }
                 }

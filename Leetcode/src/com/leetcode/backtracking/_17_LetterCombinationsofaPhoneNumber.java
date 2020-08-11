@@ -48,4 +48,30 @@ public class _17_LetterCombinationsofaPhoneNumber {
             dfs(res, digits, s + letters.charAt(i), index + 1);
         }
     }
+
+    // 类似于word break II这样的
+    public List<String> letterCombinations2(String digits) {
+        if (digits == null || digits.length() == 0) {
+            return new ArrayList<>();
+        }
+        String[] strs = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        return dfs(digits, strs, 0);
+    }
+
+    private List<String> dfs(String digits, String[] strs, int index) {
+        List<String> res = new ArrayList<>();
+        if (index == digits.length()) {
+            res.add("");
+            return res;
+        }
+        int pos = digits.charAt(index) - '0';
+        String str = strs[pos];
+        for (int i = 0; i < str.length(); i++) {
+            List<String> list = dfs(digits, strs, index + 1);
+            for (String temp : list) {
+                res.add(str.charAt(i) + temp);
+            }
+        }
+        return res;
+    }
 }

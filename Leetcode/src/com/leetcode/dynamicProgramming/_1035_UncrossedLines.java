@@ -1,14 +1,11 @@
-/*
- * @Date: 2020-03-27 14:39:19
- * @LastEditors: Clark long
- * @LastEditTime: 2020-03-27 14:41:31
- */
 package com.leetcode.dynamicProgramming;
 
 /**
- * _1035_UncrossedLines
- */
+ * @Date: 05/25/2020
+ * @Description: DP, subsequence
+ **/
 public class _1035_UncrossedLines {
+    // 分析错了，写成了匹配的移动问题
     // 和这个相同 Longest Common Subsequence
     //time:O(len(A) * len(B)) space:O(len(A) * len(B))
     public int maxUncrossedLines(int[] A, int[] B) {

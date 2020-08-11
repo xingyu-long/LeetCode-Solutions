@@ -1,18 +1,17 @@
 package com.leetcode.bitManipulation;
 
+/**
+ * @Date: 07/17/2020
+ * @Description: Mask
+ **/
 public class _318_MaximumProductofWordLengths {
 
-    /**
-     * 318. Maximum Product of Word Lengths
-     * When:2019/9/28
-     * Difficulty:Medium
-     * @param words
-     * @return
-     */
     // 利用重新计算的每个word对应的值  如果是不同的字符 & 结果会为0
     public int maxProduct(String[] words) {
         int n = words.length;
-        if (words == null || n == 0) return 0;
+        if (words == null || n == 0) {
+            return 0;
+        }
         int[] mask = new int[n];
         int res = 0;
         for (int i = 0; i < n; i++) {

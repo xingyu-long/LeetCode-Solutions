@@ -5,6 +5,8 @@
  */
 package com.leetcode.tree;
 
+import java.util.HashMap;
+
 public class _666_PathSumIV {
     public int res = 0;
     public int pathSum(int[] nums) {

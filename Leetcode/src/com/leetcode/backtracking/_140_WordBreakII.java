@@ -4,27 +4,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * @Date: 2019/05/03, 2019/7/31, 04/24/2020
+ * @Description: DP, DFS
+ **/
 public class _140_WordBreakII {
-    /**
-     * 140. Word Break II
-     * When: 2019/05/03
-     * Review1: 2019/7/31
-     * <p>
-     * solution:
-     * 类似于word break里面的规则，但是使用具有memory的DFS算法求解
-     *
-     * @param s
-     * @param wordDict
-     * @return
-     */
-    // time:(2^n) space:(2^n)
+
+    // time:(n^2) space:(2^n)
     public static List<String> wordBreak(String s, List<String> wordDict) {
         HashMap<Integer, List<String>> map = new HashMap<>();
         return dfs(s, wordDict, 0, map);
     }
 
-//    https://www.youtube.com/watch?v=pYKGRZwbuzs
-    public static List<String> dfs(String s, List<String> wordDict, int start, HashMap<Integer, List<String>> map) {
+    //    https://www.youtube.com/watch?v=pYKGRZwbuzs
+    public static List<String> dfs(String s, List<String> wordDict, int start,
+        HashMap<Integer, List<String>> map) {
         if (map.containsKey(start)) {
             return map.get(start);
         }

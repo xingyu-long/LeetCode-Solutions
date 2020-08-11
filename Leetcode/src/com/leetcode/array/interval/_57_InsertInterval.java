@@ -6,9 +6,8 @@ import java.util.List;
 public class _57_InsertInterval {
     /**
      *  No.57 Insert Interval
-     *  when: 2019/03/13 & 3/14
-     *  Review1:2019/7/13
-     * update: 2019/06/17 应该使用更加易懂的方式进行
+     *  when: 2019/03/13 & 3/14, 2019/7/13, 2019/06/17
+     *  04/09/2020
      *
      * 解题思路：
      * 首先一个循环表示以前的每一个数组

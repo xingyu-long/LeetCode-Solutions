@@ -4,8 +4,13 @@ import com.leetcode.common.ListNode;
 
 import java.util.Stack;
 
+/**
+ * @Date: 06/04/2020
+ * @Description: LinkedList
+ **/
 public class _445_AddTwoNumbersII {
-    // 不用reverse的话 利用stack来模拟
+
+    // 不用reverse的话 利用stack来模拟，后面的head用的也是十分妙！
     // time: O(n) space: O(n)
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         Stack<Integer> s1 = new Stack<>();
