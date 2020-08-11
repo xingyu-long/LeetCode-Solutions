@@ -2,12 +2,14 @@ package com.leetcode.dynamicProgramming;
 
 import java.util.Arrays;
 import java.util.HashMap;
-/**
- * @Date: 2019/8/1, 11/8/2019, 04/24/2020
- * @Description: DP, DFS
- **/
+
 public class _91_DecodeWays {
     /**
+     * 91. Decode Ways
+     * When:2019/8/1
+     * review1: 11/8/2019
+     * Difficulty: Medium
+     * <p>
      * 123
      * 1, 2, 3 -> 第一种
      * 12, 3 -> 第二种

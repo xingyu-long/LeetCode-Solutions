@@ -26,7 +26,7 @@ public class _224_BasicCalculator {
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (Character.isDigit(c)) {
-                number = 10 * number + (c - '0');
+                number = 10 * number + (int) (c - '0');
             } else if (c == '+') {
                 res += sign * number;
                 number = 0;

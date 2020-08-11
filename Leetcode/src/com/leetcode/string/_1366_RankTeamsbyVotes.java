@@ -5,12 +5,13 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * @Date: 03/01/2020, 3/9/2020, 4/12/2020
- * @Description: Customized Sort
- **/
 public class _1366_RankTeamsbyVotes {
 
+    /**
+     * When: 03/01/2020, 3/9/2020
+     * @param votes
+     * @return
+     */
     // time:O(len log (len)) space:O(n)
     public String rankTeams(String[] votes) {
         HashMap<Character, int[]> map = new HashMap<>();
@@ -23,7 +24,7 @@ public class _1366_RankTeamsbyVotes {
                 map.get(ch)[i]++;
             }
         }
-
+        
         List<Character> list = new ArrayList<>(map.keySet());
         Collections.sort(list, (a, b) -> {
             for (int i = 0; i < len; i++) {
@@ -34,11 +35,9 @@ public class _1366_RankTeamsbyVotes {
             // 表示出现全都相同
             return a - b;
         });
-
+        
         StringBuilder sb = new StringBuilder();
-        for (char ch : list) {
-            sb.append(ch);
-        }
+        for (char ch : list) sb.append(ch);
         return sb.toString();
     }
 }

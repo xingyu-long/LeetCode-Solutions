@@ -5,19 +5,19 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * @Date: 2019/8/9, 07/11/2020
- * @Description: HashMap, palindrome.
- **/
 public class _336_PalindromePairs {
-    // solution: 将当前的word一分为二，检查是否符合palidrome，如果符合，只需要找另一半的反转是否存在
-    // 典型用hashmap来优化时间复杂度的题目
-    // time: O(n * len(word) * len(word))
+
+    /**
+     * 336. Palindrome Pairs
+     * When:2019/8/9
+     * Difficulty: Hard
+     * @param words
+     * @return
+     */
+    // time: O(n * k * k)
     public static List<List<Integer>> palindromePairs(String[] words) {
         List<List<Integer>> res = new ArrayList<>();
-        if (words == null || words.length < 2) {
-            return res;
-        }
+        if (words == null || words.length < 2) return res;
         HashMap<String, Integer> map = new HashMap<>();
         for (int i = 0; i < words.length; i++) {
             map.put(words[i], i);
@@ -48,9 +48,7 @@ public class _336_PalindromePairs {
         int lo = 0;
         int hi = s.length() - 1;
         while (lo < hi) {
-            if (s.charAt(lo) != s.charAt(hi)) {
-                return false;
-            }
+            if (s.charAt(lo) != s.charAt(hi)) return false;
             lo++;
             hi--;
         }
@@ -58,7 +56,7 @@ public class _336_PalindromePairs {
     }
 
     public static void main(String[] args) {
-        String[] words = new String[]{"", "a"};
+        String[] words = new String[]{"","a"};
         palindromePairs(words);
     }
 }

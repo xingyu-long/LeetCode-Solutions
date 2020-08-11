@@ -6,19 +6,22 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * @Date: 2019/7/25 review1:10/31/2019, 05/20/2020
- * @Description: BFS with depth;
- **/
 public class _364_NestedListWeightSumII {
+
+    /**
+     * 364. Nested List Weight Sum II
+     * time:2019/7/25
+     * review1:10/31/2019
+     * @param nestedList
+     * @return
+     */
 
     //time:O(n) space:O(n)
     //解释: https://www.cnblogs.com/grandyang/p/5615583.html
     public int depthSumInverse(List<NestedInteger> nestedList) {
-        if (nestedList == null) {
-            return 0;
-        }
-        int sum = 0, res = 0;
+        if (nestedList == null) return 0;
+        int sum = 0;
+        int res = 0;
         while (!nestedList.isEmpty()) {
             List<NestedInteger> nextList = new LinkedList<>();
             for (NestedInteger nest : nestedList) {

@@ -1,38 +1,54 @@
 package com.leetcode.Design;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.List;
 
-/**
- * @Date: 06/22/2020
- * @Description: Design
- **/
 public class _981_TimeBasedKeyValueStore {
-    // key -> treeMap<>;
-    /**
-     * Initialize your data structure here.
-     */
-    Map<String, TreeMap<Integer, String>> map;
+    // 基于map<key, data>
+    public class Data {
+        int timestamp;
+        String value;
+
+        public Data(int t, String val) {
+            timestamp = t;
+            value = val;
+        }
+    }
+    // hashmap. key, <timeStamp, value>
+    // timestamp is increasing.
+    /** Initialize your data structure here. */
+    // 里面用pair。。。
+    HashMap<String, List<Data>> map;
 
     public _981_TimeBasedKeyValueStore() {
         map = new HashMap<>();
     }
 
     public void set(String key, String value, int timestamp) {
-        map.putIfAbsent(key, new TreeMap<>());
-        map.get(key).put(timestamp, value);
+        if (!map.containsKey(key)) {
+            map.put(key, new ArrayList<>());
+        }
+        map.get(key).add(new Data(timestamp, value));
     }
 
+    // time:O(log(N))
     public String get(String key, int timestamp) {
-        if (!map.containsKey(key)) {
-            return "";
+        if (map.get(key) == null) return "";
+        List<Data> list = map.get(key);
+        return find(list, timestamp);
+    }
+
+    public String find(List<Data> list, int time) {
+        int left = 0;
+        int right = list.size() - 1;
+        while (left + 1 < right) {
+            int mid = left + (right - left) / 2;
+            if (list.get(mid).timestamp <= time) left = mid;
+            else right = mid;
         }
-        TreeMap<Integer, String> tree = map.get(key);
-        Integer floor = tree.floorKey(timestamp); // 这个跟排的顺序也有关系
-        if (floor == null) {
-            return ""; // 这个要记得check一下
-        }
-        return map.get(key).get(floor);
+        if (list.get(right).timestamp <= time) return list.get(right).value;
+        else if (list.get(left).timestamp <= time) return list.get(left).value;
+        return "";
     }
 }

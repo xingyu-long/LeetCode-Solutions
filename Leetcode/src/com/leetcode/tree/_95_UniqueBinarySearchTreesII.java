@@ -5,23 +5,16 @@ import com.leetcode.common.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @Date: 06/24/2020
- * @Description: Divide and Conquer
- **/
 public class _95_UniqueBinarySearchTreesII {
 
     public static List<TreeNode> generateTrees2(int n) {
-        if (n == 0) {
-            return new ArrayList<>();
-        }
+        if (n == 0) return new ArrayList<>();
         return genTreeList(1, n);
     }
-
     // https://www.youtube.com/watch?v=hQn61BjdA7M
     public static List<TreeNode> genTreeList(int start, int end) {
         List<TreeNode> list = new ArrayList<>();
-        if (start > end) { // base case. 这个比较重要
+        if (start > end) { // base case.
             list.add(null);
         }
         for (int idx = start; idx <= end; idx++) {
@@ -37,5 +30,9 @@ public class _95_UniqueBinarySearchTreesII {
             }
         }
         return list;
+    }
+
+    public static void main(String[] args) {
+        generateTrees2(3);
     }
 }

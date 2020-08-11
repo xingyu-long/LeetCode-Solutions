@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class _85_MaximalRectangle {
     // 85. Maximal Rectangle
-    // time:O(m * (n + n))
+    // time:O(m * n * n)
     public int maximalRectangle(char[][] matrix) {
         if (matrix == null || matrix.length == 0 ||
                 matrix[0] == null || matrix[0].length == 0) return 0;

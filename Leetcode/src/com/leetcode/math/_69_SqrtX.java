@@ -1,15 +1,22 @@
 package com.leetcode.math;
 
-/**
- * @Date: 2019/04/04, 2019/7/20, 05/08/2020
- * @Description: Parentheses
- **/
 public class _69_SqrtX {
 
+    /**
+     *  69. Sqrt(x)
+     *  When: 2019/04/04
+     *  When:2019/7/20
+     *
+     * solution:
+     * 使用二分法
+     * 这里还有个牛顿法 No.367
+     * @param x
+     * @return
+     */
     // 记住考虑其中overflow的情况
     public int mySqrt(int x) {
         long left = 0;
-        long right = x; // 这里不能设置为x / 2，因为x可能为1
+        long right = x;
         while (left + 1 < right) {
             long mid = left + (right - left) / 2;
             if (mid * mid >= x) {
@@ -18,10 +25,7 @@ public class _69_SqrtX {
                 left = mid;
             }
         }
-        if (right * right <= x) {
-            return (int) right;
-        } else {
-            return (int) left;
-        }
+        if (right * right <= x) return (int) right;
+        else return (int) left;
     }
 }

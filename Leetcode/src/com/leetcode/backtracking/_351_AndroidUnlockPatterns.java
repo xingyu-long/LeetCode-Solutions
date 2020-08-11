@@ -1,9 +1,8 @@
 package com.leetcode.backtracking;
 
 /**
- * @Date: 07/13/2020
- * @Description: backtracking
- **/
+ * _351_AndroidUnlockPatterns
+ */
 public class _351_AndroidUnlockPatterns {
 
     public int numberOfPatterns(int m, int n) {
@@ -32,7 +31,6 @@ public class _351_AndroidUnlockPatterns {
         int res = 0;
         // 从start出发去九个点。
         for (int i = 1; i <= 9; i++) {
-            // 目标位置应该是未访问的，但如果存在中间的点，则需要访问过才行！
             if (!visited[i] && (skip[start][i] == 0 || visited[skip[start][i]])) {
                 res += dfs(visited, skip, i, remain - 1);
             }

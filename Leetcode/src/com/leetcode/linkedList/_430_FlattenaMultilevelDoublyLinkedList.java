@@ -76,32 +76,4 @@ public class _430_FlattenaMultilevelDoublyLinkedList {
 
         return head;
     }
-    // 自己写的stack方法
-    public Node flatten3(Node head) {
-        if (head == null) return head;
-        Stack<Node> stack = new Stack<>();
-        Node curr = head, prev = null;
-        while (curr != null) {
-            if (curr.child != null) {
-                if (curr.next != null) stack.push(curr.next);
-                Node child = curr.child;
-                curr.child = null;
-                curr.next = child;
-                child.prev = curr;
-            }
-            prev = curr;
-            curr = curr.next;
-        }
-        // print(head);
-        while (!stack.isEmpty()) {
-            Node peek = stack.peek();
-            prev.next = peek;
-            peek.prev = prev;
-            stack.pop();
-            while (prev.next != null) {
-                prev = prev.next;
-            }
-        }
-        return head;
-    }
 }

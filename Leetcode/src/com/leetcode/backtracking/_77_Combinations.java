@@ -3,12 +3,25 @@ package com.leetcode.backtracking;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @Date: 2019/04/29, 2019/7/15, 2019/10/7, 06/08/2020
- * @Description: Backtracking
- **/
 public class _77_Combinations {
 
+    /**
+     * 77. Combinations
+     * When: 2019/04/29
+     * Review1: 2019/7/15
+     * review2:2019/10/7
+     * Difficulty: Medium
+     * solution: 回溯法
+     * 主要考虑到个数问题，然后使用k比较插入的长度
+     * <p>
+     * space: O(n)
+     * time: O(n^min{k,n-k})
+     * https://stackoverflow.com/questions/31120402/complexity-when-generating-all-combinations
+     *
+     * @param n
+     * @param k
+     * @return
+     */
     // time: c_{n}^{k}, space:O(k)
     public List<List<Integer>> combine(int n, int k) {
         // 普通写的话，不能表示多个k的情况，这样复杂度会受到影响
@@ -23,9 +36,7 @@ public class _77_Combinations {
         }
 
         for (int i = index; i <= n; i++) {
-            if (list.size() > k) {
-                continue; // 这样可以不用计算多余大于k大小的情况
-            }
+            if (list.size() > k) continue; // 这样可以不用计算多余大于k大小的情况
             list.add(i);
             dfs(res, list, k, n, i + 1);
             list.remove(list.size() - 1);

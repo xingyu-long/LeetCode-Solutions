@@ -14,7 +14,7 @@ public class _1388_PizzaWith3nSlices {
         return dfs(slices, 0, slices.length - 1, slices.length / 3, 1, memo);
     }
     
-    public int dfs(int[] slices, int start, int end, int n, int cycle, Map<String, Integer> memo) {
+    public int dfs(int[] slices, int start, int end, int n, int cycle, HashMap<String, Integer> memo) {
         String key = start + "-" + end + "-" + n + "-" + cycle;
         if (memo.get(key) != null) 
             return memo.get(key);

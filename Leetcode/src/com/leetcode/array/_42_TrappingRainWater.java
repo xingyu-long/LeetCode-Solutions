@@ -1,11 +1,16 @@
 package com.leetcode.array;
 
-/**
- * @Date: 2019/03/25, 11/3/2019, 05/13/2020
- * @Description: Two Pointer
- **/
 public class _42_TrappingRainWater {
 
+    /**
+     * 42. Trapping Rain Water
+     * when: 2019/03/25
+     * review1:11/3/2019
+     * solution: two-pointer
+     * 分别设置左右max，然后与当前的进行相差则就是对应的乘水量
+     * @param height
+     * @return
+     */
     // time: O(n) space: O(1)
     public static int trap(int[] height) {
         int res = 0;
@@ -14,17 +19,25 @@ public class _42_TrappingRainWater {
         int leftMax = 0;
         int rightMax = 0;
         // 先计算最大，然后减去当前（最大后面就会保持住！）
-        while (left < right) {
-            if (height[left] < height[right]) {
+        while (left < right){
+            if (height[left] < height[right]){
                 leftMax = Math.max(leftMax, height[left]);
                 res += leftMax - height[left];
                 left++;
-            } else {
+            }
+            else {
                 rightMax = Math.max(rightMax, height[right]);
                 res += rightMax - height[right];
                 right--;
             }
         }
         return res;
+    }
+
+    public static void main(String[] args){
+        int[] height = new int[]{0,1,0,2,1,0,1,3,2,1,2,1};
+        String test = "12345";
+        System.out.println(test.substring(1));
+//        System.out.println(trap(height));
     }
 }

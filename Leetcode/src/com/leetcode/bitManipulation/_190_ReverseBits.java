@@ -1,18 +1,32 @@
 package com.leetcode.bitManipulation;
 
-/**
- * @Date: 2019/06/17, 07/12/2020
- * @Description: Bit,
- **/
 public class _190_ReverseBits {
-    // 相当于数字反转一样，把末位取出来然后放到当前结果的里，之后每次移动 <<。
+    /**
+     * 190. Reverse Bits
+     * When: 2019/06/17
+     * <p>
+     * solution: 利用1所在位置，一个往左移动 一个往右移动
+     *
+     * @param n
+     * @return
+     */
     public int reverseBits(int n) {
+        if (n == 0) return 0;
         int res = 0;
         for (int i = 0; i < 32; i++) {
-            int digit = n & 1;
-            n >>= 1;
             res <<= 1;
-            res |= digit;
+            if ((n & 1) == 1) res++;
+            n >>= 1;
+        }
+        return res;
+    }
+
+    public int reverseBits2(int n) {
+        int res = 0;
+        for (int i = 0; i < 32; i++) {
+            res <<= 1;
+            res ^= (n & 1); // 这里是相加最后一位的操作。
+            n >>= 1;
         }
         return res;
     }

@@ -1,9 +1,11 @@
 package com.leetcode.dynamicProgramming;
 
+import java.util.PriorityQueue;
+
 public class _44_WildcardMatching {
 
     /**
-     *
+     * 
      * When:03/15/2020
      DP问题，需要找到
      state（状态值） dp[m+1][n+1] dp[i][j] 表示s字符串从0到i的字符串是否和p字符串从0到j相同
@@ -21,24 +23,24 @@ public class _44_WildcardMatching {
      * @return
      */
     public boolean isMatch(String s, String p) {
-        int lenP = p.length(), lenS = s.length();
-        boolean[][] dp = new boolean[lenP + 1][lenS + 1];
+        int m = s.length();
+        int n = p.length();
+        boolean[][] dp = new boolean[m + 1][n + 1];
         dp[0][0] = true;
-        for (int i = 1; i <= lenP; i++) {
-            if (p.charAt(i - 1) == '*') {
-                dp[i][0] = dp[i - 1][0];
-            }
+        // 关于遇到? * 就会看前面的情况 空字符串和?匹配不上不考虑
+        for (int j = 1; j <= n; j++) {
+            if (p.charAt(j - 1) == '*') dp[0][j] = dp[0][j - 1];
         }
 
-        for (int i = 1; i <= lenP; i++) {
-            for (int j = 1; j <= lenS; j++) {
-                if (p.charAt(i - 1) == s.charAt(j - 1) || p.charAt(i - 1) == '?') {
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (s.charAt(i - 1) == p.charAt(j - 1) || p.charAt(j - 1) == '?') {
                     dp[i][j] = dp[i - 1][j - 1];
-                } else if (p.charAt(i - 1) == '*'){
-                    dp[i][j] = dp[i - 1][j] || dp[i][j - 1];
+                } else if (p.charAt(j - 1) == '*') {
+                    dp[i][j] = dp[i][j - 1] || dp[i - 1][j];
                 }
             }
         }
-        return dp[lenP][lenS];
+        return dp[m][n];
     }
 }

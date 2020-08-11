@@ -15,7 +15,6 @@ public class _290_WordPattern {
      * @param str
      * @return
      */
-    // 可以用两个map来优化，因为containsValue cost O(N)
     // time:O(n) space:O(n)
     public boolean wordPattern(String pattern, String str) {
         //如何做映射关系？？ 使用HashMap
@@ -30,7 +29,6 @@ public class _290_WordPattern {
                 }
             } else {
                 // 使用containsValue来验证是否用过了
-                // time:O(n)
                 if (!map.containsValue(strArr[i])) {
                     map.put(patternArr[i], strArr[i]);
                 } else return false;

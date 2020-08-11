@@ -4,15 +4,19 @@ import com.leetcode.common.ListNode;
 
 import java.util.HashMap;
 
-/**
- * @Date: 2019/06/27, 2019/7/7, 11/7/2019, 05/04/2020
- * @Description: LinkedList, Random Pointer
- **/
 public class _138_CopyListwithRandomPointer {
 
+    /**
+     * 138. Copy List with Random Pointer
+     * When: 2019/06/27
+     * Review1: 2019/7/7
+     * review1: 11/7/2019
+     * Difficulty: Medium
+     * <p>
+     * solution: 使用HashMap进行辅助
+     */
     // https://www.youtube.com/watch?v=OvpKeraoxW0
     private static class Node {
-
         int val;
         Node next;
         Node random;
@@ -50,9 +54,7 @@ public class _138_CopyListwithRandomPointer {
 
     //time:O(n) space:O(1)
     public Node copyRandomList2(Node head) {
-        if (head == null) {
-            return null;
-        }
+        if (head == null) return null;
         // first pass, keep copy pointers.
         Node cur = head;
         Node next = null;
@@ -84,7 +86,7 @@ public class _138_CopyListwithRandomPointer {
 
             copy = cur.next;
 
-            tail.next = copy; // 删除斜对角的那条线
+            tail.next = copy;
             tail = tail.next;
 
             cur.next = next;
@@ -92,7 +94,6 @@ public class _138_CopyListwithRandomPointer {
         }
         return dummy.next;
     }
-
     // 这个是复制带有next的node
     public static ListNode copyList(ListNode node) {
         ListNode newHead = null;

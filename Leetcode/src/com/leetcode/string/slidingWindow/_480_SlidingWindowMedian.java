@@ -3,18 +3,21 @@ package com.leetcode.string.slidingWindow;
 import java.util.Collections;
 import java.util.PriorityQueue;
 
-/**
- * @Date: 2019/7/23, 05/29/2020
- * @Description: PQ
- **/
 public class _480_SlidingWindowMedian {
 
-    // 记得注意考虑两数求平均数的时候，转换为long
+    /**
+     *  480. Sliding Window Median
+     *  When:2019/7/23
+     *  Difficulty: Hard
+     *  Solution:
+     *  利用pq来维护sliding window大小
+     * @param nums
+     * @param k
+     * @return
+     */
     //time:O(nk) 因为remove 需要O(k) 然后排序logK 但是 O(k)大 所以time:O(nk) space:O(k)
     public double[] medianSlidingWindow(int[] nums, int k) {
-        if (nums == null || nums.length == 0) {
-            return new double[]{};
-        }
+        if (nums == null || nums.length == 0) return new double[]{};
         //利用priorityQueue进行
         double[] res = new double[nums.length - k + 1];
         PriorityQueue<Integer> max = new PriorityQueue<>(Collections.reverseOrder());
@@ -35,7 +38,7 @@ public class _480_SlidingWindowMedian {
                 double median;
                 if (max.size() == min.size()) {
                     // 需要考虑到相加的时候可能会溢出。
-                    median = (double) ((long) max.peek() + (long) min.peek()) / 2;
+                    median = (double)((long)max.peek() + (long)min.peek()) / 2;
                 } else {
                     median = (double) max.peek();
                 }
@@ -51,12 +54,10 @@ public class _480_SlidingWindowMedian {
 
     public static double[] medianSlidingWindow2(int[] nums, int k) {
         // even for k ??? 利用两个PQ。
-        if (nums == null || nums.length == 0) {
-            return new double[]{};
-        }
+        if (nums == null || nums.length == 0) return new double[]{};
         double[] res = new double[nums.length - k + 1];
         PriorityQueue<Integer> max = new PriorityQueue<>(
-            (a, b) -> b.compareTo(a));
+                (a, b) -> b.compareTo(a));
         PriorityQueue<Integer> min = new PriorityQueue<>();
         for (int i = 0; i < nums.length; i++) {
             min.offer(nums[i]);
@@ -68,7 +69,7 @@ public class _480_SlidingWindowMedian {
             if (min.size() + max.size() == k) {
                 double median;
                 if (min.size() == max.size()) {
-                    median = (double) ((long) min.peek() + (long) max.peek()) / 2.0;
+                    median = (double)((long)min.peek() + (long)max.peek()) / 2.0;
                 } else {
                     median = (double) (min.peek());
                 }

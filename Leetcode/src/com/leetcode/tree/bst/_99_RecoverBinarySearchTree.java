@@ -9,7 +9,7 @@ public class _99_RecoverBinarySearchTree {
     TreeNode first = null;
     TreeNode second = null;
     TreeNode prev = null;
-    // prev应该是在中序里面设置！！！记住
+
     // first 需要check是否为null，为了记录第一个first！！！
     // space: O(n)
     public void recoverTree(TreeNode root) {

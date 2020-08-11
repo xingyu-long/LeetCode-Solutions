@@ -3,11 +3,36 @@ package com.leetcode.array;
 import java.util.HashMap;
 import java.util.TreeSet;
 
-/**
- * @Date: 2019/8/2, 07/13/2020
- * @Description: treeset, HashMap
- **/
 public class _220_ContainsDuplicateIII {
+
+    /**
+     *  220. Contains Duplicate III
+     *  When:2019/8/2
+     *  11/26
+     *  Difficulty: Medium
+     *  solution:
+     *  bucket, treeSet
+     * @param nums
+     * @param k
+     * @param t
+     * @return
+     */
+    // 暴力求解会导致TLE
+    public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+        if (nums == null || nums.length == 0 || k <= 0 || t < 0) {
+            return false;
+        }
+        // brute force
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j - i <= k && j < nums.length; j++) {
+                if (Math.abs(Long.valueOf(nums[j]) - Long.valueOf(nums[i])) <= t) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 
     //  https://www.youtube.com/watch?v=yc4hCFzNNQc
     //  利用TreeSet，其实相当于维持一个BST，方便找它的floor和ceil值
@@ -21,7 +46,7 @@ public class _220_ContainsDuplicateIII {
         for (int i = 0; i < nums.length; i++) {
             //ceil >= 的最小值
             Integer ceil = set.ceiling(nums[i]);
-            if (ceil != null && (Long.valueOf(ceil) - Long.valueOf(nums[i])) <= t) {
+            if (ceil !=null && (Long.valueOf(ceil) - Long.valueOf(nums[i])) <= t) {
                 return true;
             }
 
@@ -32,7 +57,7 @@ public class _220_ContainsDuplicateIII {
             }
 
             set.add(nums[i]);
-            if (i >= k) { // 维持k + 1的size
+            if (i >= k) { // 维持k的size
                 set.remove(nums[i - k]);
             }
         }
@@ -50,12 +75,12 @@ public class _220_ContainsDuplicateIII {
             long reMapperNum = (long) nums[i] - Integer.MIN_VALUE;
             long bucket = reMapperNum / ((long) t + 1); // 这里用t，可以确定在同一个桶里。
             if (map.containsKey(bucket)
-                || (map.containsKey(bucket - 1) && reMapperNum - map.get(bucket - 1) <= t)
-                || (map.containsKey(bucket + 1) && map.get(bucket + 1) - reMapperNum <= t)) {
+                    || (map.containsKey(bucket - 1) && reMapperNum - map.get(bucket - 1) <= t)
+                    || (map.containsKey(bucket + 1) && map.get(bucket + 1) - reMapperNum <= t)) {
                 return true;
             }
             if (map.entrySet().size() >= k) {
-                long lastBucket = ((long) nums[i - k] - Integer.MIN_VALUE) / ((long) t + 1);
+                long lastBucket = ((long) nums[i - k]  - Integer.MIN_VALUE)/ ((long) t + 1);
                 map.remove(lastBucket);
             }
             map.put(bucket, reMapperNum);
@@ -64,7 +89,7 @@ public class _220_ContainsDuplicateIII {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1, 5, 9, 1, 5, 9};
+        int[] nums = {1,5,9,1,5,9};
         int k = 2;
         int t = 3;
         containsNearbyAlmostDuplicate2(nums, k, t);

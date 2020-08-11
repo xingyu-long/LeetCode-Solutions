@@ -31,6 +31,10 @@ public class _135_Candy {
                 count[i] = Math.max(count[i], count[i + 1] + 1);
             }
         }
-        return Arrays.stream(count).sum();
+        int res = 0;
+        for (int j = 0; j < count.length; j++) {
+            res += count[j];
+        }
+        return res;
     }
 }

@@ -10,7 +10,8 @@ public class _297_SerializeandDeserializeBinaryTree {
 
     /**
      * 297. Serialize and Deserialize Binary Tree
-     * When:2019/7/28, 11/4/2019, 04/07/2020
+     * When:2019/7/28
+     * review1:11/4/2019
      * Difficulty: Hard
      *
      * @param root
@@ -23,17 +24,23 @@ public class _297_SerializeandDeserializeBinaryTree {
         Queue<TreeNode> queue = new LinkedList<>();
         StringBuilder sb = new StringBuilder();
         queue.offer(root);
+        sb.append(root.val);
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 TreeNode cur = queue.poll();
-                if (cur == null) {
-                    sb.append("null,");
-                    continue;
+                if (cur.left == null) {
+                    sb.append(",null");
+                } else if (cur.left != null) {
+                    sb.append("," + cur.left.val);
+                    queue.offer(cur.left);
                 }
-                sb.append(cur.val + ",");
-                queue.offer(cur.left);
-                queue.offer(cur.right);
+                if (cur.right == null) {
+                    sb.append(",null");
+                } else if (cur.right != null) {
+                    sb.append("," + cur.right.val);
+                    queue.offer(cur.right);
+                }
             }
         }
         return sb.toString();
@@ -89,5 +96,8 @@ public class _297_SerializeandDeserializeBinaryTree {
         newNode.left = helper(queue);
         newNode.right = helper(queue);
         return newNode;
+    }
+    public static void main(String[] args) {
+        deserialize("1,3,null,4,null,null");
     }
 }

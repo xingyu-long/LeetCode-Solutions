@@ -5,39 +5,42 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * @Date: 2019/8/5, 05/25/2020
- * @Description: Encode, offset
- **/
 public class _249_GroupShiftedStrings {
 
+    /**
+     * 249. Group Shifted Strings
+     * When:2019/8/5
+     * Difficulty: Medium
+     * Solution: 一开始理解错了题意
+     * @param strings
+     * @return
+     */
     // https://www.cnblogs.com/lightwindy/p/8727587.html
     // 相对距离
     public static List<List<String>> groupStrings(String[] strings) {
         List<List<String>> res = new ArrayList<>();
-        if (strings == null || strings.length == 0) {
-            return res;
-        }
+        if (strings == null || strings.length == 0) return res;
         HashMap<String, List<String>> map = new HashMap<>();
         for (String str : strings) {
             int offset = str.charAt(0) - 'a';
-            StringBuilder sb = new StringBuilder();
+            String key = "";
             for (int i = 0; i < str.length(); i++) {
-                char c = (char) (str.charAt(i) - offset);
+                char c = (char)(str.charAt(i) - offset);
                 if (c < 'a') {
                     c += 26;
                 }
-                sb.append(c);
+                key += c;
             }
-            String key = sb.toString();
             if (!map.containsKey(key)) {
                 List<String> list = new ArrayList<>();
                 map.put(key, list);
             }
             map.get(key).add(str);
         }
-        for (String key : map.keySet()) {
-            res.add(map.get(key));
+        for(String key : map.keySet()) {
+            List<String> list = map.get(key);
+            Collections.sort(list);
+            res.add(list);
         }
         return res;
     }

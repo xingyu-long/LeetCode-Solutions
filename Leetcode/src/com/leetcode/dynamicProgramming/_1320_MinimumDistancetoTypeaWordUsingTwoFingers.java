@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class _1320_MinimumDistancetoTypeaWordUsingTwoFingers {
 
     /**
-     * When: 3/8/2020, 4/24/2020
+     * When: 3/8/2020
      * @param word
      * @return
      */

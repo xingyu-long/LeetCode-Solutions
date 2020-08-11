@@ -2,34 +2,42 @@ package com.leetcode.linkedList;
 
 import com.leetcode.common.ListNode;
 
-/**
- * @Date: 07/13/2020
- * @Description: Sort, List
- **/
 public class _147_InsertionSortList {
 
+    /**
+     * 147. Insertion Sort List
+     * When: 2019/05/22
+     * Difficulty: Medium
+     * Review1: 2019/7/11
+     * review2:2019/9/2
+     *
+     * <p>
+     * solution: 主要利用三个指针，实现插入排序
+     * 注意使用pre来从前循环
+     * @param head
+     * @return
+     */
     //time: O(n^2) space: O(1)
     public ListNode insertionSortList(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
+        if (head == null || head.next == null) return head;
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-        ListNode prev = dummy, curr = head, next = null;
-        while (curr != null && curr.next != null) {
-            if (curr.val <= curr.next.val) {
-                curr = curr.next;
+        ListNode cur = head;
+        ListNode pre; // 用来找比当前小的最大的位置（从这里连接目标元素）
+        ListNode temp; // 用来存储当前的下一个
+        while (cur != null && cur.next != null) {
+            if (cur.val <= cur.next.val) {
+                cur = cur.next;
             } else {
-                int val = curr.next.val;
-                prev = dummy; // 利用prev找到插入点。
-                while (prev.next != null && prev.next.val < val) {
-                    prev = prev.next;
+                temp = cur.next;
+                cur.next = temp.next; // 把temp元素孤立出来，看插入的位置。
+                pre = dummy;
+                // 直到找到比temp大的位置
+                while (pre.next.val <= temp.val) {
+                    pre = pre.next; // 一直查找小于temp里面最大的数
                 }
-                // 插入curr.next这个节点
-                next = curr.next;
-                curr.next = next.next;
-                next.next = prev.next;
-                prev.next = next;
+                temp.next = pre.next;
+                pre.next = temp;
             }
         }
         return dummy.next;

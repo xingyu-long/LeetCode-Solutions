@@ -10,10 +10,7 @@ public class _Nov_14_ArrayIndexElementEquality {
         int left = 0;
         int right = arr.length - 1;
         while (left + 1 < right) {
-            int mid = left + (right - left) / 2; // in case of overflow;
-            // 举例子，确定走向问题，因为也是没有重复的前提
-            // 当arr[i] > i的时候，只能看左边是否有匹配的
-            // 当arr[i] < i的时候，只能看右边是否有匹配的
+            int mid = left + (right - left) / 2; // in case of oveflow;
             if (arr[mid] >= mid) {
                 right = mid;
             } else {

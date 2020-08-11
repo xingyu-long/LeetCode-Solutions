@@ -27,7 +27,7 @@ public class _341_FlattenNestedListIterator {
     }
 
     public boolean hasNext() {
-        while (!stack.isEmpty()) { // 这样可以确保，我们能够得到integer在里面
+        while (!stack.isEmpty()) {
             NestedInteger cur = stack.peek();
             if (cur.isInteger()) {
                 return true;

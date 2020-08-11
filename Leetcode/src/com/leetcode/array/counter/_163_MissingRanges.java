@@ -3,12 +3,19 @@ package com.leetcode.array.counter;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @Date: 07/05/2020
- * @Description: simulation,
- **/
 public class _163_MissingRanges {
+    /**
+     *  163. Missing Ranges
+     *  When:2019/8/4
+     *  Difficulty: Medium
 
+
+         Given a sorted integer array where the range of elements are in the inclusive range [lower, upper],
+         return its missing ranges.
+
+         For example, given [0, 1, 3, 50, 75], lower = 0 and upper = 99, return ["2", "4->49", "51->74", "76->99"].
+        solution: 一直去找缺失的部分
+     */
     public List<String> findMissingRanges(int[] nums, int lower, int upper) {
         List<String> res = new ArrayList<>();
         long alower = (long) lower, aupper = (long) upper;
@@ -30,35 +37,6 @@ public class _163_MissingRanges {
             res.add(String.valueOf(alower));
         } else if (alower < aupper) {
             res.add(alower + "->" + aupper);
-        }
-        return res;
-    }
-
-    // 一步一步的计算，这个很重要！
-    public List<String> findMissingRanges2(int[] nums, int lower, int upper) {
-        long curr = lower;
-        int index = 0;
-        List<String> res = new ArrayList<>();
-        while (curr <= upper && index < nums.length) {
-            if (curr == nums[index]) {
-                index++;
-                curr += 1;
-            } else {
-                if (nums[index] - curr == 1) {
-                    // one element;
-                    res.add("" + curr);
-                } else if (nums[index] - curr > 1) {
-                    // store the range.
-                    res.add(curr + "->" + (nums[index] - 1));
-                }
-                curr = nums[index];
-            }
-        }
-        // check the upper bound;
-        if (upper - curr == 0) {
-            res.add("" + upper);
-        } else if (upper - curr > 0) {
-            res.add(curr + "->" + upper);
         }
         return res;
     }

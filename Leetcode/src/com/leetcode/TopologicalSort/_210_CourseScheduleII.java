@@ -24,7 +24,7 @@ public class _210_CourseScheduleII {
             indegree[pair[0]]++;
         }
         int[] res = new int[num];
-
+        int k = 0;
         Queue<Integer> queue = new LinkedList<>();
         //度为0的时候 入queue
         for (int i = 0; i < num; i++) {
@@ -32,10 +32,11 @@ public class _210_CourseScheduleII {
                 queue.offer(i);
             }
         }
-        int count = 0;
+
         while (!queue.isEmpty()) {
             int pre = queue.poll();
-            res[count++] = pre;
+            res[k++] = pre;
+            num--;
             for (int[] pair : prerequisites) {
                 if (pair[1] == pre) {
                     indegree[pair[0]]--;
@@ -45,6 +46,7 @@ public class _210_CourseScheduleII {
                 }
             }
         }
-        return count == num ? res : new int[]{};
+        if (num != 0) return new int[]{};
+        else return res;
     }
 }

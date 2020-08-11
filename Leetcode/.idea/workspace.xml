@@ -14,12 +14,6 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="49" />
-    <option name="y" value="23" />
-    <option name="width" value="1391" />
-    <option name="height" value="821" />
-  </component>
   <component name="ProjectId" id="1fyCGJpykaSo9jeV4Q74JNSVhak" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -30,6 +24,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunManager" selected="Application.FirstMissingPositive">
@@ -321,15 +316,14 @@
       <workItem from="1549956108131" duration="659000" />
       <workItem from="1550038808806" duration="6376000" />
       <workItem from="1559979782441" duration="38000" />
-      <workItem from="1597180853984" duration="294000" />
+      <workItem from="1597180853984" duration="799000" />
+      <workItem from="1597181751938" duration="287000" />
+      <workItem from="1597182050411" duration="236000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
@@ -337,10 +331,15 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
-    <state x="198" y="100" key="SettingsEditor" timestamp="1597181153938">
-      <screen x="0" y="23" width="1394" height="877" />
+    <state x="242" y="52" key="SettingsEditor" timestamp="1597182111212">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="198" y="100" key="SettingsEditor/0.23.1394.877@0.23.1394.877" timestamp="1597181153938" />
+    <state x="242" y="52" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1597182111212" />
+    <state x="384" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1597181485968">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="384" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1597181485968" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

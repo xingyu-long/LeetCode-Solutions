@@ -2,15 +2,43 @@ package com.leetcode.bfsANDdfs;
 
 import java.util.*;
 
-/**
- * @Date: 2019/06/03, 2019/7/24, 04/15/2020, 6/5/2020
- * @Description: BFS
- **/
 public class _127_WordLadder {
 
+    /**
+     *  127. Word Ladder
+     *  When: 2019/06/03
+     *  Review1:2019/7/24
+     *  估计这里的shortest路径就是仅仅找到的这一条。
+     * solution:
+     * 利用BFS，寻找那些共同的pattern 变换
+     * test case:
+     * beginWord = "hit",
+     * endWord = "cog",
+     * wordList = ["hot","dot","dog","lot","log","cog"]
+     *
+     *                hit
+     *                |
+     *                hot
+     *               / \
+     *             dot lot
+     *             /    |
+     *            dog   log
+     *            /
+     *           cog
+     *
+     * @param beginWord
+     * @param endWord
+     * @param wordList
+     * @return
+     */
+
+    /**
+     提出的问题？
+     如何确定相差1，或者高效的方式确定: word的每个位置用'a'-'z'进行循环
+     */
     //利用set来保存wordList;
     // 利用set来remove那些用过的
-    // time: O(len(word) * 26 * wordList)
+    // time: O(m * n)
     // space: O(n) (set and queue)
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         HashSet<String> set = new HashSet<>(wordList);
@@ -26,12 +54,11 @@ public class _127_WordLadder {
         while (!queue.isEmpty()) {
             String word = queue.poll();
             curNum--;
-            for (int i = 0; i < word.length(); i++) {
+            for (int i = 0; i <  word.length(); i++) {
                 char[] wordUnit = word.toCharArray();
                 for (char j = 'a'; j <= 'z'; j++) {
                     wordUnit[i] = j;
-                    String temp = new String(
-                        wordUnit); // 这里相当于每次拼装成的字符串，然后看set里面是否有，并且看是否等于endWord 这样的话就可以level + 1
+                    String temp = new String(wordUnit); // 这里相当于每次拼装成的字符串，然后看set里面是否有，并且看是否等于endWord 这样的话就可以level + 1
                     if (set.contains(temp)) {
                         if (temp.equals(endWord)) {
                             return level + 1; //这里的加1 是把最后的元素加入
@@ -86,55 +113,52 @@ public class _127_WordLadder {
         return 0;
     }
 
-    // Bidirectional BFS
-    // q1, q2轮流换，q1用来向前尝试更换，并且加入到q中，如果q1.size() > q2.size()
-    // 则会q1，q2交换，中间用q2来验证是否走到了有相同的词语。
-    public int ladderLength3(String beginWord, String endWord, List<String> wordList) {
-        HashSet<String> dict = new HashSet<>(wordList);
-        if (!dict.contains(endWord)) {
-            return 0;
+    // DFS, TLE
+    public static int res;
+    public static int ladderLength3(String beginWord, String endWord, List<String> wordList) {
+        if (wordList == null || wordList.size() == 0) return 0;
+        if (!wordList.contains(endWord)) return 0;
+        if (wordList.contains(beginWord)) wordList.remove(beginWord);
+        res = Integer.MAX_VALUE;
+        List<List<String>> resL = new ArrayList<>();
+        dfs(resL, new ArrayList<>(), beginWord, endWord, wordList, 1, new HashSet<>());
+        for (List<String> each : resL) {
+            System.out.println(each);
         }
-        dict.remove(beginWord);
+        return res == Integer.MAX_VALUE ? 0 : res;
+    }
 
-        Set<String> q1 = new HashSet<>();
-        Set<String> q2 = new HashSet<>();
+    public static void dfs(List<List<String>> resL, List<String> list, String beginWord, String endWord, List<String> wordList, int level, HashSet<String> set) {
 
-        q1.add(beginWord);
-        q2.add(endWord);
-
+        //string 比较是 .equals()
+        if (beginWord.equals(endWord)) {
+            resL.add(new ArrayList<>(list));
+            res = Math.min(res,level);
+        }
+        for (int i = 0; i < wordList.size(); i++) {
+            String word = wordList.get(i);
+            if (isValid(beginWord, word) && !set.contains(word)) {
+                list.add(word);
+                set.add(word);
+                dfs(resL, list, word, endWord, wordList, level + 1, set);
+                set.remove(word);
+                list.remove(word);
+            }
+        }
+    }
+    public static boolean isValid(String a, String b) {
+        if (a.length() != b.length()) return false;
         int res = 0;
-
-        while (!q1.isEmpty() && !q2.isEmpty()) {
-            res++;
-            // swap
-            if (q1.size() > q2.size()) {
-                Set<String> temp = q1;
-                q1 = q2;
-                q2 = temp;
-            }
-
-            Set<String> q = new HashSet<>();
-            for (String word : q1) {
-                char[] chs = word.toCharArray();
-                for (int i = 0; i < word.length(); i++) {
-                    char c = chs[i];
-                    for (char ch = 'a'; ch <= 'z'; ch++) {
-                        chs[i] = ch;
-                        String s = new String(chs);
-                        if (q2.contains(s)) {
-                            return res + 1;
-                        }
-                        if (!dict.contains(s)) {
-                            continue;
-                        }
-                        dict.remove(s);
-                        q.add(s);
-                    }
-                    chs[i] = c;
-                }
-            }
-            q1 = q;
+        for (int i = 0; i < a.length(); i++) {
+            if (a.charAt(i) != b.charAt(i)) res++;
         }
-        return 0;
+        return res == 1;
+    }
+
+    public static void main(String[] args) {
+        String beginWord = "hot";
+        String endWord = "dog";
+        List<String> list = new ArrayList<>(Arrays.asList("hot","dog","dot"));
+        System.out.println(ladderLength3(beginWord, endWord, list));
     }
 }
