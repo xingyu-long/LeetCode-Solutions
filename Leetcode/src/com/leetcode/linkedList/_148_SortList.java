@@ -3,19 +3,6 @@ package com.leetcode.linkedList;
 import com.leetcode.common.ListNode;
 
 public class _148_SortList {
-
-    /**
-     * 148. Sort List
-     * When: 2019/5/17
-     * Review1: 2019/7/8
-     * review2: 2019/9/1
-     * Difficulty: Medium
-     * <p>
-     * Sort a linked list in O(n log n) time using constant space complexity.
-     *
-     * @param head
-     * @return
-     */
     // time: O(nlog^n) space: O(n)
     public ListNode sortList(ListNode head) {
         // 使用归并排序

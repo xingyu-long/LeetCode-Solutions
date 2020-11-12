@@ -10,6 +10,7 @@ import java.util.PriorityQueue;
  **/
 public class _787_CheapestFlightsWithinKStops {
 
+    // 也可以用DP的方法。
     // 不是shortest path的解法，只是每次计算你最早能够到达的距离以及dst对应distance
     public int findCheapestPrice(int n, int[][] flights, int src, int dst, int K) {
         Map<Integer, Map<Integer, Integer>> graph = buildGraph(flights);

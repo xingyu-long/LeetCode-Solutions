@@ -4,15 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class _293_FlipGame {
-    /**
-     *  293. Flip Game
-     *  When:2019/8/5
-     *  review1:2019/8/24
-     *  Difficulty: Easy
-     * @param s
-     * @return
-     */
-    // time: O(n) space:O(n)
+
+    // time: O(n * substring()) space:O(n)
     // 不用改变当前的数组
     public static List<String> generatePossibleNextMoves2(String s) {
         List<String> res = new ArrayList<>();

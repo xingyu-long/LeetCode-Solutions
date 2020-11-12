@@ -1,45 +1,30 @@
-package com.leetcode.Design;
+package com.leetcode.design;
 
-import java.util.List;
-
+/**
+ * @Date: 09/26/2020
+ * @Description: Flatten
+ **/
 public class _251_Flatten2DVector {
-    /**
-     * 251. Flatten 2D Vector
-     * When: 2019/7/4
-     * Given 2d vector =
-
-     [
-     [1,2],
-     [3],
-     [4,5,6]
-     ]
-     By calling next repeatedly until hasNext returns false,
-     the order of elements returned by next should be: [1,2,3,4,5,6].
-
-     time : O(n)
-     space : O(1)
-
-     */
-    int indexList, indexElment;
-    List<List<Integer>> list;
-
-    public _251_Flatten2DVector(List<List<Integer>> vec2d) {
-        indexElment = 0;
-        indexList = 0;
-        list = vec2d;
+    int[][] v;
+    int row, col;
+    // 需要注意有的会是空的，所以需要遍历对比。
+    public _251_Flatten2DVector(int[][] v) {
+        this.v = v;
+        row = col = 0;
     }
 
-    public Integer next() {
-        return list.get(indexList).get(indexElment++);
+    public int next() {
+        if (hasNext()) return v[row][col++];
+        return -1;
     }
 
     public boolean hasNext() {
-        while (indexList < list.size()) {
-            if (indexElment < list.get(indexList).size()) {
+        while (row < v.length) {
+            if (col < v[row].length) {
                 return true;
             } else {
-                indexList++;
-                indexElment = 0;
+                row++;
+                col = 0;
             }
         }
         return false;

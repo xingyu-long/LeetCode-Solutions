@@ -52,7 +52,7 @@ public class _28_ImplementstrStr {
         for (int i = 0; i <= m - n; i++) {
             //一直循环到跟needle开头的起点
             int j = 0;
-            for (j = 0; j < n; j++) {
+            for ( ; j < n; j++) {
                 if (haystack.charAt(i + j) != needle.charAt(j)) {
                     break;
                 }

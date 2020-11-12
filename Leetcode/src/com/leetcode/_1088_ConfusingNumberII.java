@@ -6,11 +6,11 @@ public class _1088_ConfusingNumberII {
     int count;
     public int confusingNumberII(int N) {
         count = 0;
-        helper(0, N);
+        build(0, N);
         return count;
     }
 
-    public void helper(long num, int n) {
+    public void build(long num, int n) {
         if (num > n) return;
         if (num != 0) {
             if (rotate(num) != num) {
@@ -18,13 +18,13 @@ public class _1088_ConfusingNumberII {
                 count++;
             }
         }
-        if (num != 0) helper(num * 10, n); // 10的话会在num = 1触发到。
-        helper(num * 10 + 1, n);
-        helper(num * 10 + 6, n);
-        helper(num * 10 + 8, n);
-        helper(num * 10 + 9, n);
+        if (num != 0) build(num * 10, n); // 10的话会在num = 1触发到。
+        build(num * 10 + 1, n);
+        build(num * 10 + 6, n);
+        build(num * 10 + 8, n);
+        build(num * 10 + 9, n);
     }
-
+    // 因为确定只有0,1,6,8,9这几个数字。
     public long rotate(long num) {
         long res = 0;
         while (num != 0) {

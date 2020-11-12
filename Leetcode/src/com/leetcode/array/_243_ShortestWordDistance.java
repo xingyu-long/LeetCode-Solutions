@@ -25,20 +25,10 @@ public class _243_ShortestWordDistance {
         return res;
     }
 
-    /**
-     * solution3： 依然用获取其位置后然后比较的方式
-     *
-     * space: O(1)
-     * time: O(n)
-     * @param words
-     * @param word1
-     * @param word2
-     * @return
-     */
+    // Time: O(n)
     public static int shortestDistance2(String[] words, String word1, String word2) {
         int res = words.length;
-        int a = -1;
-        int b = -1;
+        int a = -1, b = -1;
         for (int i = 0; i < words.length; i++) {
             if (words[i].equals(word1)) {
                 a = i;

@@ -1,4 +1,4 @@
-package com.leetcode.Design;
+package com.leetcode.design;
 
 class _706_DesignHashMap {
 
@@ -15,6 +15,7 @@ class _706_DesignHashMap {
     /**
      * value will always be non-negative.
      */
+    // 这里之前写错了。。。
     public void put(int key, int value) {
         int idx = getIndex(key);
         // 如果是bucket 赋值就错误了

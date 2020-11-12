@@ -49,8 +49,4 @@ public class _279_PerfectSquares {
         }
         return dp[n];
     }
-
-    public static void main(String[] args) {
-        numSquares2(2);
-    }
 }

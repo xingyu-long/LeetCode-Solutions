@@ -12,7 +12,6 @@ public class _673_NumberofLongestIncreasingSubsequence {
         int[] ways = new int[n];// 表示以当前i结尾，有多少条路径可以走到这里。
         Arrays.fill(dp, 1);
         Arrays.fill(ways, 1);
-        ways[0] = 1;
         int max = 0;
         int res = 0;
         for (int i = 0; i < n; i++) {

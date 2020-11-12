@@ -23,21 +23,21 @@ public class _445_AddTwoNumbersII {
             s2.push(l2.val);
             l2 = l2.next;
         }
-        ListNode cur = new ListNode(0);
+
+        ListNode head = null;
         int carry = 0;
-        while (!s1.isEmpty() || !s2.isEmpty()) {
+        while (!s1.isEmpty() || !s2.isEmpty() || carry != 0) {
             if (!s1.isEmpty()) {
                 carry += s1.pop();
             }
             if (!s2.isEmpty()) {
                 carry += s2.pop();
             }
-            cur.val = carry % 10;
-            ListNode head = new ListNode(carry / 10);
-            head.next = cur;
-            cur = head;
+            ListNode node = new ListNode(carry % 10);
+            node.next = head;
             carry /= 10;
+            head = node;
         }
-        return cur.val == 0 ? cur.next : cur;
+        return head;
     }
 }

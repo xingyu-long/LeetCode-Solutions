@@ -1,9 +1,5 @@
 package com.leetcode.array;
 
-/**
- * Created by longxingyu on 2019/2/13.
- */
-
 // LeetCode No. 41
 public class _41_FirstMissingPositive {
 
@@ -19,7 +15,7 @@ public class _41_FirstMissingPositive {
      */
 
     //time:O(n) space:O(1)
-    public static int firstMissingPositive(int[] nums) {
+    public static int firstMissingPositive(final int[] nums) {
         if (nums == null || nums.length == 0) return 1;
         for (int i = 0; i < nums.length; i++) {
             while (nums[i] - 1 >= 0 && nums[i] - 1 < nums.length
@@ -33,14 +29,14 @@ public class _41_FirstMissingPositive {
         return nums.length + 1;
     }
 
-    public static void exch(int[] nums, int a, int b) {
-        int temp = nums[a];
+    public static void exch(final int[] nums, final int a, final int b) {
+        final int temp = nums[a];
         nums[a] = nums[b];
         nums[b] = temp;
     }
 
 
-    public static void main(String[] args){
+    public static void main(final String[] args){
         System.out.println(firstMissingPositive(new int[]{3, 4, -1, 1}));
     }
 }

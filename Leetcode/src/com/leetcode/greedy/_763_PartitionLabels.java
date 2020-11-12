@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Date: 05/12/2020
+ * @Date: 05/12/2020, 10/24/2020
  * @Description: Greedy, Index Map
  **/
 public class _763_PartitionLabels {

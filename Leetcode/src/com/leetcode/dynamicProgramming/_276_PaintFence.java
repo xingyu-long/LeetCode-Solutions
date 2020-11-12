@@ -28,11 +28,14 @@ public class _276_PaintFence {
     public int numWays(int n, int k) {
         if (n == 0) return 0;
         if (n == 1) return k;
-        int same = 0, diff = k, res = k; // res = same + diff
-        for (int i = 2; i <= n; i++) {
-            same = diff;
-            diff = res * (k - 1);
-            res = same + diff;
+        int same = k;
+        int diff = k * (k - 1);
+        int res = same + diff;
+        for (int i = 2; i < n; i++) {
+            int nextSame = diff;
+            int nextDiff = res * (k - 1); // 之前的所有结果 * (k-1)表示与之前的倒数第一位不同。
+            res = (nextSame + nextDiff);
+            diff = nextDiff;
         }
         return res;
     }

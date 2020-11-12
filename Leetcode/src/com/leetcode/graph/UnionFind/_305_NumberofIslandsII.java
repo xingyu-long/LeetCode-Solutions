@@ -52,7 +52,7 @@ public class _305_NumberofIslandsII {
         for (int[] pos : positions) {
             int index = n * pos[0] + pos[1];
             // 有的test case会重复加入这一个pos
-            if (uf.id[index] != -1) {
+            if (uf.id[index] != -1) { // 利用是否等于-1来判断是否有被访问过。
                 res.add(count);
             } else {
                 uf.id[index] = index;

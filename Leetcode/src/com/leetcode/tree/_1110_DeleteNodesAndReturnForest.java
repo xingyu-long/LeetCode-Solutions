@@ -5,6 +5,7 @@ import com.leetcode.common.TreeNode;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @Date: 04/20/2020
@@ -77,5 +78,33 @@ public class _1110_DeleteNodesAndReturnForest {
             root.right = null;
         }
         return deleted;
+    }
+
+
+    List<TreeNode> res;
+    // huahua的解法，最后检验root即可
+    public List<TreeNode> delNodes3(TreeNode root, int[] to_delete) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : to_delete) {
+            set.add(num);
+        }
+        res = new ArrayList<>();
+        delete(root, set);
+        if (!set.contains(root.val)) res.add(root);
+        return res;
+    }
+
+    public TreeNode delete(TreeNode root, Set<Integer> set) {
+        if (root == null) {
+            return root;
+        }
+
+        root.left = delete(root.left, set);
+        root.right = delete(root.right, set);
+
+        if (!set.contains(root.val)) return root;
+        if (root.left != null) res.add(root.left);
+        if (root.right != null) res.add(root.right);
+        return null;
     }
 }

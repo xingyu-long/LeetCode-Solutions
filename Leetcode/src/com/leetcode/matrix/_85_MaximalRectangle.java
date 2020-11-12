@@ -2,7 +2,7 @@ package com.leetcode.matrix;
 
 import java.util.Stack;
 
-public class _85_MaximalRectangle {
+public class  _85_MaximalRectangle {
     // 85. Maximal Rectangle
     // time:O(m * (n + n))
     public int maximalRectangle(char[][] matrix) {

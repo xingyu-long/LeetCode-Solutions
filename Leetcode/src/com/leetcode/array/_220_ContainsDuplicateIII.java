@@ -21,13 +21,13 @@ public class _220_ContainsDuplicateIII {
         for (int i = 0; i < nums.length; i++) {
             //ceil >= 的最小值
             Integer ceil = set.ceiling(nums[i]);
-            if (ceil != null && (Long.valueOf(ceil) - Long.valueOf(nums[i])) <= t) {
+            if (ceil != null && (Long.valueOf(ceil) - (long) nums[i]) <= t) {
                 return true;
             }
 
             //floor <= 最大值
             Integer floor = set.floor(nums[i]);
-            if (floor != null && (Long.valueOf(nums[i]) - Long.valueOf(floor)) <= t) {
+            if (floor != null && ((long) nums[i] - Long.valueOf(floor)) <= t) {
                 return true;
             }
 

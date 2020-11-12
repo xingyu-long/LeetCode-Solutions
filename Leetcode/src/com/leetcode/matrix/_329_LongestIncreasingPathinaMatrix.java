@@ -3,8 +3,6 @@ package com.leetcode.matrix;
 import java.util.Arrays;
 
 public class _329_LongestIncreasingPathinaMatrix {
-    // 典型的DFS，但是那种结果值在最后的，不好做memo。
-    // 不好做memo。
     int res = 0;
     // time:O(2^{m+n})
 
@@ -17,6 +15,7 @@ public class _329_LongestIncreasingPathinaMatrix {
      * .           .
      * .           .
      * m m+1 . . . n+m-1
+     *
      * @param matrix
      * @return
      */
@@ -74,8 +73,8 @@ public class _329_LongestIncreasingPathinaMatrix {
     }
 
     public int dfs(int[][] matrix, int row, int col, Integer prev, boolean[][] visited, int[][] memo) {
-        if (row < 0 || row >= matrix.length ||
-                col < 0 || col >= matrix[0].length || visited[row][col] || (prev != null && matrix[row][col] <= prev)) {
+        if (row < 0 || row >= matrix.length || col < 0 || col >= matrix[0].length
+                || visited[row][col] || (prev != null && matrix[row][col] <= prev)) {
             return 0;
         }
         if (memo[row][col] != -1) return memo[row][col];

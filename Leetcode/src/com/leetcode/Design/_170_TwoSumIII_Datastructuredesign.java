@@ -1,8 +1,9 @@
-package com.leetcode.Design;
+package com.leetcode.design;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class _170_TwoSumIII_Datastructuredesign {
 
@@ -21,28 +22,23 @@ public class _170_TwoSumIII_Datastructuredesign {
 
      */
 
-    private List<Integer> list;
-    private HashMap<Integer, Integer> map;
+    Map<Integer, Integer> map;
 
-    public void TwoSum() {
-        list = new ArrayList<>();
+    /** Initialize your data structure here. */
+    public _170_TwoSumIII_Datastructuredesign() {
         map = new HashMap<>();
     }
 
-    public void add2(int number) {
-        if (!map.containsKey(number)) {
-            map.put(number, 1);
-            list.add(number);
-        } else {
-            map.put(number, map.get(number) + 1); // maybe there have duplicates
-        }
+    /** Add the number to an internal data structure.. */
+    public void add(int number) {
+        map.put(number, map.getOrDefault(number, 0) + 1);
     }
 
-    public boolean find2(int value) {
-        for (Integer num1 : list) {
+    /** Find if there exists any pair of numbers which sum is equal to the value. */
+    public boolean find(int value) {
+        for (int num1 : map.keySet()) {
             int num2 = value - num1;
-            // two same nums OR different nums
-            if ((num1 == num2) && map.get(num1) > 1 || (num1 != num2 && map.containsKey(num2))) {
+            if ((num1 == num2) && map.get(num1) > 1 || (num1 != num2) && map.containsKey(num2)) {
                 return true;
             }
         }

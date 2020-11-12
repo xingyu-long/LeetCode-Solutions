@@ -3,7 +3,7 @@ package com.leetcode.dynamicProgramming.rangeDP;
 import java.util.Arrays;
 
 /**
- * @Date: 04/22/2020
+ * @Date: 04/22/2020, 09/07/2020
  * @Description: 区间DP
  **/
 public class _1039_MinimumScoreTriangulationofPolygon {
@@ -30,6 +30,7 @@ public class _1039_MinimumScoreTriangulationofPolygon {
         }
         int res = Integer.MAX_VALUE;
         for (int k = i + 1; k < j; k++) {
+            // 利用i, j, k构成三角形 然后遍历其他情况
             res = Math.min(res, dfs(A, i, k, memo) + A[i] * A[j] * A[k] + dfs(A, k, j, memo));
         }
         memo[i][j] = res;

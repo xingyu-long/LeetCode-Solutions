@@ -55,8 +55,4 @@ public class _299_BullsAndCows {
         }
         return bulls + "A" + cows + "B";
     }
-
-    public static void main(String[] args){
-        System.out.println(getHint("1123","0111"));
-    }
 }

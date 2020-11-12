@@ -38,7 +38,7 @@ public class _468_ValidateIPAddress {
                     return false;
                 }
             }
-            int num = Integer.valueOf(field);
+            int num = Integer.parseInt(field);
             // 这种情况就是为了防止 01.01.01.01
             if (!String.valueOf(num).equals(field) || num < 0 || num > 255) {
                 return false;

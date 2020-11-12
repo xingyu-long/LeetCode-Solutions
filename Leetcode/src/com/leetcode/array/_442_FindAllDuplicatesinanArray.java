@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Date: 07/10/2020
- * @Solution: 利用1~N的条件，每次取出当前值-1作为index，访问之后就把这个赋值为相反值，
- * 如果发现是负数，则表明之前也碰到过这个，就用index + 1加入到结果集
+ * @Date: 07/10/2020, 09/03/2020
+ * @Description: duplicate
  **/
+// 利用1~N的条件，每次取出当前值-1作为index，访问之后就把这个赋值为相反值，
+// 如果发现是负数，则表明之前也碰到过这个，就用index + 1加入到结果集
 public class _442_FindAllDuplicatesinanArray {
     public List<Integer> findDuplicates(int[] nums) {
         List<Integer> res = new ArrayList<>();
@@ -40,10 +41,5 @@ public class _442_FindAllDuplicatesinanArray {
         int temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;
-    }
-
-    public static void main(String[] args) {
-        _442_FindAllDuplicatesinanArray find = new _442_FindAllDuplicatesinanArray();
-        find.findDuplicates2(new int[]{2, 2, 3});
     }
 }

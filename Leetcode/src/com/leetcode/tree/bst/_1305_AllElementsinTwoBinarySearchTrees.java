@@ -43,4 +43,44 @@ public class _1305_AllElementsinTwoBinarySearchTrees {
         }
         return res;
     }
+
+    // 没有那么简洁，但是易于理解。
+    public List<Integer> getAllElements2(TreeNode root1, TreeNode root2) {
+        Stack<TreeNode> s1 = new Stack<>();
+        Stack<TreeNode> s2 = new Stack<>();
+        TreeNode curr1 = root1;
+        TreeNode curr2 = root2;
+        List<Integer> res = new ArrayList<>();
+        while (curr1 != null || curr2 != null || !s1.isEmpty() || !s2.isEmpty()) {
+            while (curr1 != null) {
+                s1.push(curr1);
+                curr1 = curr1.left;
+            }
+
+            while (curr2 != null) {
+                s2.push(curr2);
+                curr2 = curr2.left;
+            }
+            if (!s1.isEmpty() && !s2.isEmpty()) {
+                if (s1.peek().val > s2.peek().val) {
+                    curr2 = s2.pop();
+                    res.add(curr2.val);
+                    curr2 = curr2.right;
+                } else {
+                    curr1 = s1.pop();
+                    res.add(curr1.val);
+                    curr1 = curr1.right;
+                }
+            } else if (!s1.isEmpty()) {
+                curr1 = s1.pop();
+                res.add(curr1.val);
+                curr1 = curr1.right;
+            } else if (!s2.isEmpty()) {
+                curr2 = s2.pop();
+                res.add(curr2.val);
+                curr2 = curr2.right;
+            }
+        }
+        return res;
+    }
 }

@@ -43,8 +43,8 @@ public class _560_SubarraySumEqualsK {
         map.put(0, 1); // 这个是记录，刚好sum为k的情况，1,2,3 -> sum: 1,3,6 k = 3.
         int res = 0;
         int sum = 0;
-        for (int i = 0; i < nums.length; i++) {
-            sum += nums[i];
+        for (int num : nums) {
+            sum += num;
             if (map.containsKey(sum - k)) {
                 res += map.get(sum - k);
             }

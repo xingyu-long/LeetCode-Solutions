@@ -2,18 +2,11 @@ package com.leetcode.greedy;
 
 import java.util.Arrays;
 
+/**
+ * @Date: 10/10/2020
+ * @Description: Greedy
+ **/
 public class _455_AssignCookies {
-
-    /**
-     *  455.Assign Cookies
-     *  When:2019/7/13
-     *  Difficulty: Easy
-     *  solution:
-     *      greedy
-     * @param g
-     * @param s
-     * @return
-     */
     //time:O(nlogn) space:O(1)
     public int findContentChildren(int[] g, int[] s) {
         Arrays.sort(g);

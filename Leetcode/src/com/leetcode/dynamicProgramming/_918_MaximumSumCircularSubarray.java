@@ -1,7 +1,7 @@
 package com.leetcode.dynamicProgramming;
 
 /**
- * @Date: 05/16/2020
+ * @Date: 05/16/2020, 09/01/2020
  * @Description: Subarray, DP
  **/
 public class _918_MaximumSumCircularSubarray {
@@ -21,6 +21,7 @@ public class _918_MaximumSumCircularSubarray {
 
             total += num;
         }
+        // 这个case需要考虑[-2,-3,-1]
         return max > 0 ? Math.max(max, total - min) : max; // 如果全为负数，则返回max
     }
 }

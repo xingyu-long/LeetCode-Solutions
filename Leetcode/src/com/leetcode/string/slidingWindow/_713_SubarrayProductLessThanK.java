@@ -1,8 +1,3 @@
-/*
- * @Date: 2020-03-20 17:11:06
- * @LastEditors: Clark long
- * @LastEditTime: 2020-03-20 17:13:19
- */
 package com.leetcode.string.slidingWindow;
 
 public class _713_SubarrayProductLessThanK {

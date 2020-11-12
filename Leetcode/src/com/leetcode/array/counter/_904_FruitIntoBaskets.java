@@ -3,8 +3,9 @@ package com.leetcode.array.counter;
 import java.util.HashMap;
 
 /**
- * when: 02/24/2020
- */
+ * @Date: 02/24/2020, 09/02/2020
+ * @Description: Sliding Window
+ **/
 public class _904_FruitIntoBaskets {
 
     // time:O(n) space:O(2)

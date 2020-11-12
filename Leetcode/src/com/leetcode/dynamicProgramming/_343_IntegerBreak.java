@@ -3,10 +3,11 @@ package com.leetcode.dynamicProgramming;
 import java.util.Arrays;
 
 /**
- * _343_IntegerBreak
- */
+ * @Date: 08/29/2020
+ * @Description: DP
+ **/
 public class _343_IntegerBreak {
-
+    // 看分解的情况，一种是直接分为两个，一种是将i-j继续分解为多个的情况
     // https://leetcode.com/problems/integer-break/discuss/80694/Java-DP-solutio 里面的第一条评论
     public int integerBreak(int n) {
         if (n < 1) return 0;
@@ -15,7 +16,7 @@ public class _343_IntegerBreak {
         for (int i = 2; i <= n; i++) {
             for (int j = 1; j <= i/2; j++) { // 因为后一半都是计算相同的情况
                 // 因为一个数可能被分为多个，所以要以来以前的最优结果。
-                dp[i] = Math.max(dp[i], Math.max(j, dp[j]) * Math.max(i - j, dp[i - j]));
+                dp[i] = Math.max(dp[i], Math.max(j * (i - j), j * dp[i - j]));
             }
         }
         return dp[n];

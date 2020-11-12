@@ -6,26 +6,13 @@ import java.util.List;
 
 public class _244_ShortestWordDistanceII {
 
-    /**
-     * 244. Shortest Word Distance II
-     * When:2019/8/2
-     * Difficulty: Medium
-     * solution: 利用hashMap里面记录位置集合，然后两个for loop解决
-     *
-     * @param words
-     */
     private HashMap<String, List<Integer>> map;
 
     public _244_ShortestWordDistanceII(String[] words) {
         map = new HashMap<>();
         for (int i = 0; i < words.length; i++) {
-            if (map.containsKey(words[i])) {
-                map.get(words[i]).add(i);
-            } else {
-                List<Integer> list = new ArrayList<>();
-                list.add(i);
-                map.put(words[i], list);
-            }
+            map.putIfAbsent(words[i], new ArrayList<>());
+            map.get(words[i]).add(i);
         }
     }
 

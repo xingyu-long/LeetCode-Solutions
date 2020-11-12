@@ -49,7 +49,7 @@ public class _846_HandofStraights {
         return true;
     }
 
-    // TreeMap
+    // TreeMap: MlogM, M is the number of different cards
     public boolean isNStraightHand2(int[] hand, int W) {
         if (hand == null || hand.length == 0) {
             return false;

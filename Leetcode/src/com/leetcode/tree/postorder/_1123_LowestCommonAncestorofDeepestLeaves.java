@@ -3,13 +3,12 @@ package com.leetcode.tree.postorder;
 import com.leetcode.common.TreeNode;
 
 /**
- * @Date: 05/20/2020
+ * @Date: 05/20/2020, 08/23/2020
  * @Description: Tree, Postorder
  **/
 public class _1123_LowestCommonAncestorofDeepestLeaves {
 
-    class Data {
-
+    static class Data {
         TreeNode node;
         int depth;
 

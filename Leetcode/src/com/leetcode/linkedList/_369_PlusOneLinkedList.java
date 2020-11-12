@@ -2,6 +2,8 @@ package com.leetcode.linkedList;
 
 import com.leetcode.common.ListNode;
 
+import java.util.Stack;
+
 public class _369_PlusOneLinkedList {
     /**
      *  369. Plus One Linked List
@@ -39,7 +41,7 @@ public class _369_PlusOneLinkedList {
         return dummy;
     }
 
-    public static ListNode plusOne3(ListNode head) {
+    public static ListNode plusOne2(ListNode head) {
         if (head == null) return null;
         head = reverse2(head);
         ListNode dummy = new ListNode(0);
@@ -70,12 +72,37 @@ public class _369_PlusOneLinkedList {
         }
         return newHead;
     }
+
+    // 利用stack
+    public ListNode plusOne3(ListNode head) {
+        if (head == null) return head;
+        Stack<Integer> stack = new Stack<>();
+        ListNode curr = head;
+        while (curr != null) {
+            stack.push(curr.val);
+            curr = curr.next;
+        }
+
+        int carry = 1;
+        ListNode newHead = null;
+        while (!stack.isEmpty() || carry != 0) {
+            if (!stack.isEmpty()) {
+                carry += stack.pop();
+            }
+            ListNode node = new ListNode(carry % 10);
+            node.next = newHead;
+            newHead = node;
+            carry /= 10;
+        }
+        return newHead;
+    }
+
     public static void main(String[] args) {
         ListNode root = new ListNode(9);
         root.next = new ListNode(9);
         root.next.next = new ListNode(9);
         ListNode cur = root;
-        cur = plusOne3(root);
+        cur = plusOne2(root);
         while (cur != null) {
             System.out.println(cur.val);
             cur = cur.next;

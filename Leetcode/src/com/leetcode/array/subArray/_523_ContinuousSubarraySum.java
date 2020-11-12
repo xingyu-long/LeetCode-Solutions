@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Date: 05/13/2020
+ * @Date: 05/13/2020, 10/18/2020
  * @Description: HashMap
  **/
 public class _523_ContinuousSubarraySum {
@@ -23,6 +23,7 @@ public class _523_ContinuousSubarraySum {
                 sum %= k;
             }
             if (map.containsKey(sum)) {
+                // 代表着从map.get(sum) + 1, i的和。
                 if (i - map.get(sum) > 1) {
                     return true;
                 }

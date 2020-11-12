@@ -3,14 +3,14 @@ package com.leetcode.array.interval;
 import java.util.Arrays;
 
 /**
- * @Date: 06/03/2020
- * @Description: Interval
+ * @Date: 06/03/2020, 10/24/2020
+ * @Description: Interval, Greedy
  **/
 public class _435_NonoverlappingIntervals {
 
     // time:O(nlogn) space:O(1)
+    // 尽量选择end比较小的保留
     public int eraseOverlapIntervals(int[][] intervals) {
-        // 19:46 -> 19:57
         if (intervals == null || intervals.length == 0 || intervals[0] == null
             || intervals[0].length == 0) {
             return 0;

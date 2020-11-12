@@ -1,7 +1,7 @@
 package com.leetcode.string;
 
 /**
- * @Date: 05/07/2020
+ * @Date: 05/07/2020, 09/04/2020
  * @Description: Two Pointer
  **/
 public class _953_VerifyinganAlienDictionary {

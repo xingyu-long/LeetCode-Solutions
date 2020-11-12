@@ -1,7 +1,7 @@
 package com.leetcode.string;
 
 /**
- * @Date: 07/19/2020
+ * @Date: 07/19/2020, 10/12/2020
  * @Description: String
  **/
 public class _443_StringCompression {

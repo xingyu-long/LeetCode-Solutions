@@ -1,4 +1,4 @@
-package com.leetcode.Design.DoublyLinkedList;
+package com.leetcode.design.DoublyLinkedList;
 
 import java.util.HashMap;
 import java.util.LinkedList;

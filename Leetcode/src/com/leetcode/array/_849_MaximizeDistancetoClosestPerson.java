@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.TreeSet;
 
 /**
- * @Date: 06/03/2020
+ * @Date: 06/03/2020, 09/03/2020
  * @Description:
  **/
 public class _849_MaximizeDistancetoClosestPerson {
@@ -47,7 +47,6 @@ public class _849_MaximizeDistancetoClosestPerson {
             }
         }
         int res = 0, n = nums.size();
-        // System.out.println("n = " + n);
         // 看做中间的连续0
         for (int i = 0; i < n; i++) {
             if (i == 0) {

@@ -2,18 +2,15 @@ package com.leetcode.array;
 
 import java.util.Arrays;
 
+/**
+ * @Date: 08/29/2020
+ * @Description: Greedy
+ **/
 public class _135_Candy {
-    /**
-     *  135. Candy
-     *  When:2019/8/3
-     *  Difficulty: Hard
-     *  Solution:
-     *  1. 首先全都置为1
-     *  2. 顺序查找后一个比前一个大的，然后加上前面的值
-     *  3. 逆序查找前一个比后一个大的，max(当前数，后一个+1) 就是这里没有想到
-     * @param ratings
-     * @return
-     */
+
+    // 1. 首先全都置为1
+    // 2. 顺序查找后一个比前一个大的，然后加上前面的值
+    // 3. 逆序查找前一个比后一个大的，max(当前数，后一个+1) 就是这里没有想到
     // time:O(n) space:O(n)
     public int candy(int[] ratings) {
         int[] count = new int[ratings.length];

@@ -5,13 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class _248_StrobogrammaticNumberIII {
-     /**
-      * 248. Strobogrammatic Number III
-      * @param low
-      * @param high
-      * @return
-      */
-      // 利用这种比较的形式比较好，并且不会有额外的工作
+    // 利用这种比较的形式比较好，并且不会有额外的工作
     public static int strobogrammaticInRange(String low, String high){
         int res = 0;
         List<String> list = new ArrayList<>();
@@ -19,7 +13,8 @@ public class _248_StrobogrammaticNumberIII {
             list.addAll(helper(i, i));
         }
         for (String num : list) {
-            if ((num.length() == low.length() && num.compareTo(low) < 0) || (num.length() == high.length() && num.compareTo(high) > 0)) {
+            if ((num.length() == low.length() && num.compareTo(low) < 0) ||
+                    (num.length() == high.length() && num.compareTo(high) > 0)) {
                 continue;
             }
             res++;

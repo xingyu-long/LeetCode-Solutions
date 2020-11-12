@@ -4,16 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class _320_GeneralizedAbbreviation {
-
-    /**
-     * 320. Generalized Abbreviation
-     * time:10/14/2019
-     * review1:10/28/2019
-     *
-     * 记得画图出来理解整个过程
-     * @param word
-     * @return
-     */
     public static void main(String[] args) {
         String str = "abc";
         List<String> res = generateAbbreviations2(str);

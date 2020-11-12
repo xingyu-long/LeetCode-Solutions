@@ -2,6 +2,10 @@ package com.leetcode.array;
 
 import java.util.HashSet;
 
+/**
+ * @Date: 09/03/2020
+ * @Description: Set, cycle
+ **/
 public class _565_ArrayNesting {
     // time:O(n) space:O(n)
     public int arrayNesting(int[] nums) {

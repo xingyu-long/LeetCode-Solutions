@@ -1,8 +1,6 @@
 package com.leetcode.array.interval;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class _253_MeetingRoomsII {
     /**
@@ -52,5 +50,22 @@ public class _253_MeetingRoomsII {
             pq.offer(interval);
         }
         return pq.size();
+    }
+
+    // time: O(nlogn) space: O(n)
+    public int minMeetingRooms_2(int[][] intervals) {
+        // 计算每个时间点的人数，然后借用treemap按照发生时间排序。
+        Map<Integer, Integer> map = new TreeMap<>();
+        for (int[] interval : intervals) {
+            map.put(interval[0], map.getOrDefault(interval[0], 0) + 1);
+            map.put(interval[1], map.getOrDefault(interval[1], 0) - 1);
+        }
+
+        int res = 0, count = 0;
+        for (int value : map.values()) {
+            count += value;
+            res = Math.max(res, count);
+        }
+        return res;
     }
 }

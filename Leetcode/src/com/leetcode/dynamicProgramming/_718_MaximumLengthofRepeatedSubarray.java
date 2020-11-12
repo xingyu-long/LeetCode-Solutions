@@ -1,14 +1,14 @@
 package com.leetcode.dynamicProgramming;
 
 /**
- * @Date: 04/10/2020
+ * @Date: 04/10/2020, 09/10/2020
  * @Description: DP
  **/
 public class _718_MaximumLengthofRepeatedSubarray {
 
   public int findLength(int[] A, int[] B) {
     // Strict contiguous' 以i，j分别结尾最长的重复序列
-    // 跟暴力解对比一下？
+    // 这个其实就算暴力解了。
     int m = A.length;
     int n = B.length;
     int[][] dp = new int[m + 1][n + 1];

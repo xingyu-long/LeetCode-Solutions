@@ -1,10 +1,3 @@
-/*
- * @Date: 2019-12-28 16:51:10
- * 
- * @LastEditors: Clark long
- * 
- * @LastEditTime: 2020-04-02 13:46:15
- */
 package com.leetcode.tree.postorder;
 
 import com.leetcode.common.ConverterForTreeAndString;
@@ -61,7 +54,7 @@ public class _333_LargestBSTSubtree {
         }
     }
 
-    public int largestBSTSubtree(TreeNode root) {
+    public int largestBSTSubtree2(TreeNode root) {
         // 应该需要构造一个结构？ count, min, max, node
         if (root == null)
             return 0;
@@ -90,13 +83,5 @@ public class _333_LargestBSTSubtree {
         node.max = Math.max(right.max, root.val);
         node.count = left.count + right.count + 1;
         return node;
-    }
-
-    @Test
-    void unitTest() {
-        ConverterForTreeAndString converter = new ConverterForTreeAndString();
-        String str = "[10,5,15,1,8,null,7]";
-        TreeNode root = converter.stringToTreeNode(str);
-        assertEquals(3, largestBSTSubtree2(root));
     }
 }

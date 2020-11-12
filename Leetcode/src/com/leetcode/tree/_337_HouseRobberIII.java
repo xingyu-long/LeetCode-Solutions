@@ -17,11 +17,11 @@ public class _337_HouseRobberIII {
             return 0;
         }
         HashMap<TreeNode, Integer> map = new HashMap<>();
-        return helper(root, map);
+        return build(root, map);
     }
 
     // time:O(n) space:O(n)
-    public static int helper(TreeNode root, HashMap<TreeNode, Integer> map) {
+    public static int build(TreeNode root, HashMap<TreeNode, Integer> map) {
         if (map.get(root) != null) {
             return map.get(root);
         }
@@ -30,13 +30,13 @@ public class _337_HouseRobberIII {
         }
         int sumOfChose = 0;
         if (root.left != null) {
-            sumOfChose += helper(root.left.left, map) + helper(root.left.right, map);
+            sumOfChose += build(root.left.left, map) + build(root.left.right, map);
         }
         if (root.right != null) {
-            sumOfChose += helper(root.right.left, map) + helper(root.right.right, map);
+            sumOfChose += build(root.right.left, map) + build(root.right.right, map);
         }
         sumOfChose += root.val;
-        int sumOfNotChose = helper(root.left, map) + helper(root.right, map);
+        int sumOfNotChose = build(root.left, map) + build(root.right, map);
         int res = Math.max(sumOfChose, sumOfNotChose);
         map.put(root, res);
         return res;
@@ -48,17 +48,17 @@ public class _337_HouseRobberIII {
         if (root == null) {
             return 0;
         }
-        int[] res = helper(root);
+        int[] res = build(root);
         return Math.max(res[0], res[1]);
     }
 
-    public int[] helper(TreeNode root) {
+    public int[] build(TreeNode root) {
         if (root == null) {
             return new int[]{0, 0};
         }
         int[] res = new int[2];
-        int[] left = helper(root.left);
-        int[] right = helper(root.right);
+        int[] left = build(root.left);
+        int[] right = build(root.right);
         // 当前节点不偷的话
         res[0] = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
         // 当前节点偷的话

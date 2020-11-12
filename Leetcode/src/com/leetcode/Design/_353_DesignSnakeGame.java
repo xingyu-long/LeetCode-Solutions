@@ -1,4 +1,4 @@
-package com.leetcode.Design;
+package com.leetcode.design;
 
 import java.util.Deque;
 import java.util.HashSet;

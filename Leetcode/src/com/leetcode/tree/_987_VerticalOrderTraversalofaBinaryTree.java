@@ -6,9 +6,12 @@ import java.util.*;
 
 public class _987_VerticalOrderTraversalofaBinaryTree {
     // 987. Vertical Order Traversal of a Binary Tree
-    HashMap<Integer, TreeMap<Integer, PriorityQueue<Integer>>> map = new HashMap<>();
-    int minX = 0, maxX = 0;
+    // https://www.youtube.com/watch?v=kqHNP6NTzME
+    HashMap<Integer, TreeMap<Integer, PriorityQueue<Integer>>> map;
+    int minX, maxX;
     public List<List<Integer>> verticalTraversal(TreeNode root) {
+        map = new HashMap<>();
+        minX = maxX = 0;
         dfs(root, 0, 0);
         List<List<Integer>> res = new ArrayList<>();
         for (int i = minX; i <= maxX; i++) {
@@ -34,6 +37,7 @@ public class _987_VerticalOrderTraversalofaBinaryTree {
             map.get(x).put(y, new PriorityQueue<>());
         }
         map.get(x).get(y).add(root.val);
+        // y是用treemap保持从上到下的顺序，所有这里用了升序的treemap。
         dfs(root.left, x - 1, y + 1);
         dfs(root.right, x + 1, y + 1);
     }

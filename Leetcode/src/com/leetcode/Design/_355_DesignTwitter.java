@@ -1,4 +1,4 @@
-package com.leetcode.Design;
+package com.leetcode.design;
 
 import java.util.*;
 
@@ -12,7 +12,7 @@ public class _355_DesignTwitter {
      */
 
     private int timeStamp = 0;
-    private HashMap<Integer, User> userMap;
+    private HashMap<Integer, User> userMap; // 其userID对应其User对象。
     private final int MAX_COUNT = 10;
 
     class Tweet {
@@ -47,6 +47,7 @@ public class _355_DesignTwitter {
             followed.remove(id);
         }
 
+        // 每次发布一条twitter，就把放到链表的起始位置
         public void post(int id) {
             Tweet tweet = new Tweet(id);
             tweet.next = tweetHead;
@@ -104,7 +105,7 @@ public class _355_DesignTwitter {
             User user = new User(followeeId);
             userMap.put(followeeId, user);
         }
-        userMap.get(followeeId).follow(followeeId);
+        userMap.get(followerId).follow(followeeId);
     }
 
     public void unfollow(int followerId, int followeeId) {

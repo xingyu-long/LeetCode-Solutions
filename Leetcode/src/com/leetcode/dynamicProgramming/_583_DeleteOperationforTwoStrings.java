@@ -1,8 +1,3 @@
-/*
- * @Date: 2020-03-25 18:14:09
- * @LastEditors: Clark long
- * @LastEditTime: 2020-03-25 18:14:52
- */
 package com.leetcode.dynamicProgramming;
 
 public class _583_DeleteOperationforTwoStrings {

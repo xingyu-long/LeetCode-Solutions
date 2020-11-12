@@ -1,8 +1,3 @@
-/*
- * @Date: 2020-03-21 18:10:17
- * @LastEditors: Clark long
- * @LastEditTime: 2020-03-21 18:10:31
- */
 package com.leetcode.tree;
 
 import java.util.HashMap;

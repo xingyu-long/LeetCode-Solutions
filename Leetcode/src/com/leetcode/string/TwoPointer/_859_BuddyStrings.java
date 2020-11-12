@@ -1,5 +1,9 @@
 package com.leetcode.string.TwoPointer;
 
+/**
+ * @Date: 10/12/2020
+ * @Description: String, two pointer.
+ **/
 public class _859_BuddyStrings {
     // n^2  TLE
     // 如果两个字符串相同，也需要看是否有两个以上的相同字符的，如果有说明可以交换

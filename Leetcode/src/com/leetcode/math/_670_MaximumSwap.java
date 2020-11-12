@@ -5,6 +5,7 @@ package com.leetcode.math;
  * @Description: Number
  **/
 public class _670_MaximumSwap {
+    // 每次努力去找比当前位数字大的情况，然后交换上来即可（并且从9开始）。
     public int maximumSwap(int num) {
         char[] digits = String.valueOf(num).toCharArray();
         int[] indexes = new int[10];

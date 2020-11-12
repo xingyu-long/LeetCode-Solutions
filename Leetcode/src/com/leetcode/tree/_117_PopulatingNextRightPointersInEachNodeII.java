@@ -45,34 +45,34 @@ public class _117_PopulatingNextRightPointersInEachNodeII {
      */
     public Node connect(Node root) {
         // 表示如果存在prev，就直接相连，如果没有的话，就把当前的赋值给他。也要注意head的赋值
-        Node head = null; // 每一层的开头
-        Node pre = null; // 同一层的prev节点，只要存在，就马上和左边或者右边不为空的部分连接并且移动prev
+        Node nextHead = null; // 每一层的开头
+        Node prev = null; // 同一层的prev节点，只要存在，就马上和左边或者右边不为空的部分连接并且移动prev
         Node cur = root;
 
         while (cur != null) { // 多少层
             while (cur != null) {  // 每一层的操作
                 if (cur.left != null) {
-                    if (pre != null) {
-                        pre.next = cur.left;
+                    if (prev != null) {
+                        prev.next = cur.left;
                     } else {
-                        head = cur.left;
+                        nextHead = cur.left;
                     }
-                    pre = cur.left;
+                    prev = cur.left;
                 }
                 if (cur.right != null) {
-                    if (pre != null) {
-                        pre.next = cur.right;
+                    if (prev != null) {
+                        prev.next = cur.right;
                     } else {
-                        head = cur.right;
+                        nextHead = cur.right;
                     }
-                    pre = cur.right;
+                    prev = cur.right;
                 }
                 cur = cur.next;
             }
             // 如果到了最后一层，最后cur被head赋值，head为null，所以退出。x
-            cur = head;
-            pre = null;
-            head = null;
+            cur = nextHead;
+            prev = null;
+            nextHead = null;
         }
         return root;
     }

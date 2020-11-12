@@ -1,4 +1,4 @@
-package com.leetcode.Design;
+package com.leetcode.design;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -62,6 +62,7 @@ public class _362_DesignHitCounter {
      * @return
      */
     public int getHits(int timestamp) {
+        // 这是因为时间是递增的，所以才能这样做
         while (!queue.isEmpty() && timestamp - queue.peek() >= 300) {
             queue.poll();
         }

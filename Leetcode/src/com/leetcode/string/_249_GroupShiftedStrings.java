@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * @Date: 2019/8/5, 05/25/2020
+ * @Date: 2019/8/5, 05/25/2020, 09/04/2020
  * @Description: Encode, offset
  **/
 public class _249_GroupShiftedStrings {

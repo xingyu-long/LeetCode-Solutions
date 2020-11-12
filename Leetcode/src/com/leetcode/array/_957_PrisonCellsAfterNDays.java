@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @Date: 07/03/2020
+ * @Date: 07/03/2020, 09/03/2020, 10/24/2020
  * @Description: Simulation, MOD
  **/
 public class _957_PrisonCellsAfterNDays {
@@ -14,6 +14,7 @@ public class _957_PrisonCellsAfterNDays {
         if (cells == null || cells.length == 0) {
             return new int[]{};
         }
+        // 如果在N里面没有cycle 我们也走完了N个了。。。
         Set<String> visited = new HashSet<>();
         boolean hasCycle = false;
         int count = 0;

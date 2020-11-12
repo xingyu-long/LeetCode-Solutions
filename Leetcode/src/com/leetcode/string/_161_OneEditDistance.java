@@ -1,16 +1,6 @@
 package com.leetcode.string;
 
 public class _161_OneEditDistance {
-
-    /**
-     * 161. One Edit Distance
-     * When:2019/8/6
-     * Difficulty: Medium
-     *
-     * @param s
-     * @param t
-     * @return
-     */
     //https://www.cnblogs.com/grandyang/p/5184698.html
     // time:O(n) space:O(1)
     public static boolean isOneEditDistance(String s, String t) {

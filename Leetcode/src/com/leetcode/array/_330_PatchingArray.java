@@ -1,11 +1,10 @@
 package com.leetcode.array;
 
+/**
+ * @Date: 2019/8/3, 08/29/2020
+ * @Description: Greedy
+ **/
 public class _330_PatchingArray {
-    /**
-     *  330. Patching Array
-     *  When:2019/8/3
-     *  Difficulty: Hard
-     */
     // https://www.cnblogs.com/grandyang/p/5165821.html
     // 利用 miss来记录可以到达的区间为 [1, miss) 加入一个数的时候 其miss就会 miss + num
     // time:O(n) space:O(1)

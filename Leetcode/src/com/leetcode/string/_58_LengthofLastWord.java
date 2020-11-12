@@ -27,7 +27,4 @@ public class _58_LengthofLastWord {
         if (arr.length == 0) return 0;
         return arr[arr.length-1].length();
     }
-    public static void main(String[] args){
-        System.out.println(lengthOfLastWord("   xx xxx "));
-    }
 }

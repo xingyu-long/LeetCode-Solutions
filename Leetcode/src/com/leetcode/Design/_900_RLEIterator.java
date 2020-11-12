@@ -1,4 +1,4 @@
-package com.leetcode.Design;
+package com.leetcode.design;
 
 public class _900_RLEIterator {
     // 这个设计的太妙了！

@@ -1,4 +1,4 @@
-package com.leetcode.Design.DoublyLinkedList;
+package com.leetcode.design.DoublyLinkedList;
 
 import java.util.HashMap;
 
@@ -110,11 +110,13 @@ public class _146_LRUCache {
      */
     /** important operation */
     private void addNode(DNode node) {
-        node.prev = head;
-        node.next = head.next;
+        DNode next = head.next;
 
-        head.next.prev = node;
         head.next = node;
+        node.prev = head;
+
+        node.next = next;
+        next.prev = node;
     }
 
     private void removeLRUEntry() {

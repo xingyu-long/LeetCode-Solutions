@@ -31,13 +31,13 @@ public class _402_RemoveKDigits {
         while (!stack.isEmpty()) {
             sb.append(stack.pop());
         }
-        sb.reverse();
+        String res = sb.reverse().toString();
 
         int index = 0;
         // 找到第一个非0的情况 例如 200100, k = 1那么计算之后是00100 然后res 移动到第三位才对
-        while (index < sb.length() && sb.charAt(index) == '0') {
+        while (index < res.length() && res.charAt(index) == '0') {
             index++;
         }
-        return index == sb.length() ? "0" : sb.substring(index);
+        return index == res.length() ? "0" : res.substring(index);
     }
 }

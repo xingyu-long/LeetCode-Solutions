@@ -40,6 +40,7 @@ public class _313_SuperUglyNumber {
     }
 
     // time:O(nk) 这个可以减少一定部分的重复计算
+    // 不太懂这个。。
     public int nthSuperUglyNumber2(int n, int[] primes) {
         // 如何处理prime这部分是关键。
         int[] index = new int[primes.length];

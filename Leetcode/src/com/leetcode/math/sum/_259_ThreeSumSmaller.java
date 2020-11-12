@@ -2,15 +2,12 @@ package com.leetcode.math.sum;
 
 import java.util.Arrays;
 
+/**
+ * @Date: 09/24/2020
+ * @Description: Sort, Two Pointer
+ **/
 public class _259_ThreeSumSmaller {
-    /**
-     * 259. Three Sum Smaller
-     * When:2019/8/6
-     * Difficulty: Medium
-     * @param nums
-     * @param target
-     * @return
-     */
+
     public static int threeSumSmaller(int[] nums, int target) {
         if (nums == null || nums.length == 0) return 0;
         Arrays.sort(nums);

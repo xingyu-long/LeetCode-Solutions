@@ -1,8 +1,8 @@
 package com.leetcode.graph.UnionFind;
 
 /**
- * @Date: 05/30/2020
- * @Description: TODO
+ * @Date: 05/30/2020, 10/09/2020
+ * @Description: Union Find.
  **/
 public class _839_SimilarStringGroups {
 
@@ -54,7 +54,6 @@ public class _839_SimilarStringGroups {
 
     public int numSimilarGroups(String[] A) {
 
-        // 其实我还真不会，原因：上面的重要提示没有理解到，其实是联通的题，看组
         if (A == null || A.length == 0) {
             return 0;
         }

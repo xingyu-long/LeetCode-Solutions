@@ -2,17 +2,11 @@ package com.leetcode.graph;
 
 import java.util.*;
 
+/**
+ * @Date: 08/23/2020
+ * @Description: Graph, DFS
+ **/
 public class _399_EvaluateDivision {
-
-    /**
-     * 399. Evaluate Division
-     * When:02/26/2020
-     * @param equations
-     * @param values
-     * @param queries
-     * @return
-     */
-
     // time:O(V + E) space:O(n)
     public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
         HashMap<String, HashMap<String, Double>> map = new HashMap<>();
@@ -30,7 +24,7 @@ public class _399_EvaluateDivision {
         for (int i = 0; i < queries.size(); i++) {
             String x = queries.get(i).get(0);
             String y = queries.get(i).get(1);
-            if (! map.containsKey(x) || ! map.containsKey(y)) res[i] = -1.0;
+            if (!map.containsKey(x) || !map.containsKey(y)) res[i] = -1.0;
             else res[i] = calculateHelper(x, y, map, new HashSet<String>());
         }
         return res;
@@ -47,20 +41,5 @@ public class _399_EvaluateDivision {
             if (res > 0) return res * map.get(start).get(n); // 这里也很重要
         }
         return -1.0;
-    }
-
-    public static void main(String[] args) {
-        List<List<String>> lists = new ArrayList<>();
-        lists.add(Arrays.asList("a", "b"));
-        lists.add(Arrays.asList("b", "c"));
-        double[] values = new double[]{2.0, 3.0};
-        List<List<String>> queries = new ArrayList<>();
-        queries.add(Arrays.asList("a", "c"));
-        queries.add(Arrays.asList("b", "a"));
-        queries.add(Arrays.asList("a", "e"));
-        queries.add(Arrays.asList("a", "a"));
-        queries.add(Arrays.asList("x", "x"));
-        _399_EvaluateDivision division = new _399_EvaluateDivision();
-        division.calcEquation(lists, values, queries);
     }
 }

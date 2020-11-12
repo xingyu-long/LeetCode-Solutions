@@ -2,19 +2,11 @@ package com.leetcode.array;
 
 import java.util.Arrays;
 
+/**
+ * @Date: 2019/2/12, 2019/7/1, 2019/8/20, 08/25/2020
+ * @Description: Graph, array.
+ **/
 public class _189_RotateArray {
-
-    /**
-     * 189. Rotate Array
-     * When: 2019/2/12
-     * review1: 2019/7/1
-     * review2: 2019/8/20
-     * <p>
-     * 思路：主要是求余运算刚刚能够达成这个目标并且空间复杂度也是O(n)
-     *
-     * @param nums
-     * @param k
-     */
     //time: O(n) space:O(n)
     public static void rotate(int[] nums, int k) {
         //通过求余运算
@@ -24,9 +16,7 @@ public class _189_RotateArray {
             temp[(i + k) % nums.length] = nums[i];
         }
         //赋值给nums
-        for (int i = 0; i < nums.length; i++) {
-            nums[i] = temp[i];
-        }
+        System.arraycopy(temp, 0, nums, 0, nums.length);
     }
 
     /**
@@ -51,13 +41,5 @@ public class _189_RotateArray {
             start++;
             end--;
         }
-    }
-
-    public static void main(String[] args) {
-        int[] nums = new int[]{1, 2, 3, 4, 5};
-        int k = 2;
-//        rotate(nums, k);
-        rotate2(nums, k);
-        System.out.println(Arrays.toString(nums));
     }
 }

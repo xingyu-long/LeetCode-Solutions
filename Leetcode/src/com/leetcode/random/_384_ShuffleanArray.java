@@ -23,6 +23,7 @@ public class _384_ShuffleanArray {
         if (nums == null) return null;
         int[] clone = nums.clone();
         for (int i = 0; i < clone.length; i++) {
+            // 直接从random[0, n-1]的元素。
             int random = i + rmd.nextInt(clone.length - i);
             exch(clone, i, random);
         }

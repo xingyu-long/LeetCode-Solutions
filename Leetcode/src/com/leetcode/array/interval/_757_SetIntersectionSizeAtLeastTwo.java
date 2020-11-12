@@ -40,7 +40,7 @@ public class _757_SetIntersectionSizeAtLeastTwo {
             intervals[0] == null || intervals[0].length == 0) {
             return 0;
         }
-        TreeSet<Integer> treeset = new TreeSet<>((a, b) -> a.compareTo(b));
+        TreeSet<Integer> treeset = new TreeSet<>();
         for (int[] interval : intervals) {
             Integer lower = treeset.floor(interval[1]);
             Integer upper = treeset.ceiling(interval[0]);

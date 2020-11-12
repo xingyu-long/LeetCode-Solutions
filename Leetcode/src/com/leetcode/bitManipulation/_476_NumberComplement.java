@@ -61,4 +61,20 @@ public class _476_NumberComplement {
         }
         return x ^ num;
     }
+
+    // 看对应的位置情况 然后重新组合回去。
+    public int findComplement5(int N) {
+        if (N == 0) return 1;
+        int res = 0;
+        int index = 0;
+        while (N != 0) {
+            int digit = N % 2;
+            int last = (digit == 1 ? 0 : 1);
+            int add = last << index;
+            res = res | add;
+            N /= 2;
+            index++;
+        }
+        return res;
+    }
 }

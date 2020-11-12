@@ -11,9 +11,7 @@ public class _746_MinCostClimbingStairs {
         int res = Integer.MAX_VALUE;
         int[] memo = new int[cost.length + 1];
         Arrays.fill(memo, -1);
-        res = Math.min(res, dfs(cost, 0, memo));
-        res = Math.min(res, dfs(cost, 1, memo));
-        return res;
+        return Math.min(dfs(cost, 0, memo), dfs(cost, 1, memo));
     }
 
     public int dfs(int[] cost, int index, int[] memo) {

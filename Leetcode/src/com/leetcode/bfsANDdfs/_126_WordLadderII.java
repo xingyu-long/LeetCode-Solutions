@@ -92,74 +92,64 @@ public class _126_WordLadderII {
         list.remove(0);
     }
 
-
-    // 正向构建
     public List<List<String>> findLadders2(String beginWord, String endWord, List<String> wordList) {
-        if (wordList == null || wordList.size() == 0) return new ArrayList<>();
-        // traversal and built the graph
-        HashSet<String> set = new HashSet<>(wordList);
-        HashSet<String> visited = new HashSet<>();
-        List<List<String>> res = new ArrayList<>();
-        set.remove(beginWord);
-        HashMap<String, List<String>> map = new HashMap<>();
-        int curNum = 1;
-        int nextNum = 0;
-        boolean found = false;
+        Set<String> dict = new HashSet<>(wordList);
+        Set<String> visited = new HashSet<>();
+
+        if (!dict.contains(endWord)) return new ArrayList<>();
+        dict.remove(beginWord);
+
+        Map<String, Set<String>> map = new HashMap<>();
+
         Queue<String> queue = new LinkedList<>();
         queue.offer(beginWord);
+        boolean finish = false;
         while (!queue.isEmpty()) {
-            String cur = queue.poll();
-            curNum--;
-            for (int i = 0; i < cur.length(); i++) {
-                char[] chs = cur.toCharArray();
-                for (char c = 'a'; c <= 'z'; c++) {
-                    chs[i] = c;
-                    String newStr = new String(chs);
-                    if (set.contains(newStr)) {
-                        if (visited.add(newStr)) {
-                            queue.offer(newStr);
-                            nextNum++;
-                        }
-                        if (!map.containsKey(cur)) {
-                            List<String> list = new ArrayList<>();
-                            list.add(newStr);
-                            map.put(cur, list);
-                        } else {
-                            map.get(cur).add(newStr);
-                        }
-
-                        if (newStr.equals(endWord)) {
-                            // 还是得利用curNum来判断结束。
-                            found = true;
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                String curr = queue.poll();
+                map.putIfAbsent(curr, new HashSet<>());
+                for (int j = 0; j < curr.length(); j++) {
+                    char[] chs = curr.toCharArray();
+                    for (char ch = 'a'; ch <= 'z'; ch++) {
+                        chs[j] = ch;
+                        String temp = new String(chs);
+                        if (dict.contains(temp)) {
+                            map.get(curr).add(temp);
+                            if (visited.add(temp)) {
+                                queue.offer(temp);
+                                if (temp.equals(endWord)) {
+                                    finish = true;
+                                }
+                            }
                         }
                     }
                 }
             }
-            if (curNum == 0) {
-                if (found) break;
-                curNum = nextNum;
-                nextNum = 0;
-                set.removeAll(visited);
-                visited.clear();
-            }
+            if (finish) break;
+            dict.removeAll(visited);
+            visited.clear();
         }
-        dfs2(res,new ArrayList<>(), beginWord, endWord, map);
+        // print out the graph;
+        List<List<String>> res = new ArrayList<>();
+        build(res, new ArrayList<>(), map, beginWord, endWord);
         return res;
     }
 
-    public void dfs2(List<List<String>> res, List<String> list, String beginWord, String endWord, HashMap<String, List<String>> map) {
+    private void build(List<List<String>> res, List<String> list, Map<String, Set<String>> map, String beginWord, String endWord) {
         if (beginWord.equals(endWord)) {
             list.add(endWord);
             res.add(new ArrayList<>(list));
             list.remove(list.size() - 1);
             return;
         }
-        list.add(beginWord);
-        if (map.get(beginWord) != null) {
-            for (String word : map.get(beginWord)) {
-                dfs2(res, list, word, endWord, map);
+        Set<String> nexts = map.get(beginWord);
+        if (nexts != null) {
+            list.add(beginWord);
+            for (String next : nexts) {
+                build(res, list, map, next, endWord);
             }
+            list.remove(list.size() - 1);
         }
-        list.remove(list.size() - 1);
     }
 }

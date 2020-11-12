@@ -2,14 +2,11 @@ package com.leetcode.string;
 
 
 /**
- * @Date: 2019/8/5, 07/15/2020
+ * @Date: 2019/8/5, 07/15/2020, 09/04/2020
  * @Description: String, reverse
  **/
 public class _186_ReverseWordsinaStringII {
 
-    /**
-     * 186. Reverse Words in a String II When:2019/8/5 Difficulty: Medium
-     */
     // 先反转整个数组，然后根据空格来反转单词
     // time:O(n) space:O(1)
     public static void reverseWords(char[] s) {

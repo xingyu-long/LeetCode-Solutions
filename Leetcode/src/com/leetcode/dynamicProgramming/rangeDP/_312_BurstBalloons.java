@@ -1,8 +1,8 @@
 package com.leetcode.dynamicProgramming.rangeDP;
 
 /**
- * @Date: 04/11/2020
- * @Description: range DP, Palindromic
+ * @Date: 04/11/2020, 09/06/2020
+ * @Description: range DP
  **/
 public class _312_BurstBalloons {
 

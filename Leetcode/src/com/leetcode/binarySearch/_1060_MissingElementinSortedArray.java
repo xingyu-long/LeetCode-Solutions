@@ -5,8 +5,30 @@ package com.leetcode.binarySearch;
  * @Description: binary search
  **/
 public class _1060_MissingElementinSortedArray {
-    // time:O(logN) space:O(1)
+    // 类似于模拟解法
     public int missingElement(int[] nums, int k) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int curr = nums[0];
+        int n = nums.length;
+        for (int num : nums) {
+            if (curr == num) {
+                curr += 1;
+            } else {
+                int diff = num - curr;
+                if (diff < k) {
+                    curr = num + 1;
+                    k -= diff;
+                } else {
+                    return curr + k - 1;
+                }
+            }
+        }
+        return curr + k - 1;
+    }
+    // time:O(logN) space:O(1)
+    public int missingElement2(int[] nums, int k) {
         if (nums == null || nums.length == 0) {
             return 0;
         }

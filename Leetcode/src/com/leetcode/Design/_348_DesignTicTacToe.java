@@ -1,5 +1,9 @@
-package com.leetcode.Design;
+package com.leetcode.design;
 
+/**
+ * @Date: 10/26/2020
+ * @Description: Design
+ **/
 public class _348_DesignTicTacToe {
 
     private int[] rows;
@@ -32,7 +36,7 @@ public class _348_DesignTicTacToe {
 
         // See who will win
         if (Math.abs(rows[row]) == size || Math.abs(cols[col]) == size
-            || Math.abs(diagonal) == size || Math.abs(antiDiagonal) == size) {
+                || Math.abs(diagonal) == size || Math.abs(antiDiagonal) == size) {
             return player;
         }
 

@@ -1,4 +1,4 @@
-package com.leetcode.Design;
+package com.leetcode.design;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -85,25 +85,25 @@ public class _281_ZigzagIterator {
     }
 
     /** solution for k vectors */
-    LinkedList<Iterator> list;
+    LinkedList<Iterator> queue;
 
     public void ZigzagIterator2(List<Integer> v1, List<Integer> v2) {
-        list = new LinkedList<>();
-        if (!v1.isEmpty()) list.add(v1.iterator());
-        if (!v2.isEmpty()) list.add(v2.iterator());
+        queue = new LinkedList<>();
+        if (!v1.isEmpty()) queue.add(v1.iterator());
+        if (!v2.isEmpty()) queue.add(v2.iterator());
     }
 
     public int next2() {
-        Iterator poll = list.remove();
+        Iterator poll = queue.remove();
         int res = (Integer) poll.next();
         if (poll.hasNext()) {
-            list.add(poll);
+            queue.add(poll);
         }
         return res;
     }
 
     public boolean hasNext2() {
-        return !list.isEmpty();
+        return !queue.isEmpty();
     }
 
 }

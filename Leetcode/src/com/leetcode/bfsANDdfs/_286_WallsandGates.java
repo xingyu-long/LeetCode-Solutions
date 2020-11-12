@@ -8,12 +8,6 @@ import java.util.Queue;
  * @Description: BFS
  **/
 public class _286_WallsandGates {
-
-    /**
-     * 286. Walls and Gates When:2019/7/25 Difficulty: Medium review1:10/31/2019
-     *
-     * @param rooms
-     */
     //time:(m * n) space:(m * n)？？
     public void wallsAndGates(int[][] rooms) {
         if (rooms == null || rooms.length == 0) {
@@ -30,7 +24,7 @@ public class _286_WallsandGates {
 
     public void dfs(int[][] rooms, int i, int j, int dis) {
         if (i < 0 || i >= rooms.length
-            || j < 0 || j >= rooms[0].length || rooms[i][j] < dis) {
+                || j < 0 || j >= rooms[0].length || rooms[i][j] < dis) {
             return;
         }
         rooms[i][j] = dis;
@@ -55,7 +49,6 @@ public class _286_WallsandGates {
         }
 
         int[][] dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-        // 能不能用一个BFS遍历这些？？
         while (!queue.isEmpty()) {
             int[] curr = queue.poll();
 

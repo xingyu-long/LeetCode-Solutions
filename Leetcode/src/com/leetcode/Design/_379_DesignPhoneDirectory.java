@@ -1,8 +1,9 @@
-package com.leetcode.Design;
+package com.leetcode.design;
 
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Set;
 
 public class _379_DesignPhoneDirectory {
     /**
@@ -73,5 +74,34 @@ public class _379_DesignPhoneDirectory {
         if (used.remove(number)) {
             queue.offer(number);
         }
+    }
+
+    Set<Integer> available;
+    /** Initialize your data structure here
+     @param maxNumbers - The maximum numbers that can be stored in the phone directory. */
+//    public _379_DesignPhoneDirectory2(int maxNumbers) {
+//        available = new HashSet<>();
+//        for (int i = 0; i < maxNumbers; i++) {
+//            available.add(i);
+//        }
+//    }
+
+    /** Provide a number which is not assigned to anyone.
+     @return - Return an available number. Return -1 if none is available. */
+    public int get2() {
+        if (available.isEmpty()) return -1;
+        int newNumber = available.iterator().next();
+        available.remove(newNumber);
+        return newNumber;
+    }
+
+    /** Check if a number is available or not. */
+    public boolean check2(int number) {
+        return available.contains(number);
+    }
+
+    /** Recycle or release a number. */
+    public void release2(int number) {
+        available.add(number);
     }
 }

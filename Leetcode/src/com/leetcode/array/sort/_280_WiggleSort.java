@@ -2,14 +2,11 @@ package com.leetcode.array.sort;
 
 import java.util.Arrays;
 
+/**
+ * @Date: 2019/8/4, 09/03/2020
+ * @Description: Sort, Swap
+ **/
 public class _280_WiggleSort {
-
-    /**
-     *  280. Wiggle Sort
-     *  When:2019/8/4
-     *  Difficulty: Medium
-     * @param nums
-     */
     // time:O(nlogn) space:O(1)
     public void wiggleSort(int[] nums) {
         if (nums == null || nums.length == 0) return;
@@ -33,6 +30,7 @@ public class _280_WiggleSort {
             }
         }
     }
+
     public void exch(int[] nums, int i, int j) {
         int temp = nums[i];
         nums[i] = nums[j];

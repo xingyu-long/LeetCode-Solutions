@@ -2,19 +2,9 @@ package com.leetcode.string.slidingWindow;
 
 public class _424_LongestRepeatingCharacterReplacement {
 
-    /**
-     *  424. Longest Repeating Character Replacement
-     *  When:2019/7/22
-     *  Difficulty: Medium
-     *
-     *  不需要内部更新max 理由：因为这个size只会增大才会更新res，这个max指全局的多数元素的个数
-     *  看下面的评论
-     *  https://leetcode.com/problems/longest-repeating-character-replacement/discuss/91285/Sliding-window-similar-to-finding-longest-substring-with-k-distinct-characters
-     *
-     * @param s
-     * @param k
-     * @return
-     */
+    // 不需要内部更新max 理由：因为这个size只会增大才会更新res，这个max指全局的多数元素的个数
+    // 看下面的评论
+    // https://leetcode.com/problems/longest-repeating-character-replacement/discuss/91285/Sliding-window-similar-to-finding-longest-substring-with-k-distinct-characters
     // time: O(n) space:O(1) 因为只是固定的为26大小的int数组
     public int characterReplacement(String s, int k) {
         //需要解决的问题：1.如何判断替换的位置？ 通过维护sliding window 并且比较内部含有的不同的字母的个数
@@ -42,7 +32,7 @@ public class _424_LongestRepeatingCharacterReplacement {
         int res = 0;
         int begin = 0, end = 0;
         int maxCount = 0;
-        int[] counter = new int[128];
+        int[] counter = new int[26];
         while (end < s.length()) {
             maxCount = Math.max(maxCount, ++counter[s.charAt(end) - 'A']);
             while (end - begin + 1 - maxCount > k) {

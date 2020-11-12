@@ -21,13 +21,10 @@ public class _179_LargestNumber {
         }
         // 如何处理30, 3这种情况是关键！
         // sort
-        Arrays.sort(strs, new Comparator<String>() {
-            @Override
-            public int compare(String s1, String s2) {
-                String a = s1 + s2;
-                String b = s2 + s1;
-                return b.compareTo(a);
-            }
+        Arrays.sort(strs, (s1, s2) -> {
+            String a = s1 + s2;
+            String b = s2 + s1;
+            return b.compareTo(a);
         });
         if (strs[0].charAt(0) == '0') {
             return "0";

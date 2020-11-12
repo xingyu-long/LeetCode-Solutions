@@ -4,21 +4,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 public class _169_MajorityElement {
-
-    /**
-     * 169. Majority Element
-     * when: 2019/03/17
-     * Review1: 2019/7/4
-     * review2: 2019/8/20
-     * 11/25
-     * 思路： 下面两种solutions
-     *
-     * 涉及到的数据结构或者方法：
-     * HashMap<>
-     *
-     * @param nums
-     * @return
-     */
     // time:O(n) space:O(n)
     public int majorityElement(int[] nums) {
         HashMap<Integer, Integer> map = new HashMap<>();

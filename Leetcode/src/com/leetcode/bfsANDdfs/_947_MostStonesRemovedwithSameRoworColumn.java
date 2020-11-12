@@ -42,7 +42,7 @@ public class _947_MostStonesRemovedwithSameRoworColumn {
     }
     // time:O(n * n) space:O(n)
     public int removeStones(int[][] stones) {
-        if (stones.length == 0 || stones == null) return 0;
+        if (stones == null || stones.length == 0) return 0;
         int n = stones.length;
         UF uf = new UF(n);
         for (int i = 0; i < n; i++) {
@@ -59,7 +59,7 @@ public class _947_MostStonesRemovedwithSameRoworColumn {
     // hashset里面放的int[]
     // time:O(n^2) 最差的情况，每个stone 都是独立的connected component。
     public int removeStones2(int[][] stones) {
-        if (stones.length == 0 || stones == null) return 0;
+        if (stones == null || stones.length == 0) return 0;
         int n = stones.length;
         int count = 0;
         HashSet<int[]> visited = new HashSet<>();

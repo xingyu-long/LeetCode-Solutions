@@ -1,12 +1,13 @@
 package com.leetcode.tree;
 
 import com.leetcode.common.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Date: 07/11/2020
- * @Solution: 利用完全二叉树的性质，子树为2*i, 2*i + 1,然后再同时做offset操作
+ * @Date: 07/11/2020, 08/25/2020
+ * @Description: 利用完全二叉树的性质，子树为2*i, 2*i + 1,然后再同时做offset操作
  **/
 public class _662_MaximumWidthofBinaryTree {
     public int widthOfBinaryTree(TreeNode root) {
@@ -14,10 +15,10 @@ public class _662_MaximumWidthofBinaryTree {
         return dfs(root, 0, 0, ids);
     }
 
-    // 计算相对的距离
-    public int dfs(TreeNode root, int level, int id, List<Integer> ids){
-        if(root == null)return 0;
-        if(ids.size() == level){
+    // 计算相对的距离，这样更加高效。
+    public int dfs(TreeNode root, int level, int id, List<Integer> ids) {
+        if (root == null) return 0;
+        if (ids.size() == level) {
             ids.add(id);
         }
         int cur = id - ids.get(level) + 1;

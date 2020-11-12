@@ -36,7 +36,7 @@ public class _503_NextGreaterElementII {
         return res;
     }
 
-    // stack存index即可，可以省去index的stack
+    // stack存index即可，可以省去index的Map
     public int[] nextGreaterElements2(int[] nums) {
         if (nums == null || nums.length == 0) {
             return new int[]{};
