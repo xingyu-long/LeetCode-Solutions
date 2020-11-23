@@ -1,11 +1,12 @@
+/*
+ * @Date: 08/11/2020 18:07:14
+ * @LastEditTime: 11/20/2020 20:07:02
+ * @Description: LCA, Tree
+ */
 package com.leetcode.tree;
 
 import com.leetcode.common.TreeNode;
 
-/**
- * @Date: 05/20/2020
- * @Description: LCA, Tree
- **/
 public class _236_LowestCommonAncestorOfABinaryTree {
 
     TreeNode res = null;
@@ -16,7 +17,7 @@ public class _236_LowestCommonAncestorOfABinaryTree {
         return res;
     }
 
-    //time: O(n) space:O(n)
+    // time: O(n) space:O(n)
     public boolean helper(TreeNode current, TreeNode p, TreeNode q) {
         if (current == null) {
             return false;
@@ -97,5 +98,3 @@ public class _236_LowestCommonAncestorOfABinaryTree {
 
     }
 }
-
-

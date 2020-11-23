@@ -1,7 +1,7 @@
 /*
- * @Date: 2019-09-11 10:33:12
- * @LastEditors: Clark long
- * @LastEditTime: 2020-03-25 13:48:50
+ * @Date: 09/11/2019 10:33:12
+ * @LastEditTime: 11/20/2020 19:19:38
+ * @Description: BST, min, max
  */
 package com.leetcode.tree.preorder;
 

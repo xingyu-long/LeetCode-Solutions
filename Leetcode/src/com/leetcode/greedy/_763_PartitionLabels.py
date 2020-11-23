@@ -1,3 +1,8 @@
+'''
+Date: 11/12/2020 15:29:19
+LastEditTime: 11/17/2020 16:30:22
+Description: HashMap(dict)
+'''
 class Solution:
     def partitionLabels(self, S: str) -> List[int]:
         n = len(S)

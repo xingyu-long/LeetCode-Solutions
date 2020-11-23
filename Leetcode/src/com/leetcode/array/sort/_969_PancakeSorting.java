@@ -1,12 +1,13 @@
+/*
+ * @Date: 08/04/2020 20:52:18
+ * @LastEditTime: 11/17/2020 16:25:42
+ * @Description: Sort, similar with selection sort.
+ */
 package com.leetcode.array.sort;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @Date: 08/04/2020
- * @Description: Sort, similar with selection sort.
- **/
 public class _969_PancakeSorting {
     public List<Integer> pancakeSort(int[] A) {
         if (A == null || A.length == 0) {
