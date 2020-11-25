@@ -1,6 +1,6 @@
 /*
  * @Date: 11/23/2020 09:50:24
- * @LastEditTime: 11/23/2020 09:51:10
+ * @LastEditTime: 11/23/2020 09:54:16
  * @Description: String, count Array
  */
 package com.leetcode.string;
@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class _916_WordSubsets {
+    // Time: O(N * 26)
     public List<String> wordSubsets(String[] A, String[] B) {
         int[] maxCount = new int[26];
         for (String s : B) {
