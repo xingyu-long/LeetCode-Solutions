@@ -1,6 +1,6 @@
 '''
 Date: 11/25/2020 20:52:31
-LastEditTime: 11/25/2020 22:26:47
+LastEditTime: 11/25/2020 22:40:37
 Description: Generate Markdown file with specific folder
 '''
 
@@ -63,6 +63,9 @@ def generate_markdown(topic_to_files, markdown_file_name='README.md'):
     
 
 if __name__ == "__main__":
-    path = 'LeetCode/src/com/leetcode'
+    path = 'Leetcode/src/com/leetcode'
+    file = 'README.md'
+    if os.path.exists(file):
+        os.remove(file)
     m = iter_all_files(path)
     generate_markdown(m)
