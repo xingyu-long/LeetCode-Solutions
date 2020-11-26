@@ -1,14 +1,15 @@
 '''
 Date: 11/25/2020 20:52:31
-LastEditTime: 11/25/2020 23:39:41
+LastEditTime: 11/26/2020 11:04:47
 Description: Generate Markdown file with specific folder
 '''
 
 import os
+import re
 from operator import itemgetter
 
-from pytablewriter import MarkdownTableWriter
 from tqdm import tqdm
+from pytablewriter import MarkdownTableWriter
 
 
 def iter_all_files(path):
@@ -27,13 +28,12 @@ def iter_all_files(path):
 def generate_markdown(topic_to_files, markdown_file_name='README.md'):
     markdown_table = []
     for topic, files in topic_to_files.items():
-        print('*' * 10 + topic + '*' * 10)
-        # print(files)
-        files.sort()
-        # Todo: We need to let it sorted by problem number.
-        # sorted(files, key=lambda file: int(file.split('/')[-1]))
+        print('*' * 20)
+        print('We are processing topic ' + topic)
+        print('*' * 20)
+
         writer = MarkdownTableWriter()
-        writer.table_name = topic
+        writer.table_name = topic.capitalize()
         writer.headers = ["No.", "Problem", "Solutions"]
         cols = []
         prev_number = None
@@ -47,15 +47,16 @@ def generate_markdown(topic_to_files, markdown_file_name='README.md'):
                 number = split[1]
                 if not number.isnumeric():
                     continue
-                name = split[-1].split('.')[0]
+                name = split_camel_case(split[-1].split('.')[0])
                 suffix = split[-1].split('.')[-1]
                 # Todo: How to extend more than two programming languages?
                 if prev_number and prev_number == number:
-                    cols[-1][-1] = cols[-1][-1] + ', [' + suffix + '](' + file + ')'
+                    cols[-1][-1] = cols[-1][-1] + \
+                        ', [' + suffix + '](' + file + ')'
                     continue
 
                 cols.append(
-                    [int(number), name, '[' + suffix + '](' + file + ')'])
+                    [int(number), ' '.join(name), '[' + suffix + '](' + file + ')'])
                 # print('%s, %s' % (number, name))
                 prev_number = number
             except IndexError as e:
@@ -76,6 +77,10 @@ def generate_markdown(topic_to_files, markdown_file_name='README.md'):
             f.write(table)
 
 
+def split_camel_case(str):
+    return re.findall(r'[A-Z](?:[a-z]+|[A-Z]*(?=[A-Z]|$))', str)
+
+
 if __name__ == "__main__":
     path = 'Leetcode/src/com/leetcode'
     file_name = 'README.md'
@@ -83,9 +88,3 @@ if __name__ == "__main__":
         os.remove(file_name)
     m = iter_all_files(path)
     generate_markdown(m, file_name)
-
-# TODO: 
-#       - Optimize table name(Capitalization); 
-#       - AbcDefGhi -> Abc Def Ghi in table;
-#       - Show files in folder layer level? 
-#       - Delete folders in current repo;  
