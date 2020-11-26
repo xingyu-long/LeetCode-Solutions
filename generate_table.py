@@ -1,6 +1,6 @@
 '''
 Date: 11/25/2020 20:52:31
-LastEditTime: 11/25/2020 23:06:52
+LastEditTime: 11/25/2020 23:39:41
 Description: Generate Markdown file with specific folder
 '''
 
@@ -83,3 +83,9 @@ if __name__ == "__main__":
         os.remove(file_name)
     m = iter_all_files(path)
     generate_markdown(m, file_name)
+
+# TODO: 
+#       - Optimize table name(Capitalization); 
+#       - AbcDefGhi -> Abc Def Ghi in table;
+#       - Show files in folder layer level? 
+#       - Delete folders in current repo;  

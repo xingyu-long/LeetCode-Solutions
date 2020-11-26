@@ -6,3 +6,9 @@
 out/production/Leetcode/META-INF/Leetcode.kotlin_module
 Leetcode/out/production/LeetCode/META-INF/LeetCode.kotlin_module
 *.json
+/src/com/ctci/*
+/src/com/EPI/*
+/src/com/intern/*
+/src/com/leetcode/*
+/src/com/new_grad/*
+/src/com/pramp/*
