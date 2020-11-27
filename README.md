@@ -18,63 +18,60 @@
 |1298|Maximum Candies You Can Getfrom Boxes    |[java](Leetcode/src/com/leetcode/_1298_MaximumCandiesYouCanGetfromBoxes.java)  |
 |1441|Buildan Array With Stack Operations      |[java](Leetcode/src/com/leetcode/_1441_BuildanArrayWithStackOperations.java)   |
 # Tree
-|No. |                        Problem                         |                                             Solutions                                              |
-|---:|--------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-|  95|Unique Binary Search Trees II                           |[java](Leetcode/src/com/leetcode/tree/_95_UniqueBinarySearchTreesII.java)                           |
-| 104|Maximum Depth Of Binary Tree                            |[py](Leetcode/src/com/leetcode/tree/_104_MaximumDepthOfBinaryTree.py)                               |
-| 104|Maximum Depth Of Binary Tree                            |[java](Leetcode/src/com/leetcode/tree/_104_MaximumDepthOfBinaryTree.java)                           |
-| 105|Construct Binary Treefrom Preorderand Inorder Traversal |[java](Leetcode/src/com/leetcode/tree/_105_ConstructBinaryTreefromPreorderandInorderTraversal.java) |
-| 106|Construct Binary Treefrom Inorderand Postorder Traversal|[java](Leetcode/src/com/leetcode/tree/_106_ConstructBinaryTreefromInorderandPostorderTraversal.java)|
-| 111|Minimum Depth Of Binary Tree                            |[java](Leetcode/src/com/leetcode/tree/_111_MinimumDepthOfBinaryTree.java)                           |
-| 114|Flatten Binary Treeto Linked List                       |[java](Leetcode/src/com/leetcode/tree/_114_FlattenBinaryTreetoLinkedList.java)                      |
-| 116|Populating Next Right Pointers In Each Node             |[java](Leetcode/src/com/leetcode/tree/_116_PopulatingNextRightPointersInEachNode.java)              |
-| 117|Populating Next Right Pointers In Each Node II          |[java](Leetcode/src/com/leetcode/tree/_117_PopulatingNextRightPointersInEachNodeII.java)            |
-| 156|Binary Tree Upside Down                                 |[java](Leetcode/src/com/leetcode/tree/_156_BinaryTreeUpsideDown.java)                               |
-| 199|Binary Tree Right Side View                             |[java](Leetcode/src/com/leetcode/tree/_199_BinaryTreeRightSideView.java)                            |
-| 199|View                                                    |[py](Leetcode/src/com/leetcode/tree/_199_Binary_Tree_Right_Side_View.py)                            |
-| 222|Count Complete Tree Nodes                               |[java](Leetcode/src/com/leetcode/tree/_222_CountCompleteTreeNodes.java)                             |
-| 226|Invert Binary Tree                                      |[java](Leetcode/src/com/leetcode/tree/_226_InvertBinaryTree.java)                                   |
-| 236|Lowest Common Ancestor Of A Binary Tree                 |[java](Leetcode/src/com/leetcode/tree/_236_LowestCommonAncestorOfABinaryTree.java)                  |
-| 236|Tree                                                    |[py](Leetcode/src/com/leetcode/tree/_236_Lowest_Common_Ancestor_Of_A_Binary_Tree.py)                |
-| 255|Verify Preorder Sequencein Binary Search Tree           |[java](Leetcode/src/com/leetcode/tree/_255_VerifyPreorderSequenceinBinarySearchTree.java)           |
-| 270|Closest Binary Search Tree Value                        |[java](Leetcode/src/com/leetcode/tree/_270_ClosestBinarySearchTreeValue.java)                       |
-| 272|Closest Binary Search Tree Value II                     |[java](Leetcode/src/com/leetcode/tree/_272_ClosestBinarySearchTreeValueII.java)                     |
-| 297|Serializeand Deserialize Binary Tree                    |[java](Leetcode/src/com/leetcode/tree/_297_SerializeandDeserializeBinaryTree.java)                  |
-| 298|Binary Tree Longest Consecutive Sequence                |[java](Leetcode/src/com/leetcode/tree/_298_BinaryTreeLongestConsecutiveSequence.java)               |
-| 314|Binary Tree Vertical Order Traversal                    |[java](Leetcode/src/com/leetcode/tree/_314_BinaryTreeVerticalOrderTraversal.java)                   |
-| 331|Verify Preorder Serializationofa Binary Tree            |[java](Leetcode/src/com/leetcode/tree/_331_VerifyPreorderSerializationofaBinaryTree.java)           |
-| 337|House Robber III                                        |[java](Leetcode/src/com/leetcode/tree/_337_HouseRobberIII.java)                                     |
-| 404|Sumof Left Leaves                                       |[java](Leetcode/src/com/leetcode/tree/_404_SumofLeftLeaves.java)                                    |
-| 429|Traversal                                               |[py](Leetcode/src/com/leetcode/tree/_429_Nary_Tree_Level_Order_Traversal.py)                        |
-| 437|Path Sum III                                            |[java](Leetcode/src/com/leetcode/tree/_437_PathSumIII.java)                                         |
-| 508|Most Frequent Subtree Sum                               |[java](Leetcode/src/com/leetcode/tree/_508_MostFrequentSubtreeSum.java)                             |
-| 513|Find Bottom Left Tree Value                             |[java](Leetcode/src/com/leetcode/tree/_513_FindBottomLeftTreeValue.java)                            |
-| 515|Find Largest Valuein Each Tree Row                      |[java](Leetcode/src/com/leetcode/tree/_515_FindLargestValueinEachTreeRow.java)                      |
-| 559|Maximum Depthof Nary Tree                               |[java](Leetcode/src/com/leetcode/tree/_559_MaximumDepthofNaryTree.java)                             |
-| 563|Binary Tree Tilt                                        |[java](Leetcode/src/com/leetcode/tree/_563_BinaryTreeTilt.java)                                     |
-| 606|Construct Stringfrom Binary Tree                        |[java](Leetcode/src/com/leetcode/tree/_606_ConstructStringfromBinaryTree.java)                      |
-| 637|Averageof Levelsin Binary Tree                          |[java](Leetcode/src/com/leetcode/tree/_637_AverageofLevelsinBinaryTree.java)                        |
-| 652|Find Duplicate Subtrees                                 |[java](Leetcode/src/com/leetcode/tree/_652_FindDuplicateSubtrees.java)                              |
-| 654|Maximum Binary Tree                                     |[java](Leetcode/src/com/leetcode/tree/_654_MaximumBinaryTree.java)                                  |
-| 662|Maximum Widthof Binary Tree                             |[java](Leetcode/src/com/leetcode/tree/_662_MaximumWidthofBinaryTree.java)                           |
-| 666|Path Sum IV                                             |[java](Leetcode/src/com/leetcode/tree/_666_PathSumIV.java)                                          |
-| 671|Second Minimum Node Ina Binary Tree                     |[java](Leetcode/src/com/leetcode/tree/_671_SecondMinimumNodeInaBinaryTree.java)                     |
-| 814|Binary Tree Pruning                                     |[java](Leetcode/src/com/leetcode/tree/_814_BinaryTreePruning.java)                                  |
-| 865|Smallest Subtreewithallthe Deepest Nodes                |[java](Leetcode/src/com/leetcode/tree/_865_SmallestSubtreewithalltheDeepestNodes.java)              |
-| 958|Check Completenessofa Binary Tree                       |[java](Leetcode/src/com/leetcode/tree/_958_CheckCompletenessofaBinaryTree.java)                     |
-| 987|Vertical Order Traversalofa Binary Tree                 |[java](Leetcode/src/com/leetcode/tree/_987_VerticalOrderTraversalofaBinaryTree.java)                |
-| 993|Cousinsin Binary Tree                                   |[java](Leetcode/src/com/leetcode/tree/_993_CousinsinBinaryTree.java)                                |
-| 998|Maximum Binary Tree II                                  |[java](Leetcode/src/com/leetcode/tree/_998_MaximumBinaryTreeII.java)                                |
-|1026|Maximum Difference Between Nodeand Ancestor             |[java](Leetcode/src/com/leetcode/tree/_1026_MaximumDifferenceBetweenNodeandAncestor.java)           |
-|1110|Delete Nodes And Return Forest                          |[java](Leetcode/src/com/leetcode/tree/_1110_DeleteNodesAndReturnForest.java)                        |
-|1130|Minimum Cost Tree From Leaf Values                      |[java](Leetcode/src/com/leetcode/tree/_1130_MinimumCostTreeFromLeafValues.java)                     |
-|1145|Binary Tree Coloring Game                               |[java](Leetcode/src/com/leetcode/tree/_1145_BinaryTreeColoringGame.java)                            |
-|1302|Deepest Leaves Sum                                      |[java](Leetcode/src/com/leetcode/tree/_1302_DeepestLeavesSum.java)                                  |
-|1315|Sumof Nodeswith Even Valued Grandparent                 |[java](Leetcode/src/com/leetcode/tree/_1315_SumofNodeswithEvenValuedGrandparent.java)               |
-|1343|Maximum Productof Splitted Binary Tree                  |[java](Leetcode/src/com/leetcode/tree/_1343_MaximumProductofSplittedBinaryTree.java)                |
-|1361|Validate Binary Tree Nodes                              |[java](Leetcode/src/com/leetcode/tree/_1361_ValidateBinaryTreeNodes.java)                           |
-|1367|Linked Listin Binary Tree                               |[java](Leetcode/src/com/leetcode/tree/_1367_LinkedListinBinaryTree.java)                            |
-|1372|Longest Zig Zag Pathina Binary Tree                     |[java](Leetcode/src/com/leetcode/tree/_1372_LongestZigZagPathinaBinaryTree.java)                    |
+|No. |                        Problem                         |                                                                               Solutions                                                                                |
+|---:|--------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  95|Unique Binary Search Trees II                           |[java](Leetcode/src/com/leetcode/tree/_95_UniqueBinarySearchTreesII.java)                                                                                               |
+| 104|Maximum Depth Of Binary Tree                            |[java](Leetcode/src/com/leetcode/tree/_104_MaximumDepthOfBinaryTree.java), [py](Leetcode/src/com/leetcode/tree/_104_MaximumDepthOfBinaryTree.py)                        |
+| 105|Construct Binary Treefrom Preorderand Inorder Traversal |[java](Leetcode/src/com/leetcode/tree/_105_ConstructBinaryTreefromPreorderandInorderTraversal.java)                                                                     |
+| 106|Construct Binary Treefrom Inorderand Postorder Traversal|[java](Leetcode/src/com/leetcode/tree/_106_ConstructBinaryTreefromInorderandPostorderTraversal.java)                                                                    |
+| 111|Minimum Depth Of Binary Tree                            |[java](Leetcode/src/com/leetcode/tree/_111_MinimumDepthOfBinaryTree.java)                                                                                               |
+| 114|Flatten Binary Treeto Linked List                       |[java](Leetcode/src/com/leetcode/tree/_114_FlattenBinaryTreetoLinkedList.java)                                                                                          |
+| 116|Populating Next Right Pointers In Each Node             |[java](Leetcode/src/com/leetcode/tree/_116_PopulatingNextRightPointersInEachNode.java)                                                                                  |
+| 117|Populating Next Right Pointers In Each Node II          |[java](Leetcode/src/com/leetcode/tree/_117_PopulatingNextRightPointersInEachNodeII.java)                                                                                |
+| 156|Binary Tree Upside Down                                 |[java](Leetcode/src/com/leetcode/tree/_156_BinaryTreeUpsideDown.java)                                                                                                   |
+| 199|Binary Tree Right Side View                             |[java](Leetcode/src/com/leetcode/tree/_199_BinaryTreeRightSideView.java), [py](Leetcode/src/com/leetcode/tree/_199_Binary_Tree_Right_Side_View.py)                      |
+| 222|Count Complete Tree Nodes                               |[java](Leetcode/src/com/leetcode/tree/_222_CountCompleteTreeNodes.java)                                                                                                 |
+| 226|Invert Binary Tree                                      |[java](Leetcode/src/com/leetcode/tree/_226_InvertBinaryTree.java)                                                                                                       |
+| 236|Lowest Common Ancestor Of A Binary Tree                 |[java](Leetcode/src/com/leetcode/tree/_236_LowestCommonAncestorOfABinaryTree.java), [py](Leetcode/src/com/leetcode/tree/_236_Lowest_Common_Ancestor_Of_A_Binary_Tree.py)|
+| 255|Verify Preorder Sequencein Binary Search Tree           |[java](Leetcode/src/com/leetcode/tree/_255_VerifyPreorderSequenceinBinarySearchTree.java)                                                                               |
+| 270|Closest Binary Search Tree Value                        |[java](Leetcode/src/com/leetcode/tree/_270_ClosestBinarySearchTreeValue.java)                                                                                           |
+| 272|Closest Binary Search Tree Value II                     |[java](Leetcode/src/com/leetcode/tree/_272_ClosestBinarySearchTreeValueII.java)                                                                                         |
+| 297|Serializeand Deserialize Binary Tree                    |[java](Leetcode/src/com/leetcode/tree/_297_SerializeandDeserializeBinaryTree.java)                                                                                      |
+| 298|Binary Tree Longest Consecutive Sequence                |[java](Leetcode/src/com/leetcode/tree/_298_BinaryTreeLongestConsecutiveSequence.java)                                                                                   |
+| 314|Binary Tree Vertical Order Traversal                    |[java](Leetcode/src/com/leetcode/tree/_314_BinaryTreeVerticalOrderTraversal.java)                                                                                       |
+| 331|Verify Preorder Serializationofa Binary Tree            |[java](Leetcode/src/com/leetcode/tree/_331_VerifyPreorderSerializationofaBinaryTree.java)                                                                               |
+| 337|House Robber III                                        |[java](Leetcode/src/com/leetcode/tree/_337_HouseRobberIII.java)                                                                                                         |
+| 404|Sumof Left Leaves                                       |[java](Leetcode/src/com/leetcode/tree/_404_SumofLeftLeaves.java)                                                                                                        |
+| 429|Traversal                                               |[py](Leetcode/src/com/leetcode/tree/_429_Nary_Tree_Level_Order_Traversal.py)                                                                                            |
+| 437|Path Sum III                                            |[java](Leetcode/src/com/leetcode/tree/_437_PathSumIII.java)                                                                                                             |
+| 508|Most Frequent Subtree Sum                               |[java](Leetcode/src/com/leetcode/tree/_508_MostFrequentSubtreeSum.java)                                                                                                 |
+| 513|Find Bottom Left Tree Value                             |[java](Leetcode/src/com/leetcode/tree/_513_FindBottomLeftTreeValue.java)                                                                                                |
+| 515|Find Largest Valuein Each Tree Row                      |[java](Leetcode/src/com/leetcode/tree/_515_FindLargestValueinEachTreeRow.java)                                                                                          |
+| 559|Maximum Depthof Nary Tree                               |[java](Leetcode/src/com/leetcode/tree/_559_MaximumDepthofNaryTree.java)                                                                                                 |
+| 563|Binary Tree Tilt                                        |[java](Leetcode/src/com/leetcode/tree/_563_BinaryTreeTilt.java)                                                                                                         |
+| 606|Construct Stringfrom Binary Tree                        |[java](Leetcode/src/com/leetcode/tree/_606_ConstructStringfromBinaryTree.java)                                                                                          |
+| 637|Averageof Levelsin Binary Tree                          |[java](Leetcode/src/com/leetcode/tree/_637_AverageofLevelsinBinaryTree.java)                                                                                            |
+| 652|Find Duplicate Subtrees                                 |[java](Leetcode/src/com/leetcode/tree/_652_FindDuplicateSubtrees.java)                                                                                                  |
+| 654|Maximum Binary Tree                                     |[java](Leetcode/src/com/leetcode/tree/_654_MaximumBinaryTree.java)                                                                                                      |
+| 662|Maximum Widthof Binary Tree                             |[java](Leetcode/src/com/leetcode/tree/_662_MaximumWidthofBinaryTree.java)                                                                                               |
+| 666|Path Sum IV                                             |[java](Leetcode/src/com/leetcode/tree/_666_PathSumIV.java)                                                                                                              |
+| 671|Second Minimum Node Ina Binary Tree                     |[java](Leetcode/src/com/leetcode/tree/_671_SecondMinimumNodeInaBinaryTree.java)                                                                                         |
+| 814|Binary Tree Pruning                                     |[java](Leetcode/src/com/leetcode/tree/_814_BinaryTreePruning.java)                                                                                                      |
+| 865|Smallest Subtreewithallthe Deepest Nodes                |[java](Leetcode/src/com/leetcode/tree/_865_SmallestSubtreewithalltheDeepestNodes.java)                                                                                  |
+| 958|Check Completenessofa Binary Tree                       |[java](Leetcode/src/com/leetcode/tree/_958_CheckCompletenessofaBinaryTree.java)                                                                                         |
+| 987|Vertical Order Traversalofa Binary Tree                 |[java](Leetcode/src/com/leetcode/tree/_987_VerticalOrderTraversalofaBinaryTree.java)                                                                                    |
+| 993|Cousinsin Binary Tree                                   |[java](Leetcode/src/com/leetcode/tree/_993_CousinsinBinaryTree.java)                                                                                                    |
+| 998|Maximum Binary Tree II                                  |[java](Leetcode/src/com/leetcode/tree/_998_MaximumBinaryTreeII.java)                                                                                                    |
+|1026|Maximum Difference Between Nodeand Ancestor             |[java](Leetcode/src/com/leetcode/tree/_1026_MaximumDifferenceBetweenNodeandAncestor.java)                                                                               |
+|1110|Delete Nodes And Return Forest                          |[java](Leetcode/src/com/leetcode/tree/_1110_DeleteNodesAndReturnForest.java)                                                                                            |
+|1130|Minimum Cost Tree From Leaf Values                      |[java](Leetcode/src/com/leetcode/tree/_1130_MinimumCostTreeFromLeafValues.java)                                                                                         |
+|1145|Binary Tree Coloring Game                               |[java](Leetcode/src/com/leetcode/tree/_1145_BinaryTreeColoringGame.java)                                                                                                |
+|1302|Deepest Leaves Sum                                      |[java](Leetcode/src/com/leetcode/tree/_1302_DeepestLeavesSum.java)                                                                                                      |
+|1315|Sumof Nodeswith Even Valued Grandparent                 |[java](Leetcode/src/com/leetcode/tree/_1315_SumofNodeswithEvenValuedGrandparent.java)                                                                                   |
+|1343|Maximum Productof Splitted Binary Tree                  |[java](Leetcode/src/com/leetcode/tree/_1343_MaximumProductofSplittedBinaryTree.java)                                                                                    |
+|1361|Validate Binary Tree Nodes                              |[java](Leetcode/src/com/leetcode/tree/_1361_ValidateBinaryTreeNodes.java)                                                                                               |
+|1367|Linked Listin Binary Tree                               |[java](Leetcode/src/com/leetcode/tree/_1367_LinkedListinBinaryTree.java)                                                                                                |
+|1372|Longest Zig Zag Pathina Binary Tree                     |[java](Leetcode/src/com/leetcode/tree/_1372_LongestZigZagPathinaBinaryTree.java)                                                                                        |
 # Postorder
 |No. |                  Problem                  |                                            Solutions                                            |
 |---:|-------------------------------------------|-------------------------------------------------------------------------------------------------|
@@ -89,24 +86,21 @@
 | 687|Longest Univalue Path                      |[java](Leetcode/src/com/leetcode/tree/postorder/_687_LongestUnivaluePath.java)                   |
 |1123|Lowest Common Ancestorof Deepest Leaves    |[java](Leetcode/src/com/leetcode/tree/postorder/_1123_LowestCommonAncestorofDeepestLeaves.java)  |
 # Preorder
-|No.|                Problem                 |                                          Solutions                                           |
-|--:|----------------------------------------|----------------------------------------------------------------------------------------------|
-| 98|Validate Binary Search Tree             |[java](Leetcode/src/com/leetcode/tree/preorder/_98_ValidateBinarySearchTree.java)             |
-| 98|Tree                                    |[py](Leetcode/src/com/leetcode/tree/preorder/_98_Validate_Binary_Search_Tree.py)              |
-|100|Same Tree                               |[java](Leetcode/src/com/leetcode/tree/preorder/_100_SameTree.java)                            |
-|101|Symmetric Tree                          |[java](Leetcode/src/com/leetcode/tree/preorder/_101_SymmetricTree.java)                       |
-|102|Binary Tree Level Order Traversal       |[java](Leetcode/src/com/leetcode/tree/preorder/_102_BinaryTreeLevelOrderTraversal.java)       |
-|103|Binary Tree Zigzag Level Order Traversal|[java](Leetcode/src/com/leetcode/tree/preorder/_103_BinaryTreeZigzagLevelOrderTraversal.java) |
-|103|Traversal                               |[py](Leetcode/src/com/leetcode/tree/preorder/_103_Binary_Tree_Zigzag_Level_Order_Traversal.py)|
-|107|Binary Tree Level Order Traversal II    |[java](Leetcode/src/com/leetcode/tree/preorder/_107_BinaryTreeLevelOrderTraversalII.java)     |
-|107|Traversal II                            |[py](Leetcode/src/com/leetcode/tree/preorder/_107_Binary_Tree_Level_Order_TraversalII.py)     |
-|112|Path Sum                                |[java](Leetcode/src/com/leetcode/tree/preorder/_112_PathSum.java)                             |
-|113|Path Sum II                             |[java](Leetcode/src/com/leetcode/tree/preorder/_113_PathSumII.java)                           |
-|129|Sum Root To Leaf Numbers                |[java](Leetcode/src/com/leetcode/tree/preorder/_129_SumRootToLeafNumbers.java)                |
-|144|Binary Tree Preorder Traversal          |[java](Leetcode/src/com/leetcode/tree/preorder/_144_BinaryTreePreorderTraversal.java)         |
-|257|Binary Tree Paths                       |[java](Leetcode/src/com/leetcode/tree/preorder/_257_BinaryTreePaths.java)                     |
-|572|Subtreeof Another Tree                  |[java](Leetcode/src/com/leetcode/tree/preorder/_572_SubtreeofAnotherTree.java)                |
-|951|Flip Equivalent Binary Trees            |[java](Leetcode/src/com/leetcode/tree/preorder/_951_FlipEquivalentBinaryTrees.java)           |
+|No.|                Problem                 |                                                                                          Solutions                                                                                          |
+|--:|----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 98|Validate Binary Search Tree             |[java](Leetcode/src/com/leetcode/tree/preorder/_98_ValidateBinarySearchTree.java), [py](Leetcode/src/com/leetcode/tree/preorder/_98_Validate_Binary_Search_Tree.py)                          |
+|100|Same Tree                               |[java](Leetcode/src/com/leetcode/tree/preorder/_100_SameTree.java)                                                                                                                           |
+|101|Symmetric Tree                          |[java](Leetcode/src/com/leetcode/tree/preorder/_101_SymmetricTree.java)                                                                                                                      |
+|102|Binary Tree Level Order Traversal       |[java](Leetcode/src/com/leetcode/tree/preorder/_102_BinaryTreeLevelOrderTraversal.java)                                                                                                      |
+|103|Binary Tree Zigzag Level Order Traversal|[java](Leetcode/src/com/leetcode/tree/preorder/_103_BinaryTreeZigzagLevelOrderTraversal.java), [py](Leetcode/src/com/leetcode/tree/preorder/_103_Binary_Tree_Zigzag_Level_Order_Traversal.py)|
+|107|Binary Tree Level Order Traversal II    |[java](Leetcode/src/com/leetcode/tree/preorder/_107_BinaryTreeLevelOrderTraversalII.java), [py](Leetcode/src/com/leetcode/tree/preorder/_107_Binary_Tree_Level_Order_TraversalII.py)         |
+|112|Path Sum                                |[java](Leetcode/src/com/leetcode/tree/preorder/_112_PathSum.java)                                                                                                                            |
+|113|Path Sum II                             |[java](Leetcode/src/com/leetcode/tree/preorder/_113_PathSumII.java)                                                                                                                          |
+|129|Sum Root To Leaf Numbers                |[java](Leetcode/src/com/leetcode/tree/preorder/_129_SumRootToLeafNumbers.java)                                                                                                               |
+|144|Binary Tree Preorder Traversal          |[java](Leetcode/src/com/leetcode/tree/preorder/_144_BinaryTreePreorderTraversal.java)                                                                                                        |
+|257|Binary Tree Paths                       |[java](Leetcode/src/com/leetcode/tree/preorder/_257_BinaryTreePaths.java)                                                                                                                    |
+|572|Subtreeof Another Tree                  |[java](Leetcode/src/com/leetcode/tree/preorder/_572_SubtreeofAnotherTree.java)                                                                                                               |
+|951|Flip Equivalent Binary Trees            |[java](Leetcode/src/com/leetcode/tree/preorder/_951_FlipEquivalentBinaryTrees.java)                                                                                                          |
 # Inorder
 |No.|           Problem           |                                    Solutions                                     |
 |--:|-----------------------------|----------------------------------------------------------------------------------|
@@ -119,24 +113,23 @@
 | 889|Construct Binary Treefrom Preorderand Postorder Traversal|[java](Leetcode/src/com/leetcode/tree/construct/_889_ConstructBinaryTreefromPreorderandPostorderTraversal.java)|
 |1008|Construct Binary Search Treefrom Preorder Traversal      |[java](Leetcode/src/com/leetcode/tree/construct/_1008_ConstructBinarySearchTreefromPreorderTraversal.java)     |
 # Bst
-|No. |                   Problem                    |                                           Solutions                                           |
-|---:|----------------------------------------------|-----------------------------------------------------------------------------------------------|
-|  99|Recover Binary Search Tree                    |[java](Leetcode/src/com/leetcode/tree/bst/_99_RecoverBinarySearchTree.java)                    |
-| 108|Convert Sorted Array To Binary Search Tree    |[java](Leetcode/src/com/leetcode/tree/bst/_108_ConvertSortedArrayToBinarySearchTree.java)      |
-| 109|Convert Sorted List To Binary Search Tree     |[java](Leetcode/src/com/leetcode/tree/bst/_109_ConvertSortedListToBinarySearchTree.java)       |
-| 173|Binary Search Tree Iterator                   |[java](Leetcode/src/com/leetcode/tree/bst/_173_BinarySearchTreeIterator.java)                  |
-| 230|Kth Smallest Element In ABST                  |[java](Leetcode/src/com/leetcode/tree/bst/_230_KthSmallestElementInABST.java)                  |
-| 235|Tree                                          |[py](Leetcode/src/com/leetcode/tree/bst/_235_Lowest_Common_Ancestor_Of_A_Binary_Search_Tree.py)|
-| 235|Lowest Common Ancestor Of A Binary Search Tree|[java](Leetcode/src/com/leetcode/tree/bst/_235_LowestCommonAncestorOfABinarySearchTree.java)   |
-| 285|Inorder Successorin BST                       |[java](Leetcode/src/com/leetcode/tree/bst/_285_InorderSuccessorinBST.java)                     |
-| 501|Find Modein Binary Search Tree                |[java](Leetcode/src/com/leetcode/tree/bst/_501_FindModeinBinarySearchTree.java)                |
-| 510|Inorder Successorin BSTII                     |[java](Leetcode/src/com/leetcode/tree/bst/_510_InorderSuccessorinBSTII.java)                   |
-| 530|Minimum Absolute Differencein BST             |[java](Leetcode/src/com/leetcode/tree/bst/_530_MinimumAbsoluteDifferenceinBST.java)            |
-| 653|Two Sum IV                                    |[java](Leetcode/src/com/leetcode/tree/bst/_653_TwoSumIV.java)                                  |
-| 701|Insertintoa Binary Search Tree                |[java](Leetcode/src/com/leetcode/tree/bst/_701_InsertintoaBinarySearchTree.java)               |
-| 938|Range Sumof BST                               |[java](Leetcode/src/com/leetcode/tree/bst/_938_RangeSumofBST.java)                             |
-|1305|All Elementsin Two Binary Search Trees        |[java](Leetcode/src/com/leetcode/tree/bst/_1305_AllElementsinTwoBinarySearchTrees.java)        |
-|1382|Balancea Binary Search Tree                   |[java](Leetcode/src/com/leetcode/tree/bst/_1382_BalanceaBinarySearchTree.java)                 |
+|No. |                   Problem                    |                                                                                          Solutions                                                                                          |
+|---:|----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  99|Recover Binary Search Tree                    |[java](Leetcode/src/com/leetcode/tree/bst/_99_RecoverBinarySearchTree.java)                                                                                                                  |
+| 108|Convert Sorted Array To Binary Search Tree    |[java](Leetcode/src/com/leetcode/tree/bst/_108_ConvertSortedArrayToBinarySearchTree.java)                                                                                                    |
+| 109|Convert Sorted List To Binary Search Tree     |[java](Leetcode/src/com/leetcode/tree/bst/_109_ConvertSortedListToBinarySearchTree.java)                                                                                                     |
+| 173|Binary Search Tree Iterator                   |[java](Leetcode/src/com/leetcode/tree/bst/_173_BinarySearchTreeIterator.java)                                                                                                                |
+| 230|Kth Smallest Element In ABST                  |[java](Leetcode/src/com/leetcode/tree/bst/_230_KthSmallestElementInABST.java)                                                                                                                |
+| 235|Lowest Common Ancestor Of A Binary Search Tree|[java](Leetcode/src/com/leetcode/tree/bst/_235_LowestCommonAncestorOfABinarySearchTree.java), [py](Leetcode/src/com/leetcode/tree/bst/_235_Lowest_Common_Ancestor_Of_A_Binary_Search_Tree.py)|
+| 285|Inorder Successorin BST                       |[java](Leetcode/src/com/leetcode/tree/bst/_285_InorderSuccessorinBST.java)                                                                                                                   |
+| 501|Find Modein Binary Search Tree                |[java](Leetcode/src/com/leetcode/tree/bst/_501_FindModeinBinarySearchTree.java)                                                                                                              |
+| 510|Inorder Successorin BSTII                     |[java](Leetcode/src/com/leetcode/tree/bst/_510_InorderSuccessorinBSTII.java)                                                                                                                 |
+| 530|Minimum Absolute Differencein BST             |[java](Leetcode/src/com/leetcode/tree/bst/_530_MinimumAbsoluteDifferenceinBST.java)                                                                                                          |
+| 653|Two Sum IV                                    |[java](Leetcode/src/com/leetcode/tree/bst/_653_TwoSumIV.java)                                                                                                                                |
+| 701|Insertintoa Binary Search Tree                |[java](Leetcode/src/com/leetcode/tree/bst/_701_InsertintoaBinarySearchTree.java)                                                                                                             |
+| 938|Range Sumof BST                               |[java](Leetcode/src/com/leetcode/tree/bst/_938_RangeSumofBST.java)                                                                                                                           |
+|1305|All Elementsin Two Binary Search Trees        |[java](Leetcode/src/com/leetcode/tree/bst/_1305_AllElementsinTwoBinarySearchTrees.java)                                                                                                      |
+|1382|Balancea Binary Search Tree                   |[java](Leetcode/src/com/leetcode/tree/bst/_1382_BalanceaBinarySearchTree.java)                                                                                                               |
 # Design
 |No. |           Problem            |                                   Solutions                                    |
 |---:|------------------------------|--------------------------------------------------------------------------------|
@@ -177,10 +170,8 @@
 |  71|Simplify Path                         |[java](Leetcode/src/com/leetcode/stackPriorityQueue/_71_SimplifyPath.java)                                                                                                                |
 | 150|Evaluate Reverse Polish Notation      |[java](Leetcode/src/com/leetcode/stackPriorityQueue/_150_EvaluateReversePolishNotation.java)                                                                                              |
 | 155|Min Stack                             |[java](Leetcode/src/com/leetcode/stackPriorityQueue/_155_MinStack.java)                                                                                                                   |
-| 225|Implement Stackusing Queues           |[java](Leetcode/src/com/leetcode/stackPriorityQueue/_225_ImplementStackusingQueues.java)                                                                                                  |
-| 225|Implement Stackusing Queues           |[java](Leetcode/src/com/leetcode/stackPriorityQueue/_225_ImplementStackusingQueues2.java)                                                                                                 |
-| 232|Implement Queueusing Stacks           |[java](Leetcode/src/com/leetcode/stackPriorityQueue/_232_ImplementQueueusingStacks.java)                                                                                                  |
-| 232|Implement Queueusing Stacks           |[java](Leetcode/src/com/leetcode/stackPriorityQueue/_232_ImplementQueueusingStacks2.java)                                                                                                 |
+| 225|Implement Stackusing Queues           |[java](Leetcode/src/com/leetcode/stackPriorityQueue/_225_ImplementStackusingQueues.java), [java](Leetcode/src/com/leetcode/stackPriorityQueue/_225_ImplementStackusingQueues2.java)       |
+| 232|Implement Queueusing Stacks           |[java](Leetcode/src/com/leetcode/stackPriorityQueue/_232_ImplementQueueusingStacks.java), [java](Leetcode/src/com/leetcode/stackPriorityQueue/_232_ImplementQueueusingStacks2.java)       |
 | 295|Find Median From Data Stream          |[java](Leetcode/src/com/leetcode/stackPriorityQueue/_295_FindMedianFromDataStream.java)                                                                                                   |
 | 313|Super Ugly Number                     |[java](Leetcode/src/com/leetcode/stackPriorityQueue/_313_SuperUglyNumber.java)                                                                                                            |
 | 316|Remove Duplicate Letters              |[java](Leetcode/src/com/leetcode/stackPriorityQueue/_316_RemoveDuplicateLetters.java)                                                                                                     |
@@ -198,7 +189,7 @@
 | 950|Reveal Cards In Increasing Order      |[java](Leetcode/src/com/leetcode/stackPriorityQueue/_950_RevealCardsInIncreasingOrder.java)                                                                                               |
 |1046|Last Stone Weight                     |[java](Leetcode/src/com/leetcode/stackPriorityQueue/_1046_LastStoneWeight.java)                                                                                                           |
 |1057|Campus Bike                           |[java](Leetcode/src/com/leetcode/stackPriorityQueue/_1057_CampusBike.java)                                                                                                                |
-|1167|Sticks                                |[java](Leetcode/src/com/leetcode/stackPriorityQueue/_1167_Minimum_Cost_to_Connect_Sticks.java), [java](Leetcode/src/com/leetcode/stackPriorityQueue/_1167_MinimumCosttoConnectSticks.java)|
+|1167|Minimum Costto Connect Sticks         |[java](Leetcode/src/com/leetcode/stackPriorityQueue/_1167_MinimumCosttoConnectSticks.java), [java](Leetcode/src/com/leetcode/stackPriorityQueue/_1167_Minimum_Cost_to_Connect_Sticks.java)|
 |1381|Designa Stack With Increment Operation|[java](Leetcode/src/com/leetcode/stackPriorityQueue/_1381_DesignaStackWithIncrementOperation.java)                                                                                        |
 # Monostack
 |No. |                  Problem                  |                                                   Solutions                                                    |
@@ -216,19 +207,18 @@
 |227|Basic Calculator II |[java](Leetcode/src/com/leetcode/stackPriorityQueue/Calculator/_227_BasicCalculatorII.java) |
 |772|Basic Calculator III|[java](Leetcode/src/com/leetcode/stackPriorityQueue/Calculator/_772_BasicCalculatorIII.java)|
 # Parentheses
-|No. |                     Problem                      |                                                          Solutions                                                           |
-|---:|--------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
-|  20|Valid Parentheses                                 |[py](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_20_ValidParentheses.py)                                        |
-|  20|Valid Parentheses                                 |[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_20_ValidParentheses.java)                                    |
-|  32|Longest Valid Parentheses                         |[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_32_LongestValidParentheses.java)                             |
-| 241|Different Waysto Add Parentheses                  |[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_241_DifferentWaystoAddParentheses.java)                      |
-| 301|Remove Invalid Parentheses                        |[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_301_RemoveInvalidParentheses.java)                           |
-| 856|Scoreof Parentheses                               |[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_856_ScoreofParentheses.java)                                 |
-| 921|Minimum Addto Make Parentheses Valid              |[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_921_MinimumAddtoMakeParenthesesValid.java)                   |
-|1021|Remove Outermost Parentheses                      |[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_1021_RemoveOutermostParentheses.java)                        |
-|1190|Reverse Substrings Between Each Pairof Parentheses|[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_1190_ReverseSubstringsBetweenEachPairofParentheses.java)     |
-|1249|Minimum Removeto Make Valid Parentheses           |[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_1249_MinimumRemovetoMakeValidParentheses.java)               |
-|1541|String                                            |[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_1541_Minimum_Insertions_to_Balance_a_Parentheses_String.java)|
+|No. |                     Problem                      |                                                                                    Solutions                                                                                     |
+|---:|--------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|  20|Valid Parentheses                                 |[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_20_ValidParentheses.java), [py](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_20_ValidParentheses.py)|
+|  32|Longest Valid Parentheses                         |[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_32_LongestValidParentheses.java)                                                                                 |
+| 241|Different Waysto Add Parentheses                  |[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_241_DifferentWaystoAddParentheses.java)                                                                          |
+| 301|Remove Invalid Parentheses                        |[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_301_RemoveInvalidParentheses.java)                                                                               |
+| 856|Scoreof Parentheses                               |[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_856_ScoreofParentheses.java)                                                                                     |
+| 921|Minimum Addto Make Parentheses Valid              |[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_921_MinimumAddtoMakeParenthesesValid.java)                                                                       |
+|1021|Remove Outermost Parentheses                      |[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_1021_RemoveOutermostParentheses.java)                                                                            |
+|1190|Reverse Substrings Between Each Pairof Parentheses|[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_1190_ReverseSubstringsBetweenEachPairofParentheses.java)                                                         |
+|1249|Minimum Removeto Make Valid Parentheses           |[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_1249_MinimumRemovetoMakeValidParentheses.java)                                                                   |
+|1541|String                                            |[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_1541_Minimum_Insertions_to_Balance_a_Parentheses_String.java)                                                    |
 # Topk
 |No.|           Problem           |                                          Solutions                                           |
 |--:|-----------------------------|----------------------------------------------------------------------------------------------|
@@ -255,56 +245,55 @@
 | 476|Number Complement             |[java](Leetcode/src/com/leetcode/bitManipulation/_476_NumberComplement.java)           |
 |1310|XOR Queriesofa Subarray       |[java](Leetcode/src/com/leetcode/bitManipulation/_1310_XORQueriesofaSubarray.java)     |
 # Bfsanddfs
-|No. |                 Problem                 |                                         Solutions                                         |
-|---:|-----------------------------------------|-------------------------------------------------------------------------------------------|
-|  51|N Queens                                 |[java](Leetcode/src/com/leetcode/bfsANDdfs/_51_NQueens.java)                               |
-|  52|N Queens II                              |[java](Leetcode/src/com/leetcode/bfsANDdfs/_52_NQueensII.java)                             |
-| 126|Word Ladder II                           |[java](Leetcode/src/com/leetcode/bfsANDdfs/_126_WordLadderII.java)                         |
-| 127|Word Ladder                              |[java](Leetcode/src/com/leetcode/bfsANDdfs/_127_WordLadder.java)                           |
-| 130|Surrounded Regions                       |[java](Leetcode/src/com/leetcode/bfsANDdfs/_130_SurroundedRegions.java)                    |
-| 200|Numberof Islands                         |[java](Leetcode/src/com/leetcode/bfsANDdfs/_200_NumberofIslands.java)                      |
-| 286|Wallsand Gates                           |[java](Leetcode/src/com/leetcode/bfsANDdfs/_286_WallsandGates.java)                        |
-| 339|Nested List Weight Sum                   |[java](Leetcode/src/com/leetcode/bfsANDdfs/_339_NestedListWeightSum.java)                  |
-| 364|Nested List Weight Sum II                |[java](Leetcode/src/com/leetcode/bfsANDdfs/_364_NestedListWeightSumII.java)                |
-| 417|Pacific Atlantic Water Flow              |[java](Leetcode/src/com/leetcode/bfsANDdfs/_417_PacificAtlanticWaterFlow.java)             |
-| 419|Battleshipsina Board                     |[java](Leetcode/src/com/leetcode/bfsANDdfs/_419_BattleshipsinaBoard.java)                  |
-| 463|Island Perimeter                         |[java](Leetcode/src/com/leetcode/bfsANDdfs/_463_IslandPerimeter.java)                      |
-| 473|Matchsticksto Square                     |[java](Leetcode/src/com/leetcode/bfsANDdfs/_473_MatchstickstoSquare.java)                  |
-| 490|The Maze                                 |[java](Leetcode/src/com/leetcode/bfsANDdfs/_490_TheMaze.java)                              |
-| 505|The Maze II                              |[java](Leetcode/src/com/leetcode/bfsANDdfs/_505_TheMazeII.java)                            |
-| 529|Minesweeper                              |[java](Leetcode/src/com/leetcode/bfsANDdfs/_529_Minesweeper.java)                          |
-| 542|Matrix                                   |[java](Leetcode/src/com/leetcode/bfsANDdfs/_542_0_1_Matrix.java)                           |
-| 542|Matrix                                   |[java](Leetcode/src/com/leetcode/bfsANDdfs/_542_01Matrix.java)                             |
-| 675|Cut Off Treesfor Golf Event              |[java](Leetcode/src/com/leetcode/bfsANDdfs/_675_CutOffTreesforGolfEvent.java)              |
-| 694|Numberof Distinct Islands                |[java](Leetcode/src/com/leetcode/bfsANDdfs/_694_NumberofDistinctIslands.java)              |
-| 695|Max Areaof Island                        |[java](Leetcode/src/com/leetcode/bfsANDdfs/_695_MaxAreaofIsland.java)                      |
-| 698|Partition To K Equal Sum Subsets         |[java](Leetcode/src/com/leetcode/bfsANDdfs/_698_PartitionToKEqualSumSubsets.java)          |
-| 721|Accounts Merge                           |[java](Leetcode/src/com/leetcode/bfsANDdfs/_721_AccountsMerge.java)                        |
-| 733|Flood Fill                               |[java](Leetcode/src/com/leetcode/bfsANDdfs/_733_FloodFill.java)                            |
-| 737|Sentence Similarity II                   |[java](Leetcode/src/com/leetcode/bfsANDdfs/_737_SentenceSimilarityII.java)                 |
-| 752|Openthe Lock                             |[java](Leetcode/src/com/leetcode/bfsANDdfs/_752_OpentheLock.java)                          |
-| 753|Crackingthe Safe                         |[java](Leetcode/src/com/leetcode/bfsANDdfs/_753_CrackingtheSafe.java)                      |
-| 805|Split Array With Same Average            |[java](Leetcode/src/com/leetcode/bfsANDdfs/_805_SplitArrayWithSameAverage.java)            |
-| 815|Bus Routes                               |[java](Leetcode/src/com/leetcode/bfsANDdfs/_815_BusRoutes.java)                            |
-| 847|Shortest Path Visiting All Nodes         |[java](Leetcode/src/com/leetcode/bfsANDdfs/_847_ShortestPathVisitingAllNodes.java)         |
-| 934|Shortest Bridge                          |[java](Leetcode/src/com/leetcode/bfsANDdfs/_934_ShortestBridge.java)                       |
-| 947|Most Stones Removedwith Same Rowor Column|[java](Leetcode/src/com/leetcode/bfsANDdfs/_947_MostStonesRemovedwithSameRoworColumn.java) |
-| 994|Rotting Oranges                          |[java](Leetcode/src/com/leetcode/bfsANDdfs/_994_RottingOranges.java)                       |
-|1036|Escapea Large Maze                       |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1036_EscapeaLargeMaze.java)                    |
-|1087|Brace Expansion                          |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1087_BraceExpansion.java)                      |
-|1091|Matrix                                   |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1091_Shortest_Path_in_Binary_Matrix.java)      |
-|1096|Brace Expansion II                       |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1096_BraceExpansionII.java)                    |
-|1162|As Farfrom Landas Possible               |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1162_AsFarfromLandasPossible.java)             |
-|1197|Minimum Knight Moves                     |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1197_MinimumKnightMoves.java)                  |
-|1219|Pathwith Maximum Gold                    |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1219_PathwithMaximumGold.java)                 |
-|1245|Tree Diameter                            |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1245_TreeDiameter.java)                        |
-|1254|Numberof Closed Islands                  |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1254_NumberofClosedIslands.java)               |
-|1274|Numberof Shipsina Rectangle              |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1274_NumberofShipsinaRectangle.java)           |
-|1342|Numberof Stepsto Reducea Numberto Zero   |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1342_NumberofStepstoReduceaNumbertoZero.java)  |
-|1345|Jump Game IV                             |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1345_JumpGameIV.java)                          |
-|1376|Time Neededto Inform All Employees       |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1376_TimeNeededtoInformAllEmployees.java)      |
-|1391|Checkif Thereisa Valid Pathina Grid      |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1391_CheckifThereisaValidPathinaGrid.java)     |
-|1443|Minimum Timeto Collect All Applesina Tree|[java](Leetcode/src/com/leetcode/bfsANDdfs/_1443_MinimumTimetoCollectAllApplesinaTree.java)|
+|No. |                 Problem                 |                                                           Solutions                                                            |
+|---:|-----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
+|  51|N Queens                                 |[java](Leetcode/src/com/leetcode/bfsANDdfs/_51_NQueens.java)                                                                    |
+|  52|N Queens II                              |[java](Leetcode/src/com/leetcode/bfsANDdfs/_52_NQueensII.java)                                                                  |
+| 126|Word Ladder II                           |[java](Leetcode/src/com/leetcode/bfsANDdfs/_126_WordLadderII.java)                                                              |
+| 127|Word Ladder                              |[java](Leetcode/src/com/leetcode/bfsANDdfs/_127_WordLadder.java)                                                                |
+| 130|Surrounded Regions                       |[java](Leetcode/src/com/leetcode/bfsANDdfs/_130_SurroundedRegions.java)                                                         |
+| 200|Numberof Islands                         |[java](Leetcode/src/com/leetcode/bfsANDdfs/_200_NumberofIslands.java)                                                           |
+| 286|Wallsand Gates                           |[java](Leetcode/src/com/leetcode/bfsANDdfs/_286_WallsandGates.java)                                                             |
+| 339|Nested List Weight Sum                   |[java](Leetcode/src/com/leetcode/bfsANDdfs/_339_NestedListWeightSum.java)                                                       |
+| 364|Nested List Weight Sum II                |[java](Leetcode/src/com/leetcode/bfsANDdfs/_364_NestedListWeightSumII.java)                                                     |
+| 417|Pacific Atlantic Water Flow              |[java](Leetcode/src/com/leetcode/bfsANDdfs/_417_PacificAtlanticWaterFlow.java)                                                  |
+| 419|Battleshipsina Board                     |[java](Leetcode/src/com/leetcode/bfsANDdfs/_419_BattleshipsinaBoard.java)                                                       |
+| 463|Island Perimeter                         |[java](Leetcode/src/com/leetcode/bfsANDdfs/_463_IslandPerimeter.java)                                                           |
+| 473|Matchsticksto Square                     |[java](Leetcode/src/com/leetcode/bfsANDdfs/_473_MatchstickstoSquare.java)                                                       |
+| 490|The Maze                                 |[java](Leetcode/src/com/leetcode/bfsANDdfs/_490_TheMaze.java)                                                                   |
+| 505|The Maze II                              |[java](Leetcode/src/com/leetcode/bfsANDdfs/_505_TheMazeII.java)                                                                 |
+| 529|Minesweeper                              |[java](Leetcode/src/com/leetcode/bfsANDdfs/_529_Minesweeper.java)                                                               |
+| 542|Matrix                                   |[java](Leetcode/src/com/leetcode/bfsANDdfs/_542_01Matrix.java), [java](Leetcode/src/com/leetcode/bfsANDdfs/_542_0_1_Matrix.java)|
+| 675|Cut Off Treesfor Golf Event              |[java](Leetcode/src/com/leetcode/bfsANDdfs/_675_CutOffTreesforGolfEvent.java)                                                   |
+| 694|Numberof Distinct Islands                |[java](Leetcode/src/com/leetcode/bfsANDdfs/_694_NumberofDistinctIslands.java)                                                   |
+| 695|Max Areaof Island                        |[java](Leetcode/src/com/leetcode/bfsANDdfs/_695_MaxAreaofIsland.java)                                                           |
+| 698|Partition To K Equal Sum Subsets         |[java](Leetcode/src/com/leetcode/bfsANDdfs/_698_PartitionToKEqualSumSubsets.java)                                               |
+| 721|Accounts Merge                           |[java](Leetcode/src/com/leetcode/bfsANDdfs/_721_AccountsMerge.java)                                                             |
+| 733|Flood Fill                               |[java](Leetcode/src/com/leetcode/bfsANDdfs/_733_FloodFill.java)                                                                 |
+| 737|Sentence Similarity II                   |[java](Leetcode/src/com/leetcode/bfsANDdfs/_737_SentenceSimilarityII.java)                                                      |
+| 752|Openthe Lock                             |[java](Leetcode/src/com/leetcode/bfsANDdfs/_752_OpentheLock.java)                                                               |
+| 753|Crackingthe Safe                         |[java](Leetcode/src/com/leetcode/bfsANDdfs/_753_CrackingtheSafe.java)                                                           |
+| 805|Split Array With Same Average            |[java](Leetcode/src/com/leetcode/bfsANDdfs/_805_SplitArrayWithSameAverage.java)                                                 |
+| 815|Bus Routes                               |[java](Leetcode/src/com/leetcode/bfsANDdfs/_815_BusRoutes.java)                                                                 |
+| 847|Shortest Path Visiting All Nodes         |[java](Leetcode/src/com/leetcode/bfsANDdfs/_847_ShortestPathVisitingAllNodes.java)                                              |
+| 934|Shortest Bridge                          |[java](Leetcode/src/com/leetcode/bfsANDdfs/_934_ShortestBridge.java)                                                            |
+| 947|Most Stones Removedwith Same Rowor Column|[java](Leetcode/src/com/leetcode/bfsANDdfs/_947_MostStonesRemovedwithSameRoworColumn.java)                                      |
+| 994|Rotting Oranges                          |[java](Leetcode/src/com/leetcode/bfsANDdfs/_994_RottingOranges.java)                                                            |
+|1036|Escapea Large Maze                       |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1036_EscapeaLargeMaze.java)                                                         |
+|1087|Brace Expansion                          |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1087_BraceExpansion.java)                                                           |
+|1091|Matrix                                   |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1091_Shortest_Path_in_Binary_Matrix.java)                                           |
+|1096|Brace Expansion II                       |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1096_BraceExpansionII.java)                                                         |
+|1162|As Farfrom Landas Possible               |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1162_AsFarfromLandasPossible.java)                                                  |
+|1197|Minimum Knight Moves                     |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1197_MinimumKnightMoves.java)                                                       |
+|1219|Pathwith Maximum Gold                    |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1219_PathwithMaximumGold.java)                                                      |
+|1245|Tree Diameter                            |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1245_TreeDiameter.java)                                                             |
+|1254|Numberof Closed Islands                  |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1254_NumberofClosedIslands.java)                                                    |
+|1274|Numberof Shipsina Rectangle              |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1274_NumberofShipsinaRectangle.java)                                                |
+|1342|Numberof Stepsto Reducea Numberto Zero   |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1342_NumberofStepstoReduceaNumbertoZero.java)                                       |
+|1345|Jump Game IV                             |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1345_JumpGameIV.java)                                                               |
+|1376|Time Neededto Inform All Employees       |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1376_TimeNeededtoInformAllEmployees.java)                                           |
+|1391|Checkif Thereisa Valid Pathina Grid      |[java](Leetcode/src/com/leetcode/bfsANDdfs/_1391_CheckifThereisaValidPathinaGrid.java)                                          |
+|1443|Minimum Timeto Collect All Applesina Tree|[java](Leetcode/src/com/leetcode/bfsANDdfs/_1443_MinimumTimetoCollectAllApplesinaTree.java)                                     |
 # Twopointer
 |No.|         Problem         |                                     Solutions                                      |
 |--:|-------------------------|------------------------------------------------------------------------------------|
@@ -673,31 +662,30 @@
 |1442|Count Triplets That Can Form Two Arraysof Equal XOR|[java](Leetcode/src/com/leetcode/rangeSum/_1442_CountTripletsThatCanFormTwoArraysofEqualXOR.java)|
 |1524|Numberof Subarrays With Odd Sum                    |[java](Leetcode/src/com/leetcode/rangeSum/_1524_NumberofSubarraysWithOddSum.java)                |
 # Greedy
-|No. |                          Problem                           |                                                Solutions                                                 |
-|---:|------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-|  45|Jump Game II                                                |[java](Leetcode/src/com/leetcode/greedy/_45_JumpGameII.java)                                              |
-|  80|Remove Duplicate From Sorted Array II                       |[java](Leetcode/src/com/leetcode/greedy/_80_RemoveDuplicateFromSortedArrayII.java)                        |
-| 402|Remove K Digits                                             |[java](Leetcode/src/com/leetcode/greedy/_402_RemoveKDigits.java)                                          |
-| 406|Queue Reconstructionby Height                               |[java](Leetcode/src/com/leetcode/greedy/_406_QueueReconstructionbyHeight.java)                            |
-| 455|Assign Cookies                                              |[java](Leetcode/src/com/leetcode/greedy/_455_AssignCookies.java)                                          |
-| 605|Flowers                                                     |[java](Leetcode/src/com/leetcode/greedy/_605_Can_Place_Flowers.java)                                      |
-| 621|Task Scheduler                                              |[java](Leetcode/src/com/leetcode/greedy/_621_TaskScheduler.java)                                          |
-| 659|Split Arrayinto Consecutive Subsequences                    |[java](Leetcode/src/com/leetcode/greedy/_659_SplitArrayintoConsecutiveSubsequences.java)                  |
-| 665|Nondecreasing Array                                         |[java](Leetcode/src/com/leetcode/greedy/_665_NondecreasingArray.java)                                     |
-| 667|II                                                          |[java](Leetcode/src/com/leetcode/greedy/_667_Beautiful_Arrangement_II.java)                               |
-| 763|Partition Labels                                            |[java](Leetcode/src/com/leetcode/greedy/_763_PartitionLabels.java)                                        |
-| 763|Partition Labels                                            |[py](Leetcode/src/com/leetcode/greedy/_763_PartitionLabels.py)                                            |
-| 846|Handof Straights                                            |[java](Leetcode/src/com/leetcode/greedy/_846_HandofStraights.java)                                        |
-| 857|Minimum Costto Hire K Workers                               |[java](Leetcode/src/com/leetcode/greedy/_857_MinimumCosttoHireKWorkers.java)                              |
-| 948|Tokens                                                      |[java](Leetcode/src/com/leetcode/greedy/_948_Bag_of_Tokens.java)                                          |
-|1029|Two City Scheduling                                         |[java](Leetcode/src/com/leetcode/greedy/_1029_TwoCityScheduling.java)                                     |
-|1296|Divide Arrayin Setsof K Consecutive Numbers                 |[java](Leetcode/src/com/leetcode/greedy/_1296_DivideArrayinSetsofKConsecutiveNumbers.java)                |
-|1338|Reduce Array Sizeto The Half                                |[java](Leetcode/src/com/leetcode/greedy/_1338_ReduceArraySizetoTheHalf.java)                              |
-|1353|Maximum Numberof Events That Can Be Attended                |[java](Leetcode/src/com/leetcode/greedy/_1353_MaximumNumberofEventsThatCanBeAttended.java)                |
-|1383|Maximum Performanceofa Team                                 |[java](Leetcode/src/com/leetcode/greedy/_1383_MaximumPerformanceofaTeam.java)                             |
-|1403|Minimum Subsequencein Non Increasing Order                  |[java](Leetcode/src/com/leetcode/greedy/_1403_MinimumSubsequenceinNonIncreasingOrder.java)                |
-|1526|Minimum Numberof Incrementson Subarraysto Forma Target Array|[java](Leetcode/src/com/leetcode/greedy/_1526_MinimumNumberofIncrementsonSubarraystoFormaTargetArray.java)|
-|1599|Maximum Profitof Operatinga Centennial Wheel                |[java](Leetcode/src/com/leetcode/greedy/_1599_MaximumProfitofOperatingaCentennialWheel.java)              |
+|No. |                          Problem                           |                                                            Solutions                                                             |
+|---:|------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
+|  45|Jump Game II                                                |[java](Leetcode/src/com/leetcode/greedy/_45_JumpGameII.java)                                                                      |
+|  80|Remove Duplicate From Sorted Array II                       |[java](Leetcode/src/com/leetcode/greedy/_80_RemoveDuplicateFromSortedArrayII.java)                                                |
+| 402|Remove K Digits                                             |[java](Leetcode/src/com/leetcode/greedy/_402_RemoveKDigits.java)                                                                  |
+| 406|Queue Reconstructionby Height                               |[java](Leetcode/src/com/leetcode/greedy/_406_QueueReconstructionbyHeight.java)                                                    |
+| 455|Assign Cookies                                              |[java](Leetcode/src/com/leetcode/greedy/_455_AssignCookies.java)                                                                  |
+| 605|Flowers                                                     |[java](Leetcode/src/com/leetcode/greedy/_605_Can_Place_Flowers.java)                                                              |
+| 621|Task Scheduler                                              |[java](Leetcode/src/com/leetcode/greedy/_621_TaskScheduler.java)                                                                  |
+| 659|Split Arrayinto Consecutive Subsequences                    |[java](Leetcode/src/com/leetcode/greedy/_659_SplitArrayintoConsecutiveSubsequences.java)                                          |
+| 665|Nondecreasing Array                                         |[java](Leetcode/src/com/leetcode/greedy/_665_NondecreasingArray.java)                                                             |
+| 667|II                                                          |[java](Leetcode/src/com/leetcode/greedy/_667_Beautiful_Arrangement_II.java)                                                       |
+| 763|Partition Labels                                            |[java](Leetcode/src/com/leetcode/greedy/_763_PartitionLabels.java), [py](Leetcode/src/com/leetcode/greedy/_763_PartitionLabels.py)|
+| 846|Handof Straights                                            |[java](Leetcode/src/com/leetcode/greedy/_846_HandofStraights.java)                                                                |
+| 857|Minimum Costto Hire K Workers                               |[java](Leetcode/src/com/leetcode/greedy/_857_MinimumCosttoHireKWorkers.java)                                                      |
+| 948|Tokens                                                      |[java](Leetcode/src/com/leetcode/greedy/_948_Bag_of_Tokens.java)                                                                  |
+|1029|Two City Scheduling                                         |[java](Leetcode/src/com/leetcode/greedy/_1029_TwoCityScheduling.java)                                                             |
+|1296|Divide Arrayin Setsof K Consecutive Numbers                 |[java](Leetcode/src/com/leetcode/greedy/_1296_DivideArrayinSetsofKConsecutiveNumbers.java)                                        |
+|1338|Reduce Array Sizeto The Half                                |[java](Leetcode/src/com/leetcode/greedy/_1338_ReduceArraySizetoTheHalf.java)                                                      |
+|1353|Maximum Numberof Events That Can Be Attended                |[java](Leetcode/src/com/leetcode/greedy/_1353_MaximumNumberofEventsThatCanBeAttended.java)                                        |
+|1383|Maximum Performanceofa Team                                 |[java](Leetcode/src/com/leetcode/greedy/_1383_MaximumPerformanceofaTeam.java)                                                     |
+|1403|Minimum Subsequencein Non Increasing Order                  |[java](Leetcode/src/com/leetcode/greedy/_1403_MinimumSubsequenceinNonIncreasingOrder.java)                                        |
+|1526|Minimum Numberof Incrementson Subarraysto Forma Target Array|[java](Leetcode/src/com/leetcode/greedy/_1526_MinimumNumberofIncrementsonSubarraystoFormaTargetArray.java)                        |
+|1599|Maximum Profitof Operatinga Centennial Wheel                |[java](Leetcode/src/com/leetcode/greedy/_1599_MaximumProfitofOperatingaCentennialWheel.java)                                      |
 # String
 |No. |                           Problem                           |                                                 Solutions                                                 |
 |---:|-------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|

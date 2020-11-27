@@ -1,6 +1,6 @@
 '''
 Date: 11/25/2020 20:52:31
-LastEditTime: 11/26/2020 11:04:47
+LastEditTime: 11/26/2020 11:38:36
 Description: Generate Markdown file with specific folder
 '''
 
@@ -31,7 +31,7 @@ def generate_markdown(topic_to_files, markdown_file_name='README.md'):
         print('*' * 20)
         print('We are processing topic ' + topic)
         print('*' * 20)
-
+        files.sort()
         writer = MarkdownTableWriter()
         writer.table_name = topic.capitalize()
         writer.headers = ["No.", "Problem", "Solutions"]
