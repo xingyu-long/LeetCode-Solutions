@@ -1,20 +1,24 @@
+/*
+ * @Date: 08/11/2020 18:07:14
+ * @LastEditTime: 11/27/2020 11:50:02
+ * @Description: 0/1 knapsack
+ */
 package com.leetcode.dynamicProgramming;
 
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @Date: 8/20/2019, 10/6/2019, 11/1/2020
- * @Description: 0/1 knapsack
- **/
 public class _416_PartitionEqualSubsetSum {
     // DP 表示是否可以由前i个数构成sum/2，并且数组和不能为奇数，这样无法partition
     // 算是背包问题？
     public boolean canPartition(int[] nums) {
-        if (nums == null || nums.length == 0) return false;
+        if (nums == null || nums.length == 0)
+            return false;
         int sum = 0;
-        for (int num : nums) sum += num;
-        if (sum % 2 != 0) return false;
+        for (int num : nums)
+            sum += num;
+        if (sum % 2 != 0)
+            return false;
         int target = sum / 2;
         int n = nums.length;
         boolean[][] dp = new boolean[n + 1][target + 1];
@@ -37,12 +41,14 @@ public class _416_PartitionEqualSubsetSum {
 
     // 利用1d
     public boolean canPartition2(int[] nums) {
-        if (nums == null || nums.length == 0) return false;
+        if (nums == null || nums.length == 0)
+            return false;
         int sum = 0;
         for (int num : nums) {
             sum += num;
         }
-        if (sum % 2 != 0) return false;
+        if (sum % 2 != 0)
+            return false;
         sum /= 2;
         boolean[] dp = new boolean[sum + 1];
         dp[0] = true;
@@ -56,7 +62,7 @@ public class _416_PartitionEqualSubsetSum {
     }
 
     public boolean canPartition3(int[] nums) {
-        if  (nums == null || nums.length == 0) {
+        if (nums == null || nums.length == 0) {
             return false;
         }
         int n = nums.length;
@@ -64,12 +70,12 @@ public class _416_PartitionEqualSubsetSum {
         for (int num : nums) {
             sum += num;
         }
-        if (sum % 2 != 0) return false;
+        if (sum % 2 != 0)
+            return false;
         int target = sum / 2;
         Map<String, Boolean> memo = new HashMap<>();
         return dfs(nums, 0, target, memo);
     }
-
 
     public boolean dfs(int[] nums, int index, int target, Map<String, Boolean> memo) {
         if (target == 0) {
@@ -81,7 +87,8 @@ public class _416_PartitionEqualSubsetSum {
         }
 
         String key = index + " - " + target;
-        if (memo.containsKey(key)) return memo.get(key);
+        if (memo.containsKey(key))
+            return memo.get(key);
         for (int i = index; i < nums.length; i++) {
             if (target >= nums[i]) {
                 if (dfs(nums, i + 1, target - nums[i], memo)) {

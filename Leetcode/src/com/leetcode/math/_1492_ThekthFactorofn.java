@@ -1,12 +1,13 @@
+/*
+ * @Date: 06/27/2020 17:59:05
+ * @LastEditTime: 12/04/2020 08:47:55
+ * @Description: Math
+ */
 package com.leetcode.math;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @Date: 06/27/2020
- * @Description: Math, sqrt
- **/
 public class _1492_ThekthFactorofn {
 
     // time:O(n) space:O(1)
@@ -15,8 +16,10 @@ public class _1492_ThekthFactorofn {
             return -1;
         }
         for (int d = 1; d <= n; d++) {
-            if (n % d == 0 && --k == 0) {
-                return d;
+            if (n % d == 0) {
+                if (--k == 0) {
+                    return d;
+                }
             }
         }
         return -1;

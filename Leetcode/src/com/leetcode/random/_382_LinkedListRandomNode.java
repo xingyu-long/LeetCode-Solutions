@@ -1,24 +1,18 @@
+/*
+ * @Date: 06/20/2019 07:25:50
+ * @LastEditTime: 12/02/2020 14:52:59
+ * @Description: 蓄水池抽样
+ */
 package com.leetcode.random;
 
 import java.util.Random;
+import com.leetcode.common.ListNode;
 
 public class _382_LinkedListRandomNode {
 
-    private class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-    }
     private ListNode head;
     private Random rmd;
 
-    /**
-     *  382. Linked List Random Node
-        When: 2019/06/20
-
-        solution：依然使用蓄水池抽样的方法
-     * @param head
-     */
     public _382_LinkedListRandomNode(ListNode head) {
         this.head = head;
         rmd = new Random();
@@ -26,13 +20,13 @@ public class _382_LinkedListRandomNode {
 
     /** Returns a random node's value. */
     public int getRandom() {
-        ListNode temp = head; // for moving forward
-        int res = temp.val;
+        ListNode curr = head; // for moving forward
+        int res = curr.val;
         int i = 1;
-        while (temp.next != null) {
-            temp = temp.next;
+        while (curr.next != null) {
+            curr = curr.next;
             if (rmd.nextInt(++i) == 0) {
-                res = temp.val;
+                res = curr.val;
             }
         }
         return res;
