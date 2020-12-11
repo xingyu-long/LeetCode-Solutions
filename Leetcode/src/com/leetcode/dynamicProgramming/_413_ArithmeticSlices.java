@@ -1,12 +1,14 @@
 /*
- * @Date: 2020-03-20 21:09:51
- * @LastEditors: Clark long
- * @LastEditTime: 2020-03-20 21:10:47
+ * @Date: 03/20/2020 21:09:51
+ * @LastEditTime: 12/10/2020 11:06:50
+ * @Description: DP
  */
+
 package com.leetcode.dynamicProgramming;
 
 public class _413_ArithmeticSlices {
     // 需要多思考，其中的关系
+    // 记住这里的关系，是连续的才行，不用考虑间隔的情况
     public int numberOfArithmeticSlices(int[] A) {
         int n = A.length;
         if (A == null || n == 0) return 0;
