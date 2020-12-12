@@ -918,7 +918,7 @@
 |---:|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 375|Guess Number Higheror Lower II|[java](Leetcode/src/com/leetcode/dynamicProgramming/MinMax/_375_GuessNumberHigherorLowerII.java)                                                                            |
 | 464|Can I Win                     |[java](Leetcode/src/com/leetcode/dynamicProgramming/MinMax/_464_CanIWin.java)                                                                                               |
-| 486|Winner                        |[py](Leetcode/src/com/leetcode/dynamicProgramming/MinMax/_486_Predict_the_Winner.py), [java](Leetcode/src/com/leetcode/dynamicProgramming/MinMax/_486_PredicttheWinner.java)|
+| 486|Predict The Winner            |[java](Leetcode/src/com/leetcode/dynamicProgramming/MinMax/_486_PredictTheWinner.java), [py](Leetcode/src/com/leetcode/dynamicProgramming/MinMax/_486_Predict_the_Winner.py)|
 | 877|Stone Game                    |[java](Leetcode/src/com/leetcode/dynamicProgramming/MinMax/_877_StoneGame.java)                                                                                             |
 | 887|Super Egg Drop                |[java](Leetcode/src/com/leetcode/dynamicProgramming/MinMax/_887_SuperEggDrop.java)                                                                                          |
 |1140|Stone Game II                 |[java](Leetcode/src/com/leetcode/dynamicProgramming/MinMax/_1140_StoneGameII.java)                                                                                          |

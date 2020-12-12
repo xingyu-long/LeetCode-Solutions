@@ -1,13 +1,13 @@
 /*
  * @Date: 10/07/2020 10:06:21
- * @LastEditTime: 12/12/2020 16:22:04
+ * @LastEditTime: 12/12/2020 16:26:07
  * @Description: MinMax, Top-down + Memo
  */
 package com.leetcode.dynamicProgramming.MinMax;
 
 import java.util.Arrays;
 
-public class _486_PredicttheWinner {
+public class _486_PredictTheWinner {
     int[][] memo;
 
     public boolean PredictTheWinner(int[] nums) {
