@@ -1,9 +1,15 @@
+/*
+ * @Date: 10/07/2020 10:06:21
+ * @LastEditTime: 12/12/2020 16:22:04
+ * @Description: MinMax, Top-down + Memo
+ */
 package com.leetcode.dynamicProgramming.MinMax;
 
 import java.util.Arrays;
 
-public class _486_Predict_the_Winner {
+public class _486_PredicttheWinner {
     int[][] memo;
+
     public boolean PredictTheWinner(int[] nums) {
         // 博弈的那个题，可以算相对值
         if (nums == null || nums.length == 0) {
@@ -23,7 +29,8 @@ public class _486_Predict_the_Winner {
         if (start > end) {
             return 0;
         }
-        if (memo[start][end] != -1) return memo[start][end];
+        if (memo[start][end] != -1)
+            return memo[start][end];
         int takeLeft = nums[start] - dfs(nums, start + 1, end);
         int takeRight = nums[end] - dfs(nums, start, end - 1);
         int res = Math.max(takeLeft, takeRight);

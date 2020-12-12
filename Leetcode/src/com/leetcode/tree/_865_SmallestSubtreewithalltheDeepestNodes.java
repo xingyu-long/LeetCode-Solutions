@@ -2,42 +2,13 @@ package com.leetcode.tree;
 
 import com.leetcode.common.TreeNode;
 
-import java.util.HashMap;
+/*
+ * @Date: 02/06/2020 23:51:46
+ * @LastEditTime: 12/12/2020 11:11:38
+ * @Description: Postorder
+ */
 
 public class _865_SmallestSubtreewithalltheDeepestNodes {
-
-    // 这里跟那个LCA有异曲同工之妙。
-    // 先找出最大的深度，然后看在那个深度有什么点返回，这里就和LCA差不多了！
-    HashMap<TreeNode, Integer> map;
-    int max;
-    public TreeNode subtreeWithAllDeepest(TreeNode root) {
-        if (root == null) return null;
-        map = new HashMap<>();
-        map.put(null, -1);
-        dfs(root, null);
-        for (int d : map.values()) {
-            max = Math.max(max, d);
-        }
-        return findMaxDepthNode(root);
-    }
-
-    public void dfs(TreeNode root, TreeNode parent) {
-        if (root == null) return;
-        map.put(root, map.get(parent) + 1);
-        dfs(root.left, root);
-        dfs(root.right, root);
-    }
-
-    public TreeNode findMaxDepthNode(TreeNode root) {
-        if (root == null) return null;
-        if (map.get(root) == max) return root;
-        TreeNode left = findMaxDepthNode(root.left);
-        TreeNode right = findMaxDepthNode(root.right);
-        if (left != null && right != null) return root;
-        if (left != null) return left;
-        if (right != null) return right;
-        return null;
-    }
 
     public class Data {
         TreeNode node;
@@ -50,18 +21,53 @@ public class _865_SmallestSubtreewithalltheDeepestNodes {
     }
 
     // one pass time:O(n) space:O(n)
-    public TreeNode subtreeWithAllDeepest2(TreeNode root) {
+    public TreeNode subtreeWithAllDeepest(TreeNode root) {
         return dfs(root).node;
     }
 
     public Data dfs(TreeNode root) {
-        if (root == null) return new Data(null, 0);
+        if (root == null)
+            return new Data(null, 0);
         Data left = dfs(root.left);
         Data right = dfs(root.right);
 
-        if (left.depth > right.depth) return new Data(left.node, left.depth + 1);
-        if (left.depth < right.depth) return new Data(right.node, right.depth + 1);
+        if (left.depth > right.depth)
+            return new Data(left.node, left.depth + 1);
+        if (left.depth < right.depth)
+            return new Data(right.node, right.depth + 1);
         // 相同的话，就把root传回去
         return new Data(root, left.depth + 1);
+    }
+
+    class Node {
+        TreeNode root;
+        int depth;
+
+        // 之前是上面的Node里面初始化没有处理好
+        public Node(TreeNode r, int d) {
+            root = r;
+            depth = d;
+        }
+    }
+
+    public TreeNode subtreeWithAllDeepest2(TreeNode root) {
+        Node res = dfs2(root);
+        return res.root;
+    }
+
+    public Node dfs2(TreeNode root) {
+        if (root == null) {
+            return new Node(root, 0);
+        }
+
+        Node left = dfs2(root.left);
+        Node right = dfs2(root.right);
+        if (left.depth == right.depth) {
+            return new Node(root, left.depth + 1);
+        } else if (left.depth > right.depth) {
+            return new Node(left.root, left.depth + 1);
+        } else {
+            return new Node(right.root, right.depth + 1);
+        }
     }
 }
