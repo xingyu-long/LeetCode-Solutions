@@ -1,14 +1,13 @@
+/*
+ * @Date: 08/11/2020 18:07:14
+ * @LastEditTime: 12/14/2020 09:19:24
+ * @Description: Palindrome, Backtracking
+ */
 package com.leetcode.string.Palindrome;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.leetcode.string.Palindrome._336_PalindromePairs.isPalindrome;
-
-/**
- * @Date: 2019/8/9, 05/09/2020
- * @Description: Palindrome, Backtracking
- **/
 public class _131_PalindromePartitioning {
 
     public static List<List<String>> partition(String s) {
@@ -47,6 +46,7 @@ public class _131_PalindromePartitioning {
         }
         return true;
     }
+
     // 利用dp先报存其Palindrome的情况，注意下标
     public List<List<String>> partition2(String s) {
         if (s == null || s.length() == 0) {
@@ -67,8 +67,7 @@ public class _131_PalindromePartitioning {
         return res;
     }
 
-    private void dfs(List<List<String>> res, List<String> list, int index, String s,
-        boolean[][] dp) {
+    private void dfs(List<List<String>> res, List<String> list, int index, String s, boolean[][] dp) {
         if (index == s.length()) {
             res.add(new ArrayList<>(list));
             return;

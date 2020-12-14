@@ -1,9 +1,10 @@
+/*
+ * @Date: 08/11/2020 18:07:14
+ * @LastEditTime: 12/13/2020 09:55:32
+ * @Description: range DP
+ */
 package com.leetcode.dynamicProgramming.rangeDP;
 
-/**
- * @Date: 04/11/2020, 09/06/2020
- * @Description: range DP
- **/
 public class _312_BurstBalloons {
 
     // https://leetcode.com/problems/burst-balloons/discuss/76228/Share-some-analysis-and-explanations
@@ -22,6 +23,7 @@ public class _312_BurstBalloons {
     }
 
     private int helper(int i, int j, int[] nums, int[][] memo) {
+        // 这里不是 i >= j
         if (i > j) {
             return 0;
         }
@@ -30,9 +32,8 @@ public class _312_BurstBalloons {
         }
         int res = Integer.MIN_VALUE;
         for (int x = i; x <= j; x++) {
-            res = Math.max(memo[i][j], helper(i, x - 1, nums, memo)
-                + nums[i - 1] * nums[x] * nums[j + 1]
-                + helper(x + 1, j, nums, memo));
+            res = Math.max(memo[i][j],
+                    helper(i, x - 1, nums, memo) + nums[i - 1] * nums[x] * nums[j + 1] + helper(x + 1, j, nums, memo));
         }
         memo[i][j] = res;
         return res;
