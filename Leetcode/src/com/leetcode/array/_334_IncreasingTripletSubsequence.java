@@ -1,4 +1,11 @@
+/*
+ * @Date: 11/06/2019 23:24:55
+ * @LastEditTime: 12/18/2020 10:49:29
+ * @Description: Forward, Backward.
+ */
 package com.leetcode.array;
+
+import java.util.Arrays;
 
 public class _334_IncreasingTripletSubsequence {
     //  利用dp time:O(n^2) space:O(n)
@@ -52,6 +59,33 @@ public class _334_IncreasingTripletSubsequence {
 
         for (int i = 0; i < n; i++) {
             if (nums[i] > forward[i] && nums[i] < backward[i]) return true;
+        }
+        return false;
+    }
+
+    public boolean increasingTriplet4(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return false;
+        }
+        // 记录到i之前的最小值或i之后的大的值。
+        int n = nums.length;
+        int[] forward = new int[n];
+        Arrays.fill(forward, Integer.MAX_VALUE);
+        int[] backward = new int[n];
+        Arrays.fill(backward, Integer.MIN_VALUE);
+        for (int i = 1; i < n; i++) {
+            forward[i] = Math.min(forward[i - 1], nums[i - 1]);
+        }
+        
+        for (int i = n - 2; i >= 0; i--) {
+            backward[i] = Math.max(backward[i + 1], nums[i + 1]);
+        }
+        
+        for (int i = 1; i < n - 1; i++) {
+            // System.out.println("forward = " + forward[i] + " backward = " + backward[i]);
+            if (forward[i] < nums[i] && nums[i] < backward[i]) {
+                return true;
+            }
         }
         return false;
     }

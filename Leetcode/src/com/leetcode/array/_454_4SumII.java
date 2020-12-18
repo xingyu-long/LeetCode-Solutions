@@ -1,3 +1,8 @@
+/*
+ * @Date: 01/19/2020 15:19:36
+ * @LastEditTime: 12/17/2020 09:39:40
+ * @Description: HashMap
+ */
 package com.leetcode.array;
 
 import java.util.HashMap;

@@ -1,9 +1,10 @@
+/*
+ * @Date: 12/21/2019 20:10:32
+ * @LastEditTime: 12/15/2020 10:11:32
+ * @Description: Math, Two pointer
+ */
 package com.leetcode.math;
 
-/**
- * @Date: 09/03/2020
- * @Description: Math, Two pointer
- **/
 public class _360_SortTransformedArray {
 
     // 分为a > 0, a < 0, a = 0(合并为>=)
@@ -42,7 +43,7 @@ public class _360_SortTransformedArray {
     }
 
     public static void main(String[] args) {
-        int[] nums = {-4,-2,2,4};
+        int[] nums = { -4, -2, 2, 4 };
         int a = 1, b = 3, c = 5;
         int[] res = sortTransformedArray(nums, a, b, c);
         for (int num : res) {
