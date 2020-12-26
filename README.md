@@ -199,6 +199,7 @@
 | 321|Create Maximum Number                      |[java](Leetcode/src/com/leetcode/stackPriorityQueue/monoStack/_321_CreateMaximumNumber.java)                    |
 | 496|Next Greater Element I                     |[java](Leetcode/src/com/leetcode/stackPriorityQueue/monoStack/_496_NextGreaterElementI.java)                    |
 | 503|Next Greater Element II                    |[java](Leetcode/src/com/leetcode/stackPriorityQueue/monoStack/_503_NextGreaterElementII.java)                   |
+| 556|Next Greater Element III                   |[java](Leetcode/src/com/leetcode/stackPriorityQueue/monoStack/_556_NextGreaterElementIII.java)                  |
 | 901|Online Stock Span                          |[java](Leetcode/src/com/leetcode/stackPriorityQueue/monoStack/_901_OnlineStockSpan.java)                        |
 |1475|Final Prices Witha Special Discountina Shop|[java](Leetcode/src/com/leetcode/stackPriorityQueue/monoStack/_1475_FinalPricesWithaSpecialDiscountinaShop.java)|
 # Calculator
@@ -624,6 +625,8 @@
 | 728|Self Dividing Numbers                        |[java](Leetcode/src/com/leetcode/math/_728_SelfDividingNumbers.java)                                                                      |
 | 780|Reaching Points                              |[java](Leetcode/src/com/leetcode/math/_780_ReachingPoints.java)                                                                           |
 | 902|Set                                          |[java](Leetcode/src/com/leetcode/math/_902_Numbers_At_Most_N_Given_Digit_Set.java)                                                        |
+| 908|Smallest Range I                             |[java](Leetcode/src/com/leetcode/math/_908_SmallestRangeI.java)                                                                           |
+| 910|Smallest Range II                            |[java](Leetcode/src/com/leetcode/math/_910_SmallestRangeII.java)                                                                          |
 | 991|Broken Calculator                            |[java](Leetcode/src/com/leetcode/math/_991_BrokenCalculator.java)                                                                         |
 |1041|Robot Bounded In Circle                      |[java](Leetcode/src/com/leetcode/math/_1041_RobotBoundedInCircle.java)                                                                    |
 |1262|Greatest Sum Divisibleby Three               |[java](Leetcode/src/com/leetcode/math/_1262_GreatestSumDivisiblebyThree.java)                                                             |
@@ -644,6 +647,7 @@
 |No. |                    Problem                     |                                           Solutions                                            |
 |---:|------------------------------------------------|------------------------------------------------------------------------------------------------|
 | 554|Wall                                            |[java](Leetcode/src/com/leetcode/HashMap/_554_Brick_Wall.java)                                  |
+| 594|Longest Harmonious Subsequence                  |[java](Leetcode/src/com/leetcode/HashMap/_594_LongestHarmoniousSubsequence.java)                |
 | 697|Array                                           |[java](Leetcode/src/com/leetcode/HashMap/_697_Degree_of_an_Array.java)                          |
 | 734|Sentence Similarity                             |[java](Leetcode/src/com/leetcode/HashMap/_734_SentenceSimilarity.java)                          |
 | 833|Find And Replacein String                       |[java](Leetcode/src/com/leetcode/HashMap/_833_FindAndReplaceinString.java)                      |
