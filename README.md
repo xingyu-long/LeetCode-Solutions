@@ -623,6 +623,7 @@
 | 633|Numbers                                      |[java](Leetcode/src/com/leetcode/math/_633_Sum_of_Square_Numbers.java)                                                                    |
 | 670|Maximum Swap                                 |[java](Leetcode/src/com/leetcode/math/_670_MaximumSwap.java)                                                                              |
 | 728|Self Dividing Numbers                        |[java](Leetcode/src/com/leetcode/math/_728_SelfDividingNumbers.java)                                                                      |
+| 754|Reach A Number                               |[java](Leetcode/src/com/leetcode/math/_754_ReachANumber.java)                                                                             |
 | 780|Reaching Points                              |[java](Leetcode/src/com/leetcode/math/_780_ReachingPoints.java)                                                                           |
 | 902|Set                                          |[java](Leetcode/src/com/leetcode/math/_902_Numbers_At_Most_N_Given_Digit_Set.java)                                                        |
 | 908|Smallest Range I                             |[java](Leetcode/src/com/leetcode/math/_908_SmallestRangeI.java)                                                                           |

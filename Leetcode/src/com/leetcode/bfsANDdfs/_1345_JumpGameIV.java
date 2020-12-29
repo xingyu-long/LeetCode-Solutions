@@ -1,10 +1,10 @@
 package com.leetcode.bfsANDdfs;
 
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 /**
  * @Date: 04/25/2020
@@ -48,9 +48,40 @@ public class _1345_JumpGameIV {
         return dp[n - 1];
     }
 
-    public static void main(String[] args) {
-        _1345_JumpGameIV jumpGameIV = new _1345_JumpGameIV();
-        int[] nums = new int[]{7,7,7,7,7,7,7};
-        jumpGameIV.minJumps(nums);
+    // 利用BFS来优化搜索的过程，
+    public int minJumps2(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            return 0;
+        }
+        int n = arr.length;
+        Map<Integer, List<Integer>> map = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            map.putIfAbsent(arr[i], new LinkedList<>());
+            map.get(arr[i]).add(i);
+        }
+        boolean[] visited = new boolean[n];
+        Queue<Integer> queue = new LinkedList<>();
+        queue.offer(0);
+        visited[0] = true;
+        int res = 0;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                int curr = queue.poll();
+                if (curr == n - 1) return res;
+                List<Integer> next = map.get(arr[curr]);
+                next.add(curr - 1);
+                next.add(curr + 1);
+                for (int index : next) {
+                    if (index >= 0 && index < n && !visited[index]) {
+                        queue.offer(index);
+                        visited[index] = true;
+                    }
+                }
+                next.clear();
+            }
+            res += 1;
+        }
+        return -1;
     }
 }
