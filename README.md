@@ -73,6 +73,7 @@
 |1361|Validate Binary Tree Nodes                              |[java](Leetcode/src/com/leetcode/tree/_1361_ValidateBinaryTreeNodes.java)                                                                                                            |
 |1367|Linked Listin Binary Tree                               |[java](Leetcode/src/com/leetcode/tree/_1367_LinkedListinBinaryTree.java)                                                                                                             |
 |1372|Longest Zig Zag Pathina Binary Tree                     |[java](Leetcode/src/com/leetcode/tree/_1372_LongestZigZagPathinaBinaryTree.java)                                                                                                     |
+|1457|Pseudo Palindromic Paths In A Binary Tree               |[java](Leetcode/src/com/leetcode/tree/_1457_PseudoPalindromicPathsInABinaryTree.java)                                                                                                |
 # Postorder
 |No. |                  Problem                  |                                            Solutions                                            |
 |---:|-------------------------------------------|-------------------------------------------------------------------------------------------------|
