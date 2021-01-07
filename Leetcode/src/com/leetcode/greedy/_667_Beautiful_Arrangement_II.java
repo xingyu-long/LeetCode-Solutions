@@ -1,3 +1,8 @@
+/*
+ * @Date: 10/10/2020 21:11:09
+ * @LastEditTime: 01/03/2021 09:59:24
+ * @Description: Greedy
+ */
 package com.leetcode.greedy;
 
 public class _667_Beautiful_Arrangement_II {

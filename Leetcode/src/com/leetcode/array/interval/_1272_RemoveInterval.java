@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class _1272_Remove_Interval {
+public class _1272_RemoveInterval {
     public List<List<Integer>> removeInterval(int[][] intervals, int[] toBeRemoved) {
         if (intervals == null || intervals.length == 0 || intervals[0] == null || intervals[0].length == 0) {
             return new ArrayList<>();

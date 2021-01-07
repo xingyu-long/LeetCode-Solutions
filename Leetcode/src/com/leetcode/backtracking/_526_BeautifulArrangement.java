@@ -1,10 +1,11 @@
+/*
+ * @Date: 10/10/2020 20:19:10
+ * @LastEditTime: 01/03/2021 09:57:04
+ * @Description: backtracking
+ */
 package com.leetcode.backtracking;
 
-/**
- * @Date: 10/10/2020
- * @Description: backtracking
- **/
-public class _526_Beautiful_Arrangement {
+public class _526_BeautifulArrangement {
     // Time:(2^N)
     public int countArrangement(int N) {
         // backtracking?
@@ -20,7 +21,8 @@ public class _526_Beautiful_Arrangement {
 
         int res = 0;
         for (int i = 1; i <= N; i++) {
-            if (visited[i]) continue;
+            if (visited[i])
+                continue;
             if (i % (count + 1) == 0 || (count + 1) % i == 0) {
                 visited[i] = true;
                 res += dfs(N, visited, count + 1);
