@@ -1,47 +1,32 @@
+/*
+ * @Date: 11/02/2019 20:03:39
+ * @LastEditTime: 01/12/2021 15:37:34
+ * @Description: Linkedlist
+ */
 package com.leetcode.linkedList;
 
 import com.leetcode.common.ListNode;
 
 public class _2_AddTwoNumbers {
 
-    /**
-     * 2. Add Two Numbers
-     * When: 2019/05/16
-     * Review1: 2019/7/8
-     * review2:11/2/2019
-     * <p>
-     * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
-     * Output: 7 -> 0 -> 8
-     *
-     * @param l1
-     * @param l2
-     * @return
-     */
     // time: O(n) space: O(n)（因为新建节点）
     // 尽可能处理完全部节点，所以下面用的是 ||
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(0);
-        int sum = 0; // 计算其值，求余得到进位，求模得到剩下的数字
-        ListNode cur = dummy;
-        ListNode p1 = l1, p2 = l2;
-        while (p1 != null || p2 != null) {
-            if (p1 != null) {
-                sum += p1.val;
-                p1 = p1.next;
+        ListNode curr = dummy;
+        int carry = 0;
+        while (l1 != null || l2 != null || carry != 0) {
+            if (l1 != null) {
+                carry += l1.val;
+                l1 = l1.next;
             }
-
-            if (p2 != null) {
-                sum += p2.val;
-                p2 = p2.next;
+            if (l2 != null) {
+                carry += l2.val;
+                l2 = l2.next;
             }
-
-            cur.next = new ListNode(sum % 10);
-            sum /= 10;
-            cur = cur.next;
-        }
-        // 最后如果出现两位相加 进位的情况
-        if (sum != 0) {
-            cur.next = new ListNode(1);
+            curr.next = new ListNode(carry % 10);
+            carry /= 10;
+            curr = curr.next;
         }
         return dummy.next;
     }

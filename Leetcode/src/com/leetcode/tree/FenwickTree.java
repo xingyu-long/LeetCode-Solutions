@@ -1,11 +1,12 @@
+/*
+ * @Date: 04/11/2020 18:35:36
+ * @LastEditTime: 01/10/2021 10:02:11
+ * @Description: Fenwick Tree, Range Sum
+ */
 package com.leetcode.tree;
 
 import java.util.Arrays;
 
-/**
- * @Date: 04/11/2020
- * @Description: Fenwick Tree, Range Sum
- **/
 public class FenwickTree {
 
     public int[] sums;
