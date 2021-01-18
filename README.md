@@ -370,6 +370,7 @@
 |1491|Average Salary Excludingthe Minimumand Maximum Salary                 |[java](Leetcode/src/com/leetcode/array/_1491_AverageSalaryExcludingtheMinimumandMaximumSalary.java)               |
 |1503|Last Moment Before All Ants Fall Outofa Plank                         |[java](Leetcode/src/com/leetcode/array/_1503_LastMomentBeforeAllAntsFallOutofaPlank.java)                         |
 |1539|Kth Missing Positive Number                                           |[java](Leetcode/src/com/leetcode/array/_1539_KthMissingPositiveNumber.java)                                       |
+|1646|Get Maximum In Generated Array                                        |[java](Leetcode/src/com/leetcode/array/_1646_GetMaximumInGeneratedArray.java)                                     |
 # Sort
 |No. |                       Problem                       |                                                  Solutions                                                   |
 |---:|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
@@ -427,6 +428,7 @@
 |1186|Maximum Subarray Sumwith One Deletion                 |[java](Leetcode/src/com/leetcode/array/subArray/_1186_MaximumSubarraySumwithOneDeletion.java)              |
 |1477|Find Two Nonoverlapping Subarrays Each With Target Sum|[java](Leetcode/src/com/leetcode/array/subArray/_1477_FindTwoNonoverlappingSubarraysEachWithTargetSum.java)|
 |1567|Maximum Lengthof Subarray With Positive Product       |[java](Leetcode/src/com/leetcode/array/subArray/_1567_MaximumLengthofSubarrayWithPositiveProduct.java)     |
+|1658|Minimum Operations To Reduce X To Zero                |[java](Leetcode/src/com/leetcode/array/subArray/_1658_MinimumOperationsToReduceXToZero.java)               |
 # Counter
 |No. |                 Problem                 |                                           Solutions                                           |
 |---:|-----------------------------------------|-----------------------------------------------------------------------------------------------|
@@ -659,6 +661,7 @@
 | 833|Find And Replacein String                       |[java](Leetcode/src/com/leetcode/HashMap/_833_FindAndReplaceinString.java)                      |
 |1010|Pairs Of Songs With Total Durations Divisible By|[java](Leetcode/src/com/leetcode/HashMap/_1010_PairsOfSongsWithTotalDurationsDivisibleBy60.java)|
 |1152|Pattern                                         |[java](Leetcode/src/com/leetcode/HashMap/_1152_Analyze_User_Website_Visit_Pattern.java)         |
+|1679|Max Number Of K Sum Pairs                       |[java](Leetcode/src/com/leetcode/HashMap/_1679_MaxNumberOfKSumPairs.java)                       |
 |1711|Count Good Meals                                |[java](Leetcode/src/com/leetcode/HashMap/_1711_CountGoodMeals.java)                             |
 # Trie
 |No. |               Problem                |                                    Solutions                                     |
@@ -928,7 +931,7 @@
 |1423|Maximum Points You Can Obtainfrom Cards              |[java](Leetcode/src/com/leetcode/dynamicProgramming/_1423_MaximumPointsYouCanObtainfromCards.java)                                                                           |
 |1425|Constrained Subsequence Sum                          |[java](Leetcode/src/com/leetcode/dynamicProgramming/_1425_ConstrainedSubsequenceSum.java)                                                                                    |
 |1463|Cherry Pickup II                                     |[java](Leetcode/src/com/leetcode/dynamicProgramming/_1463_CherryPickupII.java)                                                                                               |
-|1641|Strings                                              |[java](Leetcode/src/com/leetcode/dynamicProgramming/_1641_Count_Sorted_Vowel_Strings.java)                                                                                   |
+|1641|Count Sorted Vowel Strings                           |[java](Leetcode/src/com/leetcode/dynamicProgramming/_1641_CountSortedVowelStrings.java)                                                                                      |
 # Knapsack
 |No.|   Problem    |                                      Solutions                                      |
 |--:|--------------|-------------------------------------------------------------------------------------|
