@@ -1,9 +1,18 @@
+/*
+ * @Date: 01/25/2020 20:55:42
+ * @LastEditTime: 01/23/2021 11:17:10
+ * @Description: HashMap,
+ */
 package com.leetcode.matrix;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
 
 public class _1329_SorttheMatrixDiagonally {
-    // date: 01/25/2020
     // time: O(m + n) max log max(# of diag)
     // space: O(m * n) clone
     public int[][] diagonalSort(int[][] mat) {
@@ -52,7 +61,7 @@ public class _1329_SorttheMatrixDiagonally {
         return mat;
     }
 
-    //
+    // Use PriorityQueue instead of sorting each time.
     public int[][] diagonalSort2(int[][] mat) {
         if (mat == null || mat.length == 0 ||
                 mat[0] == null || mat[0].length == 0)
@@ -60,7 +69,7 @@ public class _1329_SorttheMatrixDiagonally {
         int m = mat.length;
         int n = mat[0].length;
         // use i - j to identify each diag.
-        HashMap<Integer, PriorityQueue<Integer>> diag = new HashMap<>();
+        Map<Integer, PriorityQueue<Integer>> diag = new HashMap<>();
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 diag.putIfAbsent(i - j, new PriorityQueue<>());

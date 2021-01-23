@@ -204,6 +204,7 @@
 | 556|Next Greater Element III                   |[java](Leetcode/src/com/leetcode/stackPriorityQueue/monoStack/_556_NextGreaterElementIII.java)                  |
 | 901|Online Stock Span                          |[java](Leetcode/src/com/leetcode/stackPriorityQueue/monoStack/_901_OnlineStockSpan.java)                        |
 |1475|Final Prices Witha Special Discountina Shop|[java](Leetcode/src/com/leetcode/stackPriorityQueue/monoStack/_1475_FinalPricesWithaSpecialDiscountinaShop.java)|
+|1673|Find The Most Competitive Subsequence      |[java](Leetcode/src/com/leetcode/stackPriorityQueue/monoStack/_1673_FindTheMostCompetitiveSubsequence.java)     |
 # Calculator
 |No.|      Problem       |                                         Solutions                                          |
 |--:|--------------------|--------------------------------------------------------------------------------------------|
@@ -777,6 +778,7 @@
 |1422|Maximum Score After Splittinga String                        |[java](Leetcode/src/com/leetcode/string/_1422_MaximumScoreAfterSplittingaString.java)                      |
 |1525|Numberof Good Waysto Splita String                           |[java](Leetcode/src/com/leetcode/string/_1525_NumberofGoodWaystoSplitaString.java)                         |
 |1640|Check Array Formation Through Concatenation                  |[java](Leetcode/src/com/leetcode/string/_1640_CheckArrayFormationThroughConcatenation.java)                |
+|1657|Determine If Two Strings Are Close                           |[java](Leetcode/src/com/leetcode/string/_1657_DetermineIfTwoStringsAreClose.java)                          |
 # Subsequence
 |No. |                 Problem                 |                                              Solutions                                              |
 |---:|-----------------------------------------|-----------------------------------------------------------------------------------------------------|

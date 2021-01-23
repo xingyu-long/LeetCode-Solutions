@@ -1,17 +1,12 @@
+/*
+ * @Date: 08/11/2020 18:07:14
+ * @LastEditTime: 01/19/2021 10:03:57
+ * @Description: Palindrome, DP
+ */
 package com.leetcode.string.Palindrome;
 
-/**
- * @Date: 2019/8/25, 11/3/2019, 04/30/2020,
- * 05/09/2020
- * @Description: Palindrome
- **/
 public class _5_LongestPalindromicSubstring {
 
-    //dp[i, j] = true  if i == j
-    //
-    //         = s[i] == s[j]   if j = i + 1,2都可以 因为距离为1，直接s[i]s[j]比较，如果是2的话也只需要比较这个因为中间那个的值不影响。
-    //
-    //         = s[i] == s[j] && dp[i + 1][j - 1]   if j > i + 3
     // dp数组的含义是指从i到j是否为回文
     // time:O(n^2) space:O(n^2)
     public String longestPalindrome(String s) {
@@ -26,6 +21,7 @@ public class _5_LongestPalindromicSubstring {
             for (int i = 0; i <= j; i++) {
                 // j - i <= 1 表示区间在2以内的时候前面(s.charAt(i) == s.charAt(j))就可以判断了
                 // 但是如果大于2就需要前后移动来确定！
+                // 后面的是dp[i+1][j-1]看中间的情况，不要忘了
                 dp[i][j] = (s.charAt(i) == s.charAt(j)) && (j - i <= 1 || dp[i + 1][j - 1]);
                 if (dp[i][j]) {
                     if (j - i + 1 > max) {
@@ -56,8 +52,7 @@ public class _5_LongestPalindromicSubstring {
     }
 
     public void helper(String s, int left, int right) {
-        while (left >= 0 && right < s.length() &&
-            s.charAt(left) == s.charAt(right)) {
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
             left--;
             right++;
         }
@@ -65,10 +60,5 @@ public class _5_LongestPalindromicSubstring {
         if (cur.length() > res.length()) {
             res = cur;
         }
-    }
-
-    public static void main(String[] args) {
-        String s = "01234";
-        System.out.println(s.substring(1, 1));
     }
 }
