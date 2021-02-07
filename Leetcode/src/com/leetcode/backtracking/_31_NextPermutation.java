@@ -1,12 +1,13 @@
+/*
+ * @Date: 08/11/2020 18:07:14
+ * @LastEditTime: 01/31/2021 09:33:39
+ * @Description: Simulation
+ */
 package com.leetcode.backtracking;
 
 public class _31_NextPermutation {
 
     /**
-     * 31. Next Permutation
-     * When: 2019/04/30
-     * Review1: 2019/7/16
-     * review2:2019/10/13
      * solution:
      * 从"后往前找"
      * 首先找到第一个小于后一个数的位置。
@@ -29,6 +30,7 @@ public class _31_NextPermutation {
     // 只能反转较大的数 然后变成较小的情况
     // 记得画图分析，语言不好表达
     // time:O(n) space:O(1)
+    // 想错了，应该找firstSmall并且倒着走
     public void nextPermutation(int[] nums) {
         if (nums == null || nums.length == 0) return;
 

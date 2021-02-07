@@ -129,6 +129,7 @@
 | 510|Inorder Successorin BSTII                     |[java](Leetcode/src/com/leetcode/tree/bst/_510_InorderSuccessorinBSTII.java)                                                                                                                 |
 | 530|Minimum Absolute Differencein BST             |[java](Leetcode/src/com/leetcode/tree/bst/_530_MinimumAbsoluteDifferenceinBST.java)                                                                                                          |
 | 653|Two Sum IV                                    |[java](Leetcode/src/com/leetcode/tree/bst/_653_TwoSumIV.java)                                                                                                                                |
+| 669|Trim A Binary Search Tree                     |[java](Leetcode/src/com/leetcode/tree/bst/_669_TrimABinarySearchTree.java)                                                                                                                   |
 | 701|Insertintoa Binary Search Tree                |[java](Leetcode/src/com/leetcode/tree/bst/_701_InsertintoaBinarySearchTree.java)                                                                                                             |
 | 938|Range Sumof BST                               |[java](Leetcode/src/com/leetcode/tree/bst/_938_RangeSumofBST.java)                                                                                                                           |
 |1305|All Elementsin Two Binary Search Trees        |[java](Leetcode/src/com/leetcode/tree/bst/_1305_AllElementsinTwoBinarySearchTrees.java)                                                                                                      |
@@ -194,6 +195,7 @@
 |1057|Campus Bike                           |[java](Leetcode/src/com/leetcode/stackPriorityQueue/_1057_CampusBike.java)                                                                                                                |
 |1167|Minimum Costto Connect Sticks         |[java](Leetcode/src/com/leetcode/stackPriorityQueue/_1167_MinimumCosttoConnectSticks.java), [java](Leetcode/src/com/leetcode/stackPriorityQueue/_1167_Minimum_Cost_to_Connect_Sticks.java)|
 |1381|Designa Stack With Increment Operation|[java](Leetcode/src/com/leetcode/stackPriorityQueue/_1381_DesignaStackWithIncrementOperation.java)                                                                                        |
+|1675|Minimize Deviation In Array           |[java](Leetcode/src/com/leetcode/stackPriorityQueue/_1675_MinimizeDeviationInArray.java)                                                                                                  |
 # Monostack
 |No. |                  Problem                  |                                                   Solutions                                                    |
 |---:|-------------------------------------------|----------------------------------------------------------------------------------------------------------------|
@@ -368,6 +370,7 @@
 |1375|Bulb Switcher III                                                     |[java](Leetcode/src/com/leetcode/array/_1375_BulbSwitcherIII.java)                                                |
 |1386|Cinema Seat Allocation                                                |[java](Leetcode/src/com/leetcode/array/_1386_CinemaSeatAllocation.java)                                           |
 |1389|Create Target Arrayinthe Given Order                                  |[java](Leetcode/src/com/leetcode/array/_1389_CreateTargetArrayintheGivenOrder.java)                               |
+|1437|Check If All Are At Least Length K Places Away                        |[java](Leetcode/src/com/leetcode/array/_1437_CheckIfAll1sAreAtLeastLengthKPlacesAway.java)                        |
 |1491|Average Salary Excludingthe Minimumand Maximum Salary                 |[java](Leetcode/src/com/leetcode/array/_1491_AverageSalaryExcludingtheMinimumandMaximumSalary.java)               |
 |1503|Last Moment Before All Ants Fall Outofa Plank                         |[java](Leetcode/src/com/leetcode/array/_1503_LastMomentBeforeAllAntsFallOutofaPlank.java)                         |
 |1539|Kth Missing Positive Number                                           |[java](Leetcode/src/com/leetcode/array/_1539_KthMissingPositiveNumber.java)                                       |
@@ -578,6 +581,7 @@
 | 743|Network Delay Time                                                    |[java](Leetcode/src/com/leetcode/graph/ShortestPath/_743_NetworkDelayTime.java)                                                |
 |1184|Distance Between Bus Stops                                            |[java](Leetcode/src/com/leetcode/graph/ShortestPath/_1184_DistanceBetweenBusStops.java)                                        |
 |1334|Findthe City Withthe Smallest Numberof Neighborsata Threshold Distance|[java](Leetcode/src/com/leetcode/graph/ShortestPath/_1334_FindtheCityWiththeSmallestNumberofNeighborsataThresholdDistance.java)|
+|1631|Path With Minimum Effort                                              |[java](Leetcode/src/com/leetcode/graph/ShortestPath/_1631_PathWithMinimumEffort.java)                                          |
 # Unionfind
 |No. |                     Problem                      |                                                Solutions                                                 |
 |---:|--------------------------------------------------|----------------------------------------------------------------------------------------------------------|
@@ -647,6 +651,7 @@
 |1492|                                             |[py](Leetcode/src/com/leetcode/math/_1492_The_kth_Factor_of_n.py), [java](Leetcode/src/com/leetcode/math/_1492_ThekthFactorofn.java)      |
 |1502|Can Make Arithmetic Progression From Sequence|[java](Leetcode/src/com/leetcode/math/_1502_CanMakeArithmeticProgressionFromSequence.java)                                                |
 |1523|Count Odd Numbersinan Interval Range         |[java](Leetcode/src/com/leetcode/math/_1523_CountOddNumbersinanIntervalRange.java)                                                        |
+|1680|Concatenation Of Consecutive Binary Numbers  |[java](Leetcode/src/com/leetcode/math/_1680_ConcatenationOfConsecutiveBinaryNumbers.java)                                                 |
 # Sum
 |No.|        Problem        |                               Solutions                                |
 |--:|-----------------------|------------------------------------------------------------------------|
@@ -713,6 +718,8 @@
 |1403|Minimum Subsequencein Non Increasing Order                  |[java](Leetcode/src/com/leetcode/greedy/_1403_MinimumSubsequenceinNonIncreasingOrder.java)                                          |
 |1526|Minimum Numberof Incrementson Subarraysto Forma Target Array|[java](Leetcode/src/com/leetcode/greedy/_1526_MinimumNumberofIncrementsonSubarraystoFormaTargetArray.java)                          |
 |1599|Maximum Profitof Operatinga Centennial Wheel                |[java](Leetcode/src/com/leetcode/greedy/_1599_MaximumProfitofOperatingaCentennialWheel.java)                                        |
+|1663|Smallest String With A Given Numeric Value                  |[java](Leetcode/src/com/leetcode/greedy/_1663_SmallestStringWithAGivenNumericValue.java)                                            |
+|1737|Change Minimum Characters To Satisfy One Of Three Conditions|[java](Leetcode/src/com/leetcode/greedy/_1737_ChangeMinimumCharactersToSatisfyOneOfThreeConditions.java)                            |
 # String
 |No. |                           Problem                           |                                                 Solutions                                                 |
 |---:|-------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
@@ -762,6 +769,7 @@
 | 686|Repeated String Match                                        |[java](Leetcode/src/com/leetcode/string/_686_RepeatedStringMatch.java)                                     |
 | 720|Dictionary                                                   |[java](Leetcode/src/com/leetcode/string/_720_Longest_Word_in_Dictionary.java)                              |
 | 767|Reorganize String                                            |[java](Leetcode/src/com/leetcode/string/_767_ReorganizeString.java)                                        |
+| 821|Shortest Distance To A Character                             |[java](Leetcode/src/com/leetcode/string/_821_ShortestDistanceToACharacter.java)                            |
 | 916|Word Subsets                                                 |[java](Leetcode/src/com/leetcode/string/_916_WordSubsets.java)                                             |
 | 944|Delete Columns To Make Sorted                                |[java](Leetcode/src/com/leetcode/string/_944_DeleteColumnsToMakeSorted.java)                               |
 | 953|Verifyingan Alien Dictionary                                 |[java](Leetcode/src/com/leetcode/string/_953_VerifyinganAlienDictionary.java)                              |

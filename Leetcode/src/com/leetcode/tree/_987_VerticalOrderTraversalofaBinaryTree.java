@@ -1,13 +1,23 @@
+/*
+ * @Date: 01/16/2020 11:14:56
+ * @LastEditTime: 01/29/2021 09:41:46
+ * @Description: Tree, PQ & TreeMap
+ */
 package com.leetcode.tree;
 
-import com.leetcode.common.TreeNode;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.TreeMap;
 
-import java.util.*;
+import com.leetcode.common.TreeNode;
 
 public class _987_VerticalOrderTraversalofaBinaryTree {
     // 987. Vertical Order Traversal of a Binary Tree
     // https://www.youtube.com/watch?v=kqHNP6NTzME
-    HashMap<Integer, TreeMap<Integer, PriorityQueue<Integer>>> map;
+    Map<Integer, TreeMap<Integer, PriorityQueue<Integer>>> map;
     int minX, maxX;
     public List<List<Integer>> verticalTraversal(TreeNode root) {
         map = new HashMap<>();

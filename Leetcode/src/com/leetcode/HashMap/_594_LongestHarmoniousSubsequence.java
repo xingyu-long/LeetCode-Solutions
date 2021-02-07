@@ -1,6 +1,6 @@
 /*
  * @Date: 12/25/2020 10:54:02
- * @LastEditTime: 12/25/2020 10:54:28
+ * @LastEditTime: 02/04/2021 09:48:49
  * @Description: HashMap
  */
 package com.leetcode.HashMap;
@@ -11,6 +11,7 @@ import java.util.Map;
 public class _594_LongestHarmoniousSubsequence {
     public int findLHS(int[] nums) {
         // 一开始想错成DP，想复杂了
+        // 再次想复杂了。
         if (nums == null || nums.length == 0) {
             return 0;
         }

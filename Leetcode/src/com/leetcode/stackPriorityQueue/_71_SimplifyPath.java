@@ -1,13 +1,15 @@
+/*
+ * @Date: 08/11/2020 18:07:14
+ * @LastEditTime: 02/05/2021 09:35:23
+ * @Description: Stack
+ */
 package com.leetcode.stackPriorityQueue;
 
 import java.util.Stack;
 
-/**
- * @Date: 2019/06/08, 2019/7/12, 2019/9/3, 05/20/2020
- * @Description: Sliding Window
- **/
 public class _71_SimplifyPath {
     // 关注..会需要返回上一层即可以及后面构建的时候注意顺序
+    // 空的情况没有考虑到，以及构建结果的时候
     // time: O(n) space: O(n) (due to the stack structure)
     public String simplifyPath(String path) {
         Stack<String> stack = new Stack<>();
