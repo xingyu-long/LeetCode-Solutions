@@ -1,3 +1,8 @@
+/*
+ * @Date: 07/22/2020 09:26:04
+ * @LastEditTime: 03/05/2021 09:13:06
+ * @Description: BFS
+ */
 package com.leetcode.tree;
 
 import com.leetcode.common.TreeNode;
@@ -6,10 +11,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-/**
- * @Date: 07/22/2020
- * @Description: BFS
- **/
 public class _637_AverageofLevelsinBinaryTree {
 
     public List<Double> averageOfLevels(TreeNode root) {

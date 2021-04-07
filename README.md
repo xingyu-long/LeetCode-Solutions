@@ -50,6 +50,7 @@
 | 559|Maximum Depthof Nary Tree                                         |[java](Leetcode/src/com/leetcode/tree/_559_MaximumDepthofNaryTree.java)                                                                                                              |
 | 563|Binary Tree Tilt                                                  |[java](Leetcode/src/com/leetcode/tree/_563_BinaryTreeTilt.java)                                                                                                                      |
 | 606|Construct Stringfrom Binary Tree                                  |[java](Leetcode/src/com/leetcode/tree/_606_ConstructStringfromBinaryTree.java)                                                                                                       |
+| 623|Add One Row To Tree                                               |[java](Leetcode/src/com/leetcode/tree/_623_AddOneRowToTree.java)                                                                                                                     |
 | 637|Averageof Levelsin Binary Tree                                    |[java](Leetcode/src/com/leetcode/tree/_637_AverageofLevelsinBinaryTree.java)                                                                                                         |
 | 652|Find Duplicate Subtrees                                           |[java](Leetcode/src/com/leetcode/tree/_652_FindDuplicateSubtrees.java)                                                                                                               |
 | 654|Maximum Binary Tree                                               |[java](Leetcode/src/com/leetcode/tree/_654_MaximumBinaryTree.java)                                                                                                                   |
@@ -60,6 +61,7 @@
 | 865|Smallest Subtreewithallthe Deepest Nodes                          |[java](Leetcode/src/com/leetcode/tree/_865_SmallestSubtreewithalltheDeepestNodes.java)                                                                                               |
 | 897|Increasing Order Search Tree                                      |[java](Leetcode/src/com/leetcode/tree/_897_IncreasingOrderSearchTree.java)                                                                                                           |
 | 958|Check Completenessofa Binary Tree                                 |[java](Leetcode/src/com/leetcode/tree/_958_CheckCompletenessofaBinaryTree.java)                                                                                                      |
+| 971|Flip Binary Tree To Match Preorder Traversal                      |[java](Leetcode/src/com/leetcode/tree/_971_FlipBinaryTreeToMatchPreorderTraversal.java)                                                                                              |
 | 987|Vertical Order Traversalofa Binary Tree                           |[java](Leetcode/src/com/leetcode/tree/_987_VerticalOrderTraversalofaBinaryTree.java)                                                                                                 |
 | 993|Cousinsin Binary Tree                                             |[java](Leetcode/src/com/leetcode/tree/_993_CousinsinBinaryTree.java)                                                                                                                 |
 | 998|Maximum Binary Tree II                                            |[java](Leetcode/src/com/leetcode/tree/_998_MaximumBinaryTreeII.java)                                                                                                                 |
@@ -227,12 +229,13 @@
 |1249|Minimum Removeto Make Valid Parentheses           |[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_1249_MinimumRemovetoMakeValidParentheses.java)                                                                   |
 |1541|String                                            |[java](Leetcode/src/com/leetcode/stackPriorityQueue/Parentheses/_1541_Minimum_Insertions_to_Balance_a_Parentheses_String.java)                                                    |
 # Topk
-|No.|           Problem           |                                          Solutions                                           |
-|--:|-----------------------------|----------------------------------------------------------------------------------------------|
-|215|Kth Largest Elementinan Array|[java](Leetcode/src/com/leetcode/stackPriorityQueue/TopK/_215_KthLargestElementinanArray.java)|
-|347|Top K Frequent Elements      |[java](Leetcode/src/com/leetcode/stackPriorityQueue/TopK/_347_TopKFrequentElements.java)      |
-|692|Top K Frequent Words         |[java](Leetcode/src/com/leetcode/stackPriorityQueue/TopK/_692_TopKFrequentWords.java)         |
-|973|K Closest Pointsto Origin    |[java](Leetcode/src/com/leetcode/stackPriorityQueue/TopK/_973_KClosestPointstoOrigin.java)    |
+|No. |           Problem            |                                          Solutions                                           |
+|---:|------------------------------|----------------------------------------------------------------------------------------------|
+| 215|Kth Largest Elementinan Array |[java](Leetcode/src/com/leetcode/stackPriorityQueue/TopK/_215_KthLargestElementinanArray.java)|
+| 347|Top K Frequent Elements       |[java](Leetcode/src/com/leetcode/stackPriorityQueue/TopK/_347_TopKFrequentElements.java)      |
+| 692|Top K Frequent Words          |[java](Leetcode/src/com/leetcode/stackPriorityQueue/TopK/_692_TopKFrequentWords.java)         |
+| 973|K Closest Pointsto Origin     |[java](Leetcode/src/com/leetcode/stackPriorityQueue/TopK/_973_KClosestPointstoOrigin.java)    |
+|1337|The K Weakest Rows In A Matrix|[java](Leetcode/src/com/leetcode/stackPriorityQueue/TopK/_1337_TheKWeakestRowsInAMatrix.java) |
 # Bitmanipulation
 |No. |           Problem            |                                       Solutions                                       |
 |---:|------------------------------|---------------------------------------------------------------------------------------|
@@ -284,6 +287,7 @@
 | 753|Crackingthe Safe                         |[java](Leetcode/src/com/leetcode/bfsANDdfs/_753_CrackingtheSafe.java)                                                           |
 | 805|Split Array With Same Average            |[java](Leetcode/src/com/leetcode/bfsANDdfs/_805_SplitArrayWithSameAverage.java)                                                 |
 | 815|Bus Routes                               |[java](Leetcode/src/com/leetcode/bfsANDdfs/_815_BusRoutes.java)                                                                 |
+| 841|Keys And Rooms                           |[java](Leetcode/src/com/leetcode/bfsANDdfs/_841_KeysAndRooms.java)                                                              |
 | 847|Shortest Path Visiting All Nodes         |[java](Leetcode/src/com/leetcode/bfsANDdfs/_847_ShortestPathVisitingAllNodes.java)                                              |
 | 934|Shortest Bridge                          |[java](Leetcode/src/com/leetcode/bfsANDdfs/_934_ShortestBridge.java)                                                            |
 | 947|Most Stones Removedwith Same Rowor Column|[java](Leetcode/src/com/leetcode/bfsANDdfs/_947_MostStonesRemovedwithSameRoworColumn.java)                                      |
@@ -347,6 +351,7 @@
 | 442|Find All Duplicatesinan Array                                         |[java](Leetcode/src/com/leetcode/array/_442_FindAllDuplicatesinanArray.java)                                      |
 | 454|Sum II                                                                |[java](Leetcode/src/com/leetcode/array/_454_4SumII.java)                                                          |
 | 565|Array Nesting                                                         |[java](Leetcode/src/com/leetcode/array/_565_ArrayNesting.java)                                                    |
+| 575|Distribute Candies                                                    |[java](Leetcode/src/com/leetcode/array/_575_DistributeCandies.java)                                               |
 | 611|Valid Triangle Number                                                 |[java](Leetcode/src/com/leetcode/array/_611_ValidTriangleNumber.java)                                             |
 | 643|I                                                                     |[py](Leetcode/src/com/leetcode/array/_643_Maximum_Average_Subarray_I.py)                                          |
 | 645|Set Mismatch                                                          |[java](Leetcode/src/com/leetcode/array/_645_SetMismatch.java)                                                     |
@@ -488,6 +493,7 @@
 | 817|Linked List Components                                |[java](Leetcode/src/com/leetcode/linkedList/_817_LinkedListComponents.java)                           |
 |1171|Remove Zero Sum Consecutive Nodesfrom Linked List     |[java](Leetcode/src/com/leetcode/linkedList/_1171_RemoveZeroSumConsecutiveNodesfromLinkedList.java)   |
 |1472|Design Browser History                                |[java](Leetcode/src/com/leetcode/linkedList/_1472_DesignBrowserHistory.java)                          |
+|1721|Swapping Nodes In A Linked List                       |[java](Leetcode/src/com/leetcode/linkedList/_1721_SwappingNodesInALinkedList.java)                    |
 # Binarysearch
 |No. |                        Problem                        |                                                Solutions                                                |
 |---:|-------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
@@ -544,6 +550,7 @@
 | 465|Optimal Account Balancing                                  |[java](Leetcode/src/com/leetcode/backtracking/_465_OptimalAccountBalancing.java)                                |
 | 491|Subsequences                                               |[java](Leetcode/src/com/leetcode/backtracking/_491_Increasing_Subsequences.java)                                |
 | 526|Beautiful Arrangement                                      |[java](Leetcode/src/com/leetcode/backtracking/_526_BeautifulArrangement.java)                                   |
+| 784|Letter Case Permutation                                    |[java](Leetcode/src/com/leetcode/backtracking/_784_LetterCasePermutation.java)                                  |
 | 797|All Paths From Sourceto Target                             |[java](Leetcode/src/com/leetcode/backtracking/_797_AllPathsFromSourcetoTarget.java)                             |
 | 842|Split Arrayinto Fibonacci Sequence                         |[java](Leetcode/src/com/leetcode/backtracking/_842_SplitArrayintoFibonacciSequence.java)                        |
 |1239|Maximum Lengthofa Concatenated Stringwith Unique Characters|[java](Leetcode/src/com/leetcode/backtracking/_1239_MaximumLengthofaConcatenatedStringwithUniqueCharacters.java)|
@@ -637,6 +644,7 @@
 | 728|Self Dividing Numbers                        |[java](Leetcode/src/com/leetcode/math/_728_SelfDividingNumbers.java)                                                                      |
 | 754|Reach A Number                               |[java](Leetcode/src/com/leetcode/math/_754_ReachANumber.java)                                                                             |
 | 780|Reaching Points                              |[java](Leetcode/src/com/leetcode/math/_780_ReachingPoints.java)                                                                           |
+| 869|Reordered Powerof                            |[java](Leetcode/src/com/leetcode/math/_869_ReorderedPowerof2.java)                                                                        |
 | 902|Set                                          |[java](Leetcode/src/com/leetcode/math/_902_Numbers_At_Most_N_Given_Digit_Set.java)                                                        |
 | 908|Smallest Range I                             |[java](Leetcode/src/com/leetcode/math/_908_SmallestRangeI.java)                                                                           |
 | 910|Smallest Range II                            |[java](Leetcode/src/com/leetcode/math/_910_SmallestRangeII.java)                                                                          |
@@ -651,6 +659,7 @@
 |1492|                                             |[py](Leetcode/src/com/leetcode/math/_1492_The_kth_Factor_of_n.py), [java](Leetcode/src/com/leetcode/math/_1492_ThekthFactorofn.java)      |
 |1502|Can Make Arithmetic Progression From Sequence|[java](Leetcode/src/com/leetcode/math/_1502_CanMakeArithmeticProgressionFromSequence.java)                                                |
 |1523|Count Odd Numbersinan Interval Range         |[java](Leetcode/src/com/leetcode/math/_1523_CountOddNumbersinanIntervalRange.java)                                                        |
+|1551|Minimum Operations To Make Array Equal       |[java](Leetcode/src/com/leetcode/math/_1551_MinimumOperationsToMakeArrayEqual.java)                                                       |
 |1680|Concatenation Of Consecutive Binary Numbers  |[java](Leetcode/src/com/leetcode/math/_1680_ConcatenationOfConsecutiveBinaryNumbers.java)                                                 |
 # Sum
 |No.|        Problem        |                               Solutions                                |
@@ -665,6 +674,7 @@
 | 697|Array                                           |[java](Leetcode/src/com/leetcode/HashMap/_697_Degree_of_an_Array.java)                          |
 | 734|Sentence Similarity                             |[java](Leetcode/src/com/leetcode/HashMap/_734_SentenceSimilarity.java)                          |
 | 833|Find And Replacein String                       |[java](Leetcode/src/com/leetcode/HashMap/_833_FindAndReplaceinString.java)                      |
+| 923|Sum With Multiplicity                           |[java](Leetcode/src/com/leetcode/HashMap/_923_3SumWithMultiplicity.java)                        |
 |1010|Pairs Of Songs With Total Durations Divisible By|[java](Leetcode/src/com/leetcode/HashMap/_1010_PairsOfSongsWithTotalDurationsDivisibleBy60.java)|
 |1152|Pattern                                         |[java](Leetcode/src/com/leetcode/HashMap/_1152_Analyze_User_Website_Visit_Pattern.java)         |
 |1679|Max Number Of K Sum Pairs                       |[java](Leetcode/src/com/leetcode/HashMap/_1679_MaxNumberOfKSumPairs.java)                       |
@@ -709,6 +719,7 @@
 | 763|Partition Labels                                            |[java](Leetcode/src/com/leetcode/greedy/_763_PartitionLabels.java), [py](Leetcode/src/com/leetcode/greedy/_763_PartitionLabels.py)  |
 | 846|Handof Straights                                            |[java](Leetcode/src/com/leetcode/greedy/_846_HandofStraights.java)                                                                  |
 | 857|Minimum Costto Hire K Workers                               |[java](Leetcode/src/com/leetcode/greedy/_857_MinimumCosttoHireKWorkers.java)                                                        |
+| 870|Advantage Shuffle                                           |[java](Leetcode/src/com/leetcode/greedy/_870_AdvantageShuffle.java)                                                                 |
 | 948|Tokens                                                      |[java](Leetcode/src/com/leetcode/greedy/_948_Bag_of_Tokens.java)                                                                    |
 |1029|Two City Scheduling                                         |[java](Leetcode/src/com/leetcode/greedy/_1029_TwoCityScheduling.java)                                                               |
 |1296|Divide Arrayin Setsof K Consecutive Numbers                 |[java](Leetcode/src/com/leetcode/greedy/_1296_DivideArrayinSetsofKConsecutiveNumbers.java)                                          |
@@ -769,6 +780,7 @@
 | 686|Repeated String Match                                        |[java](Leetcode/src/com/leetcode/string/_686_RepeatedStringMatch.java)                                     |
 | 720|Dictionary                                                   |[java](Leetcode/src/com/leetcode/string/_720_Longest_Word_in_Dictionary.java)                              |
 | 767|Reorganize String                                            |[java](Leetcode/src/com/leetcode/string/_767_ReorganizeString.java)                                        |
+| 820|Short Encoding Of Words                                      |[java](Leetcode/src/com/leetcode/string/_820_ShortEncodingOfWords.java)                                    |
 | 821|Shortest Distance To A Character                             |[java](Leetcode/src/com/leetcode/string/_821_ShortestDistanceToACharacter.java)                            |
 | 916|Word Subsets                                                 |[java](Leetcode/src/com/leetcode/string/_916_WordSubsets.java)                                             |
 | 944|Delete Columns To Make Sorted                                |[java](Leetcode/src/com/leetcode/string/_944_DeleteColumnsToMakeSorted.java)                               |
@@ -784,9 +796,11 @@
 |1374|Generatea String With Characters That Have Odd Counts        |[java](Leetcode/src/com/leetcode/string/_1374_GenerateaStringWithCharactersThatHaveOddCounts.java)         |
 |1404|Numberof Stepsto Reducea Numberin Binary Representationto One|[java](Leetcode/src/com/leetcode/string/_1404_NumberofStepstoReduceaNumberinBinaryRepresentationtoOne.java)|
 |1422|Maximum Score After Splittinga String                        |[java](Leetcode/src/com/leetcode/string/_1422_MaximumScoreAfterSplittingaString.java)                      |
+|1461|Check If A String Contains All Binarry Codes Of Size K       |[java](Leetcode/src/com/leetcode/string/_1461_CheckIfAStringContainsAllBinarryCodesOfSizeK.java)           |
 |1525|Numberof Good Waysto Splita String                           |[java](Leetcode/src/com/leetcode/string/_1525_NumberofGoodWaystoSplitaString.java)                         |
 |1640|Check Array Formation Through Concatenation                  |[java](Leetcode/src/com/leetcode/string/_1640_CheckArrayFormationThroughConcatenation.java)                |
 |1657|Determine If Two Strings Are Close                           |[java](Leetcode/src/com/leetcode/string/_1657_DetermineIfTwoStringsAreClose.java)                          |
+|1704|Determine If String Halves Are Alike                         |[java](Leetcode/src/com/leetcode/string/_1704_DetermineIfStringHalvesAreAlike.java)                        |
 # Subsequence
 |No. |                 Problem                 |                                              Solutions                                              |
 |---:|-----------------------------------------|-----------------------------------------------------------------------------------------------------|
@@ -860,6 +874,7 @@
 |384|Shufflean Array                           |[java](Leetcode/src/com/leetcode/random/_384_ShuffleanArray.java)                        |
 |398|Random Pick Index                         |[java](Leetcode/src/com/leetcode/random/_398_RandomPickIndex.java)                       |
 |470|Implement Rand Using Rand                 |[java](Leetcode/src/com/leetcode/random/_470_ImplementRand10UsingRand7.java)             |
+|478|Generate Random Point In A Circle         |[java](Leetcode/src/com/leetcode/random/_478_GenerateRandomPointInACircle.java)          |
 |528|Random Pickwith Weight                    |[java](Leetcode/src/com/leetcode/random/_528_RandomPickwithWeight.java)                  |
 # Dynamicprogramming
 |No. |                       Problem                       |                                                                                  Solutions                                                                                  |

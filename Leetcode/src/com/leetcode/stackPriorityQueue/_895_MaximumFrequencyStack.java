@@ -1,13 +1,14 @@
+/*
+ * @Date: 07/04/2020 21:08:27
+ * @LastEditTime: 02/28/2021 09:54:37
+ * @Description: bucket sorting, customized sort.
+ */
 package com.leetcode.stackPriorityQueue;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
-/**
- * @Date: 07/04/2020
- * @Description: bucket sorting, customized sort.
- **/
 public class _895_MaximumFrequencyStack {
     /**
      // priorityQueue, store all the operations.

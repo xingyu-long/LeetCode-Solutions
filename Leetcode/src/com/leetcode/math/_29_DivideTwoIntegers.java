@@ -1,9 +1,10 @@
+/*
+ * @Date: 08/11/2020 18:07:14
+ * @LastEditTime: 02/27/2021 10:30:57
+ * @Description: Math
+ */
 package com.leetcode.math;
 
-/**
- * @Date: 2019/04/04, 2019/8/8, 07/16/2020
- * @Description: Math
- **/
 public class _29_DivideTwoIntegers {
 
     public int divide(int dividend, int divisor) {

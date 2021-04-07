@@ -1,16 +1,15 @@
+/*
+ * @Date: 10/11/2019 09:55:12
+ * @LastEditTime: 02/26/2021 09:11:12
+ * @Description: Stack
+ */
 package com.leetcode.stackPriorityQueue;
 
 import java.util.Stack;
 
 public class _946_ValidateStackSequences {
-    /**
-     * 946. Validate Stack Sequences
-     * When:2019/10/11
-     * solution: 利用栈来模拟
-     * @param pushed
-     * @param popped
-     * @return
-     */
+  
+    // 一开始想的复杂了。
     // time:O(n) space:O(n)
     public static boolean validateStackSequences(int[] pushed, int[] popped) {
         if ((pushed == null || pushed.length == 0)

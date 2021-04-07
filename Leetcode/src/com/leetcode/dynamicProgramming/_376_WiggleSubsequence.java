@@ -1,12 +1,14 @@
+/*
+ * @Date: 12/02/2019 16:34:27
+ * @LastEditTime: 03/18/2021 15:36:28
+ * @Description: DP, 往回看
+ */
 package com.leetcode.dynamicProgramming;
 
-/**
- * @Date: 07/13/2019, 12/02/2019, 03/11/2020, 09/03/2020
- * @Description: DP;
- **/
 public class _376_WiggleSubsequence {
     public int wiggleMaxLength(int[] nums) {
-        if (nums == null || nums.length == 0) return 0;
+        if (nums == null || nums.length == 0)
+            return 0;
         int n = nums.length;
         int[] up = new int[n];
         int[] down = new int[n];
@@ -30,7 +32,8 @@ public class _376_WiggleSubsequence {
 
     // time:O(n) space:O(n)
     public int wiggleMaxLength2(int[] nums) {
-        if (nums == null || nums.length == 0) return 0;
+        if (nums == null || nums.length == 0)
+            return 0;
         int n = nums.length;
         int[] up = new int[n];
         int[] down = new int[n];
@@ -53,7 +56,8 @@ public class _376_WiggleSubsequence {
 
     // time:O(n) space:O(1) 优化空间，因为只是依赖前后的值
     public int wiggleMaxLength3(int[] nums) {
-        if (nums == null || nums.length == 0) return 0;
+        if (nums == null || nums.length == 0)
+            return 0;
         int n = nums.length;
         int up = 1;
         int down = 1;
@@ -65,5 +69,29 @@ public class _376_WiggleSubsequence {
             }
         }
         return Math.max(down, up);
+    }
+
+    // 属于暴力解法。
+    public int wiggleMaxLength4(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int n = nums.length;
+        int[] pos = new int[n], neg = new int[n];
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            pos[i] = 1;
+            neg[i] = 1;
+            for (int j = 0; j < i; j++) {
+                if (nums[i] - nums[j] > 0) {
+                    pos[i] = Math.max(pos[i], neg[j] + 1); 
+                } else if (nums[i] - nums[j] < 0) {
+                    neg[i] = Math.max(neg[i], pos[j] + 1);
+                }
+            }
+            res = Math.max(res, neg[i]);
+            res = Math.max(res, pos[i]);
+        }
+        return res;
     }
 }

@@ -1,11 +1,12 @@
+/*
+ * @Date: 05/07/2020 14:49:47
+ * @LastEditTime: 02/24/2021 09:15:08
+ * @Description: Stack, DFS
+ */
 package com.leetcode.stackPriorityQueue.Parentheses;
 
 import java.util.Stack;
 
-/**
- * @Date: 05/07/2020
- * @Description: Stack
- **/
 public class _856_ScoreofParentheses {
 
     public int scoreOfParentheses(String S) {
@@ -28,6 +29,7 @@ public class _856_ScoreofParentheses {
         }
         return res;
     }
+
     // 利用栈
     public int scoreOfParentheses2(String S) {
         // 递归调用做？感觉用栈模拟就可以 只是需要确定如何来表示这个计数

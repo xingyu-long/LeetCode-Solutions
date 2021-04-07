@@ -1,6 +1,6 @@
 /*
  * @Date: 03/20/2020 21:09:51
- * @LastEditTime: 12/10/2020 11:06:50
+ * @LastEditTime: 02/18/2021 09:33:31
  * @Description: DP
  */
 
@@ -8,10 +8,11 @@ package com.leetcode.dynamicProgramming;
 
 public class _413_ArithmeticSlices {
     // 需要多思考，其中的关系
-    // 记住这里的关系，是连续的才行，不用考虑间隔的情况
+    // 记住这里的关系，是“连续的”才行，不用考虑间隔的情况
+    // 又想成了往回看dp。。
     public int numberOfArithmeticSlices(int[] A) {
+        if (A == null || A.length == 0) return 0;
         int n = A.length;
-        if (A == null || n == 0) return 0;
         int[] dp = new int[n];
         int res = 0;
         for (int i = 2; i < n; i++) {
