@@ -1,32 +1,18 @@
+/*
+ * @Date: 08/11/2020 18:07:14
+ * @LastEditTime: 04/08/2021 10:10:33
+ * @Description: Backtracking
+ */
 package com.leetcode.backtracking;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class _17_LetterCombinationsofaPhoneNumber {
-    /**
-     * 17. Letter Combinations of a Phone Number
-     * When: 2019/05/02
-     * review1:2019/10/14
-     * solution:
-     * 相当于是
-     * digits = "23"
-     *
-     *         /  d
-     * i = 0 a  - e
-     *         \  f
-     *
-     * i = 1 b ....
-     * i = 2 c ....
-     *
-     * time: O(3^n * 4^m) 这里的n是在按键为3个字母的情况下 m是四个字母的情况下
-     * space: O(3^n * 4^m)
-     *
-     * @param digits
-     * @return
-     */
 
-    private String[] mapping = new String[] {"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    // time: O(3^n * 4^m) 这里的n是在按键为3个字母的情况下 m是四个字母的情况下
+    // space: O(3^n * 4^m)
+    private String[] mapping = new String[] { "0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
 
     public List<String> letterCombinations(String digits) {
         List<String> res = new ArrayList<>();
@@ -54,7 +40,7 @@ public class _17_LetterCombinationsofaPhoneNumber {
         if (digits == null || digits.length() == 0) {
             return new ArrayList<>();
         }
-        String[] strs = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        String[] strs = { "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
         return dfs(digits, strs, 0);
     }
 
