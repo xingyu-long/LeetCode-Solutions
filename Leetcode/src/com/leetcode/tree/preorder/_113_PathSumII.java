@@ -1,16 +1,15 @@
 /*
- * @Date: 2019-09-12 16:32:01
- * @LastEditors: Clark long
- * @LastEditTime: 2020-03-21 17:05:46
+ * @Date: 09/12/2019 13:32:01
+ * @LastEditTime: 08/04/2021 19:01:20
+ * @Description: Recursive
  */
+
 package com.leetcode.tree.preorder;
 
 import com.leetcode.common.TreeNode;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Stack;
 
 public class _113_PathSumII {
     //time: O(n) space:O(n)

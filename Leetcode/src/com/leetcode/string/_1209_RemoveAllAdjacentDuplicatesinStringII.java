@@ -1,20 +1,19 @@
+/*
+ * @Date: 10/02/2019 15:42:07
+ * @LastEditTime: 04/19/2021 09:10:27
+ * @Description: Stack with pair
+ */
 package com.leetcode.string;
 
 import java.util.Stack;
 
 public class _1209_RemoveAllAdjacentDuplicatesinStringII {
-    /**
-     * 1209. Remove All Adjacent Duplicates in String II
-     * When:2019/10/2
-     * Difficulty: Medium
-     * @param s
-     * @param k
-     * @return
-     */
+
     // 需要和1047对比着看
     // 利用例子 abbac k=2 方便理解
     public String removeDuplicates(String s, int k) {
-        if (s == null || s.length() == 0) return null;
+        if (s == null || s.length() == 0)
+            return null;
         char[] ch = s.toCharArray();
         int n = s.length();
         int[] count = new int[n];
@@ -32,7 +31,8 @@ public class _1209_RemoveAllAdjacentDuplicatesinStringII {
 
     // 利用栈，并且使用一个计数（负责记录当前charStack对应的个数）
     public String removeDuplicates2(String s, int k) {
-        if (s == null || s.length() == 0) return null;
+        if (s == null || s.length() == 0)
+            return null;
         // 利用stack
         Stack<Character> charStack = new Stack<>();
         Stack<Integer> countStack = new Stack<>();

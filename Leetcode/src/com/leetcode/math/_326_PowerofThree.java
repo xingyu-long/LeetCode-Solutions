@@ -1,13 +1,12 @@
+/*
+ * @Date: 07/21/2019 04:03:09
+ * @LastEditTime: 04/27/2021 10:08:18
+ * @Description: Math
+ */
 package com.leetcode.math;
 
 public class _326_PowerofThree {
 
-    /**
-     *  326. Power of Three
-     *  When:2019/7/21
-     * @param n
-     * @return
-     */
     // time:O(n) space:O(1)
     public boolean isPowerOfThree(int n) {
         if (n <= 0) return false;

@@ -1,3 +1,8 @@
+/*
+ * @Date: 10/13/2019 16:18:14
+ * @LastEditTime: 04/19/2021 09:11:40
+ * @Description: DP
+ */
 package com.leetcode.dynamicProgramming;
 
 import java.util.ArrayList;
@@ -5,10 +10,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * @Date: 2019/7/15, 2019/10/13, 06/08/2020
- * @Description: DP
- **/
 public class _377_CombinationSumIV {
 
     // 这个和coin change2的区别 [1, 3] [3,1]这里算两种，coin change2只算一种。
@@ -62,8 +63,7 @@ public class _377_CombinationSumIV {
     }
 
     // 这个也比较经典
-    public static List<String> generateAllFromBack(int[] nums, int target,
-        HashMap<Integer, List<String>> map) {
+    public static List<String> generateAllFromBack(int[] nums, int target, HashMap<Integer, List<String>> map) {
         if (map.get(target) != null) {
             return map.get(target);
         }
@@ -87,7 +87,7 @@ public class _377_CombinationSumIV {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 2, 3};
+        int[] nums = new int[] { 1, 2, 3 };
         int target = 4;
         HashMap<Integer, List<String>> map = new HashMap<>();
         List<String> res = generateAllFromBack(nums, target, map);

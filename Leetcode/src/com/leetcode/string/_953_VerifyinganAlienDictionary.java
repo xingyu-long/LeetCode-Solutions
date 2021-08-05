@@ -1,9 +1,10 @@
+/*
+ * @Date: 08/11/2020 18:07:14
+ * @LastEditTime: 04/09/2021 09:11:43
+ * @Description: traversal
+ */
 package com.leetcode.string;
 
-/**
- * @Date: 05/07/2020, 09/04/2020
- * @Description: Two Pointer
- **/
 public class _953_VerifyinganAlienDictionary {
 
     // time:(words) * isValid. space:O(1);

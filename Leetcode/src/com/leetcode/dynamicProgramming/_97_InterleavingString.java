@@ -1,7 +1,7 @@
 /*
  * @Date: 2019-08-01 07:12:49
- * @LastEditors: Clark long
- * @LastEditTime: 2020-03-23 18:06:27
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 06/02/2021 10:04:22
  */
 package com.leetcode.dynamicProgramming;
 
@@ -26,6 +26,7 @@ public class _97_InterleavingString {
                 int index = i + j - 1; // for s3;
                 char ch = s3.charAt(index);
                 // 可能来自的两个方向。
+                // 只能写成 || 的情况
                 if (ch == s1.charAt(i - 1) || ch == s2.charAt(j - 1)) {
                     dp[i][j] = (dp[i][j - 1] && s2.charAt(j - 1) == ch) || 
                         (dp[i - 1][j] && s1.charAt(i - 1) == ch);

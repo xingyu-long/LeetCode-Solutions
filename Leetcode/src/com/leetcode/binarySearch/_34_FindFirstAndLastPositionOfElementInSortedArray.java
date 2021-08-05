@@ -1,9 +1,10 @@
+/*
+ * @Date: 08/11/2020 18:07:14
+ * @LastEditTime: 04/29/2021 08:53:50
+ * @Description: Binary Search
+ */
 package com.leetcode.binarySearch;
 
-/**
- * @Date: 07/05/2020
- * @Description: Binary Search, left + 1 < right template.
- **/
 public class _34_FindFirstAndLastPositionOfElementInSortedArray {
     // time: O(logN) space:O(1)
     public int[] searchRange(int[] nums, int target) {

@@ -1,11 +1,11 @@
+/*
+ * @Date: 01/09/2020 10:28:41
+ * @LastEditTime: 05/04/2021 09:27:28
+ * @Description: Greedy 
+ */
 package com.leetcode.greedy;
 
-/**
- * @Date: 09/03/2020, 10/18/2020
- * @Description: Greedy
- **/
 public class _665_NondecreasingArray {
-    // 665. Non-decreasing Array
     // 主要思考以下的三个例子
     // [4,2,3], [-1,4,2,3], [2,3,3,2,4]
     // https://www.cnblogs.com/grandyang/p/7565424.html

@@ -1,12 +1,13 @@
+/*
+ * @Date: 06/05/2020 16:26:21
+ * @LastEditTime: 06/01/2021 09:29:18
+ * @Description: BFS, DFS, Union Find
+ */
 package com.leetcode.bfsANDdfs;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-/**
- * @Date: 06/05/2020
- * @Description: DFS, BFS, Union Find, Island
- **/
 public class _695_MaxAreaofIsland {
 
     // time:O(m*n) space:O(m*n)
@@ -43,10 +44,10 @@ public class _695_MaxAreaofIsland {
 
     private int bfs(int[][] grid, int i, int j) {
         Queue<int[]> queue = new LinkedList<>();
-        queue.offer(new int[]{i, j});
+        queue.offer(new int[] { i, j });
         int count = 1;
         grid[i][j] = 2;
-        int[][] dirs = {{-1, 0}, {0, -1}, {0, 1}, {1, 0}};
+        int[][] dirs = { { -1, 0 }, { 0, -1 }, { 0, 1 }, { 1, 0 } };
         while (!queue.isEmpty()) {
             int[] curr = queue.poll();
             for (int[] dir : dirs) {
@@ -55,7 +56,7 @@ public class _695_MaxAreaofIsland {
                 if (isValid(grid, x, y)) {
                     count++;
                     grid[x][y] = 2;
-                    queue.offer(new int[]{x, y});
+                    queue.offer(new int[] { x, y });
                 }
             }
         }

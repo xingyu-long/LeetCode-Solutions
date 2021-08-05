@@ -1,8 +1,9 @@
 /*
- * @Date: 2019-11-14 21:02:42
- * @LastEditors: Clark long
- * @LastEditTime: 2020-03-27 15:17:02
+ * @Date: 11/14/2019 21:02:42
+ * @LastEditTime: 05/06/2021 08:45:58
+ * @Description: Divide and conquer
  */
+
 package com.leetcode.tree.bst;
 
 

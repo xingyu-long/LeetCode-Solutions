@@ -1,8 +1,9 @@
 /*
- * @Date: 2020-03-26 13:50:58
- * @LastEditors: Clark long
- * @LastEditTime: 2020-03-26 14:06:42
+ * @Date: 03/26/2020 11:06:42
+ * @LastEditTime: 07/29/2021 19:18:22
+ * @Description: Search
  */
+
 package com.leetcode.bfsANDdfs;
 
 import java.util.LinkedList;
@@ -10,6 +11,7 @@ import java.util.Queue;
 
 public class _542_01Matrix {
     // time:O(m * n * find(math.max(m, n)))
+    // TLE
     public int[][] updateMatrix(int[][] matrix) {
         if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0)
             return new int[][] {};
@@ -53,6 +55,7 @@ public class _542_01Matrix {
     }
     
     // 每个元素进去一次。
+    // Time: O(m * n)
     public int[][] updateMatrix2(int[][] matrix) {
         if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) return new int[][]{};
         int m = matrix.length;
