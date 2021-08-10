@@ -1,3 +1,8 @@
+/*
+ * @Date: 12/08/2019 09:24:43
+ * @LastEditTime: 08/07/2021 09:59:34
+ * @Description: Palindrome, DP
+ */
 package com.leetcode.string.Palindrome;
 
 public class _132_PalindromePartitioningII {
@@ -9,7 +14,7 @@ public class _132_PalindromePartitioningII {
         int[] cuts = new int[n];
         for (int i = 0; i < n; i++) {
             int min = i + 1;// 最多可以都cut，这样单独的字符肯定是palindrome
-            for (int j = 0; j < i; j++) {
+            for (int j = 0; j <= i; j++) {
                 // 判断j~i是否为palindrome
                 if (s.charAt(i) == s.charAt(j) && (i - j <= 2 || dp[j + 1][i - 1])) {
                     dp[j][i] = true;

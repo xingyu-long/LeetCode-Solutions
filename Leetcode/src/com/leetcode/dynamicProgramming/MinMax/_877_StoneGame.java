@@ -1,9 +1,14 @@
+/*
+ * @Date: 04/06/2020 15:19:32
+ * @LastEditTime: 08/06/2021 10:20:26
+ * @Description: 区间DP
+ */
 package com.leetcode.dynamicProgramming.MinMax;
 
 import java.util.Arrays;
 
 public class _877_StoneGame {
-    // min-max问题 区间DP
+    // Time: O(N^2), Space: O(N^2)
     public boolean stoneGame(int[] piles) {
         if (piles == null || piles.length == 0) return false;
         int n = piles.length;

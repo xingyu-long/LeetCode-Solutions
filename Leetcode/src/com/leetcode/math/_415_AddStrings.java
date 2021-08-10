@@ -1,9 +1,10 @@
+/*
+ * @Date: 05/11/2020 08:42:00
+ * @LastEditTime: 08/09/2021 19:44:20
+ * @Description: Add
+ */
 package com.leetcode.math;
 
-/**
- * @Date: 05/11/2020
- * @Description: Add
- **/
 public class _415_AddStrings {
     public String addStrings(String num1, String num2) {
         StringBuilder sb = new StringBuilder();
