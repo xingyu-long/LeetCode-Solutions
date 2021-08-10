@@ -1,6 +1,6 @@
 /*
  * @Date: 08/10/2021 09:51:44
- * @LastEditTime: 08/10/2021 09:52:34
+ * @LastEditTime: 08/10/2021 16:12:55
  * @Description: Prefix, Suffix, DP
  */
 package com.leetcode.dynamicProgramming;
@@ -14,7 +14,6 @@ public class _926_FlipStringToMonotoneIncreasing {
         int[] convertToOne = new int[n + 1]; // [j] -> [j, n] minimal changes to one;
         int[] convertToZero = new int[n + 1]; // [i] -> [0, i) minimal changes to zero;
 
-        // prefix, suffix;
         for (int i = 1, j = n - 1; j >= 0; i++, j--) {
             convertToZero[i] = convertToZero[i - 1] + (s.charAt(i - 1) == '0' ? 0 : 1);
             convertToOne[j] = convertToOne[j + 1] + (s.charAt(j) == '1' ? 0 : 1);

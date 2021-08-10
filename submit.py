@@ -1,6 +1,6 @@
 '''
 Date: 08/10/2021 10:28:40
-LastEditTime: 08/10/2021 15:25:47
+LastEditTime: 08/10/2021 16:12:06
 Description: Push changes to git with useful comments automatically.
 '''
 import re
@@ -30,13 +30,25 @@ def split_camel_case(s):
 
 def build_str(lines, hint='Changes were made in following file(s): '):
     time = datetime.today().strftime('%Y-%m-%d-%H:%M:%S ')
-    s = time + hint + ', '.join([line for line in lines])
-    return s    
- 
+    combined = []
+    for line in lines:
+        print('current line is ' + line)
+        file_name = line.split('/')[-1]
+        split_line = file_name.split('_')
+        try:
+            number = split_line[1]
+            if not number.isnumeric():
+                continue
+            name = split_camel_case(split_line[-1].split('.')[0])
+            combined.append(number + "." + " ".join([x for x in name]))
+        except IndexError as e:
+            print('Error file is ', file_name)
+    s = time + hint + ', '.join([i for i in combined])
+    return s
+
 
 def main():
     changes = get_changes_info()
-    print(changes)
     if len(changes) == 0:
         print('There is no change for your current repo!')
         return
@@ -45,7 +57,7 @@ def main():
     repo = get_git_repo(Repo)
     repo.git.add('--all')
     repo.git.commit(m = commit_str)
-    
+
     # push to remote
     origin = repo.remote()
     print(origin.push())
