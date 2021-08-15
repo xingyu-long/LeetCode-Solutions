@@ -1,6 +1,12 @@
+/*
+ * @Date: 08/11/2020 15:07:14
+ * @LastEditTime: 08/15/2021 11:02:00
+ * @Description: Sliding Window
+ */
 package com.leetcode.string.slidingWindow;
 
 public class _76_MinimumWindowSubstring {
+    // time: O(m + n), space: O(1)
     // 更加清晰的个人解法，这里需要注意应该每个单词都会被--，只有++后>0才能使num++（才代表是目标字符）。
     public String minWindow2(String s, String t) {
         if (s == null || s.length() == 0 ||
@@ -21,8 +27,8 @@ public class _76_MinimumWindowSubstring {
                     min = end - start + 1;
                     res = s.substring(start, end + 1);
                 }
-                counter[s.charAt(start)]++;
-                if (counter[s.charAt(start)] > 0) num++;
+                counter[s.charAt(start)]++; // 不要写成counter[start]!!
+                if (counter[s.charAt(start)] > 0) num++; // 这个边界也一定要分析清楚
                 start++;
             }
             end++;
