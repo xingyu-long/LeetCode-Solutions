@@ -1,28 +1,11 @@
+/*
+ * @Date: 07/06/2019 04:20:11
+ * @LastEditTime: 08/16/2021 21:38:18
+ * @Description: 1d range sum
+ */
 package com.leetcode.rangeSum;
 
 public class _303_RangeSumQueryImmutable {
-
-    /**
-     * 303. Range Sum Query - Immutable
-     * When: 2019/7/6
-
-     * Given an integer array nums, find the sum of the elements between indices i and j (i ≤ j), inclusive.
-
-     Example:
-     Given nums = [-2, 0, 3, -5, 2, -1]
-
-     sumRange(0, 2) -> 1
-     sumRange(2, 5) -> -1
-     sumRange(0, 5) -> -3
-     Note:
-     You may assume that the array does not change.
-     There are many calls to sumRange function.
-
-     [-2, 0, 3, -5, 2, -1]
-
-     time : O(n)
-     space : O(n)
-     */
 
     private int[] sum;
 
