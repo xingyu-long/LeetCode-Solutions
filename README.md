@@ -1016,7 +1016,7 @@
 # Matrix
 |No. |                             Problem                              |                                                           Solutions                                                            |
 |---:|------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-|  36|Valid Sudoku                                                      |[java](Leetcode/src/com/leetcode/matrix/_36_ValidSudoku.java)                                                                   |
+|  36|Valid Sudoku                                                      |[java](Leetcode/src/com/leetcode/matrix/_36_ValidSudoku.java), [py](Leetcode/src/com/leetcode/matrix/_36_Valid_Sudoku.py)       |
 |  37|Sudoku Solver                                                     |[java](Leetcode/src/com/leetcode/matrix/_37_SudokuSolver.java)                                                                  |
 |  48|Rotate Image                                                      |[java](Leetcode/src/com/leetcode/matrix/_48_RotateImage.java)                                                                   |
 |  54|Spiral Matrix                                                     |[java](Leetcode/src/com/leetcode/matrix/_54_SpiralMatrix.java)                                                                  |
