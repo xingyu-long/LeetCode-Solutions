@@ -648,6 +648,7 @@
 | 754|Reach A Number                               |[java](Leetcode/src/com/leetcode/math/_754_ReachANumber.java)                                                                             |
 | 780|Reaching Points                              |[java](Leetcode/src/com/leetcode/math/_780_ReachingPoints.java)                                                                           |
 | 869|Reordered Powerof                            |[java](Leetcode/src/com/leetcode/math/_869_ReorderedPowerof2.java)                                                                        |
+| 899|Orderly Queue                                |[java](Leetcode/src/com/leetcode/math/_899_OrderlyQueue.java), [py](Leetcode/src/com/leetcode/math/_899_Orderly_Queue.py)                 |
 | 902|Set                                          |[java](Leetcode/src/com/leetcode/math/_902_Numbers_At_Most_N_Given_Digit_Set.java)                                                        |
 | 908|Smallest Range I                             |[java](Leetcode/src/com/leetcode/math/_908_SmallestRangeI.java)                                                                           |
 | 910|Smallest Range II                            |[java](Leetcode/src/com/leetcode/math/_910_SmallestRangeII.java)                                                                          |
@@ -1017,7 +1018,7 @@
 |No. |                             Problem                              |                                                           Solutions                                                            |
 |---:|------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
 |  36|Valid Sudoku                                                      |[java](Leetcode/src/com/leetcode/matrix/_36_ValidSudoku.java), [py](Leetcode/src/com/leetcode/matrix/_36_Valid_Sudoku.py)       |
-|  37|Sudoku Solver                                                     |[java](Leetcode/src/com/leetcode/matrix/_37_SudokuSolver.java)                                                                  |
+|  37|Sudoku Solver                                                     |[java](Leetcode/src/com/leetcode/matrix/_37_SudokuSolver.java), [py](Leetcode/src/com/leetcode/matrix/_37_Sudoku_Solver.py)     |
 |  48|Rotate Image                                                      |[java](Leetcode/src/com/leetcode/matrix/_48_RotateImage.java)                                                                   |
 |  54|Spiral Matrix                                                     |[java](Leetcode/src/com/leetcode/matrix/_54_SpiralMatrix.java)                                                                  |
 |  59|Spiral Matrix II                                                  |[java](Leetcode/src/com/leetcode/matrix/_59_SpiralMatrixII.java), [py](Leetcode/src/com/leetcode/matrix/_59_Spiral_Matrix_II.py)|
