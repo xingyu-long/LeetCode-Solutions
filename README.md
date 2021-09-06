@@ -320,69 +320,70 @@
 |844|Backspace String Compare |[java](Leetcode/src/com/leetcode/string/TwoPointer/_844_BackspaceStringCompare.java)|
 |859|Buddy Strings            |[java](Leetcode/src/com/leetcode/string/TwoPointer/_859_BuddyStrings.java)          |
 # Array
-|No. |                               Problem                                |                                                    Solutions                                                     |
-|---:|----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
-|  41|First Missing Positive                                                |[java](Leetcode/src/com/leetcode/array/_41_FirstMissingPositive.java)                                             |
-|  42|Trapping Rain Water                                                   |[java](Leetcode/src/com/leetcode/array/_42_TrappingRainWater.java)                                                |
-|  55|Jump Game                                                             |[java](Leetcode/src/com/leetcode/array/_55_JumpGame.java)                                                         |
-| 118|Pascals Triangle                                                      |[java](Leetcode/src/com/leetcode/array/_118_PascalsTriangle.java)                                                 |
-| 119|Pascals Triangle II                                                   |[java](Leetcode/src/com/leetcode/array/_119_PascalsTriangleII.java)                                               |
-| 128|Longest Consecutive Sequence                                          |[java](Leetcode/src/com/leetcode/array/_128_LongestConsecutiveSequence.java)                                      |
-| 134|Gas Station                                                           |[java](Leetcode/src/com/leetcode/array/_134_GasStation.java)                                                      |
-| 135|Candy                                                                 |[java](Leetcode/src/com/leetcode/array/_135_Candy.java)                                                           |
-| 164|Maximum Gap                                                           |[java](Leetcode/src/com/leetcode/array/_164_MaximumGap.java)                                                      |
-| 169|Majority Element                                                      |[java](Leetcode/src/com/leetcode/array/_169_MajorityElement.java)                                                 |
-| 189|Rotate Array                                                          |[java](Leetcode/src/com/leetcode/array/_189_RotateArray.java)                                                     |
-| 217|Contains Duplicate                                                    |[java](Leetcode/src/com/leetcode/array/_217_ContainsDuplicate.java)                                               |
-| 219|Contains Duplicate II                                                 |[java](Leetcode/src/com/leetcode/array/_219_ContainsDuplicateII.java)                                             |
-| 220|Contains Duplicate III                                                |[java](Leetcode/src/com/leetcode/array/_220_ContainsDuplicateIII.java)                                            |
-| 229|Majority Element II                                                   |[java](Leetcode/src/com/leetcode/array/_229_MajorityElementII.java)                                               |
-| 243|Shortest Word Distance                                                |[java](Leetcode/src/com/leetcode/array/_243_ShortestWordDistance.java)                                            |
-| 244|Shortest Word Distance II                                             |[java](Leetcode/src/com/leetcode/array/_244_ShortestWordDistanceII.java)                                          |
-| 245|Shortest Word Distance III                                            |[java](Leetcode/src/com/leetcode/array/_245_ShortestWordDistanceIII.java)                                         |
-| 274|H Index                                                               |[java](Leetcode/src/com/leetcode/array/_274_HIndex.java)                                                          |
-| 275|H Index II                                                            |[java](Leetcode/src/com/leetcode/array/_275_HIndexII.java)                                                        |
-| 277|Findthe Celebrity                                                     |[java](Leetcode/src/com/leetcode/array/_277_FindtheCelebrity.java)                                                |
-| 287|Findthe Duplicate Number                                              |[java](Leetcode/src/com/leetcode/array/_287_FindtheDuplicateNumber.java)                                          |
-| 289|Gameof Life                                                           |[java](Leetcode/src/com/leetcode/array/_289_GameofLife.java)                                                      |
-| 299|Bulls And Cows                                                        |[java](Leetcode/src/com/leetcode/array/_299_BullsAndCows.java)                                                    |
-| 330|Patching Array                                                        |[java](Leetcode/src/com/leetcode/array/_330_PatchingArray.java)                                                   |
-| 334|Increasing Triplet Subsequence                                        |[java](Leetcode/src/com/leetcode/array/_334_IncreasingTripletSubsequence.java)                                    |
-| 390|Elimination Game                                                      |[java](Leetcode/src/com/leetcode/array/_390_EliminationGame.java)                                                 |
-| 414|Third Maximum Number                                                  |[java](Leetcode/src/com/leetcode/array/_414_ThirdMaximumNumber.java)                                              |
-| 442|Find All Duplicatesinan Array                                         |[java](Leetcode/src/com/leetcode/array/_442_FindAllDuplicatesinanArray.java)                                      |
-| 454|Sum II                                                                |[java](Leetcode/src/com/leetcode/array/_454_4SumII.java)                                                          |
-| 565|Array Nesting                                                         |[java](Leetcode/src/com/leetcode/array/_565_ArrayNesting.java)                                                    |
-| 575|Distribute Candies                                                    |[java](Leetcode/src/com/leetcode/array/_575_DistributeCandies.java)                                               |
-| 611|Valid Triangle Number                                                 |[java](Leetcode/src/com/leetcode/array/_611_ValidTriangleNumber.java)                                             |
-| 643|I                                                                     |[py](Leetcode/src/com/leetcode/array/_643_Maximum_Average_Subarray_I.py)                                          |
-| 645|Set Mismatch                                                          |[java](Leetcode/src/com/leetcode/array/_645_SetMismatch.java)                                                     |
-| 674|Longest Continuous Increasing Subsequence                             |[java](Leetcode/src/com/leetcode/array/_674_LongestContinuousIncreasingSubsequence.java)                          |
-| 849|Maximize Distanceto Closest Person                                    |[java](Leetcode/src/com/leetcode/array/_849_MaximizeDistancetoClosestPerson.java)                                 |
-| 853|Car Fleet                                                             |[java](Leetcode/src/com/leetcode/array/_853_CarFleet.java)                                                        |
-| 896|Monotonic Array                                                       |[java](Leetcode/src/com/leetcode/array/_896_MonotonicArray.java)                                                  |
-| 932|Beautiful Array                                                       |[java](Leetcode/src/com/leetcode/array/_932_BeautifulArray.java)                                                  |
-| 941|Valid Mountain Array                                                  |[java](Leetcode/src/com/leetcode/array/_941_ValidMountainArray.java)                                              |
-| 954|Arrayof Doubled Pairs                                                 |[java](Leetcode/src/com/leetcode/array/_954_ArrayofDoubledPairs.java)                                             |
-| 957|Prison Cells After N Days                                             |[java](Leetcode/src/com/leetcode/array/_957_PrisonCellsAfterNDays.java)                                           |
-| 997|Findthe Town Judge                                                    |[java](Leetcode/src/com/leetcode/array/_997_FindtheTownJudge.java)                                                |
-|1007|Minimum Domino Rotations For Equal Row                                |[java](Leetcode/src/com/leetcode/array/_1007_MinimumDominoRotationsForEqualRow.java)                              |
-|1213|Intersectionof Three Sorted Arrays                                    |[java](Leetcode/src/com/leetcode/array/_1213_IntersectionofThreeSortedArrays.java)                                |
-|1282|Groupthe People Giventhe Group Size They Belong To                    |[java](Leetcode/src/com/leetcode/array/_1282_GroupthePeopleGiventheGroupSizeTheyBelongTo.java)                    |
-|1299|Replace Elementswith Greatest Elementon Right Side                    |[java](Leetcode/src/com/leetcode/array/_1299_ReplaceElementswithGreatestElementonRightSide.java)                  |
-|1313|Decompress Run Length Encoded List                                    |[java](Leetcode/src/com/leetcode/array/_1313_DecompressRunLengthEncodedList.java)                                 |
-|1342|Reduce Array Sizeto The Half                                          |[java](Leetcode/src/com/leetcode/array/_1342_ReduceArraySizetoTheHalf.java)                                       |
-|1343|Numberof Subarraysof Size Kand Average Greaterthanor Equalto Threshold|[java](Leetcode/src/com/leetcode/array/_1343_NumberofSubarraysofSizeKandAverageGreaterthanorEqualtoThreshold.java)|
-|1365|How Many Numbers Are Smaller Thanthe Current Number                   |[java](Leetcode/src/com/leetcode/array/_1365_HowManyNumbersAreSmallerThantheCurrentNumber.java)                   |
-|1375|Bulb Switcher III                                                     |[java](Leetcode/src/com/leetcode/array/_1375_BulbSwitcherIII.java)                                                |
-|1386|Cinema Seat Allocation                                                |[java](Leetcode/src/com/leetcode/array/_1386_CinemaSeatAllocation.java)                                           |
-|1389|Create Target Arrayinthe Given Order                                  |[java](Leetcode/src/com/leetcode/array/_1389_CreateTargetArrayintheGivenOrder.java)                               |
-|1437|Check If All Are At Least Length K Places Away                        |[java](Leetcode/src/com/leetcode/array/_1437_CheckIfAll1sAreAtLeastLengthKPlacesAway.java)                        |
-|1465|Maximum Area Of A Piece Of Cake After Horizontal And Vertical Cuts    |[java](Leetcode/src/com/leetcode/array/_1465_MaximumAreaOfAPieceOfCakeAfterHorizontalAndVerticalCuts.java)        |
-|1491|Average Salary Excludingthe Minimumand Maximum Salary                 |[java](Leetcode/src/com/leetcode/array/_1491_AverageSalaryExcludingtheMinimumandMaximumSalary.java)               |
-|1503|Last Moment Before All Ants Fall Outofa Plank                         |[java](Leetcode/src/com/leetcode/array/_1503_LastMomentBeforeAllAntsFallOutofaPlank.java)                         |
-|1539|Kth Missing Positive Number                                           |[java](Leetcode/src/com/leetcode/array/_1539_KthMissingPositiveNumber.java)                                       |
-|1646|Get Maximum In Generated Array                                        |[java](Leetcode/src/com/leetcode/array/_1646_GetMaximumInGeneratedArray.java)                                     |
+|No. |                               Problem                                |                                                        Solutions                                                        |
+|---:|----------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+|  41|First Missing Positive                                                |[java](Leetcode/src/com/leetcode/array/_41_FirstMissingPositive.java)                                                    |
+|  42|Trapping Rain Water                                                   |[java](Leetcode/src/com/leetcode/array/_42_TrappingRainWater.java)                                                       |
+|  55|Jump Game                                                             |[java](Leetcode/src/com/leetcode/array/_55_JumpGame.java)                                                                |
+| 118|Pascals Triangle                                                      |[java](Leetcode/src/com/leetcode/array/_118_PascalsTriangle.java)                                                        |
+| 119|Pascals Triangle II                                                   |[java](Leetcode/src/com/leetcode/array/_119_PascalsTriangleII.java)                                                      |
+| 128|Longest Consecutive Sequence                                          |[java](Leetcode/src/com/leetcode/array/_128_LongestConsecutiveSequence.java)                                             |
+| 134|Gas Station                                                           |[java](Leetcode/src/com/leetcode/array/_134_GasStation.java)                                                             |
+| 135|Candy                                                                 |[java](Leetcode/src/com/leetcode/array/_135_Candy.java)                                                                  |
+| 164|Maximum Gap                                                           |[java](Leetcode/src/com/leetcode/array/_164_MaximumGap.java)                                                             |
+| 169|Majority Element                                                      |[java](Leetcode/src/com/leetcode/array/_169_MajorityElement.java)                                                        |
+| 189|Rotate Array                                                          |[java](Leetcode/src/com/leetcode/array/_189_RotateArray.java)                                                            |
+| 217|Contains Duplicate                                                    |[java](Leetcode/src/com/leetcode/array/_217_ContainsDuplicate.java)                                                      |
+| 219|Contains Duplicate II                                                 |[java](Leetcode/src/com/leetcode/array/_219_ContainsDuplicateII.java)                                                    |
+| 220|Contains Duplicate III                                                |[java](Leetcode/src/com/leetcode/array/_220_ContainsDuplicateIII.java)                                                   |
+| 229|Majority Element II                                                   |[java](Leetcode/src/com/leetcode/array/_229_MajorityElementII.java)                                                      |
+| 243|Shortest Word Distance                                                |[java](Leetcode/src/com/leetcode/array/_243_ShortestWordDistance.java)                                                   |
+| 244|Shortest Word Distance II                                             |[java](Leetcode/src/com/leetcode/array/_244_ShortestWordDistanceII.java)                                                 |
+| 245|Shortest Word Distance III                                            |[java](Leetcode/src/com/leetcode/array/_245_ShortestWordDistanceIII.java)                                                |
+| 274|H Index                                                               |[java](Leetcode/src/com/leetcode/array/_274_HIndex.java)                                                                 |
+| 275|H Index II                                                            |[java](Leetcode/src/com/leetcode/array/_275_HIndexII.java)                                                               |
+| 277|Findthe Celebrity                                                     |[java](Leetcode/src/com/leetcode/array/_277_FindtheCelebrity.java)                                                       |
+| 287|Findthe Duplicate Number                                              |[java](Leetcode/src/com/leetcode/array/_287_FindtheDuplicateNumber.java)                                                 |
+| 289|Gameof Life                                                           |[java](Leetcode/src/com/leetcode/array/_289_GameofLife.java)                                                             |
+| 299|Bulls And Cows                                                        |[java](Leetcode/src/com/leetcode/array/_299_BullsAndCows.java)                                                           |
+| 330|Patching Array                                                        |[java](Leetcode/src/com/leetcode/array/_330_PatchingArray.java)                                                          |
+| 334|Increasing Triplet Subsequence                                        |[java](Leetcode/src/com/leetcode/array/_334_IncreasingTripletSubsequence.java)                                           |
+| 390|Elimination Game                                                      |[java](Leetcode/src/com/leetcode/array/_390_EliminationGame.java)                                                        |
+| 414|Third Maximum Number                                                  |[java](Leetcode/src/com/leetcode/array/_414_ThirdMaximumNumber.java)                                                     |
+| 442|Find All Duplicatesinan Array                                         |[java](Leetcode/src/com/leetcode/array/_442_FindAllDuplicatesinanArray.java)                                             |
+| 454|Sum II                                                                |[java](Leetcode/src/com/leetcode/array/_454_4SumII.java)                                                                 |
+| 565|Array Nesting                                                         |[java](Leetcode/src/com/leetcode/array/_565_ArrayNesting.java)                                                           |
+| 575|Distribute Candies                                                    |[java](Leetcode/src/com/leetcode/array/_575_DistributeCandies.java)                                                      |
+| 611|Valid Triangle Number                                                 |[java](Leetcode/src/com/leetcode/array/_611_ValidTriangleNumber.java)                                                    |
+| 643|I                                                                     |[py](Leetcode/src/com/leetcode/array/_643_Maximum_Average_Subarray_I.py)                                                 |
+| 645|Set Mismatch                                                          |[java](Leetcode/src/com/leetcode/array/_645_SetMismatch.java)                                                            |
+| 674|Longest Continuous Increasing Subsequence                             |[java](Leetcode/src/com/leetcode/array/_674_LongestContinuousIncreasingSubsequence.java)                                 |
+| 849|Maximize Distanceto Closest Person                                    |[java](Leetcode/src/com/leetcode/array/_849_MaximizeDistancetoClosestPerson.java)                                        |
+| 853|Car Fleet                                                             |[java](Leetcode/src/com/leetcode/array/_853_CarFleet.java)                                                               |
+| 896|Monotonic Array                                                       |[java](Leetcode/src/com/leetcode/array/_896_MonotonicArray.java)                                                         |
+| 932|Beautiful Array                                                       |[java](Leetcode/src/com/leetcode/array/_932_BeautifulArray.java)                                                         |
+| 941|Valid Mountain Array                                                  |[java](Leetcode/src/com/leetcode/array/_941_ValidMountainArray.java)                                                     |
+| 954|Arrayof Doubled Pairs                                                 |[java](Leetcode/src/com/leetcode/array/_954_ArrayofDoubledPairs.java)                                                    |
+| 957|Prison Cells After N Days                                             |[java](Leetcode/src/com/leetcode/array/_957_PrisonCellsAfterNDays.java)                                                  |
+| 997|Findthe Town Judge                                                    |[java](Leetcode/src/com/leetcode/array/_997_FindtheTownJudge.java)                                                       |
+|1007|Minimum Domino Rotations For Equal Row                                |[java](Leetcode/src/com/leetcode/array/_1007_MinimumDominoRotationsForEqualRow.java)                                     |
+|1213|Intersectionof Three Sorted Arrays                                    |[java](Leetcode/src/com/leetcode/array/_1213_IntersectionofThreeSortedArrays.java)                                       |
+|1282|Groupthe People Giventhe Group Size They Belong To                    |[java](Leetcode/src/com/leetcode/array/_1282_GroupthePeopleGiventheGroupSizeTheyBelongTo.java)                           |
+|1299|Replace Elementswith Greatest Elementon Right Side                    |[java](Leetcode/src/com/leetcode/array/_1299_ReplaceElementswithGreatestElementonRightSide.java)                         |
+|1313|Decompress Run Length Encoded List                                    |[java](Leetcode/src/com/leetcode/array/_1313_DecompressRunLengthEncodedList.java)                                        |
+|1342|Reduce Array Sizeto The Half                                          |[java](Leetcode/src/com/leetcode/array/_1342_ReduceArraySizetoTheHalf.java)                                              |
+|1343|Numberof Subarraysof Size Kand Average Greaterthanor Equalto Threshold|[java](Leetcode/src/com/leetcode/array/_1343_NumberofSubarraysofSizeKandAverageGreaterthanorEqualtoThreshold.java)       |
+|1365|How Many Numbers Are Smaller Thanthe Current Number                   |[java](Leetcode/src/com/leetcode/array/_1365_HowManyNumbersAreSmallerThantheCurrentNumber.java)                          |
+|1375|Bulb Switcher III                                                     |[java](Leetcode/src/com/leetcode/array/_1375_BulbSwitcherIII.java)                                                       |
+|1386|Cinema Seat Allocation                                                |[java](Leetcode/src/com/leetcode/array/_1386_CinemaSeatAllocation.java)                                                  |
+|1389|Create Target Arrayinthe Given Order                                  |[java](Leetcode/src/com/leetcode/array/_1389_CreateTargetArrayintheGivenOrder.java)                                      |
+|1437|Check If All Are At Least Length K Places Away                        |[java](Leetcode/src/com/leetcode/array/_1437_CheckIfAll1sAreAtLeastLengthKPlacesAway.java)                               |
+|1465|Maximum Area Of A Piece Of Cake After Horizontal And Vertical Cuts    |[java](Leetcode/src/com/leetcode/array/_1465_MaximumAreaOfAPieceOfCakeAfterHorizontalAndVerticalCuts.java)               |
+|1491|Average Salary Excludingthe Minimumand Maximum Salary                 |[java](Leetcode/src/com/leetcode/array/_1491_AverageSalaryExcludingtheMinimumandMaximumSalary.java)                      |
+|1503|Last Moment Before All Ants Fall Outofa Plank                         |[java](Leetcode/src/com/leetcode/array/_1503_LastMomentBeforeAllAntsFallOutofaPlank.java)                                |
+|1539|Kth Missing Positive Number                                           |[java](Leetcode/src/com/leetcode/array/_1539_KthMissingPositiveNumber.java)                                              |
+|1629|Slowest Key                                                           |[java](Leetcode/src/com/leetcode/array/_1629_SlowestKey.java), [py](Leetcode/src/com/leetcode/array/_1629_Slowest_Key.py)|
+|1646|Get Maximum In Generated Array                                        |[java](Leetcode/src/com/leetcode/array/_1646_GetMaximumInGeneratedArray.java)                                            |
 # Sort
 |No. |                       Problem                       |                                                  Solutions                                                   |
 |---:|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------|

@@ -1,9 +1,11 @@
 /*
  * @Date: 02/02/2021 11:17:03
- * @LastEditTime: 02/02/2021 11:18:29
+ * @LastEditTime: 09/06/2021 15:12:44
  * @Description: BST
  */
 package com.leetcode.tree.bst;
+
+import com.leetcode.common.TreeNode;
 
 public class _669_TrimABinarySearchTree {
     public TreeNode trimBST(TreeNode root, int low, int high) {
