@@ -587,12 +587,13 @@
 |1377|Frog Position After T Seconds     |[java](Leetcode/src/com/leetcode/graph/_1377_FrogPositionAfterTSeconds.java)    |
 |1615|Rank                              |[java](Leetcode/src/com/leetcode/graph/_1615_Maximal_Network_Rank.java)         |
 # Shortestpath
-|No. |                               Problem                                |                                                           Solutions                                                           |
-|---:|----------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| 743|Network Delay Time                                                    |[java](Leetcode/src/com/leetcode/graph/ShortestPath/_743_NetworkDelayTime.java)                                                |
-|1184|Distance Between Bus Stops                                            |[java](Leetcode/src/com/leetcode/graph/ShortestPath/_1184_DistanceBetweenBusStops.java)                                        |
-|1334|Findthe City Withthe Smallest Numberof Neighborsata Threshold Distance|[java](Leetcode/src/com/leetcode/graph/ShortestPath/_1334_FindtheCityWiththeSmallestNumberofNeighborsataThresholdDistance.java)|
-|1631|Path With Minimum Effort                                              |[java](Leetcode/src/com/leetcode/graph/ShortestPath/_1631_PathWithMinimumEffort.java)                                          |
+|No. |                               Problem                                |                                                                                          Solutions                                                                                           |
+|---:|----------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 743|Network Delay Time                                                    |[java](Leetcode/src/com/leetcode/graph/ShortestPath/_743_NetworkDelayTime.java)                                                                                                               |
+| 882|Reachable Nodes In Subdivided Graph                                   |[java](Leetcode/src/com/leetcode/graph/ShortestPath/_882_ReachableNodesInSubdividedGraph.java), [py](Leetcode/src/com/leetcode/graph/ShortestPath/_882_Reachable_Nodes_In_Subdivided_Graph.py)|
+|1184|Distance Between Bus Stops                                            |[java](Leetcode/src/com/leetcode/graph/ShortestPath/_1184_DistanceBetweenBusStops.java)                                                                                                       |
+|1334|Findthe City Withthe Smallest Numberof Neighborsata Threshold Distance|[java](Leetcode/src/com/leetcode/graph/ShortestPath/_1334_FindtheCityWiththeSmallestNumberofNeighborsataThresholdDistance.java)                                                               |
+|1631|Path With Minimum Effort                                              |[java](Leetcode/src/com/leetcode/graph/ShortestPath/_1631_PathWithMinimumEffort.java)                                                                                                         |
 # Unionfind
 |No. |                     Problem                      |                                                Solutions                                                 |
 |---:|--------------------------------------------------|----------------------------------------------------------------------------------------------------------|
