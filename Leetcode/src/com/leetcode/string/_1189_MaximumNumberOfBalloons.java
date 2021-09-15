@@ -1,6 +1,6 @@
 /*
  * @Date: 09/13/2021 18:45:14
- * @LastEditTime: 09/13/2021 18:45:14
+ * @LastEditTime: 09/14/2021 19:09:09
  * @Description: Counting
  */
 public class _1189_MaximumNumberOfBalloons {
@@ -10,7 +10,7 @@ public class _1189_MaximumNumberOfBalloons {
         for (char ch : text.toCharArray()) {
             count[ch - 'a']++;
         }
-        String target = "ballon";
+        String target = "balloon";
         for (char ch : target.toCharArray()) {
             targetCount[ch - 'a']++;
         }
