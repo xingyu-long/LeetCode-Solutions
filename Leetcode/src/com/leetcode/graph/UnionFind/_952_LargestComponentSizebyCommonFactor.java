@@ -1,3 +1,8 @@
+/*
+ * @Date: 08/31/2020 07:22:33
+ * @LastEditTime: 11/22/2021 21:33:12
+ * @Description: Union Find, HashMap.
+ */
 package com.leetcode.graph.UnionFind;
 
 import java.util.HashMap;

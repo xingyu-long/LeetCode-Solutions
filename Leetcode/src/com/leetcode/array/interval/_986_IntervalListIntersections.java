@@ -1,12 +1,13 @@
+/*
+ * @Date: 05/11/2020 17:42:50
+ * @LastEditTime: 11/23/2021 18:28:47
+ * @Description: Interval
+ */
 package com.leetcode.array.interval;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @Date: 05/11/2020
- * @Description: interval
- **/
 public class _986_IntervalListIntersections {
     // time: O(lenA + lenB) space:O(intersection * 2)
     public int[][] intervalIntersection(int[][] A, int[][] B) {
@@ -28,7 +29,7 @@ public class _986_IntervalListIntersections {
             // intersection
             int left = Math.max(A[i][0], B[j][0]);
             int right = Math.min(A[i][1], B[j][1]);
-            list.add(new int[]{left, right});
+            list.add(new int[] { left, right });
 
             // move;
             if (A[i][1] > B[j][1]) {
