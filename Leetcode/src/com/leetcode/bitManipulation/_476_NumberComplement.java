@@ -27,6 +27,7 @@ public class _476_NumberComplement {
     }
 
     // 利用1's(原来数据的个数) 和原来的数据做 ^，这样就相反了。
+    // 这个比较聪明，利用 `^`的性质。
     public int findComplement2(int num) {
         int temp = num;
         int allOnes = 0;
