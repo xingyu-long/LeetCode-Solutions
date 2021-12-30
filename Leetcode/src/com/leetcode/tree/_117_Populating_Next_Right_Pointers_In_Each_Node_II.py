@@ -1,6 +1,6 @@
 '''
 Date: 12/06/2020 09:41:37
-LastEditTime: 12/06/2020 09:42:15
+LastEditTime: 12/29/2021 18:43:04
 Description: Traversal by level.
 '''
 
@@ -19,25 +19,25 @@ class Solution:
         if not root:
             return None
         curr = root
-        prev, next = None, None
+        prev, next_level = None, None
         while curr:
             while curr:
                 if curr.left:
-                    if not next:
-                        next = curr.left
+                    if not next_level:
+                        next_level = curr.left
                     if prev:
                         prev.next = curr.left
                     prev = curr.left
 
                 if curr.right:
-                    if not next:
-                        next = curr.right
+                    if not next_level:
+                        next_level = curr.right
                     if prev:
                         prev.next = curr.right
                     prev = curr.right
 
                 curr = curr.next
 
-            curr = next
-            prev, next = None, None
+            curr = next_level
+            prev, next_level = None, None
         return root

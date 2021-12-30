@@ -23,6 +23,7 @@ public class _973_KClosestPointstoOrigin {
         }
         int[][] res = new int[pq.size()][2];
         int n = pq.size();
+        // 给出的顺序并没有关系
         for (int i = 0; i < n; i++) {
             res[i] = pq.poll();
         }
