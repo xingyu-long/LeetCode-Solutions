@@ -14,6 +14,7 @@ public class _1026_MaximumDifferenceBetweenNodeandAncestor {
     }
 
     // 相当于前序一直传min,max然后后序传回来！
+    // 这个主要还是利用前序遍历，传递值。
     public int dfs(TreeNode root, int min, int max) {
         if (root == null) {
             return 0;
