@@ -140,34 +140,34 @@
 |1305|All Elementsin Two Binary Search Trees        |[java](Leetcode/src/com/leetcode/tree/bst/_1305_AllElementsinTwoBinarySearchTrees.java)                                                                                                      |
 |1382|Balancea Binary Search Tree                   |[java](Leetcode/src/com/leetcode/tree/bst/_1382_BalanceaBinarySearchTree.java)                                                                                                               |
 # Design
-|No. |           Problem            |                                   Solutions                                    |
-|---:|------------------------------|--------------------------------------------------------------------------------|
-| 170|Datastructuredesign           |[java](Leetcode/src/com/leetcode/design/_170_TwoSumIII_Datastructuredesign.java)|
-| 251|Flatten D Vector              |[java](Leetcode/src/com/leetcode/design/_251_Flatten2DVector.java)              |
-| 281|Zigzag Iterator               |[java](Leetcode/src/com/leetcode/design/_281_ZigzagIterator.java)               |
-| 284|Peeking Iterator              |[java](Leetcode/src/com/leetcode/design/_284_PeekingIterator.java)              |
-| 288|Unique Word Abbreviation      |[java](Leetcode/src/com/leetcode/design/_288_UniqueWordAbbreviation.java)       |
-| 346|Moving Averagefrom Data Stream|[java](Leetcode/src/com/leetcode/design/_346_MovingAveragefromDataStream.java)  |
-| 348|Design Tic Tac Toe            |[java](Leetcode/src/com/leetcode/design/_348_DesignTicTacToe.java)              |
-| 353|Design Snake Game             |[java](Leetcode/src/com/leetcode/design/_353_DesignSnakeGame.java)              |
-| 355|Design Twitter                |[java](Leetcode/src/com/leetcode/design/_355_DesignTwitter.java)                |
-| 359|Logger Rate Limiter           |[java](Leetcode/src/com/leetcode/design/_359_LoggerRateLimiter.java)            |
-| 362|Design Hit Counter            |[java](Leetcode/src/com/leetcode/design/_362_DesignHitCounter.java)             |
-| 379|Design Phone Directory        |[java](Leetcode/src/com/leetcode/design/_379_DesignPhoneDirectory.java)         |
-| 460|LFU Cache                     |[java](Leetcode/src/com/leetcode/design/_460_LFUCache.java)                     |
-| 622|Design Circular Queue         |[java](Leetcode/src/com/leetcode/design/_622_DesignCircularQueue.java)          |
-| 641|Design Circular Deque         |[java](Leetcode/src/com/leetcode/design/_641_DesignCircularDeque.java)          |
-| 676|Implement Magic Dictionary    |[java](Leetcode/src/com/leetcode/design/_676_ImplementMagicDictionary.java)     |
-| 705|Design Hash Set               |[java](Leetcode/src/com/leetcode/design/_705_DesignHashSet.java)                |
-| 706|Design Hash Map               |[java](Leetcode/src/com/leetcode/design/_706_DesignHashMap.java)                |
-| 855|Exam Room                     |[java](Leetcode/src/com/leetcode/design/_855_ExamRoom.java)                     |
-| 900|RLE Iterator                  |[java](Leetcode/src/com/leetcode/design/_900_RLEIterator.java)                  |
-| 981|Time Based Key Value Store    |[java](Leetcode/src/com/leetcode/design/_981_TimeBasedKeyValueStore.java)       |
-|1146|Snapshot Array                |[java](Leetcode/src/com/leetcode/design/_1146_SnapshotArray.java)               |
-|1244|Leaderboard                   |[java](Leetcode/src/com/leetcode/design/_1244_Design_A_Leaderboard.java)        |
-|1357|Apply Discount Everyn Orders  |[java](Leetcode/src/com/leetcode/design/_1357_ApplyDiscountEverynOrders.java)   |
-|1396|Design Underground System     |[java](Leetcode/src/com/leetcode/design/_1396_DesignUndergroundSystem.java)     |
-|1476|Subrectangle Queries          |[java](Leetcode/src/com/leetcode/design/_1476_SubrectangleQueries.java)         |
+|No. |           Problem            |                                                           Solutions                                                            |
+|---:|------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| 170|Datastructuredesign           |[java](Leetcode/src/com/leetcode/design/_170_TwoSumIII_Datastructuredesign.java)                                                |
+| 251|Flatten D Vector              |[java](Leetcode/src/com/leetcode/design/_251_Flatten2DVector.java)                                                              |
+| 281|Zigzag Iterator               |[java](Leetcode/src/com/leetcode/design/_281_ZigzagIterator.java)                                                               |
+| 284|Peeking Iterator              |[java](Leetcode/src/com/leetcode/design/_284_PeekingIterator.java)                                                              |
+| 288|Unique Word Abbreviation      |[java](Leetcode/src/com/leetcode/design/_288_UniqueWordAbbreviation.java)                                                       |
+| 346|Moving Averagefrom Data Stream|[java](Leetcode/src/com/leetcode/design/_346_MovingAveragefromDataStream.java)                                                  |
+| 348|Design Tic Tac Toe            |[java](Leetcode/src/com/leetcode/design/_348_DesignTicTacToe.java)                                                              |
+| 353|Design Snake Game             |[java](Leetcode/src/com/leetcode/design/_353_DesignSnakeGame.java)                                                              |
+| 355|Design Twitter                |[java](Leetcode/src/com/leetcode/design/_355_DesignTwitter.java)                                                                |
+| 359|Logger Rate Limiter           |[java](Leetcode/src/com/leetcode/design/_359_LoggerRateLimiter.java)                                                            |
+| 362|Design Hit Counter            |[java](Leetcode/src/com/leetcode/design/_362_DesignHitCounter.java)                                                             |
+| 379|Design Phone Directory        |[java](Leetcode/src/com/leetcode/design/_379_DesignPhoneDirectory.java)                                                         |
+| 460|LFU Cache                     |[java](Leetcode/src/com/leetcode/design/_460_LFUCache.java)                                                                     |
+| 622|Design Circular Queue         |[java](Leetcode/src/com/leetcode/design/_622_DesignCircularQueue.java)                                                          |
+| 641|Design Circular Deque         |[java](Leetcode/src/com/leetcode/design/_641_DesignCircularDeque.java)                                                          |
+| 676|Implement Magic Dictionary    |[java](Leetcode/src/com/leetcode/design/_676_ImplementMagicDictionary.java)                                                     |
+| 705|Design Hash Set               |[java](Leetcode/src/com/leetcode/design/_705_DesignHashSet.java), [py](Leetcode/src/com/leetcode/design/_705_Design_Hash_Set.py)|
+| 706|Design Hash Map               |[java](Leetcode/src/com/leetcode/design/_706_DesignHashMap.java)                                                                |
+| 855|Exam Room                     |[java](Leetcode/src/com/leetcode/design/_855_ExamRoom.java)                                                                     |
+| 900|RLE Iterator                  |[java](Leetcode/src/com/leetcode/design/_900_RLEIterator.java)                                                                  |
+| 981|Time Based Key Value Store    |[java](Leetcode/src/com/leetcode/design/_981_TimeBasedKeyValueStore.java)                                                       |
+|1146|Snapshot Array                |[java](Leetcode/src/com/leetcode/design/_1146_SnapshotArray.java)                                                               |
+|1244|Leaderboard                   |[java](Leetcode/src/com/leetcode/design/_1244_Design_A_Leaderboard.java)                                                        |
+|1357|Apply Discount Everyn Orders  |[java](Leetcode/src/com/leetcode/design/_1357_ApplyDiscountEverynOrders.java)                                                   |
+|1396|Design Underground System     |[java](Leetcode/src/com/leetcode/design/_1396_DesignUndergroundSystem.java)                                                     |
+|1476|Subrectangle Queries          |[java](Leetcode/src/com/leetcode/design/_1476_SubrectangleQueries.java)                                                         |
 # Doublylinkedlist
 |No.| Problem |                                 Solutions                                  |
 |--:|---------|----------------------------------------------------------------------------|
