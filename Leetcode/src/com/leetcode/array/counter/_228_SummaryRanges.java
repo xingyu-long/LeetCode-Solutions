@@ -1,10 +1,15 @@
+/*
+ * @Date: 08/11/2020 16:07:14
+ * @LastEditTime: 06/05/2022 11:21:09
+ * @Description: Simulation
+ */
 package com.leetcode.array.counter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class _228_SummaryRanges {
-    // 更加简洁的写法。
+    // time: O(n), space: O(1) except the result array.
     public List<String> summaryRanges(int[] nums) {
         List<String> res = new ArrayList<>();
         if (nums == null || nums.length == 0) {

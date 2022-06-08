@@ -1,12 +1,14 @@
+/*
+ * @Date: 08/11/2020 16:07:14
+ * @LastEditTime: 06/05/2022 13:27:43
+ * @Description: Simulation
+ */
 package com.leetcode.array.counter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @Date: 07/05/2020
- * @Description: simulation,
- **/
+
 public class _163_MissingRanges {
 
     public List<String> findMissingRanges(int[] nums, int lower, int upper) {
@@ -34,7 +36,7 @@ public class _163_MissingRanges {
         return res;
     }
 
-    // 一步一步的计算，这个很重要！
+    // time: O(n), space:O(n)
     public List<String> findMissingRanges2(int[] nums, int lower, int upper) {
         long curr = lower;
         int index = 0;
@@ -54,6 +56,7 @@ public class _163_MissingRanges {
                 curr = nums[index];
             }
         }
+        // 这时候的curr已经是next value，因为最后一步， curr++才能够破这个while循环
         // check the upper bound;
         if (upper - curr == 0) {
             res.add("" + upper);

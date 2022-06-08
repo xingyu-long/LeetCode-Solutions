@@ -15,6 +15,22 @@ public class _905_Sort_Array_By_Parity {
         return A;
     }
 
+    public int[] sortArrayByParity2(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return new int[]{};
+        }
+        int index = 0;
+        int left = 0, right = nums.length - 1;
+        while (index <= right) {
+            if (nums[index] % 2 == 0) {
+                exch(nums, index++, left++);
+            } else {
+                exch(nums, index, right--);
+            }
+        }
+        return nums;
+    }
+
     public void exch(int[] A, int i, int j) {
         int temp = A[i];
         A[i] = A[j];

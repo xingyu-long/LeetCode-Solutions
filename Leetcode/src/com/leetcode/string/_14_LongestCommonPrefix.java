@@ -1,22 +1,11 @@
+/*
+ * @Date: 12/03/2019 13:09:47
+ * @LastEditTime: 06/05/2022 17:27:18
+ * @Description: String Matching
+ */
 package com.leetcode.string;
 
 public class _14_LongestCommonPrefix {
-
-    /**
-     *  14. Longest Common Prefix
-     *  When: 2019/03/12
-     *  Review1: 2019/8/3
-     *  review2: 2019/8/24
-     *
-     *  Difficulty: Easy
-     *  解题思路：
-
-     *
-     *  涉及到的数据结构或者方法： substring(), indexOf()
-     *
-     * @param strs
-     * @return
-     */
 
     // 1. 首先选中第一个作为子串，
     // 2. 使用后面的循环str[i]是否包含（使用indexOf）包含最低的情况就是indexOf 返回0
@@ -41,8 +30,9 @@ public class _14_LongestCommonPrefix {
         for (int i = 0; i < strs[0].length(); i++) {
             char c = strs[0].charAt(i);
             for (int j = 1; j < strs.length; j++) { //从第二个strs String数组开始
-                // 超过最短情况肯定就返回了，这个 >= 需要好好理解
-                if (i >= strs[j].length() || strs[j].charAt(i) != c) {
+                // 超过最短情况肯定就返回
+                // i + 1是strs[0]当前的长度
+                if (i + 1 > strs[j].length() || strs[j].charAt(i) != c) {
                     return res;
                 }
             }
@@ -51,6 +41,7 @@ public class _14_LongestCommonPrefix {
         return res;
     }
 
+    // time: O(m * n) space: O(1)
     public String longestCommonPrefix3(String[] strs) {
         if (strs == null || strs.length == 0) return "";
         StringBuilder sb = new StringBuilder();

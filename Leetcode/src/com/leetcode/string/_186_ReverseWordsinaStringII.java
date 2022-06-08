@@ -1,10 +1,11 @@
+/*
+ * @Date: 08/11/2020 16:07:14
+ * @LastEditTime: 06/06/2022 20:55:27
+ * @Description: String, Reverse
+ */
 package com.leetcode.string;
 
 
-/**
- * @Date: 2019/8/5, 07/15/2020, 09/04/2020
- * @Description: String, reverse
- **/
 public class _186_ReverseWordsinaStringII {
 
     // 先反转整个数组，然后根据空格来反转单词

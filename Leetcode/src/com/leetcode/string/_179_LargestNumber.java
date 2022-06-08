@@ -1,12 +1,14 @@
+/*
+ * @Date: 08/11/2020 16:07:14
+ * @LastEditTime: 06/06/2022 21:55:41
+ * @Description: Sort
+ */
 package com.leetcode.string;
 
 import java.util.Arrays;
 import java.util.Comparator;
 
-/**
- * @Date: 2019/03/29, 2019/8/7, 06/01/2020
- * @Description: Sort
- **/
+
 public class _179_LargestNumber {
 
     // time:O(nlogn) space:O(n)
