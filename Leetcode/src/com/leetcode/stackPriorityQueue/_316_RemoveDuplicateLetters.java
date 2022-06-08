@@ -24,37 +24,31 @@ public class _316_RemoveDuplicateLetters {
         return res.substring(1);
     }
 
-    // 利用stack，一样的思路，但这样不会用substring。
     public String removeDuplicateLetters2(String s) {
-        if (s == null || s.length() == 0) return "";
+        // mono stack
         int[] count = new int[128];
-        for (char ch : s.toCharArray()) count[ch]++;
-        boolean[] visited = new boolean[128];
+        for (char ch : s.toCharArray()) {
+            count[ch]++;
+        }
         Stack<Character> stack = new Stack<>();
-        stack.push('0');
-        for (int i = 0; i < s.length(); i++) {
-            char ch = s.charAt(i);
+        Set<Character> set = new HashSet<>();
+        for (char ch : s.toCharArray()) {
             count[ch]--;
-            if (visited[ch]) continue;
-            while (ch < stack.peek()
-                    && count[stack.peek()] > 0) {
-                visited[stack.peek()] = false;
+            if (set.contains(ch)) continue;
+            while (!stack.isEmpty() && ch <= stack.peek() && count[stack.peek()] > 0) {
+                // we can use this later
+                set.remove(stack.peek());
                 stack.pop();
             }
             stack.push(ch);
-            visited[ch] = true;
+            set.add(ch);
         }
         StringBuilder sb = new StringBuilder();
-        while (!stack.isEmpty()) {
-            sb.append(stack.pop());
+        // from bottom to top
+        for (char ch : stack) {
+            sb.append(ch);
         }
-        sb.deleteCharAt(sb.length() - 1);
-        return sb.reverse().toString();
-        // "cbacdcbc"
-    }
-
-    public static void main(String[] args) {
-        String s = "01234";
-        System.out.println(s.substring(0, 4));
+        // System.out.println(sb.toxString());
+        return sb.toString();
     }
 }
