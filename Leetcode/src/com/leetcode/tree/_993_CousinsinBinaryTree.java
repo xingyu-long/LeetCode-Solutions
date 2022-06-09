@@ -70,14 +70,7 @@ public class _993_CousinsinBinaryTree {
         // return parent 以及depth吧
         Data dx = dfs(root, null, 0, x);
         Data dy = dfs(root, null, 0, y);
-        if (dx.depth != dy.depth) {
-            return false;
-        } else {
-            if (dx.parent != dy.parent) {
-                return true;
-            }
-            return false;
-        }
+        return dx.depth == dy.depth && dx.parent != dy.parent;
     }
 
     public Data dfs(TreeNode root, TreeNode prev, int depth, int target) {
@@ -96,14 +89,25 @@ public class _993_CousinsinBinaryTree {
             return right;
         }
     }
-
-    public static void main(String[] args) {
-        _993_CousinsinBinaryTree cousinsinBinaryTree = new _993_CousinsinBinaryTree();
-        String input = "[1,2,3,4]";
-        int x = 4, y = 3;
-        ConverterForTreeAndString converter = new ConverterForTreeAndString();
-        TreeNode root = converter.stringToTreeNode(input);
-        System.out.println(root.val);
-        cousinsinBinaryTree.isCousins(root, x, y);
+    
+    public boolean isCousins3(TreeNode root, int x, int y) {
+        
+        int[] xresult = find(root, root, x, 0);
+        int[] yresult = find(root, root, y, 0);
+        return xresult[0] == yresult[0] && xresult[1] != yresult[1];
+    }
+    
+    private int[] find(TreeNode root, TreeNode prev, int target, int depth) {
+        if (root == null) {
+            return null;
+        }
+        if (root.val == target) {
+            return new int[]{depth, prev.val};
+        }
+        int[] left = find(root.left, root, target, depth + 1);
+        if (left != null) return left;
+        int[] right = find(root.right, root, target, depth + 1);
+        if (right != null) return right;
+        return null;
     }
 }
