@@ -1,18 +1,19 @@
+/*
+ * @Date: 05/11/2020 15:33:33
+ * @LastEditTime: 06/08/2022 09:40:16
+ * @Description: Sliding Window
+ */
 package com.leetcode.string.slidingWindow;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @Date: 05/11/2020
- * @Description: Sliding Window
- **/
+
 public class _438_FindAllAnagramsinaString {
 
+    // time: O(len(s) + len(p))
     public List<Integer> findAnagrams(String s, String p) {
-        // sliding window??
         List<Integer> res = new ArrayList<>();
-
         // "cbaebabacd" "abc"
         int start = 0, end = 0;
         int n = s.length();

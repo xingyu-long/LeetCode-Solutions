@@ -1,29 +1,29 @@
+/*
+ * @Date: 08/11/2020 16:07:14
+ * @LastEditTime: 06/11/2022 19:06:54
+ * @Description: Tree, Preorder, Postorder
+ */
 package com.leetcode.tree;
 
 import com.leetcode.common.TreeNode;
 
-/**
- * @Date: 05/21/2020
- * @Description: Tree, postOrder
- **/
+
 public class _1026_MaximumDifferenceBetweenNodeandAncestor {
 
     // 找每个sub tree的最小最大值
     public int maxAncestorDiff(TreeNode root) {
         return dfs(root, root.val, root.val);
     }
-
-    // 相当于前序一直传min,max然后后序传回来！
-    // 这个主要还是利用前序遍历，传递值。
+    
     public int dfs(TreeNode root, int min, int max) {
         if (root == null) {
-            return 0;
+            return max - min;
         }
-        min = Math.min(min, root.val);
-        max = Math.max(max, root.val);
+        max = Math.max(root.val, max);
+        min = Math.min(root.val, min);
         int left = dfs(root.left, min, max);
         int right = dfs(root.right, min, max);
-        return Math.max(max - min, Math.max(left, right));
+        return Math.max(left, right);
     }
 
 
