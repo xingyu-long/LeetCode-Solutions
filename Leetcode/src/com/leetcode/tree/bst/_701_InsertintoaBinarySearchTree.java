@@ -30,10 +30,10 @@ public class _701_InsertintoaBinarySearchTree {
             return new TreeNode(val);
         if (root.val < val) {
             // go right;
-            root.right = insertIntoBST(root.right, val);
+            root.right = insertIntoBST2(root.right, val);
         } else {
             // go left;
-            root.left = insertIntoBST(root.left, val);
+            root.left = insertIntoBST2(root.left, val);
         }
         return root;
     }
