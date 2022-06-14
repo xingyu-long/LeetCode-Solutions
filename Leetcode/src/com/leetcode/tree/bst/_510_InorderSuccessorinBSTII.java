@@ -1,8 +1,9 @@
 /*
- * @Date: 2020-01-23 14:39:38
- * @LastEditors: Clark long
- * @LastEditTime: 2020-03-28 14:47:24
+ * @Date: 01/23/2020 12:39:38
+ * @LastEditTime: 06/12/2022 10:06:52
+ * @Description: BST
  */
+
 package com.leetcode.tree.bst;
 
 public class _510_InorderSuccessorinBSTII {
@@ -29,11 +30,13 @@ public class _510_InorderSuccessorinBSTII {
         if (node.right != null) {
             // find the left most;
             res = node.right;
-            while (res != null && res.left != null) res = res.left;
+            while (res != null && res.left != null)
+                res = res.left;
         } else {
             // go to the parent node and compare the value.
             res = node.parent;
-            while (res != null && res.val < node.val) res = res.parent;
+            while (res != null && res.val < node.val)
+                res = res.parent;
         }
         return res;
     }
@@ -43,7 +46,8 @@ public class _510_InorderSuccessorinBSTII {
     Node findSuccessor2(Node node) {
         if (node.right != null) {
             node = node.right;
-            while (node != null && node.left != null) node = node.left;
+            while (node != null && node.left != null)
+                node = node.left;
             return node;
         } else {
             Node ancestor = node.parent;

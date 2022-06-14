@@ -73,4 +73,26 @@ public class _298_BinaryTreeLongestConsecutiveSequence {
         res = Math.max(res, Math.max(left, right));
         return Math.max(left, right);
     }
+
+    // similar with 687.Longest Univalue Path
+    public int longestConsecutive3(TreeNode root) {
+        if (root == null) return 0;
+        find(root);
+        return res;
+    }
+    
+    public int find(TreeNode root) {
+        if (root == null) return 0;
+        int left = find(root.left);
+        int right = find(root.right);
+        int pl = 1, pr = 1;
+        if (root.left != null && root.val + 1 == root.left.val) {
+            pl = left + 1;
+        }
+        if (root.right != null && root.val + 1 == root.right.val) {
+            pr = right + 1;
+        }
+        res = Math.max(res, Math.max(pl, pr));
+        return Math.max(pl, pr);
+    }
 }

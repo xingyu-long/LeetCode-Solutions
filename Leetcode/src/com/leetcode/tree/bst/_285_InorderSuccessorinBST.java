@@ -1,8 +1,9 @@
 /*
- * @Date: 2019-11-15 15:57:52
- * @LastEditors: Clark long
- * @LastEditTime: 2020-03-28 14:44:59
+ * @Date: 11/15/2019 13:57:52
+ * @LastEditTime: 06/12/2022 09:42:59
+ * @Description: BST, Inorder 
  */
+
 package com.leetcode.tree.bst;
 
 import com.leetcode.common.ConverterForTreeAndString;
@@ -12,6 +13,7 @@ import java.util.Stack;
 
 public class _285_InorderSuccessorinBST {
     // https://www.cnblogs.com/grandyang/p/5306162.html
+    // time: O(n) space: O(logN)
     public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
         boolean before = false;
         Stack<TreeNode> stack = new Stack<>();
@@ -23,8 +25,10 @@ public class _285_InorderSuccessorinBST {
             }
             cur = stack.pop();
             // 相当于加入一个判断的过程
-            if (before) return cur;
-            if (cur == p) before = true;
+            if (before)
+                return cur;
+            if (cur == p)
+                before = true;
             cur = cur.right;
         }
         return null;
@@ -34,14 +38,16 @@ public class _285_InorderSuccessorinBST {
     private static TreeNode pre = null, after = null;
 
     public static TreeNode inorderSuccessor2(TreeNode root, TreeNode p) {
-        if (p == null) return null;
+        if (p == null)
+            return null;
         helper(root, p);
         return after;
     }
 
-    //画图演示
+    // 画图演示
     public static void helper(TreeNode root, TreeNode p) {
-        if (root == null) return;
+        if (root == null)
+            return;
         helper(root.left, p);
         if (pre == p) {
             after = root;
@@ -63,13 +69,5 @@ public class _285_InorderSuccessorinBST {
             }
         }
         return res;
-    }
-
-    public static void main(String[] args) {
-        String s = "[3,1,4,null,2]";
-        ConverterForTreeAndString converterForTreeAndString = new ConverterForTreeAndString();
-        TreeNode root = converterForTreeAndString.stringToTreeNode(s);
-        TreeNode res = inorderSuccessor2(root, new TreeNode(1));
-        System.out.println(res.val);
     }
 }
