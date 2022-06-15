@@ -57,18 +57,29 @@ public class _140_WordBreakII {
         }
     }
 
-    public static void main(String[] args) {
-
-        String s = "catsanddog";
-        List<String> wordDict = new ArrayList<>();
-        wordDict.add("cat");
-        wordDict.add("cats");
-        wordDict.add("and");
-        wordDict.add("sand");
-        wordDict.add("dog");
-        List<String> res = wordBreak(s, wordDict);
-        for (String string : res) {
-            System.out.println(string);
+    public List<String> wordBreak3(String s, List<String> wordDict) {
+        if (s == null || s.length() == 0) {
+            return new ArrayList<>();
         }
+        Set<String> dict = new HashSet<>(wordDict);
+        return build(s, dict, 0);
+    }
+    
+    public List<String> build(String s, Set<String> dict, int index) {
+        List<String> res = new ArrayList<>();
+        if (dict.contains(s.substring(index))) {
+            res.add(s.substring(index));
+        }
+        
+        for (int end = index + 1; end <= s.length(); end++) {
+            String sub = s.substring(index, end);
+            if (dict.contains(sub)) {
+                List<String> next = build(s, dict, end);
+                for (String temp : next) {
+                    res.add(sub + " " + temp);
+                }
+            }
+        }
+        return res;
     }
 }
