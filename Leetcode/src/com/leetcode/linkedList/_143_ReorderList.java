@@ -47,7 +47,7 @@ public class _143_ReorderList {
     public ListNode reverse(ListNode head) {
         if (head == null || head.next == null) return head;
         ListNode newHead = null;
-        while (head != null) {
+        while (head != null) {148
             ListNode next = head.next;
             head.next = newHead;
             newHead = head;

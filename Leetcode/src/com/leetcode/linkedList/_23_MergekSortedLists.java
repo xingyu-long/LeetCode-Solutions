@@ -54,7 +54,8 @@ public class _23_MergekSortedLists {
     }
 
     public ListNode sort(ListNode[] lists, int lo, int hi) {
-        if (lo >= hi) return lists[lo]; // 这里需要注意。
+        if (lo > hi) return null; // 这里需要注意。
+        if (lo == hi) return lists[lo];
         int mid = (hi - lo) / 2 + lo;
         ListNode l1 = sort(lists, lo, mid);
         ListNode l2 = sort(lists, mid + 1, hi);

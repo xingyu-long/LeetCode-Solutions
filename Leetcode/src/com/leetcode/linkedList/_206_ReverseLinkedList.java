@@ -85,14 +85,4 @@ public class _206_ReverseLinkedList {
         head.next = null;
         return newHead;
     }
-
-    public static void main(String[] args) {
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(3);
-        ListNode node = reverseList4(head);
-        for (ListNode first = node; first != null; first = first.next) {
-            System.out.println(first.val);
-        }
-    }
 }
