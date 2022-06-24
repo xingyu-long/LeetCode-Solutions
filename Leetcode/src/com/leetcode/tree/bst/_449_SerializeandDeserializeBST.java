@@ -1,4 +1,4 @@
-package com.leetcode.binarySearch;
+package com.leetcode.tree.bst;
 
 import com.leetcode.common.TreeNode;
 

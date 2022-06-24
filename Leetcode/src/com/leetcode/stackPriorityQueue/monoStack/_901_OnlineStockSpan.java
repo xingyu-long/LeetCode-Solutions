@@ -1,5 +1,7 @@
 package com.leetcode.stackPriorityQueue.monoStack;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 /**
@@ -27,5 +29,35 @@ public class _901_OnlineStockSpan {
         stack.push(price);
         count.push(span);
         return span;
+    }
+}
+
+// 利用map来记录对应的关系
+class StockSpanner2 {
+
+    Map<Integer, Integer> map;
+    Stack<Integer> stack;
+    
+    public StockSpanner2() {
+        map = new HashMap<>();
+        stack = new Stack<>();
+    }
+    
+    public int next(int price) {
+        int res = 1;
+        if (!stack.isEmpty() && price >= stack.peek()) {
+            while (!stack.isEmpty() && price >= stack.peek()) {
+                res += map.get(stack.peek());
+                map.remove(stack.peek());
+                stack.pop();
+            }
+            stack.push(price);
+            map.put(price, res);
+            return res;
+        } else {
+            stack.push(price);
+            map.put(price, res);
+            return res;
+        }
     }
 }

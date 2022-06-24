@@ -1,11 +1,14 @@
+/*
+ * @Date: 10/13/2020 14:29:38
+ * @LastEditTime: 06/20/2022 17:30:51
+ * @Description: DP
+ */
 package com.leetcode.dynamicProgramming;
 
-/**
- * @Date: 10/13/2020
- * @Description: DP
- **/
+
 public class _361_Bomb_Enemy {
     // 利用四个DP数组即可，表示当目前为止的情况
+    // time: O(m * n) space: O(4 * m * n -> m * n)
     public int maxKilledEnemies(char[][] grid) {
         if (grid == null || grid.length == 0 ||
                 grid.length == 0 || grid[0].length == 0) {

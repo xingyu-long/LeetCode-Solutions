@@ -1,6 +1,6 @@
 /*
  * @Date: 08/11/2020 18:07:14
- * @LastEditTime: 04/29/2021 08:53:50
+ * @LastEditTime: 06/20/2022 11:23:01
  * @Description: Binary Search
  */
 package com.leetcode.binarySearch;
@@ -39,15 +39,14 @@ public class _34_FindFirstAndLastPositionOfElementInSortedArray {
         return -1;
     }
 
-    // 找到第一个大于target的位置，肯定会有偏移，但这个只有1。
     public int findLast(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while (left + 1 < right) {
             int mid = left + (right - left) / 2;
-            if (nums[mid] > target) {
-                right = mid;
-            } else {
+            if (nums[mid] <= target) {
                 left = mid;
+            } else {
+                right = mid;
             }
         }
         if (nums[right] == target) {

@@ -1,6 +1,6 @@
 /*
  * @Date: 08/11/2020 18:07:14
- * @LastEditTime: 03/30/2021 09:53:31
+ * @LastEditTime: 06/19/2022 11:24:23
  * @Description: DP, Binary Search
  */
 package com.leetcode.binarySearch;
@@ -11,12 +11,13 @@ import java.util.Comparator;
 public class _354_RussianDollEnvelopes {
 
     // 将其转化为LIS问题
+    // time: O(nlogn) space: O(n)
     public int maxEnvelopes(int[][] envelopes) {
         if (envelopes == null || envelopes.length == 0 || envelopes[0] == null || envelopes[0].length == 0) {
             return 0;
         }
         Arrays.sort(envelopes, (a, b) -> (a[0] != b[0] ? a[0] - b[0] : b[1] - a[1]));
-        // 这样后面如果同等w，有小的h也会被更新掉。
+        // 这样后面如果同等w，有小的h也在后面find的过程中更新其值到sorted数组。
         // 同一个w只有最大h能用上 LIS problem
         int n = envelopes.length;
         int[] sorted = new int[n];
