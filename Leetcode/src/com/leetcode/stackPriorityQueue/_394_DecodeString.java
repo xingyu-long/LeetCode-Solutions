@@ -1,5 +1,7 @@
 package com.leetcode.stackPriorityQueue;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class _394_DecodeString {
@@ -46,9 +48,37 @@ public class _394_DecodeString {
         return res;
     }
 
-
-    public static void main(String[] args) {
-        String input = "3[a]2[bc]";
-        System.out.println(decodeString(input));
+    // DFS with Queue
+    public String decodeString2(String s) {
+        if (s == null || s.length() == 0) {
+            return "";
+        }
+        Queue<Character> queue = new LinkedList<>();
+        for (char ch : s.toCharArray()) {
+            queue.offer(ch);
+        }
+        return decode(queue);
+    }
+    
+    public String decode(Queue<Character> queue) {
+        StringBuilder sb = new StringBuilder();
+        int num = 0;
+        while (!queue.isEmpty()) {
+            char ch = queue.poll();
+            if (Character.isDigit(ch)) {
+                num = num * 10 + (ch - '0');
+            } else if (ch == '[') {
+                String rest = decode(queue);
+                for (int i = 0; i < num; i++) {
+                    sb.append(rest);
+                }
+                num = 0;
+            } else if (ch == ']') {
+                break;
+            } else {
+                sb.append(ch);
+            }
+        }
+        return sb.toString();
     }
 }

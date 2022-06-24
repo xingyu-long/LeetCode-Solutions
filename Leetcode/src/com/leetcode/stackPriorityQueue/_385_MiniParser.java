@@ -68,10 +68,4 @@ public class _385_MiniParser {
         }
         return res;
     }
-
-    public static void main(String[] args) {
-        _385_MiniParser miniParser = new _385_MiniParser();
-        String s = "[123,[456,[789]]]";
-        miniParser.deserialize2(s);
-    }
 }
