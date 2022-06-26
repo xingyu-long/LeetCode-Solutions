@@ -13,18 +13,20 @@ public class _352_DataStreamasDisjointIntervals {
         if (map.containsKey(val)) return;
         Integer lowerKey = map.lowerKey(val);
         Integer higherKey = map.higherKey(val);
-        // 1. 刚好在中间
-        // 2. 靠左边近,只有左边会出现可能在区间内的情况，右边没办法出现（因为那样lowerKey肯定就是左边了）
-        // 3. 靠右边近
+        
         if (lowerKey != null && higherKey != null && val == map.get(lowerKey)[1] + 1 && val == map.get(higherKey)[0] - 1) {
+             // 1. 刚好在中间
             map.get(lowerKey)[1] = map.get(higherKey)[1];
             map.remove(higherKey);
         } else if (lowerKey != null && val <= map.get(lowerKey)[1] + 1) {
+            // 2. 靠左边近,只有左边会出现可能在区间内的情况，右边没办法出现（因为那样lowerKey肯定就是左边了）
             map.get(lowerKey)[1] = Math.max(val, map.get(lowerKey)[1]);
         } else if (higherKey != null && val == map.get(higherKey)[0] - 1) {
+            // 3. 靠右边近
             map.put(val, new int[]{val, map.get(higherKey)[1]});
             map.remove(higherKey);
         } else {
+            // 4. 加入孤立的点（没有任何交叉）
             map.put(val, new int[]{val, val});
         }
     }
