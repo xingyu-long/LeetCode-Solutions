@@ -1,6 +1,6 @@
 /*
  * @Date: 05/11/2020 17:42:50
- * @LastEditTime: 11/23/2021 18:28:47
+ * @LastEditTime: 06/26/2022 21:42:01
  * @Description: Interval
  */
 package com.leetcode.array.interval;
@@ -43,5 +43,26 @@ public class _986_IntervalListIntersections {
             res[k] = list.get(k);
         }
         return res;
+    }
+
+    // 类似于1229的解法
+    public int[][] intervalIntersection2(int[][] firstList, int[][] secondList) {
+        int i = 0, j = 0;
+        int len1 = firstList.length, len2 = secondList.length;
+        List<int[]> res = new ArrayList<>();
+        while (i < len1 && j < len2) {
+            int start = Math.max(firstList[i][0], secondList[j][0]);
+            int end = Math.min(firstList[i][1], secondList[j][1]);
+            // 加入每一个可能的intersection area
+            if (end - start >= 0) {
+                res.add(new int[]{start, end});
+            }
+            if (firstList[i][1] > secondList[j][1]) {
+                j++;
+            } else {
+                i++;
+            }
+        }
+        return res.toArray(new int[res.size()][]);
     }
 }
