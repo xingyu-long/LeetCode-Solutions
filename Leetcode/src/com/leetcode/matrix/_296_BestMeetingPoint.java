@@ -37,7 +37,9 @@ public class _296_BestMeetingPoint {
         int right = nums.size() - 1;
         int sum = 0;
         while (left < right) { // 奇数的话也不用动，可以把点选到这，因为不管怎么样都要走动相同的总长度
-            sum += nums.get(right--) - nums.get(left++);
+            sum += nums.get(right) - nums.get(left);
+            right--;
+            left++;
         }
         return sum;
     }

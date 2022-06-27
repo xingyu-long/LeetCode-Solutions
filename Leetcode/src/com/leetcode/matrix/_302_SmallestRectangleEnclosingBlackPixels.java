@@ -36,35 +36,35 @@ public class _302_SmallestRectangleEnclosingBlackPixels {
         return (right - left + 1) * (bottom - top + 1);
     }
 
-    public static int findLeftOrTop(char[][] image, int left, int right, boolean isHor) {
+    public static int findLeftOrTop(char[][] image, int left, int right, boolean isVertical) {
         while (left + 1 < right) {
             int mid = (right - left) / 2 + left;
-            if (hashBlack(image, mid, isHor)) {
+            if (hasBlack(image, mid, isVertical)) {
                 right = mid;
             } else {
                 left = mid;
             }
         }
-        if (hashBlack(image, left, isHor)) {
+        if (hasBlack(image, left, isVertical)) {
             return left;
         }
         return right;
     }
 
-    public static int findRightOrBottom(char[][] image, int left, int right, boolean isHor) {
+    public static int findRightOrBottom(char[][] image, int left, int right, boolean isVertical) {
         while (left + 1 < right) {
             int mid = left + (right - left) / 2;
-            if (hashBlack(image, mid, isHor)) {
+            if (hasBlack(image, mid, isVertical)) {
                 left = mid;
             } else {
                 right = mid;
             }
         }
-        if (hashBlack(image, right, isHor)) return right;
+        if (hasBlack(image, right, isVertical)) return right;
         else return left;
     }
 
-    public static boolean hashBlack(char[][] image, int x, boolean isVertical) {
+    public static boolean hasBlack(char[][] image, int x, boolean isVertical) {
         if (isVertical) {
             for (int i = 0; i < image.length; i++) {
                 if (image[i][x] == '1') return true;

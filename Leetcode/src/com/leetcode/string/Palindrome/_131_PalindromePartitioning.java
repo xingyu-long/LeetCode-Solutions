@@ -1,6 +1,6 @@
 /*
  * @Date: 08/11/2020 18:07:14
- * @LastEditTime: 12/14/2020 09:19:24
+ * @LastEditTime: 06/16/2022 15:05:32
  * @Description: Palindrome, Backtracking
  */
 package com.leetcode.string.Palindrome;
@@ -10,49 +10,11 @@ import java.util.List;
 
 public class _131_PalindromePartitioning {
 
-    public static List<List<String>> partition(String s) {
-        List<List<String>> res = new ArrayList<>();
-        if (s == null || s.length() == 0) {
-            return res;
-        }
-        helper(res, new ArrayList<>(), s, 0);
-        return res;
-    }
-
-    // 利用backtracking (每次取的长度是1<=n) 然后利用index来判断是否走到了终点
-    public static void helper(List<List<String>> res, List<String> list, String s, int start) {
-        if (start >= s.length()) {
-            res.add(new ArrayList<>(list));
-        }
-        for (int i = start + 1; i <= s.length(); i++) {
-            String temp = s.substring(start, i);
-            if (isValid(temp)) { // 有效了我再进去下一层。
-                list.add(temp);
-                helper(res, list, s, i);
-                list.remove(list.size() - 1);
-            }
-        }
-    }
-
-    public static boolean isValid(String s) {
-        int left = 0;
-        int right = s.length() - 1;
-        while (left < right) {
-            if (s.charAt(left) != s.charAt(right)) {
-                return false;
-            }
-            left++;
-            right--;
-        }
-        return true;
-    }
-
-    // 利用dp先报存其Palindrome的情况，注意下标
-    public List<List<String>> partition2(String s) {
+    // build result from begin to end;
+    public List<List<String>> partition(String s) {
         if (s == null || s.length() == 0) {
             return new ArrayList<>();
         }
-        // 先构造其pali的关系的dp数组，用backtracking去找 但是如何验证？？ 每次向前走的时候验证？
         int n = s.length();
         boolean[][] dp = new boolean[n][n];
         for (int i = 0; i < n; i++) {
@@ -79,5 +41,41 @@ public class _131_PalindromePartitioning {
                 list.remove(list.size() - 1);
             }
         }
+    }
+
+    // build result from end to begin.
+    public List<List<String>> partition2(String s) {
+        // pre-compute 
+        if (s == null) return new ArrayList<>();
+        int n = s.length();
+        boolean[][] dp = new boolean[n][n];
+        for (int j = 0; j < n; j++) {
+            dp[j][j] = true;
+            for (int i = 0; i < j; i++) {
+                dp[i][j] = (s.charAt(i) == s.charAt(j)) && (j - i <= 2 || dp[i + 1][j - 1]);
+            }
+        }
+        List<List<String>> res = new ArrayList<>();
+        return dfs2(s, dp, 0);
+    }
+    
+    public List<List<String>> dfs2(String s, boolean[][] dp, int index) {
+        List<List<String>> res = new ArrayList<>();
+        if (index == s.length()) {
+            List<String> temp = new ArrayList<>();
+            res.add(new ArrayList<>(temp));
+            return res;
+        }
+        
+        for (int end = index + 1; end <= s.length(); end++) {
+            if (dp[index][end - 1]) {
+                List<List<String>> next = dfs2(s, dp, end);
+                for (List<String> list : next) {
+                    list.add(0, s.substring(index, end));
+                    res.add(new ArrayList<>(list));
+                }
+            }
+        }
+        return res;
     }
 }

@@ -40,13 +40,13 @@ public class _410_SplitArrayLargestSum {
         int count = 1;
         long total = 0;
         for (int num : nums) {
+            // cannot add this one into it.
             if (total + num > target) {
-                total = num;
                 count++;
+                total = 0;
                 if (count > m) return false;
-            } else {
-                total += num;
             }
+            total += num;
         }
         return true;
     }
