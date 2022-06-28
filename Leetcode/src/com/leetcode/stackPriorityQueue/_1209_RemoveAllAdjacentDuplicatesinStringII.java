@@ -3,7 +3,7 @@
  * @LastEditTime: 04/19/2021 09:10:27
  * @Description: Stack with pair
  */
-package com.leetcode.string;
+package com.leetcode.stackPriorityQueue;
 
 import java.util.Stack;
 

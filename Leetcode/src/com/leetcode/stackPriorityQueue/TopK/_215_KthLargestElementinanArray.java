@@ -75,15 +75,4 @@ public class _215_KthLargestElementinanArray {
         }
         return pq.peek();
     }
-
-    public static void main(String[] args) {
-        int[] nums = new int[]{3, 0, 1, 8, 7, 2, 5, 4, 9, 6};
-        int lo = 0;
-        int hi = nums.length - 1;
-        _215_KthLargestElementinanArray sort = new _215_KthLargestElementinanArray();
-        System.out.println(sort.partition(nums, lo, hi));
-        for (int num : nums) {
-            System.out.print(" " + num);
-        }
-    }
 }

@@ -1,5 +1,6 @@
 package com.leetcode.stackPriorityQueue;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -97,7 +98,7 @@ class MedianFinder2 {
     public MedianFinder2() {
 
         minHeap = new PriorityQueue<>();
-        maxHeap = new PriorityQueue<>((a, b) -> b - a);
+        maxHeap = new PriorityQueue<>(Collections.reverseOrder());
     }
 
     public void addNum(int num) {

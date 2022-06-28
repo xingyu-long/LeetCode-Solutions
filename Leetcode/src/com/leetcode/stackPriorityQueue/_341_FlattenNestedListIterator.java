@@ -34,8 +34,9 @@ public class _341_FlattenNestedListIterator {
             }
             stack.pop();
             // 当前是list，所以需要反着导入stack
-            for (int i = cur.getList().size() - 1; i >= 0; i--) {
-                stack.push(cur.getList().get(i));
+            List<NestedInteger> next = curr.getList();
+            for (int i = next.size() - 1; i >= 0; i--) {
+                stack.push(next.get(i));
             }
         }
         return false;

@@ -9,7 +9,6 @@ import java.util.Stack;
 
 public class _946_ValidateStackSequences {
   
-    // 一开始想的复杂了。
     // time:O(n) space:O(n)
     public static boolean validateStackSequences(int[] pushed, int[] popped) {
         if ((pushed == null || pushed.length == 0)

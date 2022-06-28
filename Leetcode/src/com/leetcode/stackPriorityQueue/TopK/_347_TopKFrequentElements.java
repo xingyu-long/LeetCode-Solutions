@@ -35,4 +35,34 @@ public class _347_TopKFrequentElements {
         }
         return res;
     }
+
+    public int[] topKFrequent2(int[] nums, int k) {
+        if (nums == null || nums.length == 0) {
+            return new int[]{};
+        }
+        int n = nums.length;
+        List<Integer>[] bucket = new List[n + 1];
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+        for (int num : map.keySet()) {
+            int freq = map.get(num);
+            if (bucket[freq] == null) {
+                bucket[freq] = new ArrayList<>();
+            }
+            bucket[freq].add(num);
+        }
+        int[] res = new int[k];
+        int index = 0;
+        for (int i = n; i >= 0; i--) {
+            if (bucket[i] != null) {
+                for (int j = 0; j < bucket[i].size() && k > 0; j++) {
+                    res[index++] = bucket[i].get(j);
+                    k--;
+                }
+            }
+        }
+        return res;
+    }
 }

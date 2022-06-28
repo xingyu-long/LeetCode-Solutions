@@ -9,27 +9,25 @@ import java.util.List;
  * @Description: greedy, DP
  **/
 public class _118_PascalsTriangle {
-    // time:O(n^2) space:O(1) // 返回结果不算入space里面。
+    
+    // time: O(n) space: O(n)
     public List<List<Integer>> generate(int numRows) {
-        if (numRows <= 0)
-            return new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        List<Integer> curr = null;
         List<List<Integer>> res = new ArrayList<>();
-        for (int i = 0; i < numRows; i++) {
-            List<Integer> row = new ArrayList<>();
-            for (int j = 0; j <= i; j++) {
-                if (j == 0 || j == i)
-                    row.add(1);
-                else
-                    row.add(res.get(i - 1).get(j - 1) + res.get(i - 1).get(j));
+        while (numRows-- > 0) {
+            list.add(1);
+            curr = new ArrayList<>(list);
+            for (int i = 1; i < list.size() - 1; i++) {
+                list.set(i, curr.get(i - 1) + curr.get(i));
             }
-            res.add(row);
+            res.add(new ArrayList<>(list));
         }
         return res;
     }
 
-    /**
-     * 更加巧妙的方法
-     */
+    // time: O(n * n) space: O(n)
+    // list.add(0, 1) will cost O(n)
     public static List<List<Integer>> generate2(int numRows) {
         List<List<Integer>> res = new ArrayList<>();
         if (numRows < 1)

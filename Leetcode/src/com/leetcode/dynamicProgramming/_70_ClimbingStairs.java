@@ -42,6 +42,18 @@ public class _70_ClimbingStairs {
         return val;
     }
 
+    // 理解为 斐波那契数列
+    // 从下到上开始计算
+    // time: O(n) space: O(n)
+    public int climbStairs2(int n) {
+        int[] dp = new int[n + 1];
+        dp[0] = 1; // 当只有0个梯子，所以只有一种情况，那就是保持不动
+        dp[1] = 1; // 当只有1个梯子，所以有一种情况 就是跳一步
+        for (int i = 2; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2]; //表示要不就是从i-1这个位置跳一步 或者是 i-2这个位置跳两步的所有可能性的和
+        }
+        return dp[n];
+    }
 
     /**
      * test case:
@@ -59,8 +71,9 @@ public class _70_ClimbingStairs {
      * @param n
      * @return
      */
+    // 节省空间的解法
     // 迭代的形式 time: O(n) space: O(1)
-    public int climbStairs2(int n) {
+    public int climbStairs3(int n) {
         if (n <= 1) return 1;
         int oneStep = 1, twoStep = 1, res = 0;// 这里的oneStep和twoStep 都是代表走该种情况下的“多少种可能”并非实际分别走了多少
         for (int i = 2; i <= n; i++) {
@@ -69,18 +82,5 @@ public class _70_ClimbingStairs {
             oneStep = res;
         }
         return res;
-    }
-
-    // 理解为 斐波那契数列
-    // 从下到上开始计算
-    // time: O(n) space: O(n)
-    public int climbStairs3(int n) {
-        int[] dp = new int[n + 1];
-        dp[0] = 1; // 当只有0个梯子，所以只有一种情况，那就是保持不动
-        dp[1] = 1; // 当只有1个梯子，所以有一种情况 就是跳一步
-        for (int i = 2; i <= n; i++) {
-            dp[i] = dp[i - 1] + dp[i - 2]; //表示要不就是从i-1这个位置跳一步 或者是 i-2这个位置跳两步的所有可能性的和
-        }
-        return dp[n];
     }
 }

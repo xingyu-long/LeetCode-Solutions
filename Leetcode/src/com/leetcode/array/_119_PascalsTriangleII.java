@@ -44,13 +44,4 @@ public class _119_PascalsTriangleII {
         }
         return res;
     }
-
-    public static void main(String[] args) {
-        List<Integer> test = new ArrayList<>();
-        test.add(0, 1);
-        test.add(0, 2);
-        for (int in : test) {
-            System.out.println(in);
-        }
-    }
 }
