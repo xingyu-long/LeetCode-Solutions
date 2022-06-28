@@ -12,28 +12,25 @@ public class _416_PartitionEqualSubsetSum {
     // DP 表示是否可以由前i个数构成sum/2，并且数组和不能为奇数，这样无法partition
     // 算是背包问题？
     public boolean canPartition(int[] nums) {
-        if (nums == null || nums.length == 0)
+        if (nums == null || nums.length == 0) {
             return false;
+        }
         int sum = 0;
-        for (int num : nums)
+        for (int num : nums) {
             sum += num;
-        if (sum % 2 != 0)
-            return false;
-        int target = sum / 2;
-        int n = nums.length;
+        }
+        if (sum % 2 != 0) return false;
+        int n = nums.length, target = sum / 2;
         boolean[][] dp = new boolean[n + 1][target + 1];
         dp[0][0] = true;
         for (int i = 1; i <= n; i++) {
             dp[i][0] = true;
-        }
-
-        for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= target; j++) {
-                dp[i][j] = dp[i - 1][j];
-                // 这里用i-1其实就是不用当前这个数，相当于每个元素我们只能用一次。
-                if (j >= nums[i - 1]) {
-                    dp[i][j] = dp[i][j] || dp[i - 1][j - nums[i - 1]];
-                }
+                int currCoin = nums[i - 1];
+                boolean notUse = dp[i - 1][j];
+                // 这里用i-1其实就是不用当前这个数，相当于每个元素我们只能用一次
+                boolean use = (j >= currCoin) ? dp[i - 1][j - currCoin] : false;
+                dp[i][j] = notUse || use;
             }
         }
         return dp[n][target];
@@ -61,11 +58,11 @@ public class _416_PartitionEqualSubsetSum {
         return dp[sum];
     }
 
+    // TLE
     public boolean canPartition3(int[] nums) {
         if (nums == null || nums.length == 0) {
             return false;
         }
-        int n = nums.length;
         int sum = 0;
         for (int num : nums) {
             sum += num;

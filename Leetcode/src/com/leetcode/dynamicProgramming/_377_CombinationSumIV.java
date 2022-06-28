@@ -43,7 +43,6 @@ public class _377_CombinationSumIV {
     }
 
     public int helper(int[] nums, int target) {
-        // goal;
         if (target == 0) {
             return 1;
         }
@@ -84,15 +83,5 @@ public class _377_CombinationSumIV {
         }
         map.put(target, res);
         return res;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = new int[] { 1, 2, 3 };
-        int target = 4;
-        HashMap<Integer, List<String>> map = new HashMap<>();
-        List<String> res = generateAllFromBack(nums, target, map);
-        for (String str : res) {
-            System.out.println(str);
-        }
     }
 }

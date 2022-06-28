@@ -8,6 +8,7 @@ import java.util.*;
  **/
 public class _472_ConcatenatedWords {
 
+    // time: O((# of words) * (length of word) * (length of word))
     public List<String> findAllConcatenatedWordsInADict(String[] words) {
         if (words == null || words.length == 0) {
             return new ArrayList<>();
