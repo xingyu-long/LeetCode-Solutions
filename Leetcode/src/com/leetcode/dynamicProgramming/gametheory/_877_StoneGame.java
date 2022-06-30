@@ -3,7 +3,7 @@
  * @LastEditTime: 08/06/2021 10:20:26
  * @Description: 区间DP
  */
-package com.leetcode.dynamicProgramming.MinMax;
+package com.leetcode.dynamicProgramming.gametheory;
 
 import java.util.Arrays;
 

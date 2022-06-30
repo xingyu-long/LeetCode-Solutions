@@ -1,4 +1,4 @@
-package com.leetcode.dynamicProgramming.MinMax;
+package com.leetcode.dynamicProgramming.gametheory;
 
 import java.util.Arrays;
 

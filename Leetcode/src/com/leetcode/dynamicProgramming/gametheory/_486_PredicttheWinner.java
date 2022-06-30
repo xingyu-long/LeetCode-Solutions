@@ -3,7 +3,7 @@
  * @LastEditTime: 12/12/2020 16:26:07
  * @Description: MinMax, Top-down + Memo
  */
-package com.leetcode.dynamicProgramming.MinMax;
+package com.leetcode.dynamicProgramming.gametheory;
 
 import java.util.Arrays;
 

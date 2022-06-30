@@ -3,7 +3,7 @@
  * @LastEditTime: 12/12/2020 16:00:09
  * @Description: Top-down + memo + bit mask;
  */
-package com.leetcode.dynamicProgramming.MinMax;
+package com.leetcode.dynamicProgramming.gametheory;
 
 public class _464_CanIWin {
     public boolean canIWin(int maxChoosableInteger, int desiredTotal) {
