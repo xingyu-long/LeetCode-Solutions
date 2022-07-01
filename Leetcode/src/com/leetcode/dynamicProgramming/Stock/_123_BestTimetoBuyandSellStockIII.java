@@ -18,9 +18,11 @@ public class _123_BestTimetoBuyandSellStockIII {
         for (int i = 1; i < t + 1; i++) {
             for (int j = 1; j < days; j++) {
                 int max = 0;
+                // 第j天卖掉第k天买来的股票
                 for (int k = 0; k < j; k++) {
                     max = Math.max(max, prices[j] - prices[k] + dp[i - 1][k]);
                 }
+                // dp[i][j - 1]表示第j天没有交易
                 dp[i][j] = Math.max(max, dp[i][j - 1]);
             }
         }
