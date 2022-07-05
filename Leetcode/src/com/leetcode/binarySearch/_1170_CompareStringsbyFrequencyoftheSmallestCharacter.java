@@ -37,30 +37,45 @@ public class _1170_CompareStringsbyFrequencyoftheSmallestCharacter {
 
     // time:O(m * logN) space:O(n)
     public int[] numSmallerByFrequency2(String[] queries, String[] words) {
-        int[] queryCount = new int[queries.length];
-        int[] wordsCount = new int[words.length];
-        for (int i = 0; i < queries.length; i++) {
-            queryCount[i] = countSmall(queries[i]);
-        }
+        
+        int[] sorted = new int[words.length];
         for (int i = 0; i < words.length; i++) {
-            wordsCount[i] = countSmall(words[i]);
+            sorted[i] = count(words[i]);
         }
+        Arrays.sort(sorted);
         int[] res = new int[queries.length];
-        Arrays.sort(wordsCount);
-        // use binary search
-        for (int i = 0; i < queryCount.length; i++) {
-            int left = 0;
-            int right = wordsCount.length - 1;
-            while (left + 1 < right) {
-                int mid = left + (right - left) / 2;
-                if (wordsCount[mid] > queryCount[i]) right = mid;
-                else left = mid;
-            }
-            if (wordsCount[left] > queryCount[i]) res[i] = wordsCount.length - left;
-            else if (wordsCount[right] > queryCount[i]) res[i] = wordsCount.length - right;
-            else res[i] = 0;
+        for (int i = 0; i < queries.length; i++) {
+            int pos = find(sorted, count(queries[i]));
+            if (pos == -1) res[i] = 0;
+            else res[i] = sorted.length - pos;
         }
         return res;
+    }
+    
+    public int find(int[] sorted, int target) {
+        int left = 0, right = sorted.length - 1;
+        while (left + 1 < right) {
+            int mid = left + (right - left) / 2;
+            if (sorted[mid] > target) {
+                right = mid;
+            } else {
+                left = mid;
+            }
+        }
+        if (sorted[left] > target) return left;
+        else if (sorted[right] > target) return right;
+        return -1;
+    }
+    
+    public int count(String str) {
+        int[] arr = new int[26];
+        for (char ch : str.toCharArray()) {
+            arr[ch - 'a']++;
+        }
+        for (int i = 0; i < 26; i++) {
+            if (arr[i] != 0) return arr[i];
+        }
+        return 0;
     }
 
 }

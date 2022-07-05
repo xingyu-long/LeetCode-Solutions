@@ -2,9 +2,9 @@ package com.leetcode.bfsANDdfs;
 
 import com.leetcode.common.NestedInteger;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class _364_NestedListWeightSumII {
 
@@ -12,14 +12,16 @@ public class _364_NestedListWeightSumII {
      * 364. Nested List Weight Sum II
      * time:2019/7/25
      * review1:10/31/2019
+     * 
      * @param nestedList
      * @return
      */
 
-    //time:O(n) space:O(n)
-    //解释: https://www.cnblogs.com/grandyang/p/5615583.html
+    // time:O(n) space:O(n)
+    // 解释: https://www.cnblogs.com/grandyang/p/5615583.html
     public int depthSumInverse(List<NestedInteger> nestedList) {
-        if (nestedList == null) return 0;
+        if (nestedList == null)
+            return 0;
         int sum = 0;
         int res = 0;
         while (!nestedList.isEmpty()) {
@@ -56,4 +58,34 @@ public class _364_NestedListWeightSumII {
         return res;
     }
 
+    // time: O(n) space: O(n)
+    // 自己写的，比较容易理解，每次都保存上一层的值
+    public int depthSumInverse3(List<NestedInteger> nestedList) {
+        if (nestedList == null || nestedList.size() == 0) {
+            return 0;
+        }
+        Queue<NestedInteger> queue = new LinkedList<>();
+        for (NestedInteger item : nestedList) {
+            queue.offer(item);
+        }
+
+        int res = 0, prev = 0;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            int level = 0;
+            for (int i = 0; i < size; i++) {
+                NestedInteger curr = queue.poll();
+                if (curr.isInteger()) {
+                    level += curr.getInteger();
+                } else {
+                    for (NestedInteger item : curr.getList()) {
+                        queue.offer(item);
+                    }
+                }
+            }
+            res += level + prev;
+            prev += level;
+        }
+        return res;
+    }
 }

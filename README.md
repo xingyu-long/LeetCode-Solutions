@@ -129,6 +129,7 @@
 | 230|Kth Smallest Element In ABST                  |[java](Leetcode/src/com/leetcode/tree/bst/_230_KthSmallestElementInABST.java)                                                                                                                |
 | 235|Lowest Common Ancestor Of A Binary Search Tree|[java](Leetcode/src/com/leetcode/tree/bst/_235_LowestCommonAncestorOfABinarySearchTree.java), [py](Leetcode/src/com/leetcode/tree/bst/_235_Lowest_Common_Ancestor_Of_A_Binary_Search_Tree.py)|
 | 285|Inorder Successorin BST                       |[java](Leetcode/src/com/leetcode/tree/bst/_285_InorderSuccessorinBST.java)                                                                                                                   |
+| 449|Serializeand Deserialize BST                  |[java](Leetcode/src/com/leetcode/tree/bst/_449_SerializeandDeserializeBST.java)                                                                                                              |
 | 450|BST                                           |[py](Leetcode/src/com/leetcode/tree/bst/_450_Delete_Node_in_a_BST.py)                                                                                                                        |
 | 501|Find Modein Binary Search Tree                |[java](Leetcode/src/com/leetcode/tree/bst/_501_FindModeinBinarySearchTree.java)                                                                                                              |
 | 510|Inorder Successorin BSTII                     |[java](Leetcode/src/com/leetcode/tree/bst/_510_InorderSuccessorinBSTII.java)                                                                                                                 |
@@ -268,6 +269,7 @@
 | 130|Surrounded Regions                       |[java](Leetcode/src/com/leetcode/bfsANDdfs/_130_SurroundedRegions.java)                                                                |
 | 200|Numberof Islands                         |[java](Leetcode/src/com/leetcode/bfsANDdfs/_200_NumberofIslands.java)                                                                  |
 | 286|Wallsand Gates                           |[java](Leetcode/src/com/leetcode/bfsANDdfs/_286_WallsandGates.java)                                                                    |
+| 317|Shortest Distance From All Buildings     |[java](Leetcode/src/com/leetcode/bfsANDdfs/_317_ShortestDistanceFromAllBuildings.java)                                                 |
 | 339|Nested List Weight Sum                   |[java](Leetcode/src/com/leetcode/bfsANDdfs/_339_NestedListWeightSum.java)                                                              |
 | 364|Nested List Weight Sum II                |[java](Leetcode/src/com/leetcode/bfsANDdfs/_364_NestedListWeightSumII.java)                                                            |
 | 417|Pacific Atlantic Water Flow              |[java](Leetcode/src/com/leetcode/bfsANDdfs/_417_PacificAtlanticWaterFlow.java)                                                         |
@@ -427,8 +429,10 @@
 | 646|Maximum Length Of Pair Chain            |[java](Leetcode/src/com/leetcode/array/interval/_646_MaximumLengthOfPairChain.java)            |
 | 729|My Calendar I                           |[java](Leetcode/src/com/leetcode/array/interval/_729_MyCalendarI.java)                         |
 | 757|Set Intersection Size At Least Two      |[java](Leetcode/src/com/leetcode/array/interval/_757_SetIntersectionSizeAtLeastTwo.java)       |
+| 759|Employee Free Time                      |[java](Leetcode/src/com/leetcode/array/interval/_759_EmployeeFreeTime.java)                    |
 | 986|Interval List Intersections             |[java](Leetcode/src/com/leetcode/array/interval/_986_IntervalListIntersections.java)           |
 |1094|Car Pooling                             |[java](Leetcode/src/com/leetcode/array/interval/_1094_CarPooling.java)                         |
+|1229|Meeting Scheduler                       |[java](Leetcode/src/com/leetcode/array/interval/_1229_MeetingScheduler.java)                   |
 |1272|Remove Interval                         |[java](Leetcode/src/com/leetcode/array/interval/_1272_RemoveInterval.java)                     |
 |1288|Removed Covered Interval                |[java](Leetcode/src/com/leetcode/array/interval/_1288_RemovedCoveredInterval.java)             |
 # Subarray
@@ -521,7 +525,6 @@
 | 374|Guess Number Higheror Lower                            |[java](Leetcode/src/com/leetcode/binarySearch/_374_GuessNumberHigherorLower.java)                        |
 | 410|Split Array Largest Sum                                |[java](Leetcode/src/com/leetcode/binarySearch/_410_SplitArrayLargestSum.java)                            |
 | 441|Arranging Coins                                        |[java](Leetcode/src/com/leetcode/binarySearch/_441_ArrangingCoins.java)                                  |
-| 449|Serializeand Deserialize BST                           |[java](Leetcode/src/com/leetcode/binarySearch/_449_SerializeandDeserializeBST.java)                      |
 | 540|Single Elementina Sorted Array                         |[java](Leetcode/src/com/leetcode/binarySearch/_540_SingleElementinaSortedArray.java)                     |
 | 658|Find K Closest Elements                                |[java](Leetcode/src/com/leetcode/binarySearch/_658_FindKClosestElements.java)                            |
 | 852|Peak Indexina Mountain Array                           |[java](Leetcode/src/com/leetcode/binarySearch/_852_PeakIndexinaMountainArray.java)                       |
@@ -571,24 +574,24 @@
 | 310|Minimum Height Trees|[java](Leetcode/src/com/leetcode/TopologicalSort/_310_MinimumHeightTrees.java)|
 |1136|Parallel Courses    |[java](Leetcode/src/com/leetcode/TopologicalSort/_1136_ParallelCourses.java)  |
 # Graph
-|No. |             Problem              |                                   Solutions                                    |
-|---:|----------------------------------|--------------------------------------------------------------------------------|
-| 133|Clone Graph                       |[java](Leetcode/src/com/leetcode/graph/_133_CloneGraph.java)                    |
-| 149|Max Pointsona Line                |[java](Leetcode/src/com/leetcode/graph/_149_MaxPointsonaLine.java)              |
-| 223|Rectangle Area                    |[java](Leetcode/src/com/leetcode/graph/_223_RectangleArea.java)                 |
-| 356|Line Reflection                   |[java](Leetcode/src/com/leetcode/graph/_356_LineReflection.java)                |
-| 399|Evaluate Division                 |[java](Leetcode/src/com/leetcode/graph/_399_EvaluateDivision.java)              |
-| 444|Sequence Reconstruction           |[java](Leetcode/src/com/leetcode/graph/_444_SequenceReconstruction.java)        |
-| 785|Is Graph Bipartite                |[java](Leetcode/src/com/leetcode/graph/_785_IsGraphBipartite.java)              |
-| 787|Cheapest Flights Within K Stops   |[java](Leetcode/src/com/leetcode/graph/_787_CheapestFlightsWithinKStops.java)   |
-| 836|Rectangle Overlap                 |[java](Leetcode/src/com/leetcode/graph/_836_RectangleOverlap.java)              |
-| 863|All Nodes Distance Kin Binary Tree|[java](Leetcode/src/com/leetcode/graph/_863_AllNodesDistanceKinBinaryTree.java) |
-| 886|Possible Bipartition              |[java](Leetcode/src/com/leetcode/graph/_886_PossibleBipartition.java)           |
-| 939|Minimum Area Rectangle            |[java](Leetcode/src/com/leetcode/graph/_939_MinimumAreaRectangle.java)          |
-|1192|Critical Connectionsina Network   |[java](Leetcode/src/com/leetcode/graph/_1192_CriticalConnectionsinaNetwork.java)|
-|1311|Get Watched Videosby Your Friends |[java](Leetcode/src/com/leetcode/graph/_1311_GetWatchedVideosbyYourFriends.java)|
-|1377|Frog Position After T Seconds     |[java](Leetcode/src/com/leetcode/graph/_1377_FrogPositionAfterTSeconds.java)    |
-|1615|Rank                              |[java](Leetcode/src/com/leetcode/graph/_1615_Maximal_Network_Rank.java)         |
+|No. |             Problem              |                                                             Solutions                                                              |
+|---:|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| 133|Clone Graph                       |[java](Leetcode/src/com/leetcode/graph/_133_CloneGraph.java)                                                                        |
+| 149|Max Pointsona Line                |[java](Leetcode/src/com/leetcode/graph/_149_MaxPointsonaLine.java)                                                                  |
+| 223|Rectangle Area                    |[java](Leetcode/src/com/leetcode/graph/_223_RectangleArea.java)                                                                     |
+| 356|Line Reflection                   |[java](Leetcode/src/com/leetcode/graph/_356_LineReflection.java)                                                                    |
+| 399|Evaluate Division                 |[java](Leetcode/src/com/leetcode/graph/_399_EvaluateDivision.java)                                                                  |
+| 444|Sequence Reconstruction           |[java](Leetcode/src/com/leetcode/graph/_444_SequenceReconstruction.java)                                                            |
+| 785|Is Graph Bipartite                |[java](Leetcode/src/com/leetcode/graph/_785_IsGraphBipartite.java), [py](Leetcode/src/com/leetcode/graph/_785_Is_Graph_Bipartite.py)|
+| 787|Cheapest Flights Within K Stops   |[java](Leetcode/src/com/leetcode/graph/_787_CheapestFlightsWithinKStops.java)                                                       |
+| 836|Rectangle Overlap                 |[java](Leetcode/src/com/leetcode/graph/_836_RectangleOverlap.java)                                                                  |
+| 863|All Nodes Distance Kin Binary Tree|[java](Leetcode/src/com/leetcode/graph/_863_AllNodesDistanceKinBinaryTree.java)                                                     |
+| 886|Possible Bipartition              |[java](Leetcode/src/com/leetcode/graph/_886_PossibleBipartition.java)                                                               |
+| 939|Minimum Area Rectangle            |[java](Leetcode/src/com/leetcode/graph/_939_MinimumAreaRectangle.java)                                                              |
+|1192|Critical Connectionsina Network   |[java](Leetcode/src/com/leetcode/graph/_1192_CriticalConnectionsinaNetwork.java)                                                    |
+|1311|Get Watched Videosby Your Friends |[java](Leetcode/src/com/leetcode/graph/_1311_GetWatchedVideosbyYourFriends.java)                                                    |
+|1377|Frog Position After T Seconds     |[java](Leetcode/src/com/leetcode/graph/_1377_FrogPositionAfterTSeconds.java)                                                        |
+|1615|Rank                              |[java](Leetcode/src/com/leetcode/graph/_1615_Maximal_Network_Rank.java)                                                             |
 # Shortestpath
 |No. |                               Problem                                |                                                                                          Solutions                                                                                           |
 |---:|----------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

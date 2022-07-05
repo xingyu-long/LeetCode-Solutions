@@ -4,6 +4,7 @@ import java.util.PriorityQueue;
 
 public class _378_KthSmallestElementinaSortedMatrix {
     // 利用binary search，搜索比target小的个数有多少。最后的判断条件需要注意。
+    // time: O((m + n) * log(matrix[n - 1][n - 1])), space: O(1)
     public int kthSmallest(int[][] matrix, int k) {
         if (matrix == null || matrix.length == 0 ||
                 matrix[0] == null || matrix[0].length == 0) return 0;
@@ -32,13 +33,6 @@ public class _378_KthSmallestElementinaSortedMatrix {
             } else i--;
         }
         return res;
-    }
-
-    public static void main(String[] args) {
-        _378_KthSmallestElementinaSortedMatrix bs = new _378_KthSmallestElementinaSortedMatrix();
-        int[][] matrix = {{1,5,9},{10,11,13},{12,13,15}};
-        int k = 6;
-        bs.kthSmallest(matrix, k);
     }
 
     // 利用priorityQueue 常见的是构建最大堆，然后大于k个就poll time:NlogK
