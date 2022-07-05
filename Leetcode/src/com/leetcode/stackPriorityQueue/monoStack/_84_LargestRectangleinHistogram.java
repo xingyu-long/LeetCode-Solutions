@@ -31,6 +31,7 @@ public class _84_LargestRectangleinHistogram {
     //往后看也是为了优化，因为后面那个更大的话 1 * height 肯定是更大的部分，所以也是为什么用小于前面的数开始、
 
     // 需要注意stack为空以及走到最后的时候。
+    // time:O(n) space: O(n)
     public static int largestRectangleArea2(int[] heights) {
         // 利用局部峰值来解决
         if (heights == null || heights.length == 0) return 0;
