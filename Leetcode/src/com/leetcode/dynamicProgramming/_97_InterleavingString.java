@@ -1,8 +1,3 @@
-/*
- * @Date: 2019-08-01 07:12:49
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 06/02/2021 10:04:22
- */
 package com.leetcode.dynamicProgramming;
 
 public class _97_InterleavingString {

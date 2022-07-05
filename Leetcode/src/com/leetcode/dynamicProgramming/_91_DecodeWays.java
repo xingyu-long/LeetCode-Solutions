@@ -80,8 +80,4 @@ public class _91_DecodeWays {
         memo[start] = res;
         return memo[start];
     }
-
-    public static void main(String[] args) {
-        numDecodings2("0");
-    }
 }

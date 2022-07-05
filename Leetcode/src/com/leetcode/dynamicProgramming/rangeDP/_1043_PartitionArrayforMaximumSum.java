@@ -6,41 +6,31 @@ import java.util.Arrays;
 
 public class _1043_PartitionArrayforMaximumSum {
 
-    public int maxSumAfterPartitioning(int[] A, int K) {
-        // [1,15,7,9,2,5,10]
-        // 15,15,15,15 一开始以为是slding window。 但不是，还是属于分长度问题
-        if (A == null || A.length == 0) {
+    // time: O(n * k) space: O(n)
+    public int maxSumAfterPartitioning(int[] arr, int k) {
+        if (arr == null || arr.length == 0) {
             return 0;
         }
-        int n = A.length;
-        // 分割为最长值
-        int[][] memo = new int[n + 1][K + 1];
-        for (int[] arr : memo) {
-            Arrays.fill(arr, -1);
-        }
-        return dfs(A, n - 1, K, memo);
+        int[] memo = new int[arr.length + 1];
+        Arrays.fill(memo, -1);
+        return dfs(arr, k, 0, memo);
     }
-
-    public int dfs(int[] A, int j, int k, int[][] memo) {
-        if (j < 0) {
+    
+    public int dfs(int[] arr, int k, int index, int[] memo) {
+        if (index >= arr.length) {
             return 0;
         }
-        if (j == 0) {
-            return A[j];
+        if (memo[index] != -1) {
+            return memo[index];
         }
-        if (memo[j][k] != -1) {
-            return memo[j][k];
+        int res = 0;
+        int max = arr[index];
+        for (int i = 0; i < k; i++) {
+            if (index + i >= arr.length) break;
+            max = Math.max(max, arr[index + i]);
+            res = Math.max(res, (i + 1) * max + dfs(arr, k, index + i + 1, memo));
         }
-        int res = Integer.MIN_VALUE;
-        int max = A[j];
-        for (int i = 1; i <= k; i++) {
-            if (j - i + 1 < 0) {
-                continue;
-            }
-            max = Math.max(max, A[j - i + 1]); // 比较值的时候需要注意
-            res = Math.max(res, dfs(A, j - i, k, memo) + i * max);
-        }
-        memo[j][k] = res;
+        memo[index] = res;
         return res;
     }
 }

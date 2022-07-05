@@ -1,8 +1,4 @@
-/*
- * @Date: 2019-11-24 11:56:25
- * @LastEditors: Clark long
- * @LastEditTime: 2020-03-23 18:07:22
- */
+
 package com.leetcode.dynamicProgramming;
 
 public class _72_EditDistance {
