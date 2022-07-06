@@ -34,6 +34,25 @@ public class _198_HouseRobber {
         return memo[n];
     }
 
+    // dp[i] 表示对于当前点偷与不偷的值
+    public int rob(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int n = nums.length;
+        int[][] dp = new int[n][2];
+        int res = 0;
+        dp[0][0] = nums[0]; // rob
+        res = dp[0][0];
+        for (int i = 1; i < n; i++) {
+            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + nums[i]);
+            dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0]);
+            res = Math.max(res, Math.max(dp[i][0], dp[i][1]));
+        }
+        
+        return res;
+    }
+
     // space:O(n)
     // 表示为改点偷与不偷的问题
     // dp[i]表示第i点最大可以获得的利益。

@@ -28,9 +28,9 @@ public class _213_HouseRobberII {
         int rob = 0;
         int notRob = 0;
         for (int i = left; i < right; i++) {
-            int temp = Math.max(rob, notRob);
+            int prevMax = Math.max(rob, notRob);
             rob = notRob + nums[i];
-            notRob = temp;
+            notRob = prevMax;
         }
         return Math.max(rob, notRob);
     }

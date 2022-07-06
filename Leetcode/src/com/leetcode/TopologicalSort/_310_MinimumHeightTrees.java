@@ -16,19 +16,19 @@ public class _310_MinimumHeightTrees {
         }
 
         //构建图的关系（使用hashset）
-        List<HashSet<Integer>> adj = new ArrayList<>();
+        List<HashSet<Integer>> graph = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            adj.add(new HashSet<>());
+            graph.add(new HashSet<>());
         }
 
         for (int[] edge : edges) {
-            adj.get(edge[0]).add(edge[1]);
-            adj.get(edge[1]).add(edge[0]);
+            graph.get(edge[0]).add(edge[1]);
+            graph.get(edge[1]).add(edge[0]);
         }
 
         //相当于先加入外层叶子节点
         for (int i = 0; i < n; i++) {
-            if (adj.get(i).size() == 1) {
+            if (graph.get(i).size() == 1) {
                 res.add(i);
             }
         }
@@ -38,10 +38,10 @@ public class _310_MinimumHeightTrees {
             List<Integer> leaves = new ArrayList<>();
             for (int toBeDeleted : res) {
                 // 这里用的太妙了了！！！！！！
-                for (int in : adj.get(toBeDeleted)) { // 这里表示删除那些含有外部叶子节点的记录。
-                    adj.get(in).remove(toBeDeleted);//删除外层叶子节点
-                    if (adj.get(in).size() == 1) { // 这个1还是删除倒数第二个节点的时候加入的。
-                        leaves.add(in);
+                for (int adj : graph.get(toBeDeleted)) { // 这里表示删除那些含有外部叶子节点的记录。
+                    graph.get(adj).remove(toBeDeleted);//删除外层叶子节点
+                    if (graph.get(adj).size() == 1) { // 这个1还是删除倒数第二个节点的时候加入的。
+                        leaves.add(adj);
                     }
                 }
             }

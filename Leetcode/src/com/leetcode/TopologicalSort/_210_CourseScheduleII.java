@@ -45,6 +45,7 @@ public class _210_CourseScheduleII {
                 }
             }
         }
+        // list.stream().mapToInt(i->i).toArray()
         return count == num ? res : new int[]{};
     }
 }

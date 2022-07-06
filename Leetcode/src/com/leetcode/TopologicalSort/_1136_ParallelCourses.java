@@ -10,6 +10,7 @@ import java.util.Queue;
  * @Description: TODO
  **/
 public class _1136_ParallelCourses {
+    // time: O(V + E) space: O(n)
     public int minimumSemesters(int n, int[][] dependencies) {
         List<Integer>[] graph = new List[n + 1];
         int[] indegree = new int[n + 1];
@@ -23,6 +24,7 @@ public class _1136_ParallelCourses {
             indegree[v]++;
         }
         Queue<Integer> queue = new LinkedList<>();
+        // 需要注意是从1开始遍历
         for (int i = 1; i <= n; i++) {
             if (indegree[i] == 0) {
                 queue.offer(i);
