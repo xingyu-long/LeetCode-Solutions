@@ -48,21 +48,17 @@ public class _863_AllNodesDistanceKinBinaryTree {
         if (root == null) {
             return;
         }
-        if (!map.containsKey(root.val)) {
-            map.put(root.val, new HashSet<>());
-        }
+        
+        map.putIfAbsent(root.val, new HashSet<>());
+        
         if (root.left != null) {
             map.get(root.val).add(root.left.val);
-            if (!map.containsKey(root.left.val)) {
-                map.put(root.left.val, new HashSet<>());
-            }
+            map.putIfAbsent(root.left.val, new HashSet<>());
             map.get(root.left.val).add(root.val);
         }
         if (root.right != null) {
             map.get(root.val).add(root.right.val);
-            if (!map.containsKey(root.right.val)) {
-                map.put(root.right.val, new HashSet<>());
-            }
+            map.putIfAbsent(root.right.val, new HashSet<>());
             map.get(root.right.val).add(root.val);
         }
         buildGraph(root.left, map);

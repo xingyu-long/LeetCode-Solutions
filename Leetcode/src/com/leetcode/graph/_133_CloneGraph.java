@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 
 public class _133_CloneGraph {
@@ -26,17 +27,19 @@ public class _133_CloneGraph {
       */
     //time: O(n) space: O(n)
     public Node cloneGraph(Node node) {
-        HashMap<Node, Node> map = new HashMap<>();
-        return dfs(node, map);
+        if (node == null) return node;
+        Map<Node, Node> map = new HashMap<>();
+        return build(node, map);
     }
     
-    public Node dfs(Node node, HashMap<Node, Node> map) {
-        if (node == null) return null;
-        if (!map.containsKey(node)) {
-             map.put(node, new Node(node.val));
-            for (Node adj : node.neighbors) {
-                map.get(node).neighbors.add(dfs(adj, map));
-            }
+    public Node build(Node node, Map<Node, Node> map) {
+        if (map.containsKey(node)) return map.get(node);
+        Node copy = new Node(node.val);
+        map.put(node, copy);
+        List<Node> nexts = node.neighbors;
+        for (Node next : nexts) {
+            Node newNext = build(next, map);
+            copy.neighbors.add(newNext);
         }
         return map.get(node);
     }
