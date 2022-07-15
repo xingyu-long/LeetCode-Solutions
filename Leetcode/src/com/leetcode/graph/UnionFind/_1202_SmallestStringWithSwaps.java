@@ -52,41 +52,26 @@ public class _1202_SmallestStringWithSwaps {
 
     // 利用union find
     public String smallestStringWithSwaps2(String s, List<List<Integer>> pairs) {
+        Map<Integer, PriorityQueue<Character>> map = new HashMap<>();
         int n = s.length();
-        UnionFind unionFind = new UnionFind(n);
+        UnionFind uf = new UnionFind(n);
         for (List<Integer> pair : pairs) {
-            unionFind.union(pair.get(0), pair.get(1));
+            int p = pair.get(0), q = pair.get(1);
+            uf.union(p, q);
         }
-        HashMap<Integer, List<Character>> map = new HashMap<>();
+        
         for (int i = 0; i < n; i++) {
-            int root = unionFind.root(i);
-            if (!map.containsKey(root)) map.put(root, new LinkedList<>());
-            map.get(root).add(s.charAt(i));
+            int root = uf.root(i);
+            map.putIfAbsent(root, new PriorityQueue<>());
+            map.get(root).offer(s.charAt(i));
         }
-        // sort characters
-        for (List<Character> characters : map.values()) {
-            Collections.sort(characters);
-        }
-        char[] res = new char[n];
+             
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < n; i++) {
-            List<Character> chs = map.get(unionFind.root(i));
-            char currMin = chs.remove(0);
-            res[i] = currMin;
+            int root = uf.root(i);
+            sb.append(map.get(root).poll());
         }
-        return new String(res);
-    }
-
-    public static void main(String[] args) {
-        String s = "udyyek";
-        List<List<Integer>> pairs = new ArrayList<>();
-        pairs.add(Arrays.asList(3, 3));
-        pairs.add(Arrays.asList(3, 0));
-        pairs.add(Arrays.asList(5, 1));
-        pairs.add(Arrays.asList(3, 1));
-        pairs.add(Arrays.asList(3, 4));
-        pairs.add(Arrays.asList(3, 5));
-        _1202_SmallestStringWithSwaps smallestStringWithSwaps = new _1202_SmallestStringWithSwaps();
-        String res = smallestStringWithSwaps.smallestStringWithSwaps2(s, pairs);
-        System.out.println(res);
+    
+        return sb.toString();
     }
 }

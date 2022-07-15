@@ -65,10 +65,4 @@ public class _785_IsGraphBipartite {
         }
         return true;
     }
-
-    public static void main(String[] args) {
-        int[][] graph = { { 1, 2, 3 }, { 0, 2 }, { 0, 1, 3 }, { 0, 2 } };
-        _785_IsGraphBipartite isGraphBipartite = new _785_IsGraphBipartite();
-        System.out.print(isGraphBipartite.isBipartite(graph));
-    }
 }

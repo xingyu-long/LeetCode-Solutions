@@ -64,6 +64,8 @@ public class _212_WordSearchII {
         int index = ch - 'a';
         if (root.child[index] == null) return;
         root = root.child[index];
+        // 一定需要放在取child之后：因为每次加入点的时候总是后一步。
+        // [["a"]], ["a"] 
         if (root.isWord) {
             res.add(root.str);
             root.isWord = false;

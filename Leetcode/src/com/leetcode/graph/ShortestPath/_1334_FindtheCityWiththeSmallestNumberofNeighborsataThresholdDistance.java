@@ -38,17 +38,23 @@ public class _1334_FindtheCityWiththeSmallestNumberofNeighborsataThresholdDistan
             HashSet<Integer> visited = new HashSet<>();
             int count = 0;
             while (!pq.isEmpty()) {
-                int[] city = pq.poll();
-                if (!visited.contains(city[0])) {
-                    visited.add(city[0]);
-                    count++;
-                } else {
+                int[] curr = pq.poll();
+                int node = curr[0], dist = curr[1];
+                if (visited.contains(node)) {
                     continue;
+                } else {
+                    visited.add(node);
+                    count++;
                 }
-                HashMap<Integer, Integer> adjAndCost = map.get(city[0]);
-                for (int adj : adjAndCost.keySet()) {
-                    if (!visited.contains(adj) && city[1] >= adjAndCost.get(adj)) {
-                        pq.offer(new int[]{adj, city[1] - adjAndCost.get(adj)});
+                Map<Integer, Integer> nexts = map.get(node);
+                if (nexts != null) {
+                    for (int next : nexts.keySet()) {
+                        int cost = nexts.get(next);
+                        int left = dist - cost;
+                        if (left < 0 || visited.contains(next)) {
+                            continue;
+                        }
+                        pq.offer(new int[]{next, left});
                     }
                 }
             }
@@ -90,7 +96,7 @@ public class _1334_FindtheCityWiththeSmallestNumberofNeighborsataThresholdDistan
             }
         }
 
-        int res = n;
+        int min = n;
         int index = -1;
         for (int i = 0; i < n; i++) {
             int count = 0;
@@ -99,8 +105,8 @@ public class _1334_FindtheCityWiththeSmallestNumberofNeighborsataThresholdDistan
                     count++;
                 }
             }
-            if (count <= res) {
-                res = count;
+            if (count <= min) {
+                min = count;
                 index = i;
             }
         }
@@ -109,6 +115,7 @@ public class _1334_FindtheCityWiththeSmallestNumberofNeighborsataThresholdDistan
 
     // Bellman-Ford, time:O(V * V * E)
     public int findTheCity3(int n, int[][] edges, int distanceThreshold) {
+        // 针对于有遍历次数限制的话，需要用temp数组
         int res = -1;
         int min = Integer.MAX_VALUE;
         for (int i = 0; i < n; i++) {

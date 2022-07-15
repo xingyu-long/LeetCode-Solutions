@@ -20,14 +20,14 @@ public class _382_LinkedListRandomNode {
 
     /** Returns a random node's value. */
     public int getRandom() {
-        ListNode curr = head; // for moving forward
-        int res = curr.val;
-        int i = 1;
-        while (curr.next != null) {
-            curr = curr.next;
-            if (rmd.nextInt(++i) == 0) {
+        int count = 0;
+        int res = -1;
+        ListNode curr = head;
+        while (curr != null) {
+            if (rmd.nextInt(++count) == 0) {
                 res = curr.val;
             }
+            curr = curr.next;
         }
         return res;
     }

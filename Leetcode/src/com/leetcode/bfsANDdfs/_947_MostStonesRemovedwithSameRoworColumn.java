@@ -49,6 +49,7 @@ public class _947_MostStonesRemovedwithSameRoworColumn {
             for (int j = i + 1; j < n; j++) {
                 if (stones[i][0] == stones[j][0] ||
                         stones[i][1] == stones[j][1]) {
+                    // 直接使用其每个数组对应的index即可
                     uf.union(i, j); // 因为我们并不用二维坐标。
                 }
             }

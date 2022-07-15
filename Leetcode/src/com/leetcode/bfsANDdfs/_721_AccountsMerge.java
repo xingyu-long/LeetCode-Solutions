@@ -6,45 +6,46 @@ import java.util.*;
  * @Date: 05/13/2020
  * @Description: DFS, Union Find
  **/
-public class _721_AccountsMerge {
+public class _721_AccountsMerge { 
+    // time: O(# of emails)
+    // space: O(# of emails)
+    // 利用第一个邮箱和其他剩下的邮箱做无向图链接起来以及保持email对于name的对应
     public List<List<String>> accountsMerge(List<List<String>> accounts) {
-        // 利用第一个邮箱和其他剩下的邮箱做无向图链接起来以及保持email对于name的对应
+        // 利用email来建立graph
         Map<String, Set<String>> graph = new HashMap<>();
         Map<String, String> emailToName = new HashMap<>();
-
-        for (List<String> account : accounts) {
-            String name = account.get(0);
-            for (int i = 1; i < account.size(); i++) {
-                String email = account.get(i);
+        for (List<String> acc : accounts) {
+            int size = acc.size();
+            String name = acc.get(0);
+            for (int i = 1; i < size; i++) {
+                String email = acc.get(i);
                 emailToName.put(email, name);
                 graph.putIfAbsent(email, new HashSet<>());
                 if (i == 1) {
                     continue;
                 }
-                graph.get(account.get(i - 1)).add(email);
-                graph.get(email).add(account.get(i - 1));
+                graph.get(email).add(acc.get(i - 1));
+                graph.get(acc.get(i - 1)).add(email);
             }
         }
-        HashSet<String> visited = new HashSet<>();
-        List<List<String>> res = new LinkedList<>();
-        // DFS
-        for (String e : emailToName.keySet()) {
-            List<String> list = new LinkedList<>();
-            if (visited.add(e)) {
-                dfs(graph, e, visited, list);
-                Collections.sort(list);
-                list.add(0, emailToName.get(e));
-                res.add(list);
-            }
+        List<List<String>> res = new ArrayList<>();
+        Set<String> visited = new HashSet<>();
+        for (String email : emailToName.keySet()) {
+            List<String> list = new ArrayList<>();
+            if (visited.contains(email)) continue;
+            dfs(email, graph, visited, list);
+            Collections.sort(list);
+            list.add(0, emailToName.get(email));
+            res.add(list);
         }
         return res;
     }
-
-    private void dfs(Map<String, Set<String>> graph, String email, HashSet<String> visited,  List<String> list) {
-        list.add(email);
-        for (String adj : graph.get(email)) {
-            if (visited.add(adj)) {
-                dfs(graph, adj, visited, list);
+    
+    public void dfs(String email, Map<String, Set<String>> graph, Set<String> visited, List<String> list) {
+        if (visited.add(email)) {
+            list.add(email);
+            for (String next : graph.get(email)) {
+                dfs(next, graph, visited, list);
             }
         }
     }
@@ -63,7 +64,7 @@ public class _721_AccountsMerge {
             for (int i = 1; i < acc.size(); i++) {
                 String email = acc.get(i);
                 emailToName.put(email, name);
-                parent.put(email, email);// put themself first;
+                parent.put(email, email);// put themselves first
             }
         }
 

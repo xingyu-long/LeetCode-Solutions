@@ -9,7 +9,6 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.PriorityQueue;
 
-
 public class _882_ReachableNodesInSubdividedGraph {
     // 需要再看看
     // https://zxi.mytechroad.com/blog/graph/leetcode-882-reachable-nodes-in-subdivided-graph/
@@ -34,6 +33,7 @@ public class _882_ReachableNodesInSubdividedGraph {
             // already visited this node.
             if (HP.containsKey(node))
                 continue;
+            // 在这里加入，保证每次加入的hp值都是相对最大的（因为第一个被pop出来）
             HP.put(node, hp);
             Map<Integer, Integer> e = graph.get(node);
             if (e == null)
@@ -47,6 +47,7 @@ public class _882_ReachableNodesInSubdividedGraph {
         }
         int res = HP.size();
         for (int[] edge : edges) {
+            // 重叠的情况，也不会超过总的点数
             int u = HP.getOrDefault(edge[0], 0);
             int v = HP.getOrDefault(edge[1], 0);
             res += Math.min(edge[2], u + v);
