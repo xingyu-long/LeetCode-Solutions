@@ -1,7 +1,7 @@
 /*
- * @Date: 2019-11-13 21:46:00
- * @LastEditors: Clark long
- * @LastEditTime: 2020-03-22 15:26:02
+ * @Date: 11/13/2019 19:46:00
+ * @LastEditTime: 07/17/2022 17:21:00
+ * @Description: Postorder, path
  */
 package com.leetcode.tree.postorder;
 
@@ -17,13 +17,15 @@ public class _366_FindLeavesofBinaryTree {
     public List<List<Integer>> findLeaves(TreeNode root) {
         // 利用maxDepth来做
         List<List<Integer>> res = new ArrayList<>();
-        if (root == null) return res;
+        if (root == null)
+            return res;
         dfs(root, res);
         return res;
     }
-    
+
     public int dfs(TreeNode root, List<List<Integer>> res) {
-        if (root == null) return 0;
+        if (root == null)
+            return 0;
         int left = dfs(root.left, res);
         int right = dfs(root.right, res);
         int max = Math.max(left, right);

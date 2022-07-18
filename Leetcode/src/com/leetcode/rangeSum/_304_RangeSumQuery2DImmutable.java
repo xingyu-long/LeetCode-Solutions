@@ -68,11 +68,4 @@ public class _304_RangeSumQuery2DImmutable {
         // 这里的dp[row1][col2 + 1]是因为本身就不包含row1这一行，所以相当于已经+1了
         return dp[row2 + 1][col2 + 1] - dp[row1][col2 + 1] - dp[row2 + 1][col1] + dp[row1][col1];
     }
-
-
-    public static void main(String[] args) {
-        _304_RangeSumQuery2DImmutable rangeSumQuery2DImmutable = new _304_RangeSumQuery2DImmutable();
-        int[][] matrix = {{1,2,3,4}, {5,6,7,8}, {9,10,11,12}, {13,14,15,16}};
-        rangeSumQuery2DImmutable.NumMatrix(matrix);
-    }
 }

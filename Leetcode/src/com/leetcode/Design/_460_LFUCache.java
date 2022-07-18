@@ -35,6 +35,7 @@ public class _460_LFUCache {
         int freq = keyToFreq.get(key);
         keyToFreq.put(key, freq + 1);
         freqToKey.get(freq).remove(key);
+        // find the next possible number with smallest freq
         if (freq == min && freqToKey.get(freq).size() == 0) {
             min++;
         }
@@ -49,6 +50,7 @@ public class _460_LFUCache {
         }
 
         if (map.containsKey(key)) {
+            // update value and freq
             map.put(key, value);
             get(key);
         } else {

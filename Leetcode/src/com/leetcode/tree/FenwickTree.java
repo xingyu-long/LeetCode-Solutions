@@ -1,6 +1,6 @@
 /*
  * @Date: 04/11/2020 18:35:36
- * @LastEditTime: 01/10/2021 10:02:11
+ * @LastEditTime: 07/15/2022 21:37:00
  * @Description: Fenwick Tree, Range Sum
  */
 package com.leetcode.tree;
@@ -21,6 +21,7 @@ public class FenwickTree {
     }
 
     // delta表示是差值
+    // time: O(logN)
     public void update(int i, int delta) {
         while (i < sums.length) {
             sums[i] += delta;
@@ -28,6 +29,7 @@ public class FenwickTree {
         }
     }
 
+    // time: O(logN)
     public int query(int i) {
         int sum = 0;
         while (i > 0) {

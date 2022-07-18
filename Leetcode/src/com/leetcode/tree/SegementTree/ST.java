@@ -2,7 +2,7 @@ package com.leetcode.tree.SegementTree;
 
 /**
  * @Date: 04/11/2020
- * @Description: Tree, Segement Tree
+ * @Description: Tree, Segment Tree
  **/
 class STNode {
 
@@ -54,7 +54,7 @@ public class ST {
     }
   }
 
-  // logN
+  // time: O(logN + K)
   public int querySum(STNode root, int i, int j) {
     if (root.start == i && root.end == j) {
       return root.sum;
