@@ -42,11 +42,4 @@ public class _243_ShortestWordDistance {
         }
         return res;
     }
-
-    public static void main(String[] args){
-        String[] words = new String[]{"practice", "makes", "perfect", "coding", "makes"};
-        String word1 = "coding";
-        String word2 = "makes";
-        System.out.println(shortestDistance2(words, word1, word2));
-    }
 }
