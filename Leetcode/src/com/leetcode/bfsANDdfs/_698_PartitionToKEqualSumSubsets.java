@@ -1,9 +1,9 @@
 /*
  * @Date: 2019-11-01 15:41:38
  * 
- * @LastEditors: Clark long
+ * @LastEditors: Please set LastEditors
  * 
- * @LastEditTime: 2020-04-04 14:24:35
+ * @LastEditTime: 07/25/2022 16:29:22
  */
 package com.leetcode.bfsANDdfs;
 
@@ -13,6 +13,7 @@ public class _698_PartitionToKEqualSumSubsets {
     // backtracking
     // 和473一样的思路，这个其实是在强搜
     // exponential O(k^(N−k) k!),
+    // TLE
     public boolean canPartitionKSubsets(int[] nums, int k) {
         if (nums == null || nums.length == 0)
             return false;

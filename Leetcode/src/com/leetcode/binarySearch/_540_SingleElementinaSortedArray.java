@@ -28,24 +28,21 @@ public class _540_SingleElementinaSortedArray {
 
     public int singleNonDuplicate2(int[] nums) {
         // XOR
-        if (nums == null || nums.length == 0) {
-            return -1;
-        }
         int n = nums.length;
         int left = 0, right = n - 1;
         while (left + 1 < right) {
             int mid = left + (right - left) / 2;
-            int rest = n - 1 - mid;
-            if  (nums[mid] == nums[mid + 1]) {
-                if (rest % 2 == 1) right = mid;
-                else left = mid;
+            int pair = nums[mid^1];
+            if (nums[mid] == pair) {
+                left = mid;
             } else {
-                if (rest % 2 == 1) left = mid;
-                else right = mid;
+                right = mid;
             }
         }
-        // check two sides;
+        
+        // 如果这个单独的数在0这个位置
         if (left == 0 && nums[left] != nums[right]) return nums[left];
+        // 如果这个单独的数在n-1这个位置
         if (right == n - 1 && nums[left] != nums[right]) return nums[right];
         if (nums[left] != nums[right] && nums[left] == nums[left - 1]) return nums[right];
         return nums[left];

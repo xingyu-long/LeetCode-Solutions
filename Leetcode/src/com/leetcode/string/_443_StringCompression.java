@@ -1,9 +1,11 @@
+/*
+ * @Date: 08/11/2020 16:07:14
+ * @LastEditTime: 07/21/2022 23:02:57
+ * @Description: String
+ */
 package com.leetcode.string;
 
-/**
- * @Date: 07/19/2020, 10/12/2020
- * @Description: String
- **/
+
 public class _443_StringCompression {
 
     // time:O(n) space:O(1)
@@ -11,21 +13,22 @@ public class _443_StringCompression {
         if (chars == null || chars.length == 0) {
             return 0;
         }
-        int j = 0;
-        for (int i = 0; i < chars.length; i++) {
-            int count = 1;
-            char ch = chars[i];
-            while (i + 1 < chars.length && chars[i] == chars[i + 1]) {
+        int res = 0;
+        int index = 0, n = chars.length;
+        while (index < n) {
+            char ch = chars[index];
+            int count = 0;
+            while (index < n && chars[index] == ch) {
+                index++;
                 count++;
-                i++;
             }
-            chars[j++] = ch;
+            chars[res++] = ch;
             if (count != 1) {
                 for (char c : String.valueOf(count).toCharArray()) {
-                    chars[j++] = c;
+                    chars[res++] = c;
                 }
             }
         }
-        return j;
+        return res;
     }
 }
