@@ -1,9 +1,10 @@
+/*
+ * @Date: 08/15/2020 15:20:41
+ * @LastEditTime: 08/02/2022 21:20:57
+ * @Description: String, Anagram.
+ */
 package com.leetcode.string;
 
-/**
- * @Date: 08/15/2020
- * @Description: String, Anagram.
- **/
 public class _1347_MinimumNumberofStepstoMakeTwoStringsAnagram {
     // time: O(n)
     // 只需看两者的字符差的情况。

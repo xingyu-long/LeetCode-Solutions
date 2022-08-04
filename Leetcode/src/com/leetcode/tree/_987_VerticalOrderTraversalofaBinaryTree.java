@@ -1,6 +1,6 @@
 /*
  * @Date: 01/16/2020 11:14:56
- * @LastEditTime: 01/29/2021 09:41:46
+ * @LastEditTime: 08/02/2022 21:54:46
  * @Description: Tree, PQ & TreeMap
  */
 package com.leetcode.tree;
@@ -40,12 +40,8 @@ public class _987_VerticalOrderTraversalofaBinaryTree {
         if (root == null) return;
         minX = Math.min(minX, x);
         maxX = Math.max(maxX, x);
-        if (map.get(x) == null) {
-            map.put(x, new TreeMap<>());
-        }
-        if (map.get(x).get(y) == null) {
-            map.get(x).put(y, new PriorityQueue<>());
-        }
+        map.putIfAbsent(x, new TreeMap<>());
+        map.get(x).putIfAbsent(y, new PriorityQueue<>());
         map.get(x).get(y).add(root.val);
         // y是用treemap保持从上到下的顺序，所有这里用了升序的treemap。
         dfs(root.left, x - 1, y + 1);

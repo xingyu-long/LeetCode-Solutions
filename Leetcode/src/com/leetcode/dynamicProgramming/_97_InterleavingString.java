@@ -8,7 +8,7 @@ public class _97_InterleavingString {
         int n = s2.length();
         boolean[][] dp = new boolean[m + 1][n + 1];
         dp[0][0] = true;
-        // init first row and col;
+        // init first row and col
         for (int i = 1; i <= m; i++) {
             dp[i][0] = dp[i - 1][0] && s1.charAt(i - 1) == s3.charAt(i - 1);
         }
@@ -18,7 +18,7 @@ public class _97_InterleavingString {
         
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= n; j++) {
-                int index = i + j - 1; // for s3;
+                int index = i + j - 1; // for s3
                 char ch = s3.charAt(index);
                 // 可能来自的两个方向。
                 // 只能写成 || 的情况

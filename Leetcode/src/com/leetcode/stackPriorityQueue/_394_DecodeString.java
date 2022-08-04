@@ -1,3 +1,8 @@
+/*
+ * @Date: 07/05/2022 17:34:48
+ * @LastEditTime: 07/30/2022 11:01:17
+ * @Description: You need to fill out
+ */
 package com.leetcode.stackPriorityQueue;
 
 import java.util.LinkedList;
@@ -5,47 +10,46 @@ import java.util.Queue;
 import java.util.Stack;
 
 public class _394_DecodeString {
-    /**
-     *  394. Decode String
-     *  When:2019/7/12
-     *  Difficulty: Medium
-     *
-     * @param s
-     * @return
-     */
     // time: O(n) space:O(n)
-    public static String decodeString(String s) {
-        if (s == null || s.length() == 0) return s;
-        String res = "";
+    public String decodeString(String s) {
+        if (s == null || s.length() == 0) {
+            return null;
+        }
+        int index = 0, n = s.length();
+        char[] chs = s.toCharArray();
+        int count = 0;
+        String curr = "";
+        Stack<String> strStack = new Stack<>();
         Stack<Integer> countStack = new Stack<>();
-        Stack<String> resStack = new Stack<>();
-        int idx = 0;
-        while (idx < s.length()) {
-            if (Character.isDigit(s.charAt(idx))) {
-                int count = 0;
-                while (Character.isDigit(s.charAt(idx))) {
-                    count = count * 10 + (s.charAt(idx) - '0');
-                    idx++;
+        while (index < n) {
+            if (Character.isDigit(chs[index])) {
+                while (index < n && Character.isDigit(chs[index])) {
+                    count = count * 10 + (chs[index] - '0');
+                    index++;
                 }
                 countStack.push(count);
-            } else if (s.charAt(idx) == '[') {
-                resStack.push(res);
-                res = "";
-                idx++;
-            } else if (s.charAt(idx) == ']') {
-                // 这里获得之前的结果，即resStack。
-                StringBuilder temp = new StringBuilder(resStack.pop());
-                int time = countStack.pop();
-                for (int i = 0; i < time; i++) {
-                    temp.append(res);
+                count = 0;
+            } else if (chs[index] == '[') {
+                // 对于3[a]这种情况，则会将 "" 加入strStack里面
+                strStack.push(curr);
+                curr = "";
+                index++;
+            } else if (chs[index] == ']') {
+                // pop with previous str
+                StringBuilder temp = new StringBuilder(strStack.pop());
+                // concat curr string with count
+                int times = countStack.pop();
+                for (int i = 0; i < times; i++) {
+                    temp.append(curr);
                 }
-                res = temp.toString();
-                idx++;
+                curr = temp.toString();
+                index++;
             } else {
-                res += s.charAt(idx++);
+                curr += chs[index];
+                index++;
             }
         }
-        return res;
+        return curr;
     }
 
     // DFS with Queue

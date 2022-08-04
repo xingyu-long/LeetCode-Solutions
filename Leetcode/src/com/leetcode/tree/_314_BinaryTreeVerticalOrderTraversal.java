@@ -1,3 +1,8 @@
+/*
+ * @Date: 09/25/2019 09:22:54
+ * @LastEditTime: 08/02/2022 21:50:19
+ * @Description: Tree, BFS
+ */
 package com.leetcode.tree;
 
 import com.leetcode.common.TreeNode;
@@ -9,20 +14,14 @@ import java.util.Queue;
 
 public class _314_BinaryTreeVerticalOrderTraversal {
 
-    /**
-     * 314. Binary Tree Vertical Order Traversal
-     * When:2019/9/25
-     * 利用左子树 -1 右子树 + 1这样的方式来做，并且暴力两个queue。
-     * @param root
-     * @return
-     */
     private static int min = Integer.MAX_VALUE;
     private static int max = Integer.MIN_VALUE;
 
+    // time: O(n -> total number of nodes)
     public static List<List<Integer>> verticalOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         if (root == null) {
-            return  res;
+            return res;
         }
         helper(root, 0);
         for (int i = min; i <= max; i++) {
@@ -49,13 +48,13 @@ public class _314_BinaryTreeVerticalOrderTraversal {
     }
 
     public static void helper(TreeNode root, int index) {
-        if (root == null) return;
+        if (root == null)
+            return;
         min = Math.min(min, index);
         max = Math.max(max, index);
         helper(root.left, index - 1);
         helper(root.right, index + 1);
     }
-
 
     public static void main(String[] args) {
         TreeNode root = new TreeNode(3);

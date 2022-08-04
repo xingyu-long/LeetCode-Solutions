@@ -22,5 +22,25 @@ public class _1029_TwoCityScheduling {
         return sum;
     }
 
-    // TODO: dp approach
+    // time: O(n + nlogn)
+    // space: O(n)
+    // https://leetcode.com/problems/two-city-scheduling/discuss/667786/Java-or-C%2B%2B-or-Python3-or-With-detailed-explanation
+    public int twoCitySchedCost2(int[][] costs) {
+        int n = costs.length;
+        // 如果全都选择走去a
+        int totalCostForA = 0;
+        int[] refund = new int[n];
+        for (int i = 0; i < n; i++) {
+            totalCostForA += costs[i][0];
+            // 到达b和到达a所需要花费的差值
+            refund[i] = costs[i][1] - costs[i][0];
+        }
+        Arrays.sort(refund);
+        int res = totalCostForA;
+        // 选择其中的一半最小的差值进行refund
+        for (int i = 0; i < n / 2; i++) {
+            res += refund[i];
+        }
+        return res;
+    }
 }
