@@ -1,11 +1,12 @@
 '''
 Date: 11/25/2020 20:52:31
-LastEditTime: 11/26/2020 11:38:36
+LastEditTime: 08/08/2022 17:30:06
 Description: Generate Markdown file with specific folder
 '''
 
 import os
 import re
+import shutil
 from operator import itemgetter
 
 from tqdm import tqdm
@@ -81,10 +82,39 @@ def split_camel_case(str):
     return re.findall(r'[A-Z](?:[a-z]+|[A-Z]*(?=[A-Z]|$))', str)
 
 
+def generate_folder(path):
+    topic_to_files = {}
+    for root, dirs, files in os.walk(path, topdown=True):
+        for name in files:
+            if not name.endswith('.py') and not name.endswith('.java'):
+                continue
+            # if it is right one
+            if len(name.split('_')) == 3 and name.endswith('.java'):
+                file_name = name.split('.java')[0]
+                dir_list = split_camel_case(file_name)
+                dir_list_lower = [x.lower() for x in dir_list]
+                dir_path = '_'.join(dir_list_lower)
+                real_dir_path = os.path.join(root, '_'.join([name.split('_')[1], dir_path]))
+                prev_abs_path = os.path.abspath(os.path.join(root, name))
+                new_abs_dir_path = os.path.abspath(real_dir_path)
+                print("prev path = {}".format(prev_abs_path))
+                print("No # {}, root = {}".format(name.split('_')[1], new_abs_dir_path))
+                if not os.path.exists(new_abs_dir_path):
+                    os.makedirs(new_abs_dir_path)
+                if not os.path.exists(os.path.join(new_abs_dir_path, name)):
+                    shutil.move(prev_abs_path, new_abs_dir_path)
+            topic = root.split('/')[-1]
+            topic_to_files.setdefault(topic, [])
+            topic_to_files[topic].append(os.path.join(root, name))
+        
+
+    return topic_to_files
+
 if __name__ == "__main__":
     path = 'Leetcode/src/com/leetcode'
     file_name = 'README.md'
-    if os.path.exists(file_name):
-        os.remove(file_name)
-    m = iter_all_files(path)
-    generate_markdown(m, file_name)
+    # if os.path.exists(file_name):
+    #     os.remove(file_name)
+    # m = iter_all_files(path)
+    generate_folder(path)
+    # generate_markdown(m, file_name)
