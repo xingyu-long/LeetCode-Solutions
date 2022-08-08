@@ -1,9 +1,9 @@
 /*
  * @Date: 01/20/2020 15:52:06
- * @LastEditTime: 12/18/2020 11:21:06
+ * @LastEditTime: 08/08/2022 16:36:04
  * @Description: 也可以用常规的DFS去搜索里面的值。
  */
-package com.leetcode.Trie;
+package com.leetcode.trie;
 
 import java.util.HashMap;
 

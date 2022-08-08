@@ -1,9 +1,9 @@
 /*
  * @Date: 01/02/2021 10:36:26
- * @LastEditTime: 01/02/2021 10:37:22
+ * @LastEditTime: 08/08/2022 16:35:50
  * @Description: XOR, Trie
  */
-package com.leetcode.Trie;
+package com.leetcode.trie;
 
 public class _421_MaximumXOROfTwoNumbersInAnArray {
     class TrieNode {

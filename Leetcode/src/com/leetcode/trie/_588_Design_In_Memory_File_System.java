@@ -1,4 +1,4 @@
-package com.leetcode.Trie;
+package com.leetcode.trie;
 
 import java.util.*;
 

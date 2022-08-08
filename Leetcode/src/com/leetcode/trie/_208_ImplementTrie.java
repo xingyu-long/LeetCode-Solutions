@@ -1,4 +1,4 @@
-package com.leetcode.Trie;
+package com.leetcode.trie;
 
 /**
  * @Date: 2019/7/3, 05/13/2020

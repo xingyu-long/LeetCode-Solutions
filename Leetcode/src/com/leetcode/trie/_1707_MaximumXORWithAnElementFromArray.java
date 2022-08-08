@@ -1,9 +1,9 @@
 /*
  * @Date: 01/02/2021 12:29:54
- * @LastEditTime: 01/02/2021 12:30:47
+ * @LastEditTime: 08/08/2022 16:36:10
  * @Description: Similar with 421
  */
-package com.leetcode.Trie;
+package com.leetcode.trie;
 
 import java.util.Arrays;
 
