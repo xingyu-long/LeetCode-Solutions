@@ -1,9 +1,9 @@
 package com.leetcode.array;
 
-import com.leetcode.graph.UnionFind.UnionFind;
-
 import java.util.HashMap;
 import java.util.HashSet;
+
+import com.leetcode.graph.union_find.UnionFind;
 
 /**
  * @Date: 2019/03/25, 2019/7/11, 11/1/2019, 08/28/2020

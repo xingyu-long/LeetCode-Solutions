@@ -13,7 +13,7 @@ public class _792_NumberofMatchingSubsequences {
         HashMap<Character, List<Integer>> map = new HashMap<>();
         for (int i = 0; i < S.length(); i++) {
             char ch = S.charAt(i);
-            if (!map.containsKey(ch)) map.put(ch, new ArrayList<>());
+            map.putIfAbsent(ch, new ArrayList<>());
             map.get(ch).add(i);
         }
 

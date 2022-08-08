@@ -1,8 +1,8 @@
 package com.leetcode.string;
 
-import com.leetcode.string.StrigSearch.KMP;
-
 import java.util.List;
+
+import com.leetcode.string.string_search.KMP;
 
 public class _28_ImplementstrStr {
     /**
