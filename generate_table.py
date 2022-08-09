@@ -1,6 +1,6 @@
 '''
 Date: 11/25/2020 20:52:31
-LastEditTime: 08/08/2022 17:30:06
+LastEditTime: 08/08/2022 17:33:21
 Description: Generate Markdown file with specific folder
 '''
 
@@ -116,5 +116,5 @@ if __name__ == "__main__":
     # if os.path.exists(file_name):
     #     os.remove(file_name)
     # m = iter_all_files(path)
-    generate_folder(path)
+    # generate_folder(path)
     # generate_markdown(m, file_name)

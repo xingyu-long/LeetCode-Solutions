@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode._43_multiply_strings;
 
 /**
  * @Date: 07/16/2020
