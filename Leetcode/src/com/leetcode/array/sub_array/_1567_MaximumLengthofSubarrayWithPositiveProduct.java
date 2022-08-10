@@ -1,4 +1,4 @@
-package com.leetcode.array.subArray;
+package com.leetcode.array.sub_array;
 
 /**
  * @Date: 08/30/2020, 09/02/2020
@@ -28,6 +28,7 @@ public class _1567_MaximumLengthofSubarrayWithPositiveProduct {
                 pos[i] = neg[i - 1] > 0 ? neg[i - 1] + 1 : 0;
                 neg[i] = pos[i - 1] + 1;
             }
+            // 需要跳过等于0的情况，不做考虑
             res = Math.max(res, pos[i]);
         }
         return res;

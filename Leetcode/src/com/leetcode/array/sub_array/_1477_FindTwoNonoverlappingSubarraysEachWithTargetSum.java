@@ -1,4 +1,4 @@
-package com.leetcode.array.subArray;
+package com.leetcode.array.sub_array;
 
 import java.util.Arrays;
 import java.util.HashMap;

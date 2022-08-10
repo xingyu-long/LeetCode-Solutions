@@ -142,23 +142,6 @@
 | 938|Range Sumof BST                               |[java](Leetcode/src/com/leetcode/tree/bst/_938_RangeSumofBST.java)                                                                                                                           |
 |1305|All Elementsin Two Binary Search Trees        |[java](Leetcode/src/com/leetcode/tree/bst/_1305_AllElementsinTwoBinarySearchTrees.java)                                                                                                      |
 |1382|Balancea Binary Search Tree                   |[java](Leetcode/src/com/leetcode/tree/bst/_1382_BalanceaBinarySearchTree.java)                                                                                                               |
-# Hash_map
-|No. |                    Problem                     |                                            Solutions                                            |
-|---:|------------------------------------------------|-------------------------------------------------------------------------------------------------|
-| 554|Wall                                            |[java](Leetcode/src/com/leetcode/hash_map/_554_Brick_Wall.java)                                  |
-| 594|Longest Harmonious Subsequence                  |[java](Leetcode/src/com/leetcode/hash_map/_594_LongestHarmoniousSubsequence.java)                |
-| 697|Array                                           |[java](Leetcode/src/com/leetcode/hash_map/_697_Degree_of_an_Array.java)                          |
-| 734|Sentence Similarity                             |[java](Leetcode/src/com/leetcode/hash_map/_734_SentenceSimilarity.java)                          |
-| 833|Find And Replacein String                       |[java](Leetcode/src/com/leetcode/hash_map/_833_FindAndReplaceinString.java)                      |
-| 890|Find And Replace Pattern                        |[java](Leetcode/src/com/leetcode/hash_map/_890_FindAndReplacePattern.java)                       |
-| 923|Sum With Multiplicity                           |[java](Leetcode/src/com/leetcode/hash_map/_923_3SumWithMultiplicity.java)                        |
-| 954|Array Of Doubled Pairs                          |[java](Leetcode/src/com/leetcode/hash_map/_954_ArrayOfDoubledPairs.java)                         |
-|1010|Pairs Of Songs With Total Durations Divisible By|[java](Leetcode/src/com/leetcode/hash_map/_1010_PairsOfSongsWithTotalDurationsDivisibleBy60.java)|
-|1152|Pattern                                         |[java](Leetcode/src/com/leetcode/hash_map/_1152_Analyze_User_Website_Visit_Pattern.java)         |
-|1679|Max Number Of K Sum Pairs                       |[java](Leetcode/src/com/leetcode/hash_map/_1679_MaxNumberOfKSumPairs.java)                       |
-|1711|Count Good Meals                                |[java](Leetcode/src/com/leetcode/hash_map/_1711_CountGoodMeals.java)                             |
-|2352|Equal Rowand Column Pairs                       |[java](Leetcode/src/com/leetcode/hash_map/_2352_EqualRowandColumnPairs.java)                     |
-|2354|Numberof Excellent Pairs                        |[java](Leetcode/src/com/leetcode/hash_map/_2354_NumberofExcellentPairs.java)                     |
 # Bit_manipulation
 |No. |           Problem            |                                                                        Solutions                                                                        |
 |---:|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -327,6 +310,21 @@
 |1539|Kth Missing Positive Number                                           |[java](Leetcode/src/com/leetcode/array/_1539_KthMissingPositiveNumber.java)                                                                                         |
 |1629|Slowest Key                                                           |[java](Leetcode/src/com/leetcode/array/_1629_SlowestKey.java), [py](Leetcode/src/com/leetcode/array/_1629_Slowest_Key.py)                                           |
 |1646|Get Maximum In Generated Array                                        |[java](Leetcode/src/com/leetcode/array/_1646_GetMaximumInGeneratedArray.java)                                                                                       |
+# Sub_array
+|No. |                       Problem                        |                                                                                                    Solutions                                                                                                     |
+|---:|------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 152|Maximum Product Subarray                              |[java](Leetcode/src/com/leetcode/array/sub_array/_152_MaximumProductSubarray.java)                                                                                                                                |
+| 325|Maximum Size Subarray Sum Equalsk                     |[java](Leetcode/src/com/leetcode/array/sub_array/_325_MaximumSizeSubarraySumEqualsk.java)                                                                                                                         |
+| 523|Continuous Subarray Sum                               |[java](Leetcode/src/com/leetcode/array/sub_array/_523_ContinuousSubarraySum.java)                                                                                                                                 |
+| 548|Split Arraywith Equal Sum                             |[java](Leetcode/src/com/leetcode/array/sub_array/_548_SplitArraywithEqualSum.java)                                                                                                                                |
+| 560|Subarray Sum Equals K                                 |[java](Leetcode/src/com/leetcode/array/sub_array/_560_SubarraySumEqualsK.java)                                                                                                                                    |
+| 974|K                                                     |[java](Leetcode/src/com/leetcode/array/sub_array/_974_Subarray_Sums_Divisible_by_K.java)                                                                                                                          |
+|1186|Maximum Subarray Sumwith One Deletion                 |[java](Leetcode/src/com/leetcode/array/sub_array/_1186_MaximumSubarraySumwithOneDeletion.java)                                                                                                                    |
+|1477|Find Two Nonoverlapping Subarrays Each With Target Sum|[java](Leetcode/src/com/leetcode/array/sub_array/_1477_FindTwoNonoverlappingSubarraysEachWithTargetSum.java)                                                                                                      |
+|1567|Maximum Lengthof Subarray With Positive Product       |[java](Leetcode/src/com/leetcode/array/sub_array/_1567_MaximumLengthofSubarrayWithPositiveProduct.java), [py](Leetcode/src/com/leetcode/array/sub_array/_1567_Maximum_Length_of_Subarray_With_Positive_Product.py)|
+|1658|Minimum Operations To Reduce X To Zero                |[java](Leetcode/src/com/leetcode/array/sub_array/_1658_MinimumOperationsToReduceXToZero.java)                                                                                                                     |
+|2104|Sumof Subarray Ranges                                 |[java](Leetcode/src/com/leetcode/array/sub_array/_2104_SumofSubarrayRanges.java)                                                                                                                                  |
+|2272|Substring With Largest Variance                       |[java](Leetcode/src/com/leetcode/array/sub_array/_2272_SubstringWithLargestVariance.java)                                                                                                                         |
 # Sort
 |No. |                       Problem                       |                                                  Solutions                                                   |
 |---:|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
@@ -376,21 +374,6 @@
 |1272|Remove Interval                         |[java](Leetcode/src/com/leetcode/array/interval/_1272_RemoveInterval.java)                     |
 |1288|Removed Covered Interval                |[java](Leetcode/src/com/leetcode/array/interval/_1288_RemovedCoveredInterval.java)             |
 |2158|Amountof New Area Painted Each Day      |[java](Leetcode/src/com/leetcode/array/interval/_2158_AmountofNewAreaPaintedEachDay.java)      |
-# Subarray
-|No. |                       Problem                        |                                                 Solutions                                                 |
-|---:|------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
-| 152|Maximum Product Subarray                              |[java](Leetcode/src/com/leetcode/array/subArray/_152_MaximumProductSubarray.java)                          |
-| 325|Maximum Size Subarray Sum Equalsk                     |[java](Leetcode/src/com/leetcode/array/subArray/_325_MaximumSizeSubarraySumEqualsk.java)                   |
-| 523|Continuous Subarray Sum                               |[java](Leetcode/src/com/leetcode/array/subArray/_523_ContinuousSubarraySum.java)                           |
-| 548|Split Arraywith Equal Sum                             |[java](Leetcode/src/com/leetcode/array/subArray/_548_SplitArraywithEqualSum.java)                          |
-| 560|Subarray Sum Equals K                                 |[java](Leetcode/src/com/leetcode/array/subArray/_560_SubarraySumEqualsK.java)                              |
-| 974|K                                                     |[java](Leetcode/src/com/leetcode/array/subArray/_974_Subarray_Sums_Divisible_by_K.java)                    |
-|1186|Maximum Subarray Sumwith One Deletion                 |[java](Leetcode/src/com/leetcode/array/subArray/_1186_MaximumSubarraySumwithOneDeletion.java)              |
-|1477|Find Two Nonoverlapping Subarrays Each With Target Sum|[java](Leetcode/src/com/leetcode/array/subArray/_1477_FindTwoNonoverlappingSubarraysEachWithTargetSum.java)|
-|1567|Maximum Lengthof Subarray With Positive Product       |[java](Leetcode/src/com/leetcode/array/subArray/_1567_MaximumLengthofSubarrayWithPositiveProduct.java)     |
-|1658|Minimum Operations To Reduce X To Zero                |[java](Leetcode/src/com/leetcode/array/subArray/_1658_MinimumOperationsToReduceXToZero.java)               |
-|2104|Sumof Subarray Ranges                                 |[java](Leetcode/src/com/leetcode/array/subArray/_2104_SumofSubarrayRanges.java)                            |
-|2272|Substring With Largest Variance                       |[java](Leetcode/src/com/leetcode/array/subArray/_2272_SubstringWithLargestVariance.java)                   |
 # Counter
 |No. |                 Problem                 |                                           Solutions                                           |
 |---:|-----------------------------------------|-----------------------------------------------------------------------------------------------|
@@ -761,6 +744,23 @@
 |--:|-----------------------|------------------------------------------------------------------------|
 |167|Two Sum II Sorted Array|[java](Leetcode/src/com/leetcode/math/sum/_167_TwoSumIISortedArray.java)|
 |259|Three Sum Smaller      |[java](Leetcode/src/com/leetcode/math/sum/_259_ThreeSumSmaller.java)    |
+# Hashmap
+|No. |                    Problem                     |                                           Solutions                                            |
+|---:|------------------------------------------------|------------------------------------------------------------------------------------------------|
+| 554|Wall                                            |[java](Leetcode/src/com/leetcode/hashmap/_554_Brick_Wall.java)                                  |
+| 594|Longest Harmonious Subsequence                  |[java](Leetcode/src/com/leetcode/hashmap/_594_LongestHarmoniousSubsequence.java)                |
+| 697|Array                                           |[java](Leetcode/src/com/leetcode/hashmap/_697_Degree_of_an_Array.java)                          |
+| 734|Sentence Similarity                             |[java](Leetcode/src/com/leetcode/hashmap/_734_SentenceSimilarity.java)                          |
+| 833|Find And Replacein String                       |[java](Leetcode/src/com/leetcode/hashmap/_833_FindAndReplaceinString.java)                      |
+| 890|Find And Replace Pattern                        |[java](Leetcode/src/com/leetcode/hashmap/_890_FindAndReplacePattern.java)                       |
+| 923|Sum With Multiplicity                           |[java](Leetcode/src/com/leetcode/hashmap/_923_3SumWithMultiplicity.java)                        |
+| 954|Array Of Doubled Pairs                          |[java](Leetcode/src/com/leetcode/hashmap/_954_ArrayOfDoubledPairs.java)                         |
+|1010|Pairs Of Songs With Total Durations Divisible By|[java](Leetcode/src/com/leetcode/hashmap/_1010_PairsOfSongsWithTotalDurationsDivisibleBy60.java)|
+|1152|Pattern                                         |[java](Leetcode/src/com/leetcode/hashmap/_1152_Analyze_User_Website_Visit_Pattern.java)         |
+|1679|Max Number Of K Sum Pairs                       |[java](Leetcode/src/com/leetcode/hashmap/_1679_MaxNumberOfKSumPairs.java)                       |
+|1711|Count Good Meals                                |[java](Leetcode/src/com/leetcode/hashmap/_1711_CountGoodMeals.java)                             |
+|2352|Equal Rowand Column Pairs                       |[java](Leetcode/src/com/leetcode/hashmap/_2352_EqualRowandColumnPairs.java)                     |
+|2354|Numberof Excellent Pairs                        |[java](Leetcode/src/com/leetcode/hashmap/_2354_NumberofExcellentPairs.java)                     |
 # Ood
 |No. |           Problem            |                                                        Solutions                                                         |
 |---:|------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -856,7 +856,7 @@
 |  51|N Queens                                       |[java](Leetcode/src/com/leetcode/bfs_and_dfs/_51_NQueens.java)                                                                             |
 |  52|N Queens II                                    |[java](Leetcode/src/com/leetcode/bfs_and_dfs/_52_NQueensII.java)                                                                           |
 | 126|Word Ladder II                                 |[java](Leetcode/src/com/leetcode/bfs_and_dfs/_126_WordLadderII.java)                                                                       |
-| 127|Word Ladder                                    |[java](Leetcode/src/com/leetcode/bfs_and_dfs/_127_WordLadder.java)                                                                         |
+| 127|Word Ladder                                    |[java](Leetcode/src/com/leetcode/bfs_and_dfs/_127_WordLadder.java), [py](Leetcode/src/com/leetcode/bfs_and_dfs/_127_Word_Ladder.py)        |
 | 130|Surrounded Regions                             |[java](Leetcode/src/com/leetcode/bfs_and_dfs/_130_SurroundedRegions.java)                                                                  |
 | 200|Numberof Islands                               |[java](Leetcode/src/com/leetcode/bfs_and_dfs/_200_NumberofIslands.java)                                                                    |
 | 286|Wallsand Gates                                 |[java](Leetcode/src/com/leetcode/bfs_and_dfs/_286_WallsandGates.java)                                                                      |

@@ -3,7 +3,7 @@
  * @LastEditTime: 08/04/2022 10:43:09
  * @Description: Maximum subarray, DP
  */
-package com.leetcode.array.subArray;
+package com.leetcode.array.sub_array;
 
 public class _2272_SubstringWithLargestVariance {
 

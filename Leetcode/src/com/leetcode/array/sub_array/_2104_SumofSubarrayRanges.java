@@ -3,7 +3,7 @@
  * @LastEditTime: 07/24/2022 12:10:05
  * @Description: Sub array
  */
-package com.leetcode.array.subArray;
+package com.leetcode.array.sub_array;
 
 public class _2104_SumofSubarrayRanges {
     // time: O(n^2)

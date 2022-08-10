@@ -1,4 +1,4 @@
-package com.leetcode.array.subArray;
+package com.leetcode.array.sub_array;
 
 /**
  * @Date: 05/10/2020

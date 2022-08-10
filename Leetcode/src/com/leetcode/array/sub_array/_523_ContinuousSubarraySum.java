@@ -3,7 +3,7 @@
  * @LastEditTime: 06/04/2022 19:09:26
  * @Description: HashMap, Prefix Sum
  */
-package com.leetcode.array.subArray;
+package com.leetcode.array.sub_array;
 
 import java.util.HashMap;
 import java.util.Map;

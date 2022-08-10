@@ -1,4 +1,4 @@
-package com.leetcode.array.subArray;
+package com.leetcode.array.sub_array;
 
 public class _152_MaximumProductSubarray {
     //time: O(n^2) space:O(1)

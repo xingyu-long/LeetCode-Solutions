@@ -54,34 +54,33 @@ public class _127_WordLadder {
     }
 
 
-    // 使用hashMap来记录其level 注意这里equals 成功之后是直接返回level 后面加入节点，set删除用过的
     public int ladderLength2(String beginWord, String endWord, List<String> wordList) {
-        HashSet<String> set = new HashSet<>(wordList);
-        if (set.contains(beginWord)) {
-            set.remove(beginWord);
-        }
+        Set<String> dict = new HashSet<>(wordList);
+        if (!dict.contains(endWord)) return 0;
+        dict.remove(beginWord);
         Queue<String> queue = new LinkedList<>();
-        HashMap<String, Integer> map = new HashMap<>();
-        map.put(beginWord, 1);
         queue.offer(beginWord);
-        while (!queue.isEmpty()) {
-            String word = queue.poll();
-            int curLevel = map.get(word);
-            for (int i = 0; i < word.length(); i++) {
-                char[] wordUnit = word.toCharArray();
-                for (char j = 'a'; j <= 'z'; j++) {
-                    wordUnit[i] = j;
-                    String temp = new String(wordUnit);
-                    if (set.contains(temp)) {
-                        if (temp.equals(endWord)) {
-                            return curLevel + 1;
+        int level = 1;
+        while (!queue.isEmpty()) {  
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                String curr = queue.poll();
+                for (int j = 0; j < curr.length(); j++) {
+                    char[] chs = curr.toCharArray();
+                    for (char ch = 'a'; ch <= 'z'; ch++) {
+                        chs[j] = ch;
+                        String temp = new String(chs);
+                        if (dict.contains(temp)) {
+                            if (temp.equals(endWord)) {
+                                return level + 1;
+                            }
+                            queue.offer(temp);
+                            dict.remove(temp);
                         }
-                        map.put(temp, curLevel + 1);
-                        queue.offer(temp);
-                        set.remove(temp);
                     }
                 }
             }
+            level++;
         }
         return 0;
     }
