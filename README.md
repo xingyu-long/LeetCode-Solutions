@@ -344,6 +344,7 @@
 |1561|Get                                                  |[java](Leetcode/src/com/leetcode/array/sort/_1561_Maximum_Number_of_Coins_You_Can_Get.java)                   |
 |1630|Subarrays                                            |[java](Leetcode/src/com/leetcode/array/sort/_1630_Arithmetic_Subarrays.java)                                  |
 |1647|Unique                                               |[java](Leetcode/src/com/leetcode/array/sort/_1647_Minimum_Deletions_to_Make_Character_Frequencies_Unique.java)|
+|1710|Truck                                                |[py](Leetcode/src/com/leetcode/array/sort/_1710_Maximum_Units_on_a_Truck.py)                                  |
 # Twopointer
 |No.|             Problem              |                                                                                      Solutions                                                                                       |
 |--:|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -431,6 +432,7 @@
 |1472|Design Browser History                                |[java](Leetcode/src/com/leetcode/linkedList/_1472_DesignBrowserHistory.java)                          |
 |1721|Swapping Nodes In A Linked List                       |[java](Leetcode/src/com/leetcode/linkedList/_1721_SwappingNodesInALinkedList.java)                    |
 |2095|List                                                  |[py](Leetcode/src/com/leetcode/linkedList/_2095_Delete_the_Middle_Node_of_A_Linked_List.py)           |
+|2130|List                                                  |[py](Leetcode/src/com/leetcode/linkedList/_2130_Maximum_Twin_Sum_of_a_Linked_List.py)                 |
 # Binary_search
 |No. |                        Problem                        |                                                Solutions                                                 |
 |---:|-------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
@@ -850,6 +852,7 @@
 |1737|Change Minimum Characters To Satisfy One Of Three Conditions|[java](Leetcode/src/com/leetcode/greedy/_1737_ChangeMinimumCharactersToSatisfyOneOfThreeConditions.java)                            |
 |1769|Box                                                         |[py](Leetcode/src/com/leetcode/greedy/_1769_Minimum_Number_of_Operations_to_Move_All_Balls_to_Each_Box.py)                          |
 |2178|Maximum Splitof Positive Even Integers                      |[java](Leetcode/src/com/leetcode/greedy/_2178_MaximumSplitofPositiveEvenIntegers.java)                                              |
+|2214|Game                                                        |[py](Leetcode/src/com/leetcode/greedy/_2214_Minimum_Health_to_Beat_Game.py)                                                         |
 # Bfs_and_dfs
 |No. |                    Problem                    |                                                                 Solutions                                                                 |
 |---:|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
