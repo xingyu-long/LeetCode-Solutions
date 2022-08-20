@@ -1,11 +1,9 @@
 '''
 Date: 01/30/2022 17:40:16
-LastEditTime: 01/30/2022 17:40:16
+LastEditTime: 08/14/2022 20:33:47
 Description: Math, Queue
 '''
-
-
-from ast import List
+from typing import List
 from collections import deque
 
 

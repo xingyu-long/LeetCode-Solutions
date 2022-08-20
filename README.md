@@ -36,7 +36,7 @@
 | 255|Verify Preorder Sequencein Binary Search Tree                     |[java](Leetcode/src/com/leetcode/tree/_255_VerifyPreorderSequenceinBinarySearchTree.java)                                                                                            |
 | 270|Closest Binary Search Tree Value                                  |[java](Leetcode/src/com/leetcode/tree/_270_ClosestBinarySearchTreeValue.java)                                                                                                        |
 | 272|Closest Binary Search Tree Value II                               |[java](Leetcode/src/com/leetcode/tree/_272_ClosestBinarySearchTreeValueII.java)                                                                                                      |
-| 297|Serializeand Deserialize Binary Tree                              |[java](Leetcode/src/com/leetcode/tree/_297_SerializeandDeserializeBinaryTree.java)                                                                                                   |
+| 297|Serializeand Deserialize Binary Tree                              |[java](Leetcode/src/com/leetcode/tree/_297_SerializeandDeserializeBinaryTree.java), [py](Leetcode/src/com/leetcode/tree/_297_serialize_and_deserialize_binary_tree.py)               |
 | 298|Binary Tree Longest Consecutive Sequence                          |[java](Leetcode/src/com/leetcode/tree/_298_BinaryTreeLongestConsecutiveSequence.java)                                                                                                |
 | 314|Binary Tree Vertical Order Traversal                              |[java](Leetcode/src/com/leetcode/tree/_314_BinaryTreeVerticalOrderTraversal.java)                                                                                                    |
 | 331|Verify Preorder Serializationofa Binary Tree                      |[java](Leetcode/src/com/leetcode/tree/_331_VerifyPreorderSerializationofaBinaryTree.java)                                                                                            |
@@ -59,6 +59,7 @@
 | 666|Path Sum IV                                                       |[java](Leetcode/src/com/leetcode/tree/_666_PathSumIV.java)                                                                                                                           |
 | 671|Second Minimum Node Ina Binary Tree                               |[java](Leetcode/src/com/leetcode/tree/_671_SecondMinimumNodeInaBinaryTree.java)                                                                                                      |
 | 814|Binary Tree Pruning                                               |[java](Leetcode/src/com/leetcode/tree/_814_BinaryTreePruning.java)                                                                                                                   |
+| 863|                                                                  |[py](Leetcode/src/com/leetcode/tree/_863_all_nodes_distance_k_in_binary_tree.py)                                                                                                     |
 | 865|Smallest Subtreewithallthe Deepest Nodes                          |[java](Leetcode/src/com/leetcode/tree/_865_SmallestSubtreewithalltheDeepestNodes.java)                                                                                               |
 | 897|Increasing Order Search Tree                                      |[java](Leetcode/src/com/leetcode/tree/_897_IncreasingOrderSearchTree.java)                                                                                                           |
 | 958|Check Completenessofa Binary Tree                                 |[java](Leetcode/src/com/leetcode/tree/_958_CheckCompletenessofaBinaryTree.java)                                                                                                      |
@@ -186,7 +187,6 @@
 | 735|Collision                                 |[java](Leetcode/src/com/leetcode/stack_priority_queue/_735_Asteroid_Collision.java)                                                                                                           |
 | 768|Max Chunks To Make Sorted II              |[java](Leetcode/src/com/leetcode/stack_priority_queue/_768_MaxChunksToMakeSortedII.java)                                                                                                      |
 | 895|Maximum Frequency Stack                   |[java](Leetcode/src/com/leetcode/stack_priority_queue/_895_MaximumFrequencyStack.java)                                                                                                        |
-| 907|Sumof Subarray Minimums                   |[java](Leetcode/src/com/leetcode/stack_priority_queue/_907_SumofSubarrayMinimums.java)                                                                                                        |
 | 946|Validate Stack Sequences                  |[java](Leetcode/src/com/leetcode/stack_priority_queue/_946_ValidateStackSequences.java)                                                                                                       |
 | 950|Reveal Cards In Increasing Order          |[java](Leetcode/src/com/leetcode/stack_priority_queue/_950_RevealCardsInIncreasingOrder.java)                                                                                                 |
 |1046|Last Stone Weight                         |[java](Leetcode/src/com/leetcode/stack_priority_queue/_1046_LastStoneWeight.java)                                                                                                             |
@@ -196,6 +196,7 @@
 |1209|Remove All Adjacent Duplicatesin String II|[java](Leetcode/src/com/leetcode/stack_priority_queue/_1209_RemoveAllAdjacentDuplicatesinStringII.java)                                                                                       |
 |1381|Designa Stack With Increment Operation    |[java](Leetcode/src/com/leetcode/stack_priority_queue/_1381_DesignaStackWithIncrementOperation.java)                                                                                          |
 |1675|Minimize Deviation In Array               |[java](Leetcode/src/com/leetcode/stack_priority_queue/_1675_MinimizeDeviationInArray.java)                                                                                                    |
+|2102|Sequentially Ordinal Rank Tracker         |[java](Leetcode/src/com/leetcode/stack_priority_queue/_2102_SequentiallyOrdinalRankTracker.java)                                                                                              |
 # Monostack
 |No. |                  Problem                  |                                                    Solutions                                                     |
 |---:|-------------------------------------------|------------------------------------------------------------------------------------------------------------------|
@@ -232,10 +233,11 @@
 |1249|Minimum Removeto Make Valid Parentheses           |[java](Leetcode/src/com/leetcode/stack_priority_queue/Parentheses/_1249_MinimumRemovetoMakeValidParentheses.java), [py](Leetcode/src/com/leetcode/stack_priority_queue/Parentheses/_1249_Minimum_Remove_to_Make_Valid_Parentheses.py)|
 |1541|String                                            |[java](Leetcode/src/com/leetcode/stack_priority_queue/Parentheses/_1541_Minimum_Insertions_to_Balance_a_Parentheses_String.java)                                                                                                     |
 # Monoqueue
-|No.|              Problem              |                                                Solutions                                                 |
-|--:|-----------------------------------|----------------------------------------------------------------------------------------------------------|
-|239|Sliding Window Maximum             |[java](Leetcode/src/com/leetcode/stack_priority_queue/monoQueue/_239_SlidingWindowMaximum.java)           |
-|862|Shortest Subarraywith Sumat Least K|[java](Leetcode/src/com/leetcode/stack_priority_queue/monoQueue/_862_ShortestSubarraywithSumatLeastK.java)|
+|No. |              Problem              |                                                                    Solutions                                                                     |
+|---:|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| 239|Sliding Window Maximum             |[java](Leetcode/src/com/leetcode/stack_priority_queue/monoQueue/_239_SlidingWindowMaximum.java)                                                   |
+| 862|Shortest Subarraywith Sumat Least K|[java](Leetcode/src/com/leetcode/stack_priority_queue/monoQueue/_862_ShortestSubarraywithSumatLeastK.java)                                        |
+|1438|                                   |[py](Leetcode/src/com/leetcode/stack_priority_queue/monoQueue/_1438_longest_continuous_subarray_with_absolute_diff_less_than_or_equal_to_limit.py)|
 # Topk
 |No. |           Problem            |                                                                                        Solutions                                                                                         |
 |---:|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -324,7 +326,6 @@
 |1477|Find Two Nonoverlapping Subarrays Each With Target Sum|[java](Leetcode/src/com/leetcode/array/sub_array/_1477_FindTwoNonoverlappingSubarraysEachWithTargetSum.java)                                                                                                      |
 |1567|Maximum Lengthof Subarray With Positive Product       |[java](Leetcode/src/com/leetcode/array/sub_array/_1567_MaximumLengthofSubarrayWithPositiveProduct.java), [py](Leetcode/src/com/leetcode/array/sub_array/_1567_Maximum_Length_of_Subarray_With_Positive_Product.py)|
 |1658|Minimum Operations To Reduce X To Zero                |[java](Leetcode/src/com/leetcode/array/sub_array/_1658_MinimumOperationsToReduceXToZero.java)                                                                                                                     |
-|2104|Sumof Subarray Ranges                                 |[java](Leetcode/src/com/leetcode/array/sub_array/_2104_SumofSubarrayRanges.java)                                                                                                                                  |
 |2272|Substring With Largest Variance                       |[java](Leetcode/src/com/leetcode/array/sub_array/_2272_SubstringWithLargestVariance.java)                                                                                                                         |
 # Sort
 |No. |                       Problem                       |                                                  Solutions                                                   |
@@ -464,6 +465,7 @@
 |1170|Compare Stringsby Frequencyofthe Smallest Character    |[java](Leetcode/src/com/leetcode/binary_search/_1170_CompareStringsbyFrequencyoftheSmallestCharacter.java)|
 |1182|Shortest Distanceto Target Color                       |[java](Leetcode/src/com/leetcode/binary_search/_1182_ShortestDistancetoTargetColor.java)                  |
 |1300|Sumof Mutated Array Closestto Target                   |[java](Leetcode/src/com/leetcode/binary_search/_1300_SumofMutatedArrayClosesttoTarget.java)               |
+|2055|                                                       |[py](Leetcode/src/com/leetcode/binary_search/_2055_plates_between_candles.py)                             |
 # Backtracking
 |No. |                          Problem                          |                                                                                Solutions                                                                                |
 |---:|-----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -622,6 +624,7 @@
 |1463|Cherry Pickup II                                     |[java](Leetcode/src/com/leetcode/dynamic_programming/_1463_CherryPickupII.java)                                                                                                               |
 |1641|Count Sorted Vowel Strings                           |[java](Leetcode/src/com/leetcode/dynamic_programming/_1641_CountSortedVowelStrings.java)                                                                                                      |
 |1937|Maximum Numberof Pointswith Cost                     |[java](Leetcode/src/com/leetcode/dynamic_programming/_1937_MaximumNumberofPointswithCost.java)                                                                                                |
+|2222|                                                     |[py](Leetcode/src/com/leetcode/dynamic_programming/_2222_number_of_ways_to_select_buildings.py)                                                                                               |
 |2304|Minimum Path Costin A Grid                           |[java](Leetcode/src/com/leetcode/dynamic_programming/_2304_MinimumPathCostinAGrid.java)                                                                                                       |
 # Min_max
 |No. |           Problem            |                                            Solutions                                             |
@@ -731,7 +734,7 @@
 | 991|Broken Calculator                            |[java](Leetcode/src/com/leetcode/math/_991_BrokenCalculator.java)                                                                         |
 |1041|Robot Bounded In Circle                      |[java](Leetcode/src/com/leetcode/math/_1041_RobotBoundedInCircle.java)                                                                    |
 |1262|Greatest Sum Divisibleby Three               |[java](Leetcode/src/com/leetcode/math/_1262_GreatestSumDivisiblebyThree.java)                                                             |
-|1291|Digits                                       |[py](Leetcode/src/com/leetcode/math/_1291_Sequential_Digits.py)                                                                           |
+|1291|                                             |[py](Leetcode/src/com/leetcode/math/_1291_sequential_digits.py)                                                                           |
 |1344|Angle Between Handsofa Clock                 |[java](Leetcode/src/com/leetcode/math/_1344_AngleBetweenHandsofaClock.java)                                                               |
 |1360|Numberof Days Between Two Dates              |[java](Leetcode/src/com/leetcode/math/_1360_NumberofDaysBetweenTwoDates.java)                                                             |
 |1362|Closest Divisors                             |[java](Leetcode/src/com/leetcode/math/_1362_ClosestDivisors.java)                                                                         |
@@ -793,6 +796,7 @@
 |1357|Apply Discount Everyn Orders  |[java](Leetcode/src/com/leetcode/ood/_1357_ApplyDiscountEverynOrders.java)                                                |
 |1396|Design Underground System     |[java](Leetcode/src/com/leetcode/ood/_1396_DesignUndergroundSystem.java)                                                  |
 |1476|Subrectangle Queries          |[java](Leetcode/src/com/leetcode/ood/_1476_SubrectangleQueries.java)                                                      |
+|1603|                              |[py](Leetcode/src/com/leetcode/ood/_1603_design_parking_system.py)                                                        |
 |2034|Stock Price Fluctuation       |[java](Leetcode/src/com/leetcode/ood/_2034_StockPriceFluctuation.java)                                                    |
 |2353|Designa Food Rating System    |[java](Leetcode/src/com/leetcode/ood/_2353_DesignaFoodRatingSystem.java)                                                  |
 # Doubly_linkedlist
@@ -969,7 +973,7 @@
 | 678|Valid Parenthesis String                                     |[java](Leetcode/src/com/leetcode/string/_678_ValidParenthesisString.java)                                                                                                                                        |
 | 686|Repeated String Match                                        |[java](Leetcode/src/com/leetcode/string/_686_RepeatedStringMatch.java)                                                                                                                                           |
 | 720|Dictionary                                                   |[java](Leetcode/src/com/leetcode/string/_720_Longest_Word_in_Dictionary.java)                                                                                                                                    |
-| 767|Reorganize String                                            |[java](Leetcode/src/com/leetcode/string/_767_ReorganizeString.java)                                                                                                                                              |
+| 767|Reorganize String                                            |[java](Leetcode/src/com/leetcode/string/_767_ReorganizeString.java), [py](Leetcode/src/com/leetcode/string/_767_reorganize_string.py)                                                                            |
 | 820|Short Encoding Of Words                                      |[java](Leetcode/src/com/leetcode/string/_820_ShortEncodingOfWords.java)                                                                                                                                          |
 | 821|Shortest Distance To A Character                             |[java](Leetcode/src/com/leetcode/string/_821_ShortestDistanceToACharacter.java)                                                                                                                                  |
 | 828|Count Unique Charactersof All Substringsofa Given String     |[java](Leetcode/src/com/leetcode/string/_828_CountUniqueCharactersofAllSubstringsofaGivenString.java), [py](Leetcode/src/com/leetcode/string/_828_Count_Unique_Characters_of_All_Substrings_of_a_Given_String.py)|

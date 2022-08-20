@@ -1,13 +1,14 @@
+/*
+ * @Date: 08/08/2022 18:48:57
+ * @LastEditTime: 08/19/2022 11:09:06
+ * @Description: Counting Sort, Heap
+ */
 package com.leetcode.string;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-/**
- * @Date: 05/19/2020, 09/07/2020
- * @Description: Counting Sort, Heap
- **/
 public class _767_ReorganizeString {
 
     // time:O(n) space:O(n + 26)
@@ -55,13 +56,14 @@ public class _767_ReorganizeString {
         }
         Map<Character, Integer> map = new HashMap<>();
         for (char ch : S.toCharArray()) {
-            int count  = map.getOrDefault(ch, 0) + 1;
-            if (count > (S.length() + 1) / 2) return "";
+            int count = map.getOrDefault(ch, 0) + 1;
+            if (count > (S.length() + 1) / 2)
+                return "";
             map.put(ch, count);
         }
         PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> (b[1] - a[1])); // 希望把多的先安置下来，这里是有一个greedy的套路
         for (char ch : map.keySet()) {
-            pq.offer(new int[]{ch, map.get(ch)});
+            pq.offer(new int[] { ch, map.get(ch) });
         }
         // 构建字符串
         // 相当于是利用ch:int 这样的数目做贪心，但是如果遇到abb的情况，首先poll出一个b，
