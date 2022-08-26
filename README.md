@@ -624,6 +624,7 @@
 |1463|Cherry Pickup II                                     |[java](Leetcode/src/com/leetcode/dynamic_programming/_1463_CherryPickupII.java)                                                                                                               |
 |1641|Count Sorted Vowel Strings                           |[java](Leetcode/src/com/leetcode/dynamic_programming/_1641_CountSortedVowelStrings.java)                                                                                                      |
 |1937|Maximum Numberof Pointswith Cost                     |[java](Leetcode/src/com/leetcode/dynamic_programming/_1937_MaximumNumberofPointswithCost.java)                                                                                                |
+|2221|                                                     |[py](Leetcode/src/com/leetcode/dynamic_programming/_2221_find_triangular_sum_of_an_array.py)                                                                                                  |
 |2222|                                                     |[py](Leetcode/src/com/leetcode/dynamic_programming/_2222_number_of_ways_to_select_buildings.py)                                                                                               |
 |2304|Minimum Path Costin A Grid                           |[java](Leetcode/src/com/leetcode/dynamic_programming/_2304_MinimumPathCostinAGrid.java)                                                                                                       |
 # Min_max
@@ -804,15 +805,15 @@
 |--:|---------|--------------------------------------------------------------------------|
 |146|LRU Cache|[java](Leetcode/src/com/leetcode/ood/doubly_linkedlist/_146_LRUCache.java)|
 # Topological_sort
-|No. |                  Problem                   |                                              Solutions                                              |
-|---:|--------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| 207|Course Schedule                             |[java](Leetcode/src/com/leetcode/topological_sort/_207_CourseSchedule.java)                          |
-| 210|Course Schedule II                          |[java](Leetcode/src/com/leetcode/topological_sort/_210_CourseScheduleII.java)                        |
-| 269|Alien Dictionary                            |[java](Leetcode/src/com/leetcode/topological_sort/_269_AlienDictionary.java)                         |
-| 310|Minimum Height Trees                        |[java](Leetcode/src/com/leetcode/topological_sort/_310_MinimumHeightTrees.java)                      |
-| 802|Find Eventual Safe States                   |[java](Leetcode/src/com/leetcode/topological_sort/_802_FindEventualSafeStates.java)                  |
-|1136|Parallel Courses                            |[java](Leetcode/src/com/leetcode/topological_sort/_1136_ParallelCourses.java)                        |
-|2115|Find All Possible Recipesfrom Given Supplies|[java](Leetcode/src/com/leetcode/topological_sort/_2115_FindAllPossibleRecipesfromGivenSupplies.java)|
+|No. |                  Problem                   |                                                                                                  Solutions                                                                                                   |
+|---:|--------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 207|Course Schedule                             |[java](Leetcode/src/com/leetcode/topological_sort/_207_CourseSchedule.java), [py](Leetcode/src/com/leetcode/topological_sort/_207_course_schedule.py)                                                         |
+| 210|Course Schedule II                          |[java](Leetcode/src/com/leetcode/topological_sort/_210_CourseScheduleII.java)                                                                                                                                 |
+| 269|Alien Dictionary                            |[java](Leetcode/src/com/leetcode/topological_sort/_269_AlienDictionary.java)                                                                                                                                  |
+| 310|Minimum Height Trees                        |[java](Leetcode/src/com/leetcode/topological_sort/_310_MinimumHeightTrees.java)                                                                                                                               |
+| 802|Find Eventual Safe States                   |[java](Leetcode/src/com/leetcode/topological_sort/_802_FindEventualSafeStates.java)                                                                                                                           |
+|1136|Parallel Courses                            |[java](Leetcode/src/com/leetcode/topological_sort/_1136_ParallelCourses.java)                                                                                                                                 |
+|2115|Find All Possible Recipesfrom Given Supplies|[java](Leetcode/src/com/leetcode/topological_sort/_2115_FindAllPossibleRecipesfromGivenSupplies.java), [py](Leetcode/src/com/leetcode/topological_sort/_2115_find_all_possible_recipes_from_given_supplies.py)|
 # Trie
 |No. |               Problem                |                                    Solutions                                     |
 |---:|--------------------------------------|----------------------------------------------------------------------------------|
@@ -894,6 +895,7 @@
 | 815|Bus Routes                                     |[java](Leetcode/src/com/leetcode/bfs_and_dfs/_815_BusRoutes.java)                                                                                             |
 | 841|Keys And Rooms                                 |[java](Leetcode/src/com/leetcode/bfs_and_dfs/_841_KeysAndRooms.java)                                                                                          |
 | 847|Shortest Path Visiting All Nodes               |[java](Leetcode/src/com/leetcode/bfs_and_dfs/_847_ShortestPathVisitingAllNodes.java)                                                                          |
+| 909|                                               |[py](Leetcode/src/com/leetcode/bfs_and_dfs/_909_snakes_and_ladders.py)                                                                                        |
 | 934|Shortest Bridge                                |[java](Leetcode/src/com/leetcode/bfs_and_dfs/_934_ShortestBridge.java)                                                                                        |
 | 947|Most Stones Removedwith Same Rowor Column      |[java](Leetcode/src/com/leetcode/bfs_and_dfs/_947_MostStonesRemovedwithSameRoworColumn.java)                                                                  |
 | 994|Rotting Oranges                                |[java](Leetcode/src/com/leetcode/bfs_and_dfs/_994_RottingOranges.java), [py](Leetcode/src/com/leetcode/bfs_and_dfs/_994_Rotting_Oranges.py)                   |

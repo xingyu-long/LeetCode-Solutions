@@ -1,11 +1,18 @@
+/*
+ * @Date: 08/08/2022 17:48:56
+ * @LastEditTime: 08/26/2022 11:42:42
+ * @Description: Recursion + Memo, Word Break
+ */
 package com.leetcode.dynamic_programming;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
-/**
- * @Date: 05/10/2020
- * @Description: DP, word break
- **/
 public class _472_ConcatenatedWords {
 
     // time: O((# of words) * (length of word) * (length of word))
