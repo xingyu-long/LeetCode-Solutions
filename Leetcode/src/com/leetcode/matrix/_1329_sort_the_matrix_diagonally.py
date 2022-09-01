@@ -1,3 +1,4 @@
+from collections import defaultdict
 import heapq
 from typing import List
 
