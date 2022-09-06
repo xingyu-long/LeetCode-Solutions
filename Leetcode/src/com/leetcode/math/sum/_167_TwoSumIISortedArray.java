@@ -59,12 +59,4 @@ public class _167_TwoSumIISortedArray {
         // 不会出现同样的i，j因为题目说了不会复用
         return new int[]{};
     }
-
-    public static void main(String[] args) {
-        int[] numbers = new int[]{7, 11, 13, 15, 28};
-        int target = 28;
-        for (int in: twoPointerTwoSum(numbers, target)) {
-            System.out.println(in);
-        }
-    }
 }

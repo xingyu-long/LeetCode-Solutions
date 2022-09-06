@@ -1,15 +1,14 @@
 '''
 Date: 08/22/2021 19:50:16
-LastEditTime: 08/22/2021 19:51:15
+LastEditTime: 09/05/2022 16:04:31
 Description: DFS
 '''
+from typing import List
 
 
 class Solution:
     def solveSudoku(self, board: List[List[str]]) -> None:
-        """
-        Do not return anything, modify board in-place instead.
-        """
+
         def is_valid(board, row, col, ch):
             for y in board[row]:
                 if y == ch:
@@ -42,4 +41,4 @@ class Solution:
             else:
                 return solve(board, row, col + 1)
 
-        return solve(board, 0, 0)
+        solve(board, 0, 0)

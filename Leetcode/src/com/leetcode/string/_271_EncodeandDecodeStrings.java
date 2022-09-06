@@ -1,7 +1,6 @@
 package com.leetcode.string;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class _271_EncodeandDecodeStrings {

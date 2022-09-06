@@ -4,10 +4,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 
-/**
- * @Date: 2019/03/19, 2019/7/5, 2019/8/21, 07/12/2020
- * @Description: HashSet / Map / sort
- **/
 public class _217_ContainsDuplicate {
 
     // time: O(n^2) space: O(n)
