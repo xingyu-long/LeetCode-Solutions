@@ -12,7 +12,7 @@ public class _853_CarFleet {
         for (int i = 0; i < n; i++) {
             cars[i] = new double[]{position[i], (double)(target - position[i]) / speed[i]};
         }
-        // 按照距离的来排序
+        // 按照当前的坐标来排序
         Arrays.sort(cars, (a, b) -> Double.compare(a[0], b[0]));
         double cur = 0;
         // 从距离最近的开始
