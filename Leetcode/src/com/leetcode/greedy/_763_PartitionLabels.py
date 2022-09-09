@@ -3,6 +3,9 @@ Date: 11/12/2020 15:29:19
 LastEditTime: 03/31/2022 17:59:42
 Description: HashMap(dict)
 '''
+from typing import List
+
+
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
         n = len(s)
