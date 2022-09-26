@@ -15,6 +15,5 @@ class Solution:
                 left_min -= 1
             if left_max < 0:
                 return False
-
             left_min = max(left_min, 0)
         return left_min == 0

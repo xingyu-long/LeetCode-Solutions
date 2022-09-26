@@ -9,6 +9,7 @@ public class _718_MaximumLengthofRepeatedSubarray {
   public int findLength(int[] A, int[] B) {
     // Strict contiguous' 以i，j分别结尾最长的重复序列
     // 这个其实就算暴力解了。
+    // 需要和subsequence作区分，这种解法不需要考虑左边以及上边
     int m = A.length;
     int n = B.length;
     int[][] dp = new int[m + 1][n + 1];
