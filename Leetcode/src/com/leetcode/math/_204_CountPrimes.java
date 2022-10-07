@@ -19,16 +19,25 @@ public class _204_CountPrimes {
         return res;
     }
 
-    // brute force, time:O(n * n) space:O(1)
+    // time: O(sqrt(n)loglogN)
     public int countPrimes2(int n) {
-        if (n < 1) return 0;
+        if (n <= 2) {
+            return 0;
+        }
+        boolean[] member = new boolean[n];
+        Arrays.fill(member, false);
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (member[i] == false) {
+                for (int j = 2; i * j < n; j++) {
+                    member[i * j] = true;
+                }
+            }
+        }
         int res = 0;
         for (int i = 2; i < n; i++) {
-            int j;
-            for (j = 2; j < i; j++) {
-                if (i % j == 0) break;
+            if (member[i] == false) {
+                res++;
             }
-            if (j == i) res++;
         }
         return res;
     }

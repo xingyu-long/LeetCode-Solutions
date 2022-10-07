@@ -88,4 +88,39 @@ public class _767_ReorganizeString {
         }
         return sb.toString();
     }
+
+    public class Item {
+        char ch;
+        int freq;
+        
+        public Item(char ch, int freq) {
+            this.ch = ch;
+            this.freq = freq;
+        }
+    }
+    // 这个解法更加直接
+    public String reorganizeString3(String s) {
+        if (s == null || s.length() == 0) {
+            return "";
+        }
+        Map<Character, Integer> map = new HashMap<>();
+        for (char ch : s.toCharArray()) {
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+        PriorityQueue<Item> pq = new PriorityQueue<>((a, b) -> (b.freq - a.freq));
+        for (char ch : map.keySet()) {
+            pq.offer(new Item(ch, map.get(ch)));
+        }
+        StringBuilder sb = new StringBuilder();
+        while (pq.size() >= 2) {
+            Item item1 = pq.poll(), item2 = pq.poll();
+            sb.append(item1.ch).append(item2.ch);
+            if (--item1.freq > 0) pq.offer(item1);
+            if (--item2.freq > 0) pq.offer(item2);
+        }
+        if (!pq.isEmpty()) {
+            sb.append(pq.poll().ch);
+        }
+        return sb.toString().length() == s.length() ? sb.toString() : "";
+    }
 }
