@@ -20,9 +20,10 @@ public class _352_DataStreamasDisjointIntervals {
             map.remove(higherKey);
         } else if (lowerKey != null && val <= map.get(lowerKey)[1] + 1) {
             // 2. 靠左边近,只有左边会出现可能在区间内的情况，右边没办法出现（因为那样lowerKey肯定就是左边了）
+            // [1, 4], value = 3 or 5
             map.get(lowerKey)[1] = Math.max(val, map.get(lowerKey)[1]);
         } else if (higherKey != null && val == map.get(higherKey)[0] - 1) {
-            // 3. 靠右边近
+            // 3. 靠右边近，并且会需要更新当前的treemap，因为key变了
             map.put(val, new int[]{val, map.get(higherKey)[1]});
             map.remove(higherKey);
         } else {
