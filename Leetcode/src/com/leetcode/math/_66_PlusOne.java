@@ -14,7 +14,6 @@ class _66_PlusOne {
         if (digits == null || digits.length == 0) {
             return digits;
         }
-        List<Integer> list = new ArrayList<>();
         int carry = 1;
         for (int i = digits.length - 1; i >= 0; i--) {
             carry += digits[i];

@@ -1,10 +1,3 @@
-/*
- * @Date: 2019-11-04 19:24:09
- * 
- * @LastEditors: Clark long
- * 
- * @LastEditTime: 2020-04-02 11:15:50
- */
 package com.leetcode.math;
 
 import java.util.HashSet;
@@ -25,7 +18,7 @@ public class _202_HappyNumber {
             }
             if (squareSum == 1) {
                 return true;
-            } 
+            }
             n = squareSum;
         }
         return false;
