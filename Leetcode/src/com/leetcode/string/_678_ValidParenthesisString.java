@@ -2,7 +2,7 @@ package com.leetcode.string;
 
 public class _678_ValidParenthesisString {
     // dfs
-    // time:O(n^3)
+    // time:O(3^n)
     public boolean checkValidString(String s) {
         // how to handle *
         return dfs(s, 0, 0);

@@ -54,12 +54,12 @@ public class _91_DecodeWays {
     }
 
     public static int dfs(String s, int start, int[] memo) {
-        if (memo[start] != -1)
-            return memo[start];
         if (start > s.length())
             return 0;
         if (start == s.length())
             return 1;
+        if (memo[start] != -1)
+            return memo[start];
         // move one char
         int res = 0;
 

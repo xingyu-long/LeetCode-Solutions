@@ -22,7 +22,7 @@ public class _846_HandofStraights {
             return false;
         }
 
-        HashMap<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         for (int num : hand) {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
