@@ -57,6 +57,7 @@ public class _329_LongestIncreasingPathinaMatrix {
                 matrix[0] == null || matrix[0].length == 0) return 0;
         int m = matrix.length;
         int n = matrix[0].length;
+        // 应该全局只需要依赖一个visited和memo数组
         boolean[][] visited = new boolean[m][n];
         int[][] memo = new int[m][n];
         for (int[] row : memo) {

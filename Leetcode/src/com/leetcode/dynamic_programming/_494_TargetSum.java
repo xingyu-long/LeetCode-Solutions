@@ -1,6 +1,7 @@
 package com.leetcode.dynamic_programming;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class _494_TargetSum {
 
@@ -11,7 +12,7 @@ public class _494_TargetSum {
         if (nums == null || nums.length == 0) {
             return 0;
         }
-        HashMap<String, Integer> map = new HashMap<>();
+        Map<String, Integer> map = new HashMap<>();
         return dfs(nums, 0, S, map);
     }
 
@@ -19,7 +20,7 @@ public class _494_TargetSum {
     // 2^n 没有cache的话 不知道怎么来cache。。。。
     // 不用二维数组，是因为会有负数的原因。
     // time:O(sum * n) space:O(1)
-    public int dfs(int[] nums, int index, int target, HashMap<String, Integer> map) {
+    public int dfs(int[] nums, int index, int target, Map<String, Integer> map) {
         String key = index + "*" + target;
         if (index == nums.length) {
             if (target == 0) {

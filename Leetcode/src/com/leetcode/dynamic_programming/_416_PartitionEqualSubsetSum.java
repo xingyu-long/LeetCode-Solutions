@@ -27,6 +27,7 @@ public class _416_PartitionEqualSubsetSum {
             dp[i][0] = true;
             for (int j = 1; j <= target; j++) {
                 int currCoin = nums[i - 1];
+                // 不需要用当前这个硬币的话就直接看上次dp[i - 1][j]
                 boolean notUse = dp[i - 1][j];
                 // 这里用i-1其实就是不用当前这个数，相当于每个元素我们只能用一次
                 boolean use = (j >= currCoin) ? dp[i - 1][j - currCoin] : false;

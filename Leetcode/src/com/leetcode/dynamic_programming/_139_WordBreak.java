@@ -1,11 +1,13 @@
 package com.leetcode.dynamic_programming;
 
-import java.util.*;
-import java.util.stream.StreamSupport;
-/**
- * @Date: 2019/05/03, 2019/7/31, 11/4/2019, 04/23/2020, 05/14/2020, 09/06/2020
- * @Description: DP, DFS
- **/
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
+
 public class _139_WordBreak {
     // https://www.youtube.com/watch?v=RPeTFTKwjps
     // time: O(n^2 ~ n^4) substring:O(n) contains:O(n) space:O(n)
@@ -31,12 +33,12 @@ public class _139_WordBreak {
     // time: (n * n) space:O(n)
     public boolean wordBreak2(String s, List<String> wordDict) {
         if (s == null || s.length() == 0) return false;
-        HashMap<Integer, Boolean> map = new HashMap<>();
-        HashSet<String> dict = new HashSet<>(wordDict);
+        Map<Integer, Boolean> map = new HashMap<>();
+        Set<String> dict = new HashSet<>(wordDict);
         return dfs(s, 0, dict, map);
     }
 
-    public boolean dfs(String s, int index, HashSet<String> dict, HashMap<Integer, Boolean> map) {
+    public boolean dfs(String s, int index, Set<String> dict, Map<Integer, Boolean> map) {
         if (index == s.length()) return true;
         if (dict.contains(s)) return true;
         if (map.get(index) != null) return map.get(index);
