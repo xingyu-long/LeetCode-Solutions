@@ -7,18 +7,11 @@ import java.util.List;
 
 public class _323_NumberofConnectedComponentsinanUndirectedGraph {
 
-    /**
-     * 323. Number of Connected Components in an Undirected Graph
-     * When:11/2/2019
-     * Difficulty: Medium
-     * @param n
-     * @param edges
-     * @return
-     */
     public static int countComponents(int n, int[][] edges) {
         // build adjacent list
         List<List<Integer>> adjs = new ArrayList<>();
-        for (int i = 0; i < n; i++) adjs.add(new ArrayList<>());
+        for (int i = 0; i < n; i++)
+            adjs.add(new ArrayList<>());
         for (int[] edge : edges) {
             adjs.get(edge[0]).add(edge[1]);
         }
@@ -78,7 +71,7 @@ public class _323_NumberofConnectedComponentsinanUndirectedGraph {
     }
 
     public static void main(String[] args) {
-        int[][] edges = {{0, 1}, {1, 2}, {3, 4}};
+        int[][] edges = { { 0, 1 }, { 1, 2 }, { 3, 4 } };
         System.out.println(countComponents2(5, edges));
     }
 }

@@ -14,11 +14,11 @@ public class _853_CarFleet {
         }
         // 按照当前的坐标来排序
         Arrays.sort(cars, (a, b) -> Double.compare(a[0], b[0]));
-        double cur = 0;
+        double cur_max = 0;
         // 从距离最近的开始
         for (int i = n - 1; i >= 0; i--) {
-            if (cars[i][1] > cur) {
-                cur = cars[i][1];
+            if (cars[i][1] > cur_max) {
+                cur_max = cars[i][1];
                 res++;
             }
         }

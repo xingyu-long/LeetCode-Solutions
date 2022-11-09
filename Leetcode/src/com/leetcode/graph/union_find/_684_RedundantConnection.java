@@ -3,10 +3,6 @@ package com.leetcode.graph.union_find;
 import java.util.HashMap;
 import java.util.HashSet;
 
-/**
- * @Date: 07/21/2020
- * @Description: UF, DFS
- **/
 public class _684_RedundantConnection {
 
     // 684. Redundant Connection
@@ -53,8 +49,8 @@ public class _684_RedundantConnection {
 
     public int[] findRedundantConnection(int[][] edges) {
         if (edges == null || edges.length == 0 ||
-            edges[0] == null || edges[0].length == 0) {
-            return new int[]{};
+                edges[0] == null || edges[0].length == 0) {
+            return new int[] {};
         }
         UF uf = new UF(edges.length);
         for (int[] edge : edges) {
@@ -62,15 +58,14 @@ public class _684_RedundantConnection {
                 return edge;
             }
         }
-        return new int[]{};
+        return new int[] {};
     }
-
 
     // DFS O(n^2) 每次最长走n个长度。有n个edge需要验证。
     public int[] findRedundantConnection2(int[][] edges) {
         if (edges == null || edges.length == 0 ||
-            edges[0] == null || edges[0].length == 0) {
-            return new int[]{};
+                edges[0] == null || edges[0].length == 0) {
+            return new int[] {};
         }
         HashMap<Integer, HashSet<Integer>> map = new HashMap<>();
         for (int[] edge : edges) {
@@ -81,22 +76,17 @@ public class _684_RedundantConnection {
             if (canReach(u, v, map, visited)) {
                 return edge;
             }
-
-            if (!map.containsKey(u)) {
-                map.put(u, new HashSet<>());
-            }
-            if (!map.containsKey(v)) {
-                map.put(v, new HashSet<>());
-            }
+            map.putIfAbsent(u, new HashSet<>());
+            map.putIfAbsent(v, new HashSet<>());
             map.get(u).add(v);
             map.get(v).add(u);
         }
-        return new int[]{};
+        return new int[] {};
     }
 
     // 只在是否能从u到达v
     public boolean canReach(int u, int v, HashMap<Integer, HashSet<Integer>> map,
-        HashSet<Integer> visited) {
+            HashSet<Integer> visited) {
         if (u == v) {
             return true;
         }

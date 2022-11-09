@@ -27,6 +27,8 @@ public class _90_SubsetsII {
     public static void dfs(List<List<Integer>> res, List<Integer> list, int[] nums, int index) {
         res.add(new ArrayList<>(list));
         for (int i = index; i < nums.length; i++) {
+            // 可以利用这个来去重，防止同一层的重复
+            // if (i > 0 && nums[i] == nums[i - 1] && !visited[i - 1]) continue;
             if (i != index && nums[i] == nums[i - 1]) {
                 continue;
             }
