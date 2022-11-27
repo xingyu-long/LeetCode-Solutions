@@ -548,6 +548,7 @@
 | 924|Spread                                            |[java](Leetcode/src/com/leetcode/graph/union_find/_924_Minimize_Malware_Spread.java)                       |
 | 952|Largest Component Sizeby Common Factor            |[java](Leetcode/src/com/leetcode/graph/union_find/_952_LargestComponentSizebyCommonFactor.java)            |
 |1202|Smallest String With Swaps                        |[java](Leetcode/src/com/leetcode/graph/union_find/_1202_SmallestStringWithSwaps.java)                      |
+|2421|Number Of Good Paths                              |[java](Leetcode/src/com/leetcode/graph/union_find/_2421_NumberOfGoodPaths.java)                            |
 # Simulation
 |No.|  Problem  |                            Solutions                            |
 |--:|-----------|-----------------------------------------------------------------|
@@ -872,6 +873,7 @@
 |1663|Smallest String With A Given Numeric Value                  |[java](Leetcode/src/com/leetcode/greedy/_1663_SmallestStringWithAGivenNumericValue.java)                                            |
 |1737|Change Minimum Characters To Satisfy One Of Three Conditions|[java](Leetcode/src/com/leetcode/greedy/_1737_ChangeMinimumCharactersToSatisfyOneOfThreeConditions.java)                            |
 |1769|Box                                                         |[py](Leetcode/src/com/leetcode/greedy/_1769_Minimum_Number_of_Operations_to_Move_All_Balls_to_Each_Box.py)                          |
+|1899|Merge Tripletsto Form Target Triplet                        |[java](Leetcode/src/com/leetcode/greedy/_1899_MergeTripletstoFormTargetTriplet.java)                                                |
 |2178|Maximum Splitof Positive Even Integers                      |[java](Leetcode/src/com/leetcode/greedy/_2178_MaximumSplitofPositiveEvenIntegers.java)                                              |
 |2214|Game                                                        |[py](Leetcode/src/com/leetcode/greedy/_2214_Minimum_Health_to_Beat_Game.py)                                                         |
 # Bfs_and_dfs
