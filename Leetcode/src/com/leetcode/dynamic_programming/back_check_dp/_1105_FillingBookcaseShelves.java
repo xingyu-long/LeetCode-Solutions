@@ -8,7 +8,7 @@ public class _1105_FillingBookcaseShelves {
 
     // time:O(n^2) space:O(n)
     // 题目的意思是顺序不能变，只能放置不同层
-    public int minHeightShelves(int[][] books, int shelf_width) {
+    public int minHeightShelves(int[][] books, int shelfWidth) {
         int n = books.length;
         int[] dp = new int[n + 1];
         dp[0] = 0;
@@ -19,7 +19,7 @@ public class _1105_FillingBookcaseShelves {
             int sum = w;
             for (int j = i - 1; j > 0; j--) { // 看以j-1这个的book为止能否放到当前层。
                 sum += books[j - 1][0];
-                if (sum > shelf_width) {
+                if (sum > shelfWidth) {
                     break;
                 } else {
                     h = Math.max(h, books[j - 1][1]);
