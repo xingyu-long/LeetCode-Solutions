@@ -10,6 +10,7 @@ packages = [{include = "leetcode_solutions"}]
 python = "^3.11"
 tqdm = "^4.64.1"
 pytablewriter = "^0.64.2"
+gitpython = "^3.1.29"
 
 
 [build-system]
