@@ -200,6 +200,7 @@
 |1381|Designa Stack With Increment Operation    |[java](Leetcode/src/com/leetcode/stack_priority_queue/_1381_DesignaStackWithIncrementOperation.java)                                                                                          |
 |1675|Minimize Deviation In Array               |[java](Leetcode/src/com/leetcode/stack_priority_queue/_1675_MinimizeDeviationInArray.java)                                                                                                    |
 |2102|Sequentially Ordinal Rank Tracker         |[java](Leetcode/src/com/leetcode/stack_priority_queue/_2102_SequentiallyOrdinalRankTracker.java)                                                                                              |
+|3092|Most Frequent I Ds                        |[java](Leetcode/src/com/leetcode/stack_priority_queue/_3092_MostFrequentIDs.java)                                                                                                             |
 # Monostack
 |No. |                  Problem                  |                                                    Solutions                                                     |
 |---:|-------------------------------------------|------------------------------------------------------------------------------------------------------------------|
@@ -253,7 +254,7 @@
 # Array
 |No. |                               Problem                                |                                                                             Solutions                                                                              |
 |---:|----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  41|First Missing Positive                                                |[java](Leetcode/src/com/leetcode/array/_41_FirstMissingPositive.java)                                                                                               |
+|  41|First Missing Positive                                                |[java](Leetcode/src/com/leetcode/array/_41_FirstMissingPositive.java), [py](Leetcode/src/com/leetcode/array/_41_first_missing_positive.py)                          |
 |  42|Trapping Rain Water                                                   |[java](Leetcode/src/com/leetcode/array/_42_TrappingRainWater.java)                                                                                                  |
 |  55|Jump Game                                                             |[java](Leetcode/src/com/leetcode/array/_55_JumpGame.java)                                                                                                           |
 | 118|Pascals Triangle                                                      |[java](Leetcode/src/com/leetcode/array/_118_PascalsTriangle.java)                                                                                                   |
@@ -263,7 +264,7 @@
 | 135|Candy                                                                 |[java](Leetcode/src/com/leetcode/array/_135_Candy.java)                                                                                                             |
 | 164|Maximum Gap                                                           |[java](Leetcode/src/com/leetcode/array/_164_MaximumGap.java)                                                                                                        |
 | 169|Majority Element                                                      |[java](Leetcode/src/com/leetcode/array/_169_MajorityElement.java)                                                                                                   |
-| 189|Rotate Array                                                          |[java](Leetcode/src/com/leetcode/array/_189_RotateArray.java)                                                                                                       |
+| 189|Rotate Array                                                          |[java](Leetcode/src/com/leetcode/array/_189_RotateArray.java), [py](Leetcode/src/com/leetcode/array/_189_rotate_array.py)                                           |
 | 217|Contains Duplicate                                                    |[java](Leetcode/src/com/leetcode/array/_217_ContainsDuplicate.java)                                                                                                 |
 | 219|Contains Duplicate II                                                 |[java](Leetcode/src/com/leetcode/array/_219_ContainsDuplicateII.java)                                                                                               |
 | 220|Contains Duplicate III                                                |[java](Leetcode/src/com/leetcode/array/_220_ContainsDuplicateIII.java)                                                                                              |
@@ -276,12 +277,12 @@
 | 277|Findthe Celebrity                                                     |[java](Leetcode/src/com/leetcode/array/_277_FindtheCelebrity.java)                                                                                                  |
 | 287|Findthe Duplicate Number                                              |[java](Leetcode/src/com/leetcode/array/_287_FindtheDuplicateNumber.java)                                                                                            |
 | 289|Gameof Life                                                           |[java](Leetcode/src/com/leetcode/array/_289_GameofLife.java)                                                                                                        |
-| 299|Bulls And Cows                                                        |[java](Leetcode/src/com/leetcode/array/_299_BullsAndCows.java)                                                                                                      |
+| 299|Bulls And Cows                                                        |[java](Leetcode/src/com/leetcode/array/_299_BullsAndCows.java), [py](Leetcode/src/com/leetcode/array/_299_bulls_and_cows.py)                                        |
 | 330|Patching Array                                                        |[java](Leetcode/src/com/leetcode/array/_330_PatchingArray.java)                                                                                                     |
 | 334|Increasing Triplet Subsequence                                        |[java](Leetcode/src/com/leetcode/array/_334_IncreasingTripletSubsequence.java)                                                                                      |
 | 390|Elimination Game                                                      |[java](Leetcode/src/com/leetcode/array/_390_EliminationGame.java)                                                                                                   |
 | 414|Third Maximum Number                                                  |[java](Leetcode/src/com/leetcode/array/_414_ThirdMaximumNumber.java)                                                                                                |
-| 442|Find All Duplicatesinan Array                                         |[java](Leetcode/src/com/leetcode/array/_442_FindAllDuplicatesinanArray.java)                                                                                        |
+| 442|Find All Duplicatesinan Array                                         |[java](Leetcode/src/com/leetcode/array/_442_FindAllDuplicatesinanArray.java), [py](Leetcode/src/com/leetcode/array/_442_find_all_duplicates_in_an_array.py)         |
 | 448|Array                                                                 |[py](Leetcode/src/com/leetcode/array/_448_Find_All_Numbers_Disappeared_in_an_Array.py)                                                                              |
 | 454|Sum II                                                                |[java](Leetcode/src/com/leetcode/array/_454_4SumII.java)                                                                                                            |
 | 565|Array Nesting                                                         |[java](Leetcode/src/com/leetcode/array/_565_ArrayNesting.java)                                                                                                      |
@@ -388,25 +389,25 @@
 |2276|Count Integers In Intervals             |[java](Leetcode/src/com/leetcode/array/interval/_2276_CountIntegersInIntervals.java)                                                        |
 |2406|                                        |[py](Leetcode/src/com/leetcode/array/interval/_2406_divide_intervals_into_minimum_number_of_groups.py)                                      |
 # Counter
-|No. |                 Problem                 |                                           Solutions                                           |
-|---:|-----------------------------------------|-----------------------------------------------------------------------------------------------|
-| 163|Missing Ranges                           |[java](Leetcode/src/com/leetcode/array/counter/_163_MissingRanges.java)                        |
-| 209|Minimum Size Subarray Sum                |[java](Leetcode/src/com/leetcode/array/counter/_209_MinimumSizeSubarraySum.java)               |
-| 228|Summary Ranges                           |[java](Leetcode/src/com/leetcode/array/counter/_228_SummaryRanges.java)                        |
-| 238|Productof Array Except Self              |[java](Leetcode/src/com/leetcode/array/counter/_238_ProductofArrayExceptSelf.java)             |
-| 239|Sliding Window Maximum                   |[java](Leetcode/src/com/leetcode/array/counter/_239_SlidingWindowMaximum.java)                 |
-| 283|Move Zeroes                              |[java](Leetcode/src/com/leetcode/array/counter/_283_MoveZeroes.java)                           |
-| 525|Contiguous Array                         |[java](Leetcode/src/com/leetcode/array/counter/_525_ContiguousArray.java)                      |
-| 532|Pairsinan Array                          |[java](Leetcode/src/com/leetcode/array/counter/_532_K_diffPairsinanArray.java)                 |
-| 862|Shortest Subarraywith Sumat Least K      |[java](Leetcode/src/com/leetcode/array/counter/_862_ShortestSubarraywithSumatLeastK.java)      |
-| 904|Fruit Into Baskets                       |[java](Leetcode/src/com/leetcode/array/counter/_904_FruitIntoBaskets.java)                     |
-| 930|Binary Subarrays With Sum                |[java](Leetcode/src/com/leetcode/array/counter/_930_BinarySubarraysWithSum.java)               |
-|1151|Minimum Swapsto Group All Together       |[java](Leetcode/src/com/leetcode/array/counter/_1151_MinimumSwapstoGroupAll1sTogether.java)    |
-|1248|Count Numberof Nice Subarrays            |[java](Leetcode/src/com/leetcode/array/counter/_1248_CountNumberofNiceSubarrays.java)          |
-|1295|Find Numberswith Even Numberof Digits    |[java](Leetcode/src/com/leetcode/array/counter/_1295_FindNumberswithEvenNumberofDigits.java)   |
-|1385|Findthe Distance Value Between Two Arrays|[java](Leetcode/src/com/leetcode/array/counter/_1385_FindtheDistanceValueBetweenTwoArrays.java)|
-|1394|Find Lucky Integerinan Array             |[java](Leetcode/src/com/leetcode/array/counter/_1394_FindLuckyIntegerinanArray.java)           |
-|1395|Count Numberof Teams                     |[java](Leetcode/src/com/leetcode/array/counter/_1395_CountNumberofTeams.java)                  |
+|No. |                 Problem                 |                                                               Solutions                                                               |
+|---:|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| 163|Missing Ranges                           |[java](Leetcode/src/com/leetcode/array/counter/_163_MissingRanges.java)                                                                |
+| 209|Minimum Size Subarray Sum                |[java](Leetcode/src/com/leetcode/array/counter/_209_MinimumSizeSubarraySum.java)                                                       |
+| 228|Summary Ranges                           |[java](Leetcode/src/com/leetcode/array/counter/_228_SummaryRanges.java)                                                                |
+| 238|Productof Array Except Self              |[java](Leetcode/src/com/leetcode/array/counter/_238_ProductofArrayExceptSelf.java)                                                     |
+| 239|Sliding Window Maximum                   |[java](Leetcode/src/com/leetcode/array/counter/_239_SlidingWindowMaximum.java)                                                         |
+| 283|Move Zeroes                              |[java](Leetcode/src/com/leetcode/array/counter/_283_MoveZeroes.java), [py](Leetcode/src/com/leetcode/array/counter/_283_move_zeroes.py)|
+| 525|Contiguous Array                         |[java](Leetcode/src/com/leetcode/array/counter/_525_ContiguousArray.java)                                                              |
+| 532|Pairsinan Array                          |[java](Leetcode/src/com/leetcode/array/counter/_532_K_diffPairsinanArray.java)                                                         |
+| 862|Shortest Subarraywith Sumat Least K      |[java](Leetcode/src/com/leetcode/array/counter/_862_ShortestSubarraywithSumatLeastK.java)                                              |
+| 904|Fruit Into Baskets                       |[java](Leetcode/src/com/leetcode/array/counter/_904_FruitIntoBaskets.java)                                                             |
+| 930|Binary Subarrays With Sum                |[java](Leetcode/src/com/leetcode/array/counter/_930_BinarySubarraysWithSum.java)                                                       |
+|1151|Minimum Swapsto Group All Together       |[java](Leetcode/src/com/leetcode/array/counter/_1151_MinimumSwapstoGroupAll1sTogether.java)                                            |
+|1248|Count Numberof Nice Subarrays            |[java](Leetcode/src/com/leetcode/array/counter/_1248_CountNumberofNiceSubarrays.java)                                                  |
+|1295|Find Numberswith Even Numberof Digits    |[java](Leetcode/src/com/leetcode/array/counter/_1295_FindNumberswithEvenNumberofDigits.java)                                           |
+|1385|Findthe Distance Value Between Two Arrays|[java](Leetcode/src/com/leetcode/array/counter/_1385_FindtheDistanceValueBetweenTwoArrays.java)                                        |
+|1394|Find Lucky Integerinan Array             |[java](Leetcode/src/com/leetcode/array/counter/_1394_FindLuckyIntegerinanArray.java)                                                   |
+|1395|Count Numberof Teams                     |[java](Leetcode/src/com/leetcode/array/counter/_1395_CountNumberofTeams.java)                                                          |
 # Linkedlist
 |No. |                       Problem                        |                                              Solutions                                               |
 |---:|------------------------------------------------------|------------------------------------------------------------------------------------------------------|
@@ -698,68 +699,69 @@
 |--:|---------------------|-----------------------------------------------------------------------------------------------|
 |691|Stickersto Spell Word|[java](Leetcode/src/com/leetcode/dynamic_programming/bit_masking/_691_StickerstoSpellWord.java)|
 # Math
-|No. |                   Problem                   |                                                                Solutions                                                                 |
-|---:|---------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-|   1|Two Sum                                      |[java](Leetcode/src/com/leetcode/math/_1_TwoSum.java)                                                                                     |
-|   7|Reverse Integer                              |[java](Leetcode/src/com/leetcode/math/_7_ReverseInteger.java)                                                                             |
-|   8|String To Integer                            |[java](Leetcode/src/com/leetcode/math/_8_StringToInteger.java)                                                                            |
-|  29|Divide Two Integers                          |[java](Leetcode/src/com/leetcode/math/_29_DivideTwoIntegers.java)                                                                         |
-|  50|Pow XN                                       |[java](Leetcode/src/com/leetcode/math/_50_PowXN.java)                                                                                     |
-|  66|Plus One                                     |[java](Leetcode/src/com/leetcode/math/_66_PlusOne.java)                                                                                   |
-|  69|Sqrt X                                       |[java](Leetcode/src/com/leetcode/math/_69_SqrtX.java)                                                                                     |
-| 165|Compare Version Numbers                      |[java](Leetcode/src/com/leetcode/math/_165_CompareVersionNumbers.java)                                                                    |
-| 171|Excel Sheet Column Number                    |[java](Leetcode/src/com/leetcode/math/_171_ExcelSheetColumnNumber.java)                                                                   |
-| 172|Factorial Trailing Zeroes                    |[java](Leetcode/src/com/leetcode/math/_172_FactorialTrailingZeroes.java)                                                                  |
-| 202|Happy Number                                 |[java](Leetcode/src/com/leetcode/math/_202_HappyNumber.java)                                                                              |
-| 204|Count Primes                                 |[java](Leetcode/src/com/leetcode/math/_204_CountPrimes.java)                                                                              |
-| 231|Power Of Two                                 |[java](Leetcode/src/com/leetcode/math/_231_PowerOfTwo.java)                                                                               |
-| 233|Numberof Digit One                           |[java](Leetcode/src/com/leetcode/math/_233_NumberofDigitOne.java)                                                                         |
-| 258|Add Digits                                   |[java](Leetcode/src/com/leetcode/math/_258_AddDigits.java)                                                                                |
-| 263|Ugly Number                                  |[java](Leetcode/src/com/leetcode/math/_263_UglyNumber.java)                                                                               |
-| 292|Nim Game                                     |[java](Leetcode/src/com/leetcode/math/_292_NimGame.java)                                                                                  |
-| 319|Bulb Switcher                                |[java](Leetcode/src/com/leetcode/math/_319_BulbSwitcher.java)                                                                             |
-| 326|Powerof Three                                |[java](Leetcode/src/com/leetcode/math/_326_PowerofThree.java)                                                                             |
-| 342|Powerof Four                                 |[java](Leetcode/src/com/leetcode/math/_342_PowerofFour.java)                                                                              |
-| 357|Count Numberswith Unique Digits              |[java](Leetcode/src/com/leetcode/math/_357_CountNumberswithUniqueDigits.java)                                                             |
-| 360|Sort Transformed Array                       |[java](Leetcode/src/com/leetcode/math/_360_SortTransformedArray.java), [py](Leetcode/src/com/leetcode/math/_360_Sort_Transformed_Array.py)|
-| 365|Waterand Jug Problem                         |[java](Leetcode/src/com/leetcode/math/_365_WaterandJugProblem.java)                                                                       |
-| 372|Super Pow                                    |[java](Leetcode/src/com/leetcode/math/_372_SuperPow.java)                                                                                 |
-| 386|Lexicographical Numbers                      |[java](Leetcode/src/com/leetcode/math/_386_LexicographicalNumbers.java)                                                                   |
-| 396|Rotate Function                              |[java](Leetcode/src/com/leetcode/math/_396_RotateFunction.java)                                                                           |
-| 397|Integer Replacement                          |[java](Leetcode/src/com/leetcode/math/_397_IntegerReplacement.java)                                                                       |
-| 400|Nth Digit                                    |[java](Leetcode/src/com/leetcode/math/_400_NthDigit.java)                                                                                 |
-| 415|Add Strings                                  |[java](Leetcode/src/com/leetcode/math/_415_AddStrings.java)                                                                               |
-| 453|Minimum Movesto Equal Array Elements         |[java](Leetcode/src/com/leetcode/math/_453_MinimumMovestoEqualArrayElements.java)                                                         |
-| 462|Minimum Moves To Equal Array Elements II     |[java](Leetcode/src/com/leetcode/math/_462_MinimumMovesToEqualArrayElementsII.java)                                                       |
-| 507|Perfect Number                               |[java](Leetcode/src/com/leetcode/math/_507_PerfectNumber.java)                                                                            |
-| 509|Fibonacci Number                             |[java](Leetcode/src/com/leetcode/math/_509_FibonacciNumber.java)                                                                          |
-| 539|Minimum Time Difference                      |[java](Leetcode/src/com/leetcode/math/_539_MinimumTimeDifference.java)                                                                    |
-| 593|Square                                       |[java](Leetcode/src/com/leetcode/math/_593_Valid_Square.java)                                                                             |
-| 633|Numbers                                      |[java](Leetcode/src/com/leetcode/math/_633_Sum_of_Square_Numbers.java)                                                                    |
-| 670|Maximum Swap                                 |[java](Leetcode/src/com/leetcode/math/_670_MaximumSwap.java)                                                                              |
-| 728|Self Dividing Numbers                        |[java](Leetcode/src/com/leetcode/math/_728_SelfDividingNumbers.java)                                                                      |
-| 754|Reach A Number                               |[java](Leetcode/src/com/leetcode/math/_754_ReachANumber.java)                                                                             |
-| 780|Reaching Points                              |[java](Leetcode/src/com/leetcode/math/_780_ReachingPoints.java)                                                                           |
-| 869|Reordered Powerof                            |[java](Leetcode/src/com/leetcode/math/_869_ReorderedPowerof2.java)                                                                        |
-| 899|Orderly Queue                                |[java](Leetcode/src/com/leetcode/math/_899_OrderlyQueue.java), [py](Leetcode/src/com/leetcode/math/_899_Orderly_Queue.py)                 |
-| 902|Set                                          |[java](Leetcode/src/com/leetcode/math/_902_Numbers_At_Most_N_Given_Digit_Set.java)                                                        |
-| 908|Smallest Range I                             |[java](Leetcode/src/com/leetcode/math/_908_SmallestRangeI.java)                                                                           |
-| 910|Smallest Range II                            |[java](Leetcode/src/com/leetcode/math/_910_SmallestRangeII.java)                                                                          |
-| 970|Powerful Integers                            |[java](Leetcode/src/com/leetcode/math/_970_PowerfulIntegers.java)                                                                         |
-| 991|Broken Calculator                            |[java](Leetcode/src/com/leetcode/math/_991_BrokenCalculator.java)                                                                         |
-|1041|Robot Bounded In Circle                      |[java](Leetcode/src/com/leetcode/math/_1041_RobotBoundedInCircle.java)                                                                    |
-|1262|Greatest Sum Divisibleby Three               |[java](Leetcode/src/com/leetcode/math/_1262_GreatestSumDivisiblebyThree.java)                                                             |
-|1291|Digits                                       |[py](Leetcode/src/com/leetcode/math/_1291_Sequential_Digits.py)                                                                           |
-|1344|Angle Between Handsofa Clock                 |[java](Leetcode/src/com/leetcode/math/_1344_AngleBetweenHandsofaClock.java)                                                               |
-|1360|Numberof Days Between Two Dates              |[java](Leetcode/src/com/leetcode/math/_1360_NumberofDaysBetweenTwoDates.java)                                                             |
-|1362|Closest Divisors                             |[java](Leetcode/src/com/leetcode/math/_1362_ClosestDivisors.java)                                                                         |
-|1363|Largest Multipleof Three                     |[java](Leetcode/src/com/leetcode/math/_1363_LargestMultipleofThree.java)                                                                  |
-|1390|Four Divisors                                |[java](Leetcode/src/com/leetcode/math/_1390_FourDivisors.java)                                                                            |
-|1492|                                             |[py](Leetcode/src/com/leetcode/math/_1492_The_kth_Factor_of_n.py), [java](Leetcode/src/com/leetcode/math/_1492_ThekthFactorofn.java)      |
-|1502|Can Make Arithmetic Progression From Sequence|[java](Leetcode/src/com/leetcode/math/_1502_CanMakeArithmeticProgressionFromSequence.java)                                                |
-|1523|Count Odd Numbersinan Interval Range         |[java](Leetcode/src/com/leetcode/math/_1523_CountOddNumbersinanIntervalRange.java)                                                        |
-|1551|Minimum Operations To Make Array Equal       |[java](Leetcode/src/com/leetcode/math/_1551_MinimumOperationsToMakeArrayEqual.java)                                                       |
-|1680|Concatenation Of Consecutive Binary Numbers  |[java](Leetcode/src/com/leetcode/math/_1680_ConcatenationOfConsecutiveBinaryNumbers.java)                                                 |
+|No. |                          Problem                          |                                                                Solutions                                                                 |
+|---:|-----------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+|   1|Two Sum                                                    |[java](Leetcode/src/com/leetcode/math/_1_TwoSum.java)                                                                                     |
+|   7|Reverse Integer                                            |[java](Leetcode/src/com/leetcode/math/_7_ReverseInteger.java)                                                                             |
+|   8|String To Integer                                          |[java](Leetcode/src/com/leetcode/math/_8_StringToInteger.java)                                                                            |
+|  29|Divide Two Integers                                        |[java](Leetcode/src/com/leetcode/math/_29_DivideTwoIntegers.java)                                                                         |
+|  50|Pow XN                                                     |[java](Leetcode/src/com/leetcode/math/_50_PowXN.java)                                                                                     |
+|  66|Plus One                                                   |[java](Leetcode/src/com/leetcode/math/_66_PlusOne.java)                                                                                   |
+|  69|Sqrt X                                                     |[java](Leetcode/src/com/leetcode/math/_69_SqrtX.java)                                                                                     |
+| 165|Compare Version Numbers                                    |[java](Leetcode/src/com/leetcode/math/_165_CompareVersionNumbers.java)                                                                    |
+| 171|Excel Sheet Column Number                                  |[java](Leetcode/src/com/leetcode/math/_171_ExcelSheetColumnNumber.java)                                                                   |
+| 172|Factorial Trailing Zeroes                                  |[java](Leetcode/src/com/leetcode/math/_172_FactorialTrailingZeroes.java)                                                                  |
+| 202|Happy Number                                               |[java](Leetcode/src/com/leetcode/math/_202_HappyNumber.java)                                                                              |
+| 204|Count Primes                                               |[java](Leetcode/src/com/leetcode/math/_204_CountPrimes.java)                                                                              |
+| 231|Power Of Two                                               |[java](Leetcode/src/com/leetcode/math/_231_PowerOfTwo.java)                                                                               |
+| 233|Numberof Digit One                                         |[java](Leetcode/src/com/leetcode/math/_233_NumberofDigitOne.java)                                                                         |
+| 258|Add Digits                                                 |[java](Leetcode/src/com/leetcode/math/_258_AddDigits.java)                                                                                |
+| 263|Ugly Number                                                |[java](Leetcode/src/com/leetcode/math/_263_UglyNumber.java)                                                                               |
+| 292|Nim Game                                                   |[java](Leetcode/src/com/leetcode/math/_292_NimGame.java)                                                                                  |
+| 319|Bulb Switcher                                              |[java](Leetcode/src/com/leetcode/math/_319_BulbSwitcher.java)                                                                             |
+| 326|Powerof Three                                              |[java](Leetcode/src/com/leetcode/math/_326_PowerofThree.java)                                                                             |
+| 342|Powerof Four                                               |[java](Leetcode/src/com/leetcode/math/_342_PowerofFour.java)                                                                              |
+| 357|Count Numberswith Unique Digits                            |[java](Leetcode/src/com/leetcode/math/_357_CountNumberswithUniqueDigits.java)                                                             |
+| 360|Sort Transformed Array                                     |[java](Leetcode/src/com/leetcode/math/_360_SortTransformedArray.java), [py](Leetcode/src/com/leetcode/math/_360_Sort_Transformed_Array.py)|
+| 365|Waterand Jug Problem                                       |[java](Leetcode/src/com/leetcode/math/_365_WaterandJugProblem.java)                                                                       |
+| 372|Super Pow                                                  |[java](Leetcode/src/com/leetcode/math/_372_SuperPow.java)                                                                                 |
+| 386|Lexicographical Numbers                                    |[java](Leetcode/src/com/leetcode/math/_386_LexicographicalNumbers.java)                                                                   |
+| 396|Rotate Function                                            |[java](Leetcode/src/com/leetcode/math/_396_RotateFunction.java)                                                                           |
+| 397|Integer Replacement                                        |[java](Leetcode/src/com/leetcode/math/_397_IntegerReplacement.java)                                                                       |
+| 400|Nth Digit                                                  |[java](Leetcode/src/com/leetcode/math/_400_NthDigit.java)                                                                                 |
+| 415|Add Strings                                                |[java](Leetcode/src/com/leetcode/math/_415_AddStrings.java)                                                                               |
+| 453|Minimum Movesto Equal Array Elements                       |[java](Leetcode/src/com/leetcode/math/_453_MinimumMovestoEqualArrayElements.java)                                                         |
+| 462|Minimum Moves To Equal Array Elements II                   |[java](Leetcode/src/com/leetcode/math/_462_MinimumMovesToEqualArrayElementsII.java)                                                       |
+| 507|Perfect Number                                             |[java](Leetcode/src/com/leetcode/math/_507_PerfectNumber.java)                                                                            |
+| 509|Fibonacci Number                                           |[java](Leetcode/src/com/leetcode/math/_509_FibonacciNumber.java)                                                                          |
+| 539|Minimum Time Difference                                    |[java](Leetcode/src/com/leetcode/math/_539_MinimumTimeDifference.java)                                                                    |
+| 593|Square                                                     |[java](Leetcode/src/com/leetcode/math/_593_Valid_Square.java)                                                                             |
+| 633|Numbers                                                    |[java](Leetcode/src/com/leetcode/math/_633_Sum_of_Square_Numbers.java)                                                                    |
+| 670|Maximum Swap                                               |[java](Leetcode/src/com/leetcode/math/_670_MaximumSwap.java)                                                                              |
+| 728|Self Dividing Numbers                                      |[java](Leetcode/src/com/leetcode/math/_728_SelfDividingNumbers.java)                                                                      |
+| 754|Reach A Number                                             |[java](Leetcode/src/com/leetcode/math/_754_ReachANumber.java)                                                                             |
+| 780|Reaching Points                                            |[java](Leetcode/src/com/leetcode/math/_780_ReachingPoints.java)                                                                           |
+| 869|Reordered Powerof                                          |[java](Leetcode/src/com/leetcode/math/_869_ReorderedPowerof2.java)                                                                        |
+| 899|Orderly Queue                                              |[java](Leetcode/src/com/leetcode/math/_899_OrderlyQueue.java), [py](Leetcode/src/com/leetcode/math/_899_Orderly_Queue.py)                 |
+| 902|Set                                                        |[java](Leetcode/src/com/leetcode/math/_902_Numbers_At_Most_N_Given_Digit_Set.java)                                                        |
+| 908|Smallest Range I                                           |[java](Leetcode/src/com/leetcode/math/_908_SmallestRangeI.java)                                                                           |
+| 910|Smallest Range II                                          |[java](Leetcode/src/com/leetcode/math/_910_SmallestRangeII.java)                                                                          |
+| 970|Powerful Integers                                          |[java](Leetcode/src/com/leetcode/math/_970_PowerfulIntegers.java)                                                                         |
+| 991|Broken Calculator                                          |[java](Leetcode/src/com/leetcode/math/_991_BrokenCalculator.java)                                                                         |
+|1041|Robot Bounded In Circle                                    |[java](Leetcode/src/com/leetcode/math/_1041_RobotBoundedInCircle.java)                                                                    |
+|1262|Greatest Sum Divisibleby Three                             |[java](Leetcode/src/com/leetcode/math/_1262_GreatestSumDivisiblebyThree.java)                                                             |
+|1291|Digits                                                     |[py](Leetcode/src/com/leetcode/math/_1291_Sequential_Digits.py)                                                                           |
+|1344|Angle Between Handsofa Clock                               |[java](Leetcode/src/com/leetcode/math/_1344_AngleBetweenHandsofaClock.java)                                                               |
+|1360|Numberof Days Between Two Dates                            |[java](Leetcode/src/com/leetcode/math/_1360_NumberofDaysBetweenTwoDates.java)                                                             |
+|1362|Closest Divisors                                           |[java](Leetcode/src/com/leetcode/math/_1362_ClosestDivisors.java)                                                                         |
+|1363|Largest Multipleof Three                                   |[java](Leetcode/src/com/leetcode/math/_1363_LargestMultipleofThree.java)                                                                  |
+|1390|Four Divisors                                              |[java](Leetcode/src/com/leetcode/math/_1390_FourDivisors.java)                                                                            |
+|1492|                                                           |[py](Leetcode/src/com/leetcode/math/_1492_The_kth_Factor_of_n.py), [java](Leetcode/src/com/leetcode/math/_1492_ThekthFactorofn.java)      |
+|1502|Can Make Arithmetic Progression From Sequence              |[java](Leetcode/src/com/leetcode/math/_1502_CanMakeArithmeticProgressionFromSequence.java)                                                |
+|1523|Count Odd Numbersinan Interval Range                       |[java](Leetcode/src/com/leetcode/math/_1523_CountOddNumbersinanIntervalRange.java)                                                        |
+|1551|Minimum Operations To Make Array Equal                     |[java](Leetcode/src/com/leetcode/math/_1551_MinimumOperationsToMakeArrayEqual.java)                                                       |
+|1680|Concatenation Of Consecutive Binary Numbers                |[java](Leetcode/src/com/leetcode/math/_1680_ConcatenationOfConsecutiveBinaryNumbers.java)                                                 |
+|3091|Apply Operationsto Make Sumof Array Greater Thanor Equaltok|[java](Leetcode/src/com/leetcode/math/_3091_Apply OperationstoMakeSumofArrayGreaterThanorEqualtok.java)                                   |
 # Sum
 |No.|        Problem        |                               Solutions                                |
 |--:|-----------------------|------------------------------------------------------------------------|
@@ -842,11 +844,13 @@
 | 677|Map Sum Pairs                         |[java](Leetcode/src/com/leetcode/trie/_677_MapSumPairs.java)                      |
 |1268|Search Suggestions System             |[java](Leetcode/src/com/leetcode/trie/_1268_SearchSuggestionsSystem.java)         |
 |1707|Maximum XOR With An Element From Array|[java](Leetcode/src/com/leetcode/trie/_1707_MaximumXORWithAnElementFromArray.java)|
+|2416|Sumof Prefix Scoresof Strings         |[java](Leetcode/src/com/leetcode/trie/_2416_SumofPrefixScoresofStrings.java)      |
 # Greedy
 |No. |                          Problem                           |                                                             Solutions                                                              |
 |---:|------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
 |  45|Jump Game II                                                |[java](Leetcode/src/com/leetcode/greedy/_45_JumpGameII.java)                                                                        |
 |  80|Remove Duplicate From Sorted Array II                       |[java](Leetcode/src/com/leetcode/greedy/_80_RemoveDuplicateFromSortedArrayII.java)                                                  |
+| 134|Gas Station                                                 |[java](Leetcode/src/com/leetcode/greedy/_134_GasStation.java), [py](Leetcode/src/com/leetcode/greedy/_134_gas_station.py)           |
 | 402|Remove K Digits                                             |[java](Leetcode/src/com/leetcode/greedy/_402_RemoveKDigits.java)                                                                    |
 | 406|Queue Reconstructionby Height                               |[java](Leetcode/src/com/leetcode/greedy/_406_QueueReconstructionbyHeight.java)                                                      |
 | 455|Assign Cookies                                              |[java](Leetcode/src/com/leetcode/greedy/_455_AssignCookies.java)                                                                    |
@@ -1060,6 +1064,7 @@
 |1358|Numberof Substrings Containing All Three Characters                     |[java](Leetcode/src/com/leetcode/string/sliding_window/_1358_NumberofSubstringsContainingAllThreeCharacters.java)                 |
 |1438|Longest Continuous Subarray With Absolute Diff Less Thanor Equalto Limit|[java](Leetcode/src/com/leetcode/string/sliding_window/_1438_LongestContinuousSubarrayWithAbsoluteDiffLessThanorEqualtoLimit.java)|
 |1493|Longest Subarrayof After Deleting One Element                           |[java](Leetcode/src/com/leetcode/string/sliding_window/_1493_LongestSubarrayof1sAfterDeletingOneElement.java)                     |
+|3090|Maximum Length Substring With Two Occurrences                           |[java](Leetcode/src/com/leetcode/string/sliding_window/_3090_MaximumLengthSubstringWithTwoOccurrences.java)                       |
 # Palindrome
 |No. |            Problem            |                                             Solutions                                             |
 |---:|-------------------------------|---------------------------------------------------------------------------------------------------|
