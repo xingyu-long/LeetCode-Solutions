@@ -1,26 +1,20 @@
-'''
-Date: 11/20/2020 19:21:15
-LastEditTime: 11/20/2020 19:29:49
-Description: BST, min, max
-'''
+from math import inf
+from typing import Optional
 
-from Leetcode.src.com.leetcode.common import TreeNode
+from leetcode.common.py_utils import TreeNode
 
 
 class Solution:
-    def isValidBST(self, root: TreeNode) -> bool:
-        if not root:
-            return True
-        return self.dfs(root, None, None)
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
 
+        def dfs(root, curr_min: int, curr_max: int) -> bool:
+            if not root:
+                return True
+            if root.val <= curr_min or root.val >= curr_max:
+                return False
 
-def dfs(self, root, curr_min, curr_max):
-    if not root:
-        return True
+            left = dfs(root.left, curr_min, min(curr_max, root.val))
+            right = dfs(root.right, max(curr_min, root.val), curr_max)
+            return left and right
 
-    if curr_min != None and root.val <= curr_min:
-        return False
-    if curr_max != None and root.val >= curr_max:
-        return False
-
-    return self.dfs(root.left, curr_min, root.val) and self.dfs(root.right, root.val, curr_max)
+        return dfs(root, -inf, inf)

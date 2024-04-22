@@ -1,20 +1,9 @@
-'''
-Date: 08/14/2022 14:29:52
-LastEditTime: 08/14/2022 14:31:19
-Description: BFS
-'''
 from collections import deque
 
-
-# Definition for a binary tree node.
-class TreeNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+from leetcode.common.py_utils import TreeNode
 
 
-class Solution:
+class Codec:
 
     def serialize(self, root):
         """Encodes a tree to a single string.
@@ -27,19 +16,17 @@ class Solution:
         queue = deque()
         queue.append(root)
         res = []
-        while len(queue):
+        while queue:
             size = len(queue)
             for _ in range(size):
                 curr = queue.popleft()
                 if not curr:
-                    res.append('*')
-                    continue
+                    res.append("#")
                 else:
                     res.append(str(curr.val))
-                queue.append(curr.left)
-                queue.append(curr.right)
-
-        return ','.join(res)
+                    queue.append(curr.left)
+                    queue.append(curr.right)
+        return ",".join(res)
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.
@@ -47,29 +34,62 @@ class Solution:
         :type data: str
         :rtype: TreeNode
         """
-        if data == "":
+        if len(data) == 0:
             return None
-        splits = data.split(',')
-        root = TreeNode(int(splits[0]))
-        idx = 1
+        arr = data.split(",")
+        i = 0
+        root = TreeNode(int(arr[i]))
+        i += 1
         queue = deque()
         queue.append(root)
-        while len(queue) and idx < len(splits):
-            curr = queue.popleft()
-            if not curr:
-                continue
-            left = splits[idx]
-            if left != '*':
-                curr.left = TreeNode(int(left))
-            else:
-                curr.left = None
-            queue.append(curr.left)
-            idx += 1
-            right = splits[idx]
-            if right != '*':
-                curr.right = TreeNode(int(right))
-            else:
-                curr.right = None
-            queue.append(curr.right)
-            idx += 1
+        while queue and i < len(arr):
+            size = len(queue)
+            for _ in range(size):
+                curr = queue.popleft()
+                left = arr[i]
+                i += 1
+                right = arr[i]
+                i += 1
+                if left != "#":
+                    curr.left = TreeNode(int(left))
+                    queue.append(curr.left)
+                if right != "#":
+                    curr.right = TreeNode(int(right))
+                    queue.append(curr.right)
         return root
+
+
+class Codec2:
+
+    def serialize(self, root):
+        """Encodes a tree to a single string.
+
+        :type root: TreeNode
+        :rtype: str
+        """
+        if not root:
+            return "#"
+        left = self.serialize(root.left)
+        right = self.serialize(root.right)
+        return f"{root.val},{left},{right}"
+
+    def deserialize(self, data):
+        """Decodes your encoded data to tree.
+
+        :type data: str
+        :rtype: TreeNode
+        """
+
+        def dfs(queue: deque):
+            curr = queue.popleft()
+            if curr == "#":
+                return None
+            root = TreeNode(int(curr))
+            root.left = dfs(queue)
+            root.right = dfs(queue)
+            return root
+
+        if not data:
+            return None
+        queue = deque(data.split(","))
+        return dfs(queue)

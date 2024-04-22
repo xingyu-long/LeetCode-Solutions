@@ -1,12 +1,16 @@
-'''
+"""
 Date: 11/20/2020 19:49:08
 LastEditTime: 11/20/2020 19:49:44
 Description: LCA
-'''
+"""
+
+from leetcode.common.py_utils import TreeNode
 
 
 class Solution:
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+    def lowestCommonAncestor(
+        self, root: "TreeNode", p: "TreeNode", q: "TreeNode"
+    ) -> "TreeNode":
         if not root:
             return None
         while root:
