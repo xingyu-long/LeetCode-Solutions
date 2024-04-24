@@ -16,3 +16,12 @@ class Node:
         self.val = int(x)
         self.next = next
         self.random = random
+
+class TrieNode:
+    def __init__(self):
+        self.children = dict()
+        self.is_word = False
+        self.word = None
+
+    def __repr__(self):
+        return f"children={self.children}, is_word={self.is_word}, word={self.word}"
