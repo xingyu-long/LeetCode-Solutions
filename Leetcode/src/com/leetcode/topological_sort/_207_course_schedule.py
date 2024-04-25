@@ -1,10 +1,3 @@
-'''
-Date: 08/26/2022 14:22:58
-LastEditTime: 08/26/2022 14:24:12
-Description: Topological Sort
-'''
-
-
 from collections import defaultdict, deque
 from typing import List
 
