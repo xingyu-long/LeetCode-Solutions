@@ -1,36 +1,33 @@
-'''
-Date: 08/09/2022 15:46:35
-LastEditTime: 08/09/2022 15:47:40
-Description: BFS
-'''
-import string
 from collections import deque
 from typing import List
 
 
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
-        queue = deque()
-        s, visited = set(wordList), set()
-        if endWord not in s:
+        word_set = set(wordList)
+        if endWord not in word_set:
             return 0
-        s.discard(beginWord)
+        visited = set()
+        queue = deque()
+        res = 1
         queue.append(beginWord)
-        steps = 1
-        while len(queue) != 0:
+        visited.add(beginWord)
+        while queue:
             size = len(queue)
             for _ in range(size):
                 curr = queue.popleft()
                 for i in range(len(curr)):
-                    chs = list(curr)
-                    for tmp in string.ascii_lowercase:
-                        chs[i] = tmp
-                        new_str = ''.join(chs)
-                        if new_str in s and new_str not in visited:
-                            visited.add(new_str)
-                            queue.append(new_str)
-                            if new_str == endWord:
-                                steps += 1
-                                return steps
-            steps += 1
+                    temp = list(curr)
+                    for j in range(26):
+                        temp[i] = chr(ord("a") + j)
+                        temp_str = "".join(temp)
+                        if temp_str in visited:
+                            continue
+                        if temp_str == endWord:
+                            return res + 1
+                        if temp_str in word_set:
+                            queue.append(temp_str)
+                            visited.add(temp_str)
+            res += 1
+
         return 0
