@@ -1,8 +1,3 @@
-'''
-Date: 08/11/2022 17:14:55
-LastEditTime: 08/11/2022 17:14:56
-Description: Heapq
-'''
 from heapq import heappush, heappop
 
 
