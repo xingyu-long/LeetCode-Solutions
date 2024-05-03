@@ -14,6 +14,7 @@ class Solution:
             if not root:
                 return 0
 
+            # 忽略那些为负的子树，还不如不包括进来
             left = max(dfs(root.left), 0)
             right = max(dfs(root.right), 0)
             res = max(res, left + right + root.val)
