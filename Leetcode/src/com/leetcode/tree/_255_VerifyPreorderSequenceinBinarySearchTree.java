@@ -38,6 +38,7 @@ public class _255_VerifyPreorderSequenceinBinarySearchTree {
         return true;
     }
     // 还是模仿reconstruct树那个思路
+    // time: O(nlogn)
     public static boolean verifyPreorder3(int[] preorder) {
         return validBSTByBoundary(preorder, Integer.MIN_VALUE, Integer.MAX_VALUE, 0, preorder.length - 1);
     }

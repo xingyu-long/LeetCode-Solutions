@@ -4,27 +4,23 @@ from collections import deque
 
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
-        if not graph:
-            return True
-        d = dict()
-        q = deque()
-        # Go through each possible start point
-        for i in range(len(graph)):
-            if i in d:
+        n = len(graph)
+        queue = deque()
+        m = {}
+        # start from every possible starting point
+        for i in range(n):
+            if i in m:
                 continue
-            # Use i as start point
-            q.append(i)
-            d[i] = 1
-            while len(q) > 0:
-                current = q.pop()
-                # Find next level
-                adj_nodes = graph[current]
-                next_label = d[current] * -1
-                for node in adj_nodes:
-                    if node in d:
-                        if d[node] != next_label:
-                            return False
+            queue.append((i, 1))
+            m[i] = 1
+            while queue:
+                curr, color = queue.popleft()
+                adjs = graph[curr]
+                for adj in adjs:
+                    if adj not in m:
+                        m[adj] = -color
+                        queue.append((adj, m[adj]))
                     else:
-                        d[node] = next_label
-                        q.append(node)
+                        if m[adj] != -color:
+                            return False
         return True
