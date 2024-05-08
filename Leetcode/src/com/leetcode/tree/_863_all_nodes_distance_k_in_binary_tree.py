@@ -1,51 +1,44 @@
-'''
-Date: 08/14/2022 17:16:30
-LastEditTime: 08/14/2022 17:19:05
-Description: BFS, graph
-'''
 from collections import defaultdict, deque
 from typing import List
-
-
-# Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+from leetcode.common.py_utils import TreeNode
 
 
 class Solution:
-
-    # time: O(N + k * edges -> N)
     def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
-        d = defaultdict(lambda: set())
+        if not root:
+            return None
 
-        def build(root, prev):
+        def build_graph(graph, root):
             if not root:
                 return
 
-            if prev:
-                d[prev.val].add(root.val)
-                d[root.val].add(prev.val)
+            if root.left:
+                graph[root.val].add(root.left.val)
+                graph[root.left.val].add(root.val)
+            if root.right:
+                graph[root.val].add(root.right.val)
+                graph[root.right.val].add(root.val)
 
-            build(root.left, root)
-            build(root.right, root)
+            build_graph(graph, root.left)
+            build_graph(graph, root.right)
 
-        build(root, None)
+        graph = defaultdict(set)
+        build_graph(graph, root)
+        # BFS
         res = []
         queue = deque()
         queue.append((target.val, k))
-        visited = set()
-        visited.add(target.val)
-        while len(queue):
+        visited = set([target.val])
+        while queue:
             size = len(queue)
             for _ in range(size):
-                curr, step = queue.popleft()
-                if step == 0:
+                curr, stops = queue.popleft()
+                if stops == 0:
                     res.append(curr)
-                for adj in d[curr]:
-                    if adj not in visited:
-                        queue.append((adj, step - 1))
+                    continue
+                for adj in graph[curr]:
+                    if adj not in visited and stops > 0:
                         visited.add(adj)
+                        queue.append((adj, stops - 1))
+
         return res

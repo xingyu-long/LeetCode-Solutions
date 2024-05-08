@@ -20,6 +20,7 @@ public class _523_ContinuousSubarraySum {
         }
         int n = nums.length;
         Map<Integer, Integer> map = new HashMap<>();
+        // [23,2,4,6,6], k=7
         map.put(0, -1);
         int sum = 0;
         for (int i = 0; i < n; i++) {

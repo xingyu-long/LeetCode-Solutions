@@ -1,8 +1,3 @@
-'''
-Date: 08/18/2022 16:30:00
-LastEditTime: 08/18/2022 16:32:22
-Description: Mono Deque
-'''
 from collections import deque
 from typing import List
 
@@ -14,27 +9,31 @@ class Solution:
     当前的区间是否小于当前的limit，如果大于的话就说明需要移动
     start的位置并且需要删除在两个队列里的对应位置
     """
+
     # time: O(n) space: O(n)
     def longestSubarray(self, nums: List[int], limit: int) -> int:
-        min_deque = deque()
-        max_deque = deque()
-        res, start = 0, 0
-        for idx, num in enumerate(nums):
-            while len(min_deque) and num < nums[min_deque[-1]]:
-                min_deque.pop()
-            min_deque.append(idx)
+        # min, max of sub array <= limit
+        n = len(nums)
+        res = 0
+        start, end = 0, 0
+        min_queue = deque()
+        max_queue = deque()
+        while end < n:
+            while min_queue and nums[end] < nums[min_queue[-1]]:
+                min_queue.pop()
+            min_queue.append(end)
 
-            while len(max_deque) and num > nums[max_deque[-1]]:
-                max_deque.pop()
-            max_deque.append(idx)
+            while max_queue and nums[end] > nums[max_queue[-1]]:
+                max_queue.pop()
+            max_queue.append(end)
 
-            while nums[max_deque[0]] - nums[min_deque[0]] > limit:
-                if nums[max_deque[0]] == nums[start]:
-                    max_deque.popleft()
-                if nums[min_deque[0]] == nums[start]:
-                    min_deque.popleft()
+            while nums[max_queue[0]] - nums[min_queue[0]] > limit:
+                if nums[max_queue[0]] == nums[start]:
+                    max_queue.popleft()
+                if nums[min_queue[0]] == nums[start]:
+                    min_queue.popleft()
                 start += 1
 
-            res = max(res, idx - start + 1)
-
+            res = max(res, end - start + 1)
+            end += 1
         return res
