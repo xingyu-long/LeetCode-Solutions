@@ -8,7 +8,7 @@ import java.util.PriorityQueue;
  **/
 public class _215_KthLargestElementinanArray {
 
-    // time: O(nlogn)
+    // time: O(nlogn) -> on average O(n)
     // 1. 使用快速选择
     public int findKthLargest(int[] nums, int k) {
         // 因为快速选择是正序排序，则这里的找第k个最大的数，就可以视为n-k个最小的数
