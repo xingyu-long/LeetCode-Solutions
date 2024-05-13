@@ -1,13 +1,8 @@
 class Solution:
     def calculate(self, s: str) -> int:
-        if not s:
-            return 0
-
         sign = "+"
-        num = 0
-        curr_res = 0
-        res = 0
-        n = len(s)
+        num, n = 0, len(s)
+        stack = []
 
         i = 0
         while i < n:
@@ -31,16 +26,12 @@ class Solution:
 
             if ch == "+" or ch == "-" or i == n - 1:
                 if sign == "+":
-                    curr_res += num
+                    stack.append(num)
                 elif sign == "-":
-                    curr_res -= num
-
-                if ch == "+" or ch == "-" or i == n - 1:
-                    res += curr_res
-                    curr_res = 0
+                    stack.append(-num)
 
                 sign = ch
                 num = 0
 
             i += 1
-        return res
+        return sum(stack)

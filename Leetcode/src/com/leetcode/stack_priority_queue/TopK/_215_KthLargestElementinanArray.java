@@ -28,6 +28,18 @@ public class _215_KthLargestElementinanArray {
         return nums[k];
     }
 
+    public int partition2(int[] nums, int left, int right) {
+        int pivot = nums[right];
+        int wall = left;
+        for (int i = left; i < right; i++) {
+            if (nums[i] < pivot) {
+                swap(nums, i, wall);
+                wall++;
+            }
+        }
+        swap(nums, wall, right);
+        return wall;
+    }
     // 写法就按照这样来，这样i和j都会在等于hi或者lo的时候 break。
     public int partition(int[] nums, int lo, int hi) {
         int i = lo, j = hi + 1;
