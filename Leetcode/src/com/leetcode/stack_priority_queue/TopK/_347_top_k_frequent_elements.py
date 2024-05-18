@@ -44,14 +44,14 @@ class Solution2:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         if not nums:
             return []
-        m = Counter(nums)
-        buckets = [[] for _ in range(len(nums) + 1)]
-        for num, freq in m.items():
-            buckets[freq].append(num)
-
+        counter = Counter(nums)
+        max_freq = max(counter.values()) + 1
+        buckets = [[] for _ in range(max_freq)]
+        for item, freq in counter.items():
+            buckets[freq].append(item)
         res = []
-        for freq in range(len(nums), -1, -1):
-            for item in buckets[freq]:
+        for i in range(max_freq)[::-1]:
+            for item in buckets[i]:
                 if len(res) < k:
                     res.append(item)
                 else:
