@@ -16,7 +16,7 @@ class UnionFind:
         root_q = self.find(q)
         if root_p == root_q:
             return False
-        self.id[self.find(p)] = self.find(q)
+        self.id[root_p] = root_q
         return True
 
 
