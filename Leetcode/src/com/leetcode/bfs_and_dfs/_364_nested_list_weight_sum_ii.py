@@ -6,25 +6,24 @@ from leetcode.common.py_utils import NestedInteger
 
 class Solution:
     def depthSumInverse(self, nestedList: List[NestedInteger]) -> int:
-        queue = deque()
-        for l in nestedList:
-            queue.append(l)
         res = 0
+        queue = deque()
+        for item in nestedList:
+            queue.append(item)
+
         prev = 0
         while queue:
             size = len(queue)
-            res += prev
+            level_total = prev
             for _ in range(size):
-                level_sum = 0
                 curr = queue.popleft()
                 if curr.isInteger():
-                    res += curr.getInteger()
-                    level_sum += curr.getInteger()
+                    level_total += curr.getInteger()
                 else:
-                    for l in curr.getList():
-                        queue.append(l)
+                    for item in curr.getList():
+                        queue.append(item)
 
-                # cache this level sum
-                prev += level_sum
+            res += level_total
+            prev = level_total
 
         return res
