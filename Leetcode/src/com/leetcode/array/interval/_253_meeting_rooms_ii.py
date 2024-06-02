@@ -26,21 +26,40 @@ class Solution:
         return res
 
 
-class Solution:
+class Solution2:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
         if not intervals:
             return 0
-        heap = []
-        n = len(intervals)
+
         intervals.sort(key=lambda x: x[0])
-        heappush(heap, intervals[0][1])
-        for i in range(1, n):
-            end = heappop(heap)
-            # 可以接着房间用
-            if intervals[i][0] >= end:
-                _, end = intervals[i]
+        heap = []
+        heappush(heap, (intervals[0][1]))
+        for i in range(1, len(intervals)):
+            curr_end = heappop(heap)
+            if intervals[i][0] < curr_end:
+                heappush(heap, (intervals[i][1]))
             else:
-                # 这个就交叉了，一定需要新的房间
-                heappush(heap, intervals[i][1])
-            heappush(heap, end)
+                curr_end = intervals[i][1]
+            heappush(heap, (curr_end))
+
         return len(heap)
+
+
+class Solution3:
+    # sweep line
+    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+        if not intervals:
+            return 0
+
+        arr = []
+        for start, end in intervals:
+            arr.append([start, 1])
+            arr.append([end, -1])
+
+        arr.sort(key=lambda x: (x[0], x[1]))
+
+        res, count = 0, 0
+        for _, op in arr:
+            count += op
+            res = max(res, count)
+        return res

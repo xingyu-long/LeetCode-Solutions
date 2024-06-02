@@ -14,3 +14,21 @@ class Solution:
             else:
                 res.append([start, end])
         return res
+
+
+class Solution2:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        intervals.sort(key=lambda x: x[0])
+        res = []
+        n = len(intervals)
+        start, end = intervals[0]
+        for i in range(1, n):
+            i_start, i_end = intervals[i]
+            if i_start > end:
+                res.append([start, end])
+                start, end = intervals[i]
+            else:
+                end = max(end, i_end)
+
+        res.append([start, end])
+        return res
