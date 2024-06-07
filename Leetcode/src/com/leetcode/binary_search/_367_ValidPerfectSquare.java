@@ -20,25 +20,6 @@ public class _367_ValidPerfectSquare {
         return false;
     }
 
-    // binary search time: O(logn) space:O(1)
-    // 注意使用long来保持 (why？？？)
-    // mid * mid 可能出现越界的情况，并且long可以直接和int比较
-    public static boolean isPerfectSquare2(int num) {
-        int lo = 1;
-        int hi = num;
-        while (lo <= hi) {
-            long mid = lo + (hi - lo) / 2;
-            if (mid * mid == num) {
-                return true;
-            } else if (mid * mid < num) {
-                lo = (int) mid + 1;
-            } else {
-                hi = (int) mid - 1;
-            }
-        }
-        return false;
-    }
-
     // 这样也不用long来保存值，并且不用担心取整的问题
     public boolean isPerfectSquare3(int num) {
         int left = 0;
