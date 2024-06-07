@@ -10,6 +10,7 @@ public class _464_CanIWin {
         if (desiredTotal <= maxChoosableInteger) {
             return true;
         }
+        // sum from 1, 2, 3, ... maxChoosableInteger
         int sum = ((1 + maxChoosableInteger) / 2 * maxChoosableInteger);
         if (sum < desiredTotal)
             return false;
