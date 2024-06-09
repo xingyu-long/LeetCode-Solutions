@@ -4,11 +4,6 @@
 *.iml
 *.class
 *.json
-Leetcode/src/com/ctci/*
-Leetcode/src/com/EPI/*
-Leetcode/src/com/intern/*
-Leetcode/src/com/new_grad/*
-Leetcode/src/com/pramp/*
 Leetcode/.idea/*
 Leetcode/.vscode/*
 Leetcode/out/*
