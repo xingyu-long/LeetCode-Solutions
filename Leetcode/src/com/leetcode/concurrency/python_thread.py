@@ -68,6 +68,6 @@ def run_barrier_example():
         t.join()
 
 
-# run_condition_example()
+run_condition_example()
 # run_semaphores_example()
 # run_barrier_example()
