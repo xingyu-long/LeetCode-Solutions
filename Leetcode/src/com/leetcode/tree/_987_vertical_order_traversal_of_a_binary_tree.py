@@ -1,18 +1,7 @@
-'''
-Date: 09/04/2022 10:04:42
-LastEditTime: 09/04/2022 10:06:52
-Description: Sort, Tree
-'''
 from collections import defaultdict, deque
 from typing import List, Optional
 
-
-# Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from leetcode.common.py_utils import TreeNode
 
 
 class Solution:
