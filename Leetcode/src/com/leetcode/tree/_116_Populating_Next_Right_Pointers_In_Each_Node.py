@@ -1,13 +1,15 @@
-'''
-Date: 12/29/2021 18:18:09
-LastEditTime: 12/29/2021 18:25:18
-Description: Tree, Recursive, Iterative
-'''
-# brute force: Use queue to store node and then go through each level.
-
 # Definition for a Node.
+from typing import Optional
+
+
 class Node:
-    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):
+    def __init__(
+        self,
+        val: int = 0,
+        left: "Node" = None,
+        right: "Node" = None,
+        next: "Node" = None,
+    ):
         self.val = val
         self.left = left
         self.right = right
@@ -15,8 +17,7 @@ class Node:
 
 
 class Solution:
-    def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
-        #         # recursively
+    def connect(self, root: "Optional[Node]") -> "Optional[Node]":
         if not root:
             return None
 
@@ -32,7 +33,7 @@ class Solution:
 
         return root
 
-    def connect2(self, root: 'Optional[Node]') -> 'Optional[Node]':
+    def connect2(self, root: "Optional[Node]") -> "Optional[Node]":
         curr = root
         while curr:
             next_level = curr.left

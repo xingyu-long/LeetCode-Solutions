@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Solution:
     # time: O(n + n -> n)
     # space: O(1)
@@ -18,7 +19,8 @@ class Solution:
         for i in range(idx, len(nums)):
             nums[i] = 0
         return nums
-        
+
+
 class Solution2:
     # time: O(n)
     # space: O(1)
@@ -27,7 +29,7 @@ class Solution2:
         """
         Do not return anything, modify nums in-place instead.
         """
-        # swap elements btween no-zero and zero
+        # swap elements between no-zero and zero
         if not nums:
             return None
         i, j, n = 0, 0, len(nums)
@@ -37,4 +39,3 @@ class Solution2:
                 j += 1
             i += 1
         return nums
-        
