@@ -56,6 +56,7 @@ class Solution3:
             arr.append([start, 1])
             arr.append([end, -1])
 
+        # 需要把-1排到前面来。[[13,15],[1,13]]
         arr.sort(key=lambda x: (x[0], x[1]))
 
         res, count = 0, 0
