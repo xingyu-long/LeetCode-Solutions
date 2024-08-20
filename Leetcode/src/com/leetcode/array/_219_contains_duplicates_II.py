@@ -20,24 +20,10 @@ Output: false
  
 """
 
+
 class Solution:
-    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
-        m = {}
-        for idx, num in enumerate(nums):
-            if num not in m:
-                m[num] = list()
-            m[num].append(idx)
-        for key in m.keys():
-            for i in range(len(m[key])):
-                if i > 0 and abs(m[key][i] - m[key][i - 1]) <= k:
-                    return True
-        return False
-
-
-class Solution2:
     # time: O(n)
     # space: O(distinct of nums)
-    # similar to Solution above, however, we don't need to record idx every time.
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
         m = {}
         for idx, num in enumerate(nums):
