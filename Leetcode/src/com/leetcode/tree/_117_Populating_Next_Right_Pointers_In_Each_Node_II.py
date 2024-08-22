@@ -1,13 +1,12 @@
-'''
-Date: 12/06/2020 09:41:37
-LastEditTime: 12/29/2021 18:43:04
-Description: Traversal by level.
-'''
-
-
 # Definition for a Node.
 class Node:
-    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):
+    def __init__(
+        self,
+        val: int = 0,
+        left: "Node" = None,
+        right: "Node" = None,
+        next: "Node" = None,
+    ):
         self.val = val
         self.left = left
         self.right = right
@@ -15,7 +14,7 @@ class Node:
 
 
 class Solution:
-    def connect(self, root: 'Node') -> 'Node':
+    def connect(self, root: "Node") -> "Node":
         if not root:
             return None
         curr = root
