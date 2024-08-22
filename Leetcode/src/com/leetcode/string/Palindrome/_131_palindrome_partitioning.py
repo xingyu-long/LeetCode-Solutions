@@ -59,3 +59,33 @@ class Solution2:
         dp = build_palindrome()
         dfs([], 0)
         return res
+
+
+class Solution3:
+    def partition(self, s: str) -> List[List[str]]:
+        # dp + word break II?
+        n = len(s)
+        dp = [[False] * n for _ in range(n)]
+        for i in range(n):
+            dp[i][i] = True
+            for j in range(i + 1):
+                dp[j][i] = s[j] == s[i] and (i - j <= 2 or dp[j + 1][i - 1])
+
+        def dfs(idx):
+            if idx == n:
+                # use it as place holder, so the upper layer call
+                # still go through `for nxt in next_words` code.
+                return [""]
+
+            res = []
+            for j in range(idx, n):
+                if dp[idx][j]:
+                    curr = s[idx : j + 1]
+                    next_words = dfs(j + 1)
+                    for nxt in next_words:
+                        temp = [curr]
+                        temp.extend(nxt)
+                        res.append(list(temp))
+            return res
+
+        return dfs(0)
