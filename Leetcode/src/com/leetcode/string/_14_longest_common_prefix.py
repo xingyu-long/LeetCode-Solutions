@@ -33,6 +33,7 @@ class Trie:
         res = []
         for ch in word:
             # 每次提前看下一个的字符，所以curr还没有到结尾
+            # linkCount 代表这一层只有这一个字符，所以才是common prefix
             if ch in curr.children and curr.linkCount == 1 and not curr.isEnd:
                 res.append(ch)
                 curr = curr.children[ch]

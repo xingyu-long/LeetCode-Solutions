@@ -1,19 +1,20 @@
 class Solution:
     def isNumber(self, s: str) -> bool:
         s = s.strip()
-        number_seen = point_seen = e_seen = False
+        number_seen = dot_seen = e_seen = False
         # set it as true first
         # for the case we only have number, we need this to be True to pass
+        # "0e"
         number_after_e = True
         for i, ch in enumerate(s):
             if ord("0") <= ord(ch) <= ord("9"):
                 number_seen = True
                 number_after_e = True
             elif ch == ".":
-                # "..", "e."
-                if e_seen or point_seen:
+                # "6e6.5", ".."
+                if e_seen or dot_seen:
                     return False
-                point_seen = True
+                dot_seen = True
             elif ch.lower() == "e":
                 # "ee", "[non number]e"
                 if e_seen or not number_seen:
