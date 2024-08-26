@@ -16,7 +16,7 @@ class Solution:
                     return False
                 dot_seen = True
             elif ch.lower() == "e":
-                # "ee", "[non number]e"
+                # "ee", "e9"
                 if e_seen or not number_seen:
                     return False
                 e_seen = True
@@ -32,3 +32,9 @@ class Solution:
                 return False
 
         return number_seen and number_after_e
+
+
+"""
+"0e"    -> num_after_e
+"6e6.5" -> dot_seen or e_seen => return False
+"""

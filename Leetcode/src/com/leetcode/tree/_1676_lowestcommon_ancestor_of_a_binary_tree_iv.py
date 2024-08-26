@@ -27,3 +27,28 @@ class Solution:
             return right
 
         return dfs(root)
+
+
+class Solution:
+    # 利用数个数来确定res以及子树确实有所有的nodes
+    def lowestCommonAncestor(
+        self, root: "TreeNode", nodes: "List[TreeNode]"
+    ) -> "TreeNode":
+        s = set(nodes)
+        res = None
+
+        def dfs(root):
+            if not root:
+                return 0
+            nonlocal res
+            left = dfs(root.left)
+            right = dfs(root.right)
+            total = left + right
+            if root in s:
+                total += 1
+            if total == len(s) and res is None:
+                res = root
+            return total
+
+        dfs(root)
+        return res
