@@ -1,8 +1,5 @@
-'''
-Date: 11/17/2020 21:15:28
-LastEditTime: 11/17/2020 21:15:56
-Description: Even, odd (pattern)
-'''
+from typing import List
+from leetcode.common.py_utils import TreeNode
 
 
 def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
