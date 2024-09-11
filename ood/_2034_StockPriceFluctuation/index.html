@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../../">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>2034 Stockpricefluctuation &#8212; LeetCode Solutions  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d1102ebc" />
-    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=12dfc556" />
-    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="2353 Designafoodratingsystem" href="../_2353_DesignaFoodRatingSystem/index.html" />
@@ -18,9 +18,8 @@
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
-
   
-  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
   
@@ -33,56 +32,56 @@
           <div class="body" role="main">
             
   <section id="stockpricefluctuation">
-<h1>2034 Stockpricefluctuation<a class="headerlink" href="#stockpricefluctuation" title="Link to this heading">¶</a></h1>
+<h1>2034 Stockpricefluctuation<a class="headerlink" href="#stockpricefluctuation" title="Permalink to this heading">¶</a></h1>
 <section id="java-solution">
-<h2>Java Solution<a class="headerlink" href="#java-solution" title="Link to this heading">¶</a></h2>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
-<span class="cm"> * @Date: 07/17/2022 21:11:04</span>
-<span class="cm"> * @LastEditTime: 07/17/2022 21:11:05</span>
-<span class="cm"> * @Description: You need to fill out</span>
-<span class="cm"> */</span>
-<span class="kn">package</span><span class="w"> </span><span class="nn">com.leetcode.ood</span><span class="p">;</span>
+<h2>Java Solution<a class="headerlink" href="#java-solution" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>/*
+ * @Date: 07/17/2022 21:11:04
+ * @LastEditTime: 07/17/2022 21:11:05
+ * @Description: You need to fill out
+ */
+package com.leetcode.ood;
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashSet</span><span class="p">;</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Set</span><span class="p">;</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.TreeMap</span><span class="p">;</span>
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeMap;
 
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">_2034_StockPriceFluctuation</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="c1">// time to price (latest)</span>
-<span class="w">    </span><span class="n">TreeMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">record</span><span class="p">;</span>
-<span class="w">    </span><span class="n">TreeMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">priceToTime</span><span class="p">;</span>
+public class _2034_StockPriceFluctuation {
+    // time to price (latest)
+    TreeMap&lt;Integer, Integer&gt; record;
+    TreeMap&lt;Integer, Set&lt;Integer&gt;&gt; priceToTime;
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">_2034_StockPriceFluctuation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">record</span> <span class="err">=</span> <span class="nc">new</span><span class="w"> </span><span class="n">TreeMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-<span class="w">        </span><span class="n">priceToTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
+    public _2034_StockPriceFluctuation() {
+        record = new TreeMap&lt;&gt;();
+        priceToTime = new TreeMap&lt;&gt;();
+    }
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">timestamp</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">price</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">record</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">timestamp</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="c1">// remove the old one</span>
-<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">oldPrice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">timestamp</span><span class="p">);</span>
-<span class="w">            </span><span class="n">priceToTime</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">oldPrice</span><span class="p">).</span><span class="na">remove</span><span class="p">(</span><span class="n">timestamp</span><span class="p">);</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">priceToTime</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">oldPrice</span><span class="p">).</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="n">priceToTime</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">oldPrice</span><span class="p">);</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="kd">record</span><span class="err">.</span><span class="nc">put</span><span class="p">(</span><span class="n">timestamp</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">);</span>
-<span class="w">        </span><span class="n">priceToTime</span><span class="p">.</span><span class="na">putIfAbsent</span><span class="p">(</span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">());</span>
-<span class="w">        </span><span class="n">priceToTime</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">price</span><span class="p">).</span><span class="na">add</span><span class="p">(</span><span class="n">timestamp</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
+    public void update(int timestamp, int price) {
+        if (record.containsKey(timestamp)) {
+            // remove the old one
+            int oldPrice = record.get(timestamp);
+            priceToTime.get(oldPrice).remove(timestamp);
+            if (priceToTime.get(oldPrice).isEmpty()) {
+                priceToTime.remove(oldPrice);
+            }
+        }
+        record.put(timestamp, price);
+        priceToTime.putIfAbsent(price, new HashSet&lt;&gt;());
+        priceToTime.get(price).add(timestamp);
+    }
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">current</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">record</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">record</span><span class="p">.</span><span class="na">lastKey</span><span class="p">());</span>
-<span class="w">    </span><span class="p">}</span>
+    public int current() {
+        return record.get(record.lastKey());
+    }
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">maximum</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">priceToTime</span><span class="p">.</span><span class="na">lastKey</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
+    public int maximum() {
+        return priceToTime.lastKey();
+    }
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">minimum</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">priceToTime</span><span class="p">.</span><span class="na">firstKey</span><span class="p">();</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
+    public int minimum() {
+        return priceToTime.firstKey();
+    }
+}
 </pre></div>
 </div>
 </section>
@@ -93,7 +92,7 @@
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="../../index.html">LeetCode Solutions</a></h1>
 
@@ -159,7 +158,7 @@
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
+<div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -167,7 +166,7 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</search>
+</div>
 <script>document.getElementById('searchbox').style.display = "block"</script>
 
 
@@ -182,11 +181,11 @@
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &#169;2023, Your Name.
+      &copy;2023, Your Name.
       
       |
-      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.7</a>
-      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
       |
       <a href="../../_sources/ood/_2034_StockPriceFluctuation/index.rst.txt"
