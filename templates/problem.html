@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode Problem {{ problem_number }}: {{ title }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body>
+    <h1>Problem {{ problem_number }}: {{ title }}</h1>
+    {% for language, solution in solutions.items() %}
+    <h2>{{ language|upper }} Solution</h2>
+    <pre><code class="{{ language }}">{{ solution }}</code></pre>
+    {% endfor %}
+    <a href="index.html">Back to Index</a>
+</body>
+</html>
