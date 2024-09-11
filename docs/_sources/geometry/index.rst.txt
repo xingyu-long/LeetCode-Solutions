@@ -1,0 +1,10 @@
+geometry
+========
+
+   .. toctree::
+      :maxdepth: 1
+
+      _149_MaxPointsonaLine/index
+      _1610_MaximumNumberofVisiblePoints/index
+      _2013_DetectSquares/index
+      _391_PerfectRectangle/index

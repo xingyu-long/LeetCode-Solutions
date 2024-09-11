@@ -1,0 +1,40 @@
+backtracking
+============
+
+   .. toctree::
+      :maxdepth: 1
+
+      _1239_MaximumLengthofaConcatenatedStringwithUniqueCharacters/index
+      _1306_JumpGameIII/index
+      _140_WordBreakII/index
+      _17_LetterCombinationsofaPhoneNumber/index
+      _216_CombinationSumIII/index
+      _247_StrobogrammaticNumberII/index
+      _254_FactorCombinations/index
+      _282_ExpressionAddOperators/index
+      _291_WordPatternII/index
+      _306_AdditiveNumber/index
+      _31_NextPermutation/index
+      _320_GeneralizedAbbreviation/index
+      _351_AndroidUnlockPatterns/index
+      _39_CombinationSum/index
+      _40_CombinationSumII/index
+      _465_optimal_account_balancing/index
+      _46_Permutations/index
+      _47_PermutationsII/index
+      _491_Increasing_Subsequences/index
+      _51_n_queens/index
+      _526_BeautifulArrangement/index
+      _60_PermutationSequence/index
+      _77_Combinations/index
+      _784_LetterCasePermutation/index
+      _78_subsets/index
+      _797_AllPathsFromSourcetoTarget/index
+      _79_WordSearch/index
+      _842_SplitArrayintoFibonacciSequence/index
+      _90_SubsetsII/index
+      _93_RestoreIPAddresses/index
+      _PasswordCracker/index
+      _RecursiveDigitSum/index
+      _StoneDivision/index
+      _ThePowerSum/index

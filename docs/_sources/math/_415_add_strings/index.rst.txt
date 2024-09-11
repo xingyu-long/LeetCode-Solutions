@@ -1,0 +1,66 @@
+================
+ 415 Add Strings
+================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   /*
+    * @Date: 05/11/2020 08:42:00
+    * @LastEditTime: 08/09/2021 19:44:20
+    * @Description: Add
+    */
+   package com.leetcode.math;
+   
+   public class _415_AddStrings {
+       public String addStrings(String num1, String num2) {
+           StringBuilder sb = new StringBuilder();
+           int m = num1.length() - 1, n = num2.length() - 1;
+           int carry = 0;
+           while (m >= 0 || n >= 0 || carry != 0) {
+               if (m >= 0) {
+                   carry += num1.charAt(m) - '0';
+                   m--;
+               }
+               if (n >= 0) {
+                   carry += num2.charAt(n) - '0';
+                   n--;
+               }
+               sb.append(carry % 10);
+               carry /= 10;
+           }
+           return sb.reverse().toString();
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   class Solution:
+       # time: O(max(len(num1),len(num2)))
+       # space: O(max(len))
+       def addStrings(self, num1: str, num2: str) -> str:
+           i, j = len(num1) - 1, len(num2) - 1
+           carry = 0
+           res = []
+           while i >= 0 or j >= 0 or carry:
+               num_i = num_j = 0
+               if i >= 0:
+                   num_i = ord(num1[i]) - ord("0")
+                   i -= 1
+               if j >= 0:
+                   num_j = ord(num2[j]) - ord("0")
+                   j -= 1
+   
+               carry += num_i + num_j
+               res.append(str(carry % 10))
+               carry //= 10
+   
+           return "".join(res)[::-1]
+   
+

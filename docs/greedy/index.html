@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>greedy &#8212; LeetCode Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=12dfc556" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1029 Twocityscheduling" href="_1029_TwoCityScheduling/index.html" />
+    <link rel="prev" title="952 Largestcomponentsizebycommonfactor" href="../graph/union_find/_952_LargestComponentSizebyCommonFactor/index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="greedy">
+<h1>greedy<a class="headerlink" href="#greedy" title="Link to this heading">¶</a></h1>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="_1029_TwoCityScheduling/index.html">1029 Twocityscheduling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1217_Minimum_Cost_to_Move_Chips_to_The_Same_Position/index.html">1217 Minimum Cost To Move Chips To The Same Position</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1296_DivideArrayinSetsofKConsecutiveNumbers/index.html">1296 Dividearrayinsetsofkconsecutivenumbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1338_ReduceArraySizetoTheHalf/index.html">1338 Reducearraysizetothehalf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1353_MaximumNumberofEventsThatCanBeAttended/index.html">1353 Maximumnumberofeventsthatcanbeattended</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1383_MaximumPerformanceofaTeam/index.html">1383 Maximumperformanceofateam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1403_MinimumSubsequenceinNonIncreasingOrder/index.html">1403 Minimumsubsequenceinnonincreasingorder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1526_MinimumNumberofIncrementsonSubarraystoFormaTargetArray/index.html">1526 Minimumnumberofincrementsonsubarraystoformatargetarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1599_MaximumProfitofOperatingaCentennialWheel/index.html">1599 Maximumprofitofoperatingacentennialwheel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1663_SmallestStringWithAGivenNumericValue/index.html">1663 Smalleststringwithagivennumericvalue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1737_ChangeMinimumCharactersToSatisfyOneOfThreeConditions/index.html">1737 Changeminimumcharacterstosatisfyoneofthreeconditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1769_Minimum_Number_of_Operations_to_Move_All_Balls_to_Each_Box/index.html">1769 Minimum Number Of Operations To Move All Balls To Each Box</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1899_MergeTripletstoFormTargetTriplet/index.html">1899 Mergetripletstoformtargettriplet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_2178_MaximumSplitofPositiveEvenIntegers/index.html">2178 Maximumsplitofpositiveevenintegers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_2214_Minimum_Health_to_Beat_Game/index.html">2214 Minimum Health To Beat Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_2895_minimum_processing_time/index.html">2895 Minimum Processing Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_402_RemoveKDigits/index.html">402 Removekdigits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_406_QueueReconstructionbyHeight/index.html">406 Queuereconstructionbyheight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_455_AssignCookies/index.html">455 Assigncookies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_45_jump_games_II/index.html">45 Jump Games Ii</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_605_Can_Place_Flowers/index.html">605 Can Place Flowers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_630_CourseScheduleIII/index.html">630 Coursescheduleiii</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_659_SplitArrayintoConsecutiveSubsequences/index.html">659 Splitarrayintoconsecutivesubsequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_665_NondecreasingArray/index.html">665 Nondecreasingarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_667_Beautiful_Arrangement_II/index.html">667 Beautiful Arrangement Ii</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_763_PartitionLabels/index.html">763 Partitionlabels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_80_RemoveDuplicateFromSortedArrayII/index.html">80 Removeduplicatefromsortedarrayii</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_846_HandofStraights/index.html">846 Handofstraights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_857_MinimumCosttoHireKWorkers/index.html">857 Minimumcosttohirekworkers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_870_AdvantageShuffle/index.html">870 Advantageshuffle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_945_minimum_increment_to_make_array_unique/index.html">945 Minimum Increment To Make Array Unique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_948_Bag_of_Tokens/index.html">948 Bag Of Tokens</a></li>
+</ul>
+</div>
+</div></blockquote>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">LeetCode Solutions</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../_1056_ConfusingNumber/index.html">1056 Confusingnumber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_1088_ConfusingNumberII/index.html">1088 Confusingnumberii</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_1207_UniqueNumberOfOccurrences/index.html">1207 Uniquenumberofoccurrences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_1222_QueensThatCanAttacktheKing/index.html">1222 Queensthatcanattacktheking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_1266_MinimumTimeVisitingAllPoints/index.html">1266 Minimumtimevisitingallpoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_1267_CountServersthatCommunicate/index.html">1267 Countserversthatcommunicate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_1298_MaximumCandiesYouCanGetfromBoxes/index.html">1298 Maximumcandiesyoucangetfromboxes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_1441_BuildanArrayWithStackOperations/index.html">1441 Buildanarraywithstackoperations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_30_SubstringWithConcatenationOfAllWords/index.html">30 Substringwithconcatenationofallwords</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_43_MultiplyStrings/index.html">43 Multiplystrings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_609_FindDuplicateFileinSystem/index.html">609 Findduplicatefileinsystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_65_valid_number/index.html">65 Valid Number</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_779_KthSymbolInGrammar/index.html">779 Kthsymbolingrammar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_819_MostCommonWord/index.html">819 Mostcommonword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_829_ConsecutiveNumbersSum/index.html">829 Consecutivenumberssum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_937_ReorderDatainLogFiles/index.html">937 Reorderdatainlogfiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../array/index.html">array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backtracking/index.html">backtracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bfs_and_dfs/index.html">bfs_and_dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binary_search/index.html">binary_search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bit_manipulation/index.html">bit_manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concurrency/index.html">concurrency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dynamic_programming/index.html">dynamic_programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geometry/index.html">geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graph/index.html">graph</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">greedy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hashmap/index.html">hashmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linkedList/index.html">linkedList</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/index.html">math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../matrix/index.html">matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ood/index.html">ood</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../random/index.html">random</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../range_sum/index.html">range_sum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/index.html">simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stack_priority_queue/index.html">stack_priority_queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../string/index.html">string</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_sort/index.html">topological_sort</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tree/index.html">tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../trie/index.html">trie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../two_pointer/index.html">two_pointer</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../graph/union_find/_952_LargestComponentSizebyCommonFactor/index.html" title="previous chapter">952 Largestcomponentsizebycommonfactor</a></li>
+      <li>Next: <a href="_1029_TwoCityScheduling/index.html" title="next chapter">1029 Twocityscheduling</a></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2023, Your Name.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/greedy/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

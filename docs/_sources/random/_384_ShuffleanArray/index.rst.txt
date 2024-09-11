@@ -1,0 +1,89 @@
+===================
+ 384 Shuffleanarray
+===================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   package com.leetcode.random;
+   
+   import java.util.Random;
+   
+   public class _384_ShuffleanArray {
+   
+       private int[] nums;
+       private Random rmd;
+   
+       public _384_ShuffleanArray(int[] nums) {
+           this.nums = nums;
+           rmd = new Random();
+       }
+   
+       /** Resets the array to its original configuration and return it. */
+       public int[] reset() {
+           return nums;
+       }
+   
+       //time:O(n)
+       /** Returns a random shuffling of the array. */
+       public int[] shuffle() {
+           if (nums == null) return null;
+           int[] clone = nums.clone();
+           for (int i = 0; i < clone.length; i++) {
+               // 直接从random[0, n-1]的元素。
+               int random = i + rmd.nextInt(clone.length - i);
+               exch(clone, i, random);
+           }
+           return clone;
+       }
+   
+       private void exch(int[] nums, int i, int j) {
+           int temp = nums[i];
+           nums[i] = nums[j];
+           nums[j] = temp;
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   from random import randint
+   from typing import List
+   
+   
+   class Solution:
+       """
+       nums=[1,2,3,4,5]
+   
+       i=4, random pick: 1/5, assume pick i=2
+       [1,2,5,4,3]
+       i=3, random pick: 4/5 (missed) * 1/4 => 1/5, assume pick i=0
+       [4,2,5,1,3]
+       3rd, 4/5 (missed 1st) * 3/4 (missed 2nd) * 1/3 => 1/5
+       ... and so on
+   
+       so everyone gets same probability which is 1/n
+       """
+   
+       def __init__(self, nums: List[int]):
+           self.nums = nums
+   
+       def reset(self) -> List[int]:
+           return self.nums
+   
+       def shuffle(self) -> List[int]:
+           clone = self.nums.copy()
+           size = len(clone)
+           for i in range(size)[::-1]:
+               # Fisher–Yates shuffle
+               r_idx = randint(0, i)
+               clone[i], clone[r_idx] = clone[r_idx], clone[i]
+   
+           return clone
+   
+

@@ -1,0 +1,108 @@
+================
+ 65 Valid Number
+================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   package com.leetcode;
+   
+   public class _65_ValidNumber {
+   
+       /**
+        * 65. Valid Number
+        * When: 2019/04/08
+        *
+        * solution: 列出尽可能多的情况
+        * @param s
+        * @return
+        */
+       public boolean isNumber(String s) {
+           s = s.trim();
+           boolean numberSeen = false;
+           boolean pointSeen = false;
+           boolean eSeen = false; // 记录e的情况
+           boolean numberAfterE = true; // 记录e后面是否有数字
+   
+           for (int i = 0; i < s.length(); i++) {
+               if (s.charAt(i) >= '0' && s.charAt(i) <= '9') {
+                   // 判断数字符合的范围
+                   numberSeen = true;
+                   numberAfterE = true;
+               } else if (s.charAt(i) == '.') {
+                   //如果出现了e或者之前有"." 就不行
+                   if (eSeen || pointSeen) {
+                       return false;
+                   }
+                   pointSeen = true;
+               } else if (s.charAt(i) == 'e') {
+                   // 如果e已经存在或者前面没有看见数字 则不行
+                   if (eSeen || !numberSeen) {
+                       return false;
+                   }
+                   eSeen = true;
+                   numberAfterE = false;
+               } else if (s.charAt(i) == '+' || s.charAt(i) == '-') {
+                   // 如果加减号不在首位 并且前面的那个不是e的话 就不可以
+                   if (i != 0 && s.charAt(i - 1) != 'e') {
+                       return false;
+                   }
+               }
+               else {
+                   return false;
+               }
+           }
+           return numberSeen && numberAfterE;
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   class Solution:
+       def isNumber(self, s: str) -> bool:
+           s = s.strip()
+           number_seen = dot_seen = e_seen = False
+           # set it as true first
+           # for the case we only have number, we need this to be True to pass
+           # "0e"
+           number_after_e = True
+           for i, ch in enumerate(s):
+               if ord("0") <= ord(ch) <= ord("9"):
+                   number_seen = True
+                   number_after_e = True
+               elif ch == ".":
+                   # "6e6.5", ".."
+                   if e_seen or dot_seen:
+                       return False
+                   dot_seen = True
+               elif ch.lower() == "e":
+                   # "ee", "e9"
+                   if e_seen or not number_seen:
+                       return False
+                   e_seen = True
+                   number_after_e = False
+               elif ch == "+" or ch == "-":
+                   # sign can only be first char or right after the "e"
+                   # "[other chars]e+"
+                   if i != 0 and s[i - 1].lower() != "e":
+                       return False
+               else:
+                   # other chars
+                   # e.g.: "abc"
+                   return False
+   
+           return number_seen and number_after_e
+   
+   
+   """
+   "0e"    -> num_after_e
+   "6e6.5" -> dot_seen or e_seen => return False
+   """
+   
+

@@ -1,0 +1,115 @@
+===================
+ 208 Implement Trie
+===================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   package com.leetcode.trie;
+   
+   /**
+    * @Date: 2019/7/3, 05/13/2020
+    * @Description: Trie
+    **/
+   public class _208_ImplementTrie {
+   
+       class TrieNode {
+   
+           TrieNode[] children;
+           boolean isWord;
+           String word;
+   
+           public TrieNode() {
+               children = new TrieNode[26];
+               isWord = false;
+               word = "";
+           }
+       }
+   
+       private TrieNode root;
+   
+       public _208_ImplementTrie() {
+           root = new TrieNode();
+       }
+   
+       public void insert(String word) {
+           TrieNode cur = root;
+           for (int i = 0; i < word.length(); i++) {
+               int position = word.charAt(i) - 'a';
+               if (cur.children[position] == null) {
+                   cur.children[position] = new TrieNode();
+               }
+               cur = cur.children[position];
+           }
+           cur.isWord = true;
+           cur.word = word;
+       }
+   
+       public boolean search(String word) {
+           TrieNode cur = root;
+           for (int i = 0; i < word.length(); i++) {
+               int position = word.charAt(i) - 'a';
+               if (cur.children[position] == null) {
+                   return false;
+               }
+               cur = cur.children[position];
+           }
+           return cur.isWord;
+       }
+   
+       public boolean startsWith(String prefix) {
+           TrieNode cur = root;
+           for (int i = 0; i < prefix.length(); i++) {
+               int position = prefix.charAt(i) - 'a';
+               if (cur.children[position] == null) {
+                   return false;
+               }
+               cur = cur.children[position];
+           }
+           return true;
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   from leetcode.common.py_utils import TrieNode
+   
+   
+   class Trie:
+   
+       def __init__(self):
+           self.root = TrieNode()
+   
+       def insert(self, word: str) -> None:
+           curr = self.root
+           for ch in word:
+               if ch not in curr.children:
+                   curr.children[ch] = TrieNode()
+               curr = curr.children[ch]
+           curr.is_word = True
+           curr.word = word
+   
+       def search(self, word: str) -> bool:
+           curr = self.root
+           for ch in word:
+               if ch not in curr.children:
+                   return False
+               curr = curr.children[ch]
+           return curr.is_word and curr.word == word
+   
+       def startsWith(self, prefix: str) -> bool:
+           curr = self.root
+           for ch in prefix:
+               if ch not in curr.children:
+                   return False
+               curr = curr.children[ch]
+           # as long as we have other children, they must be matched with this prefix
+           return True
+   
+

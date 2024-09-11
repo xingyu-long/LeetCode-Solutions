@@ -1,0 +1,129 @@
+========================================
+ 863 All Nodes Distance K In Binary Tree
+========================================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   package com.leetcode.graph;
+   
+   import com.leetcode.common.TreeNode;
+   
+   import java.util.*;
+   
+   /**
+    * @Date: 05/28/2020, 07/21/2020
+    * @Description: Graph, BFS
+    **/
+   public class _863_AllNodesDistanceKinBinaryTree {
+   
+       // time:O(n) space:O(n)
+       public List<Integer> distanceK(TreeNode root, TreeNode target, int K) {
+           if (root == null) {
+               return new ArrayList<>();
+           }
+           HashMap<Integer, HashSet<Integer>> map = new HashMap<>();
+           buildGraph(root, map);
+           List<Integer> res = new ArrayList<>();
+           Queue<Integer> queue = new LinkedList<>();
+           HashSet<Integer> visited = new HashSet<>();
+           queue.offer(target.val);
+           while (K > 0 && !queue.isEmpty()) {
+               int size = queue.size();
+               for (int i = 0; i < size; i++) {
+                   int curr = queue.poll();
+                   visited.add(curr);
+                   if (map.get(curr) != null) {
+                       for (int adj : map.get(curr)) {
+                           if (!visited.contains(adj)) {
+                               queue.offer(adj);
+                           }
+                       }
+                   }
+               }
+               K--;
+           }
+           if (!queue.isEmpty()) {
+               while (!queue.isEmpty()) {
+                   res.add(queue.poll());
+               }
+           }
+           return res;
+       }
+   
+       public void buildGraph(TreeNode root, HashMap<Integer, HashSet<Integer>> map) {
+           if (root == null) {
+               return;
+           }
+           
+           map.putIfAbsent(root.val, new HashSet<>());
+           
+           if (root.left != null) {
+               map.get(root.val).add(root.left.val);
+               map.putIfAbsent(root.left.val, new HashSet<>());
+               map.get(root.left.val).add(root.val);
+           }
+           if (root.right != null) {
+               map.get(root.val).add(root.right.val);
+               map.putIfAbsent(root.right.val, new HashSet<>());
+               map.get(root.right.val).add(root.val);
+           }
+           buildGraph(root.left, map);
+           buildGraph(root.right, map);
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   from collections import defaultdict, deque
+   from typing import List
+   from leetcode.common.py_utils import TreeNode
+   
+   
+   class Solution:
+       def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
+           if not root:
+               return None
+   
+           def build_graph(graph, root):
+               if not root:
+                   return
+   
+               if root.left:
+                   graph[root.val].add(root.left.val)
+                   graph[root.left.val].add(root.val)
+               if root.right:
+                   graph[root.val].add(root.right.val)
+                   graph[root.right.val].add(root.val)
+   
+               build_graph(graph, root.left)
+               build_graph(graph, root.right)
+   
+           graph = defaultdict(set)
+           build_graph(graph, root)
+           # BFS
+           res = []
+           queue = deque()
+           queue.append((target.val, k))
+           visited = set([target.val])
+           while queue:
+               size = len(queue)
+               for _ in range(size):
+                   curr, stops = queue.popleft()
+                   if stops == 0:
+                       res.append(curr)
+                       continue
+                   for adj in graph[curr]:
+                       if adj not in visited and stops > 0:
+                           visited.add(adj)
+                           queue.append((adj, stops - 1))
+   
+           return res
+   
+

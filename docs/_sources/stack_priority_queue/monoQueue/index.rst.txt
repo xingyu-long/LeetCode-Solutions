@@ -1,0 +1,9 @@
+monoQueue
+=========
+
+      .. toctree::
+         :maxdepth: 1
+
+         _1438_longest_continuous_subarray_with_absolute_diff_less_than_or_equal_to_limit/index
+         _239_SlidingWindowMaximum/index
+         _862_ShortestSubarraywithSumatLeastK/index

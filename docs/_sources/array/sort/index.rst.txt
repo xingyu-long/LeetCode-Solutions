@@ -1,0 +1,22 @@
+sort
+====
+
+      .. toctree::
+         :maxdepth: 1
+
+         _1331_RankTransformofanArray/index
+         _1333_FilterRestaurantsbyVeganFriendlyPriceandDistance/index
+         _1356_SortIntegersbyTheNumberof1Bits/index
+         _1387_SortIntegersbyThePowerValue/index
+         _1561_Maximum_Number_of_Coins_You_Can_Get/index
+         _1630_Arithmetic_Subarrays/index
+         _1647_Minimum_Deletions_to_Make_Character_Frequencies_Unique/index
+         _1710_Maximum_Units_on_a_Truck/index
+         _280_WiggleSort/index
+         _324_WiggleSortII/index
+         _581_Shortest_Unsorted_Continuous_Subarray/index
+         _75_SortColors/index
+         _88_MergeSortedArray/index
+         _905_Sort_Array_By_Parity/index
+         _922_Sort_Array_By_Parity_II/index
+         _969_PancakeSorting/index

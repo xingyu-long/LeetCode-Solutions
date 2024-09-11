@@ -1,0 +1,115 @@
+=============================
+ 678 Valid Parenthesis String
+=============================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   package com.leetcode.string;
+   
+   public class _678_ValidParenthesisString {
+       // dfs
+       // time:O(3^n)
+       public boolean checkValidString(String s) {
+           // how to handle *
+           return dfs(s, 0, 0);
+       }
+   
+       // count代表左括号的数量。
+       // 遇到*就有三种不同的情况，空，左括号，右括号。
+       public boolean dfs(String s, int start, int count) {
+           if (count < 0) return false;// 表示 ‘(’ 过多
+           for (int i = start; i < s.length(); i++) {
+               if (s.charAt(i) == '(') {
+                   count++;
+               } else if (s.charAt(i) == ')') {
+                   if (count <= 0) return false;
+                   count--;
+               } else {
+                   return dfs(s, i + 1, count) || dfs(s, i + 1, count + 1) || dfs(s, i + 1, count - 1);
+               }
+           }
+           return count == 0;
+       }
+   
+       //time:O(n) space:O(1)
+       // 感觉这个更好懂一些。
+       public boolean checkValidString2(String s) {
+           int left = 0;
+           int right = 0;
+           int n = s.length();
+           // 把*都作为 '('
+           for (int i = 0; i < n; i++) {
+               if (s.charAt(i) == '(' || s.charAt(i) == '*') left++;
+               else left--;
+               if (left < 0) return false;
+           }
+           if (left == 0) return true;
+           // 把*作为 ')'
+           for (int i = n - 1; i >= 0; i--) {
+               if (s.charAt(i) == ')' || s.charAt(i) == '*') right++;
+               else right--;
+               if (right < 0) return false;
+           }
+           return true;
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   class Solution:
+       # time: n^2
+       def checkValidString(self, s: str) -> bool:
+           memo = {}
+   
+           def dfs(i, left):
+               if left < 0:
+                   return False
+               if i == len(s):
+                   return left == 0
+               if (i, left) in memo:
+                   return memo[(i, left)]
+   
+               res = False
+               if s[i] == "(":
+                   res = dfs(i + 1, left + 1)
+               elif s[i] == ")":
+                   res = dfs(i + 1, left - 1)
+               else:
+                   res = dfs(i + 1, left + 1) or dfs(i + 1, left - 1) or dfs(i + 1, left)
+   
+               memo[(i, left)] = res
+               return res
+   
+           return dfs(0, 0)
+   
+   
+   class Solution2:
+       def checkValidString(self, s: str) -> bool:
+           # 计算左括号可能存在的情况
+           # https://leetcode.com/problems/valid-parenthesis-string/discuss/543521/Java-Count-Open-Parenthesis-O(n)-time-O(1)-space-Picture-Explain
+           left_min, left_max = 0, 0
+           for c in s:
+               if c == "(":
+                   left_min += 1
+                   left_max += 1
+               elif c == ")":
+                   left_min -= 1
+                   left_max -= 1
+               else:
+                   # use * as (
+                   left_max += 1
+                   # use * as )
+                   left_min -= 1
+               if left_max < 0:
+                   return False
+               left_min = max(left_min, 0)
+           return left_min == 0
+   
+

@@ -1,0 +1,83 @@
+=================
+ 731 Mycalendarii
+=================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   package com.leetcode.array.interval;
+   
+   import java.util.TreeMap;
+   
+   public class _731_MyCalendarII {
+       TreeMap<Integer, Integer> map;
+   
+       public _731_MyCalendarII() {
+           map = new TreeMap<>();
+       }
+   
+       /*
+        * Solution:
+        * 将每组时间的起点和终点看成需要+1或者-1的地方
+        * 每一次默认添加之后，然后遍历treemap遍历所有
+        * 值，并且count的数目则是重叠会议的数目
+        */
+       public boolean book(int start, int end) {
+           map.put(start, map.getOrDefault(start, 0) + 1);
+           map.put(end, map.getOrDefault(end, 0) - 1);
+           int count = 0;
+           for (int key : map.keySet()) {
+               count += map.get(key);
+               if (count > 2) {
+                   // restore
+                   map.put(start, map.get(start) - 1);
+                   if (map.get(start) == 0) {
+                       map.remove(start);
+                   }
+   
+                   map.put(end, map.get(end) + 1);
+                   if (map.get(end) == 0) {
+                       map.remove(end);
+                   }
+                   return false;
+               }
+           }
+           return true;
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   from sortedcontainers import SortedDict
+   
+   
+   class MyCalendarTwo:
+   
+       def __init__(self):
+           self.d = SortedDict()
+   
+       # sweep line
+       def book(self, start: int, end: int) -> bool:
+           self.d[start] = self.d.get(start, 0) + 1
+           self.d[end] = self.d.get(end, 0) - 1
+           count = 0
+           for val in self.d.values():
+               count += val
+               if count > 2:
+                   # restore
+                   self.d[start] -= 1
+                   if self.d[start] == 0:
+                       del self.d[start]
+                   self.d[end] += 1
+                   if self.d[end] == 0:
+                       del self.d[end]
+                   return False
+           return True
+   
+

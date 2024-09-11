@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>23 Merge Sorted Lists &#8212; LeetCode Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=12dfc556" />
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="24 Swapnodesinpairs" href="../_24_SwapNodesinPairs/index.html" />
+    <link rel="prev" title="237 Deletenodeinalinkedlist" href="../_237_DeleteNodeInALinkedList/index.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="merge-sorted-lists">
+<h1>23 Merge Sorted Lists<a class="headerlink" href="#merge-sorted-lists" title="Link to this heading">¶</a></h1>
+<section id="java-solution">
+<h2>Java Solution<a class="headerlink" href="#java-solution" title="Link to this heading">¶</a></h2>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.leetcode.linkedList</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.leetcode.common.ListNode</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.PriorityQueue</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">_23_MergekSortedLists</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * 23. Merge k Sorted Lists</span>
+<span class="cm">     * When:2019/7/7</span>
+<span class="cm">     * review1:2019/9/2</span>
+<span class="cm">     * Difficulty: Hard</span>
+<span class="cm">     *</span>
+<span class="cm">     * solution:</span>
+<span class="cm">     * (1) 使用合并排序</span>
+<span class="cm">     * (2) 使用PriorityQueue （从小到大排序）</span>
+<span class="cm">     * &lt;p&gt;</span>
+<span class="cm">     * time : O(nlogk) where k is the number of linked lists</span>
+<span class="cm">     * space : O(n)</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param lists</span>
+<span class="cm">     * @return</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ListNode</span><span class="w"> </span><span class="nf">mergeKLists</span><span class="p">(</span><span class="n">ListNode</span><span class="o">[]</span><span class="w"> </span><span class="n">lists</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 使用PriorityQueue实现</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lists</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">lists</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="n">PriorityQueue</span><span class="o">&lt;</span><span class="n">ListNode</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">lists</span><span class="p">.</span><span class="na">length</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">val</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">val</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ListNode</span><span class="w"> </span><span class="n">dummy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ListNode</span><span class="w"> </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dummy</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">ListNode</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">lists</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">list</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 这里需要判断是否为空，防止[[]]这样的情况</span>
+<span class="w">                </span><span class="n">pq</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">list</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">pq</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">//放入到返回结果中</span>
+<span class="w">            </span><span class="n">cur</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pq</span><span class="p">.</span><span class="na">poll</span><span class="p">();</span>
+<span class="w">            </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="na">next</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cur</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">pq</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">cur</span><span class="p">.</span><span class="na">next</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dummy</span><span class="p">.</span><span class="na">next</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * 合并排序</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="c1">// 另外有一个sort list 需要用ListNode然后找中点</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ListNode</span><span class="w"> </span><span class="nf">mergeKLists2</span><span class="p">(</span><span class="n">ListNode</span><span class="o">[]</span><span class="w"> </span><span class="n">lists</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lists</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">lists</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">sort</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">lists</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ListNode</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="n">ListNode</span><span class="o">[]</span><span class="w"> </span><span class="n">lists</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hi</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lo</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">hi</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="c1">// 这里需要注意。</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lo</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">hi</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">lists</span><span class="o">[</span><span class="n">lo</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">hi</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lo</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lo</span><span class="p">;</span>
+<span class="w">        </span><span class="n">ListNode</span><span class="w"> </span><span class="n">l1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sort</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ListNode</span><span class="w"> </span><span class="n">l2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sort</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">hi</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">merge</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span><span class="w"> </span><span class="n">l2</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ListNode</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="n">ListNode</span><span class="w"> </span><span class="n">l1</span><span class="p">,</span><span class="w"> </span><span class="n">ListNode</span><span class="w"> </span><span class="n">l2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">l2</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">l1</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">l1</span><span class="p">.</span><span class="na">val</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">l2</span><span class="p">.</span><span class="na">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">l1</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">merge</span><span class="p">(</span><span class="n">l1</span><span class="p">.</span><span class="na">next</span><span class="p">,</span><span class="w"> </span><span class="n">l2</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">l1</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">l2</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">merge</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span><span class="w"> </span><span class="n">l2</span><span class="p">.</span><span class="na">next</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">l2</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="py-solution">
+<h2>Py Solution<a class="headerlink" href="#py-solution" title="Link to this heading">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">heapq</span> <span class="kn">import</span> <span class="n">heappop</span><span class="p">,</span> <span class="n">heappush</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">from</span> <span class="nn">leetcode.common.py_utils</span> <span class="kn">import</span> <span class="n">ListNode</span>
+
+
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="c1"># Time: O(M * K * logK), where K &lt;= 10^4 is length of lists, M &lt;= 500 is number of elements each list.</span>
+    <span class="k">def</span> <span class="nf">mergeKLists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lists</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span>
+        <span class="c1"># use heap</span>
+        <span class="n">ListNode</span><span class="o">.</span><span class="fm">__lt__</span> <span class="o">=</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">val</span>
+
+        <span class="n">heap</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">dummy</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">()</span>
+        <span class="n">curr</span> <span class="o">=</span> <span class="n">dummy</span>
+        <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lists</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">l</span><span class="p">:</span>
+                <span class="n">heappush</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">heap</span><span class="p">:</span>
+            <span class="n">head</span> <span class="o">=</span> <span class="n">heappop</span><span class="p">(</span><span class="n">heap</span><span class="p">)</span>
+            <span class="n">curr</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span>
+            <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">next</span>
+            <span class="k">if</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
+                <span class="n">heappush</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">dummy</span><span class="o">.</span><span class="n">next</span>
+
+
+<span class="k">class</span> <span class="nc">Solution2</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">mergeKLists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lists</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span>
+
+        <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span>
+            <span class="n">list1</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">],</span> <span class="n">list2</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">list1</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">list2</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">list2</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">list1</span>
+            <span class="k">if</span> <span class="n">list1</span><span class="o">.</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">list2</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
+                <span class="n">list1</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">merge</span><span class="p">(</span><span class="n">list1</span><span class="o">.</span><span class="n">next</span><span class="p">,</span> <span class="n">list2</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">list1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">list2</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">merge</span><span class="p">(</span><span class="n">list1</span><span class="p">,</span> <span class="n">list2</span><span class="o">.</span><span class="n">next</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">list2</span>
+
+        <span class="k">def</span> <span class="nf">sort</span><span class="p">(</span><span class="n">lists</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">],</span> <span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="n">start</span> <span class="o">==</span> <span class="n">end</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">lists</span><span class="p">[</span><span class="n">start</span><span class="p">]</span>
+
+            <span class="n">mid</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="n">l1</span> <span class="o">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">mid</span><span class="p">)</span>
+            <span class="n">l2</span> <span class="o">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">merge</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">sort</span><span class="p">(</span><span class="n">lists</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">lists</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">LeetCode Solutions</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../_1056_ConfusingNumber/index.html">1056 Confusingnumber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_1088_ConfusingNumberII/index.html">1088 Confusingnumberii</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_1207_UniqueNumberOfOccurrences/index.html">1207 Uniquenumberofoccurrences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_1222_QueensThatCanAttacktheKing/index.html">1222 Queensthatcanattacktheking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_1266_MinimumTimeVisitingAllPoints/index.html">1266 Minimumtimevisitingallpoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_1267_CountServersthatCommunicate/index.html">1267 Countserversthatcommunicate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_1298_MaximumCandiesYouCanGetfromBoxes/index.html">1298 Maximumcandiesyoucangetfromboxes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_1441_BuildanArrayWithStackOperations/index.html">1441 Buildanarraywithstackoperations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_30_SubstringWithConcatenationOfAllWords/index.html">30 Substringwithconcatenationofallwords</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_43_MultiplyStrings/index.html">43 Multiplystrings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_609_FindDuplicateFileinSystem/index.html">609 Findduplicatefileinsystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_65_valid_number/index.html">65 Valid Number</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_779_KthSymbolInGrammar/index.html">779 Kthsymbolingrammar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_819_MostCommonWord/index.html">819 Mostcommonword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_829_ConsecutiveNumbersSum/index.html">829 Consecutivenumberssum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_937_ReorderDatainLogFiles/index.html">937 Reorderdatainlogfiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../array/index.html">array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../backtracking/index.html">backtracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bfs_and_dfs/index.html">bfs_and_dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../binary_search/index.html">binary_search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bit_manipulation/index.html">bit_manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concurrency/index.html">concurrency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dynamic_programming/index.html">dynamic_programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../geometry/index.html">geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graph/index.html">graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../greedy/index.html">greedy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hashmap/index.html">hashmap</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">linkedList</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/index.html">math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../matrix/index.html">matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ood/index.html">ood</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../random/index.html">random</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../range_sum/index.html">range_sum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../simulation/index.html">simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stack_priority_queue/index.html">stack_priority_queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../string/index.html">string</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../topological_sort/index.html">topological_sort</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tree/index.html">tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trie/index.html">trie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../two_pointer/index.html">two_pointer</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">linkedList</a><ul>
+      <li>Previous: <a href="../_237_DeleteNodeInALinkedList/index.html" title="previous chapter">237 Deletenodeinalinkedlist</a></li>
+      <li>Next: <a href="../_24_SwapNodesinPairs/index.html" title="next chapter">24 Swapnodesinpairs</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2023, Your Name.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../../_sources/linkedList/_23_merge_sorted_lists/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

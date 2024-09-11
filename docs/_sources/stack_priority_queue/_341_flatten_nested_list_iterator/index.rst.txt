@@ -1,0 +1,127 @@
+=================================
+ 341 Flatten Nested List Iterator
+=================================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   package com.leetcode.stack_priority_queue;
+   
+   import com.leetcode.common.NestedInteger;
+   
+   import java.util.List;
+   import java.util.Stack;
+   
+   public class _341_FlattenNestedListIterator {
+   
+       /**
+        * 341. Flatten Nested List Iterator
+        * time: 2019/9/5
+        * Difficulty: Medium
+        */
+       // time:O(n) space:O(n)
+       Stack<NestedInteger> stack;
+       public _341_FlattenNestedListIterator(List<NestedInteger> nestedList) {
+           // 导入stack这样可以倒着输出
+           stack = new Stack<>();
+           for (int i = nestedList.size() - 1; i >= 0; i--) {
+               stack.push(nestedList.get(i));
+           }
+       }
+   
+       public Integer next() {
+           return stack.pop().getInteger();
+       }
+   
+       public boolean hasNext() {
+           while (!stack.isEmpty()) { // 这样可以确保，我们能够得到integer在里面
+               NestedInteger cur = stack.peek();
+               if (cur.isInteger()) {
+                   return true;
+               }
+               stack.pop();
+               // 当前是list，所以需要反着导入stack
+               List<NestedInteger> next = curr.getList();
+               for (int i = next.size() - 1; i >= 0; i--) {
+                   stack.push(next.get(i));
+               }
+           }
+           return false;
+       }
+   
+       // 也可以利用dfs先遍历完。
+       public List<Integer> res;
+   
+       public void dfs(List<NestedInteger> nestedList) {
+           for (NestedInteger i : nestedList) {
+               if (i.isInteger()) res.add(i.getInteger());
+               else dfs(i.getList());
+           }
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   # """
+   # This is the interface that allows for creating nested lists.
+   # You should not implement it, or speculate about its implementation
+   # """
+   # class NestedInteger:
+   #    def isInteger(self) -> bool:
+   #        """
+   #        @return True if this NestedInteger holds a single integer, rather than a nested list.
+   #        """
+   #
+   #    def getInteger(self) -> int:
+   #        """
+   #        @return the single integer that this NestedInteger holds, if it holds a single integer
+   #        Return None if this NestedInteger holds a nested list
+   #        """
+   #
+   #    def getList(self) -> [NestedInteger]:
+   #        """
+   #        @return the nested list that this NestedInteger holds, if it holds a nested list
+   #        Return None if this NestedInteger holds a single integer
+   #        """
+   
+   
+   from typing import Generator
+   from leetcode.common.py_utils import NestedInteger
+   
+   
+   class NestedIterator:
+       # lazy loading?
+       def __init__(self, nestedList: list[NestedInteger]):
+           self._generator = self._int_generator(nestedList)
+           self._peeked = None
+   
+       def _int_generator(self, nested_list) -> "Generator[int]":
+           for nested in nested_list:
+               if nested.isInteger():
+                   yield nested.getInteger()
+               else:
+                   yield from self._int_generator(nested.getList())
+   
+       def next(self) -> int:
+           if not self.hasNext():
+               return None
+           res = self._peeked
+           self._peeked = None
+           return res
+   
+       def hasNext(self) -> bool:
+           if self._peeked != None:
+               return True
+           try:
+               self._peeked = next(self._generator)
+               return True
+           except:
+               return False
+   
+

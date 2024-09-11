@@ -1,0 +1,22 @@
+Palindrome
+==========
+
+      .. toctree::
+         :maxdepth: 1
+
+         _1216_valid_palindrome_iii/index
+         _125_valid_palindrome/index
+         _131_palindrome_partitioning/index
+         _1328_BreakaPalindrome/index
+         _132_PalindromePartitioningII/index
+         _1332_RemovePalindromicSubsequences/index
+         _1400_ConstructKPalindromeStrings/index
+         _1616_Split_Two_Strings_to_Make_Palindrome/index
+         _214_ShortestPalindrome/index
+         _266_PalindromePermutation/index
+         _267_PalindromePermutationII/index
+         _336_PalindromePairs/index
+         _409_longest_palindrome/index
+         _5_LongestPalindromicSubstring/index
+         _647_PalindromicSubstrings/index
+         _680_ValidPalindromeII/index

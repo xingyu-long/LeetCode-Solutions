@@ -1,0 +1,154 @@
+==============
+ 716 Max Stack
+==============
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   /*
+    * @Date: 07/20/2022 17:41:58
+    * @LastEditTime: 07/21/2022 10:18:21
+    * @Description: Stack, Doubly LinkedList
+    */
+   package com.leetcode.stack_priority_queue;
+   
+   import java.util.Deque;
+   import java.util.LinkedList;
+   import java.util.Stack;
+   import java.util.TreeMap;
+   
+   public class _716_MaxStack {
+       public class DNode {
+           public DNode prev, next;
+           public int val;
+       }
+       
+       TreeMap<Integer, Deque<DNode>> map;
+       DNode head, tail;
+       
+       public _716_MaxStack() {
+           map = new TreeMap<>();
+           
+           // init head and tail
+           head = new DNode();
+           head.prev = null;
+           tail = new DNode();
+           tail.next = null;
+           
+           head.next = tail;
+           tail.prev = head;
+       }
+       
+       // time: O(logN) for treemap
+       public void push(int x) {
+           DNode node = new DNode();
+           node.val = x;
+           
+           DNode last = tail.prev;
+           // insert node after last
+           last.next = node;
+           node.prev = last;
+           
+           node.next = tail;
+           tail.prev = node;
+           
+           map.putIfAbsent(x, new LinkedList<>());
+           map.get(x).add(node);
+       }
+       
+       // time: O(logN)
+       public int pop() {
+           DNode last = tail.prev;
+           if (last == head) {
+               return 0;
+           }
+           removeNode(last);
+           map.get(last.val).pollLast();
+           if (map.get(last.val).isEmpty()) {
+               map.remove(last.val);
+           }
+           return last.val;
+       }
+       
+       // time: O(1)
+       public int top() {
+           DNode last = tail.prev;
+           return last.val;
+       }
+       
+       // O(1)
+       public int peekMax() {
+           return map.lastKey();
+       }
+       
+       // O(logN)
+       public int popMax() {
+           int max = map.lastKey();
+           DNode last = map.get(max).pollLast();
+           removeNode(last);
+           if (map.get(max).isEmpty()) {
+               map.remove(max);
+           }
+           return max;
+       }
+       
+       private void removeNode(DNode node) {
+           DNode savedPrev = node.prev;
+           DNode savedNext = node.next;
+           
+           savedPrev.next = savedNext;
+           savedNext.prev = savedPrev;
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   from heapq import heappop, heappush
+   
+   
+   class MaxStack:
+   
+       def __init__(self):
+           self.heap = []
+           # use it to identify same element
+           self.idx = 0
+           self.stack = []
+           # used it for lazy deletion
+           self.removed = set()
+   
+       def push(self, x: int) -> None:
+           heappush(self.heap, (-x, -self.idx))
+           self.stack.append((x, self.idx))
+           self.idx += 1
+   
+       def pop(self) -> int:
+           while self.stack and self.stack[-1][1] in self.removed:
+               self.stack.pop()
+           num, idx = self.stack.pop()
+           self.removed.add(idx)
+           return num
+   
+       def top(self) -> int:
+           while self.stack and self.stack[-1][1] in self.removed:
+               self.stack.pop()
+           return self.stack[-1][0]
+   
+       def peekMax(self) -> int:
+           while self.heap and -self.heap[0][1] in self.removed:
+               heappop(self.heap)
+           return -self.heap[0][0]
+   
+       def popMax(self) -> int:
+           while self.heap and -self.heap[0][1] in self.removed:
+               heappop(self.heap)
+           num, idx = heappop(self.heap)
+           self.removed.add(-idx)
+           return -num
+   
+

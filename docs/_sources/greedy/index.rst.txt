@@ -1,0 +1,38 @@
+greedy
+======
+
+   .. toctree::
+      :maxdepth: 1
+
+      _1029_TwoCityScheduling/index
+      _1217_Minimum_Cost_to_Move_Chips_to_The_Same_Position/index
+      _1296_DivideArrayinSetsofKConsecutiveNumbers/index
+      _1338_ReduceArraySizetoTheHalf/index
+      _1353_MaximumNumberofEventsThatCanBeAttended/index
+      _1383_MaximumPerformanceofaTeam/index
+      _1403_MinimumSubsequenceinNonIncreasingOrder/index
+      _1526_MinimumNumberofIncrementsonSubarraystoFormaTargetArray/index
+      _1599_MaximumProfitofOperatingaCentennialWheel/index
+      _1663_SmallestStringWithAGivenNumericValue/index
+      _1737_ChangeMinimumCharactersToSatisfyOneOfThreeConditions/index
+      _1769_Minimum_Number_of_Operations_to_Move_All_Balls_to_Each_Box/index
+      _1899_MergeTripletstoFormTargetTriplet/index
+      _2178_MaximumSplitofPositiveEvenIntegers/index
+      _2214_Minimum_Health_to_Beat_Game/index
+      _2895_minimum_processing_time/index
+      _402_RemoveKDigits/index
+      _406_QueueReconstructionbyHeight/index
+      _455_AssignCookies/index
+      _45_jump_games_II/index
+      _605_Can_Place_Flowers/index
+      _630_CourseScheduleIII/index
+      _659_SplitArrayintoConsecutiveSubsequences/index
+      _665_NondecreasingArray/index
+      _667_Beautiful_Arrangement_II/index
+      _763_PartitionLabels/index
+      _80_RemoveDuplicateFromSortedArrayII/index
+      _846_HandofStraights/index
+      _857_MinimumCosttoHireKWorkers/index
+      _870_AdvantageShuffle/index
+      _945_minimum_increment_to_make_array_unique/index
+      _948_Bag_of_Tokens/index

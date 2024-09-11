@@ -1,0 +1,50 @@
+======================
+ 991 Broken Calculator
+======================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   package com.leetcode.math;
+   
+   /**
+    * @Date: 08/12/2020
+    * @Description: Math.
+    **/
+   public class _991_BrokenCalculator {
+       // O(log(Y/X))
+       public int brokenCalc(int X, int Y) {
+           // convert y to x;
+           int res = 0;
+           while (Y > X) {
+               if (Y % 2 == 0) {
+                   Y /= 2;
+               } else {
+                   Y += 1;
+               }
+               res++;
+           }
+           return res + X - Y;
+       }
+   }
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   class Solution:
+       # time: O(O(log(target/startValue)))
+       def brokenCalc(self, startValue: int, target: int) -> int:
+           res = 0
+           while target > startValue:
+               if target % 2 == 0:
+                   target //= 2
+               else:
+                   target += 1
+               res += 1
+           return res + startValue - target
+   
+

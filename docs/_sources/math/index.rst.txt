@@ -1,0 +1,67 @@
+math
+====
+
+   .. toctree::
+      :maxdepth: 1
+
+      _1041_RobotBoundedInCircle/index
+      _1262_GreatestSumDivisiblebyThree/index
+      _1291_Sequential_Digits/index
+      _1360_NumberofDaysBetweenTwoDates/index
+      _1362_ClosestDivisors/index
+      _1363_LargestMultipleofThree/index
+      _1390_FourDivisors/index
+      _1492_ThekthFactorofn/index
+      _1502_CanMakeArithmeticProgressionFromSequence/index
+      _1523_CountOddNumbersinanIntervalRange/index
+      _1551_MinimumOperationsToMakeArrayEqual/index
+      _165_CompareVersionNumbers/index
+      _1680_ConcatenationOfConsecutiveBinaryNumbers/index
+      _171_ExcelSheetColumnNumber/index
+      _172_FactorialTrailingZeroes/index
+      _1_TwoSum/index
+      _202_HappyNumber/index
+      _204_CountPrimes/index
+      _231_PowerOfTwo/index
+      _233_NumberofDigitOne/index
+      _258_AddDigits/index
+      _263_UglyNumber/index
+      _292_NimGame/index
+      _29_DivideTwoIntegers/index
+      _3091_Apply OperationstoMakeSumofArrayGreaterThanorEqualtok/index
+      _319_BulbSwitcher/index
+      _326_PowerofThree/index
+      _342_PowerofFour/index
+      _357_CountNumberswithUniqueDigits/index
+      _360_Sort_Transformed_Array/index
+      _365_WaterandJugProblem/index
+      _372_SuperPow/index
+      _386_LexicographicalNumbers/index
+      _396_RotateFunction/index
+      _397_IntegerReplacement/index
+      _400_NthDigit/index
+      _415_add_strings/index
+      _453_MinimumMovestoEqualArrayElements/index
+      _462_MinimumMovesToEqualArrayElementsII/index
+      _507_PerfectNumber/index
+      _509_FibonacciNumber/index
+      _50_PowXN/index
+      _539_MinimumTimeDifference/index
+      _593_Valid_Square/index
+      _633_Sum_of_Square_Numbers/index
+      _66_PlusOne/index
+      _670_MaximumSwap/index
+      _69_SqrtX/index
+      _728_SelfDividingNumbers/index
+      _754_ReachANumber/index
+      _780_ReachingPoints/index
+      _7_ReverseInteger/index
+      _869_ReorderedPowerof2/index
+      _899_OrderlyQueue/index
+      _8_StringToInteger/index
+      _902_Numbers_At_Most_N_Given_Digit_Set/index
+      _908_SmallestRangeI/index
+      _910_SmallestRangeII/index
+      _970_PowerfulIntegers/index
+      _991_broken_calculator/index
+      sum/index

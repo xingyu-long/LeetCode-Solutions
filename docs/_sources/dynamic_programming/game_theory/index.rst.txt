@@ -1,0 +1,11 @@
+game_theory
+===========
+
+      .. toctree::
+         :maxdepth: 1
+
+         _1140_StoneGameII/index
+         _1406_StoneGameIII/index
+         _464_can_i_win/index
+         _486_PredicttheWinner/index
+         _877_StoneGame/index

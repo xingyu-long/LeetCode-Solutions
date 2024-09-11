@@ -1,0 +1,20 @@
+counter
+=======
+
+      .. toctree::
+         :maxdepth: 1
+
+         _1151_MinimumSwapstoGroupAll1sTogether/index
+         _1248_CountNumberofNiceSubarrays/index
+         _1295_FindNumberswithEvenNumberofDigits/index
+         _1385_FindtheDistanceValueBetweenTwoArrays/index
+         _1394_FindLuckyIntegerinanArray/index
+         _1395_CountNumberofTeams/index
+         _163_MissingRanges/index
+         _209_MinimumSizeSubarraySum/index
+         _238_ProductofArrayExceptSelf/index
+         _283_MoveZeroes/index
+         _532_K_diffPairsinanArray/index
+         _904_FruitIntoBaskets/index
+         _930_BinarySubarraysWithSum/index
+         _CountingElements/index

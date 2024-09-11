@@ -1,0 +1,121 @@
+===========================
+ 1730 Shortestpathtogetfood
+===========================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   /*
+    * @Date: 07/16/2022 20:23:53
+    * @LastEditTime: 07/16/2022 20:24:57
+    * @Description: You need to fill out
+    */
+   package com.leetcode.bfs_and_dfs;
+   
+   import java.util.LinkedList;
+   import java.util.Queue;
+   
+   public class _1730_ShortestPathtoGetFood {
+       int[][] dirs = { { -1, 0 }, { 0, -1 }, { 1, 0 }, { 0, 1 } };
+   
+       public int getFood(char[][] grid) {
+           int m = grid.length, n = grid[0].length;
+           // use visited array to avoid TLE
+           boolean[][] visited = new boolean[m][n];
+           Queue<int[]> queue = new LinkedList<>();
+           for (int i = 0; i < m; i++) {
+               for (int j = 0; j < n; j++) {
+                   if (grid[i][j] == '*') {
+                       queue.offer(new int[] { i, j });
+                   }
+               }
+           }
+           int step = 0;
+           while (!queue.isEmpty()) {
+               int size = queue.size();
+               for (int i = 0; i < size; i++) {
+                   int[] curr = queue.poll();
+                   if (grid[curr[0]][curr[1]] == '#') {
+                       return step;
+                   }
+                   for (int[] dir : dirs) {
+                       int newX = curr[0] + dir[0];
+                       int newY = curr[1] + dir[1];
+                       if (isValid(newX, newY, grid, visited)) {
+                           queue.offer(new int[] { newX, newY });
+                           visited[newX][newY] = true;
+                       }
+                   }
+               }
+               step++;
+           }
+           return -1;
+       }
+   
+       public boolean isValid(int i, int j, char[][] grid, boolean[][] visited) {
+           if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length) {
+               return false;
+           }
+           if (visited[i][j])
+               return false;
+           if (grid[i][j] == 'X')
+               return false;
+           return true;
+       }
+   }
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   '''
+   Date: 08/11/2022 16:38:38
+   LastEditTime: 08/11/2022 16:43:01
+   Description: BFS
+   '''
+   from collections import deque
+   from typing import List
+   
+   
+   class Solution:
+       def getFood(self, grid: List[List[str]]) -> int:
+           def is_valid(grid, i, j):
+               if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[i]):
+                   return False
+               if grid[i][j] == 'X':
+                   return False
+               return True
+   
+           m, n = len(grid), len(grid[0])
+           # [[False] * n] * m 不可以因为当我们处理某一列，其他列也会被更新
+           # https://www.geeksforgeeks.org/python-using-2d-arrays-lists-the-right-way/
+           visited = [[False for _ in range(n)] for _ in range(m)]
+           queue = deque()
+           for i in range(m):
+               for j in range(n):
+                   if grid[i][j] == '*':
+                       queue.append((i, j))
+                       visited[i][j] = True
+                       break
+   
+           dirs = [[-1, 0], [0, -1], [1, 0], [0, 1]]
+           step = 0
+           while len(queue):
+               size = len(queue)
+               for _ in range(size):
+                   x, y = queue.popleft()
+                   if grid[x][y] == '#':
+                       return step
+                   for move1, move2 in dirs:
+                       new_x = x + move1
+                       new_y = y + move2
+                       if is_valid(grid, new_x, new_y) and not visited[new_x][new_y]:
+                           queue.append((new_x, new_y))
+                           visited[new_x][new_y] = True
+               step += 1
+           return -1
+   
+

@@ -1,0 +1,134 @@
+===============================
+ 442 Findallduplicatesinanarray
+===============================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   package com.leetcode.array;
+   
+   import java.util.ArrayList;
+   import java.util.List;
+   
+   /**
+    * @Date: 07/10/2020, 09/03/2020
+    * @Description: duplicate
+    **/
+   // 利用1~N的条件，每次取出当前值-1作为index，访问之后就把这个赋值为相反值，
+   // 如果发现是负数，则表明之前也碰到过这个，就用index + 1加入到结果集
+   public class _442_FindAllDuplicatesinanArray {
+       public List<Integer> findDuplicates(int[] nums) {
+           List<Integer> res = new ArrayList<>();
+           for (int i = 0; i < nums.length; i++) {
+               int index = Math.abs(nums[i]) - 1;
+               if (nums[index] < 0) {
+                   res.add(index + 1);
+               }
+               nums[index] = -nums[index];
+           }
+           return res;
+       }
+       // 类似于41. find missing positive一样
+       public List<Integer> findDuplicates2(int[] nums) {
+           List<Integer> res = new ArrayList<>();
+           for (int i = 0; i < nums.length; i++) {
+               while (nums[i] != nums[nums[i] - 1]) {
+                   exch(nums, i, nums[i] - 1);
+               }
+           }
+           for (int i = 0; i < nums.length; i++) {
+               if (nums[i] != i + 1) {
+                   res.add(nums[i]);
+               }
+           }
+           return res;
+       }
+   
+       private void exch(int[] nums, int i, int j) {
+           int temp = nums[i];
+           nums[i] = nums[j];
+           nums[j] = temp;
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   from typing import List
+   
+   """
+   442. Find All Duplicates in an Array
+   ---
+   
+   Given an integer array nums of length n where all the integers of nums are in the range [1, n] and each integer appears once or twice, return an array of all the integers that appears twice.
+   
+   You must write an algorithm that runs in O(n) time and uses only constant extra space.
+   ---
+   
+   Example 1:
+   
+   Input: nums = [4,3,2,7,8,2,3,1]
+   Output: [2,3]
+   
+   Example 2:
+   
+   Input: nums = [1,1,2]
+   Output: [1]
+   
+   Example 3:
+   
+   Input: nums = [1]
+   Output: []
+   """
+   
+   
+   class Solution:
+       def findDuplicates(self, nums: List[int]) -> List[int]:
+           """
+           like first missing positive
+           all the integers of nums are in the range [1, n]
+   
+           idx:    0, 1, 2, 3, 4, 5
+           target: 1, 2, 3, 4, 5, 6
+           """
+   
+           def exch(i, j):
+               nums[i], nums[j] = nums[j], nums[i]
+   
+           if not nums:
+               return []
+           for i in range(len(nums)):
+               while (
+                   nums[i] - 1 >= 0
+                   and nums[i] - 1 < len(nums)
+                   and nums[i] != nums[nums[i] - 1]
+               ):
+                   exch(i, nums[i] - 1)
+           res = []
+           for i in range(len(nums)):
+               if nums[i] != i + 1:
+                   res.append(nums[i])
+           return res
+   
+   
+   class Solution2:
+       def findDuplicates(self, nums: List[int]) -> List[int]:
+           if not nums:
+               return []
+           res = []
+           for i in range(len(nums)):
+               idx = abs(nums[i]) - 1
+               if nums[idx] < 0:
+                   # for idx, the value should be idx + 1.
+                   res.append(idx + 1)
+               else:
+                   # use negative to mark.
+                   nums[idx] = -nums[idx]
+           return res
+   
+

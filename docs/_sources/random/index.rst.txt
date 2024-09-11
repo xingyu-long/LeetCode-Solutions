@@ -1,0 +1,14 @@
+random
+======
+
+   .. toctree::
+      :maxdepth: 1
+
+      _380_InsertDeleteGetRandom/index
+      _381_InsertDeleteGetRandomDuplicatesallowed/index
+      _382_LinkedListRandomNode/index
+      _384_ShuffleanArray/index
+      _398_RandomPickIndex/index
+      _470_ImplementRand10UsingRand7/index
+      _478_GenerateRandomPointInACircle/index
+      _528_random_pick_with_weight/index

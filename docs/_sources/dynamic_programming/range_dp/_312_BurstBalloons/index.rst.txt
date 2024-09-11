@@ -1,0 +1,86 @@
+==================
+ 312 Burstballoons
+==================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   /*
+    * @Date: 08/11/2020 18:07:14
+    * @LastEditTime: 12/13/2020 09:55:32
+    * @Description: range DP
+    */
+   package com.leetcode.dynamic_programming.range_dp;
+   
+   public class _312_BurstBalloons {
+   
+       // https://leetcode.com/problems/burst-balloons/discuss/76228/Share-some-analysis-and-explanations
+       // https://www.cnblogs.com/grandyang/p/5006441.html
+       // 选取的k表示最后一次被打破，所以就是k * 左边填充的1 * 右边填充的1
+       // time:O(n^3) space:O(n^2)
+       public int maxCoins(int[] nums) {
+           int n = nums.length;
+           int[] arr = new int[n + 2];
+           for (int i = 0; i < n; i++) {
+               arr[i + 1] = nums[i];
+           }
+           arr[0] = arr[n + 1] = 1;
+           int[][] memo = new int[n + 2][n + 2];
+           return helper(1, n, arr, memo);
+       }
+   
+       private int helper(int i, int j, int[] nums, int[][] memo) {
+           // 这里不是 i >= j
+           if (i > j) {
+               return 0;
+           }
+           if (memo[i][j] > 0) {
+               return memo[i][j];
+           }
+           int res = Integer.MIN_VALUE;
+           for (int x = i; x <= j; x++) {
+               res = Math.max(memo[i][j],
+                       helper(i, x - 1, nums, memo) + nums[i - 1] * nums[x] * nums[j + 1] + helper(x + 1, j, nums, memo));
+           }
+           memo[i][j] = res;
+           return res;
+       }
+   }
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   from math import inf
+   from typing import List
+   
+   
+   class Solution:
+       # time: O(n^3)
+       # space: O(n^2)
+       def maxCoins(self, nums: List[int]) -> int:
+           arr = [1] + nums + [1]
+           memo = {}
+   
+           def dfs(i, j):
+               # Q: how to describe the burst balloon?
+               # A: just image we picked the last one to burst
+               if i > j:
+                   return 0
+               if (i, j) in memo:
+                   return memo[(i, j)]
+               res = float(-inf)
+               for x in range(i, j + 1):
+                   res = max(
+                       res,
+                       dfs(i, x - 1) + arr[i - 1] * arr[x] * arr[j + 1] + dfs(x + 1, j),
+                   )
+               memo[(i, j)] = res
+               return res
+   
+           return dfs(1, len(nums))
+   
+

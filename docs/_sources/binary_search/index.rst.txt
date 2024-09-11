@@ -1,0 +1,38 @@
+binary_search
+=============
+
+   .. toctree::
+      :maxdepth: 1
+
+      _1011_CapacityToShipPackagesWithinDDays/index
+      _1060_missing_element_in_sorted_array/index
+      _1170_CompareStringsbyFrequencyoftheSmallestCharacter/index
+      _1182_ShortestDistancetoTargetColor/index
+      _1300_SumofMutatedArrayClosesttoTarget/index
+      _153_find_minimum_in_rotated_sorted_array/index
+      _154_find_minimum_in_rotated_sorted_array_ii/index
+      _162_FindPeakElement/index
+      _2055_plates_between_candles/index
+      _278_FirstBadVersion/index
+      _315_CountofSmallerNumbersAfterSelf/index
+      _33_search_in_rotated_sorted_array/index
+      _349_IntersectionofTwoArrays/index
+      _34_FindFirstAndLastPositionOfElementInSortedArray/index
+      _350_IntersectionofTwoArraysII/index
+      _354_RussianDollEnvelopes/index
+      _35_SearchInsertPosition/index
+      _363_MaxSumofRectangleNoLargerThanK/index
+      _367_ValidPerfectSquare/index
+      _374_GuessNumberHigherorLower/index
+      _410_SplitArrayLargestSum/index
+      _441_ArrangingCoins/index
+      _475_heaters/index
+      _4_MedianofTwoSortedArrays/index
+      _540_SingleElementinaSortedArray/index
+      _658_find_k_closest_elements/index
+      _704_binary_search/index
+      _719_find_k-th_smallest_pair_distance/index
+      _81_SearchInRotatedSortedArrayII/index
+      _852_PeakIndexinaMountainArray/index
+      _875_koko_eating_bananas/index
+      _981_time_based_key_value_store/index

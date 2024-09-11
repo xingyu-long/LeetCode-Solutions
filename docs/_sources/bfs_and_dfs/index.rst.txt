@@ -1,0 +1,65 @@
+bfs_and_dfs
+===========
+
+   .. toctree::
+      :maxdepth: 1
+
+      _1036_EscapeaLargeMaze/index
+      _1087_BraceExpansion/index
+      _1091_shortest_path_in_binary_matrix/index
+      _1096_BraceExpansionII/index
+      _1162_AsFarfromLandasPossible/index
+      _1197_minimum_knight_moves/index
+      _1219_PathwithMaximumGold/index
+      _1245_TreeDiameter/index
+      _1254_NumberofClosedIslands/index
+      _126_WordLadderII/index
+      _1274_NumberofShipsinaRectangle/index
+      _127_word_ladder/index
+      _1293_ShortestPathinaGridwithObstaclesElimination/index
+      _130_SurroundedRegions/index
+      _1345_JumpGameIV/index
+      _1376_TimeNeededtoInformAllEmployees/index
+      _1391_CheckifThereisaValidPathinaGrid/index
+      _1443_MinimumTimetoCollectAllApplesinaTree/index
+      _1730_ShortestPathtoGetFood/index
+      _1778_shortest_path_in_a_hidden_grid/index
+      _1905_count_sub_islands/index
+      _200_NumberofIslands/index
+      _2290_MinimumObstacleRemovaltoReachCorner/index
+      _286_walls_and_gates/index
+      _317_shortest_distance_from_all_buildings/index
+      _339_nested_list_weight_sum/index
+      _364_nested_list_weight_sum_ii/index
+      _417_PacificAtlanticWaterFlow/index
+      _419_BattleshipsinaBoard/index
+      _433_MinimumGeneticMutation/index
+      _463_IslandPerimeter/index
+      _473_MatchstickstoSquare/index
+      _489_robot_room_cleaner/index
+      _490_TheMaze/index
+      _505_TheMazeII/index
+      _529_Minesweeper/index
+      _52_NQueensII/index
+      _542_0_1_Matrix/index
+      _675_CutOffTreesforGolfEvent/index
+      _690_employee_importance/index
+      _694_NumberofDistinctIslands/index
+      _695_max_area_of_island/index
+      _698_PartitionToKEqualSumSubsets/index
+      _721_accounts_merge/index
+      _733_FloodFill/index
+      _737_SentenceSimilarityII/index
+      _752_OpentheLock/index
+      _753_CrackingtheSafe/index
+      _778_SwiminRisingWater/index
+      _805_SplitArrayWithSameAverage/index
+      _815_BusRoutes/index
+      _827_making_a_large_island/index
+      _841_KeysAndRooms/index
+      _847_ShortestPathVisitingAllNodes/index
+      _909_snakes_and_ladders/index
+      _934_ShortestBridge/index
+      _947_MostStonesRemovedwithSameRoworColumn/index
+      _967_numbers_with_same_consecutive_differences/index
+      _994_RottingOranges/index

@@ -1,0 +1,8 @@
+string_search
+=============
+
+      .. toctree::
+         :maxdepth: 1
+
+         _1392_LongestHappyPrefix/index
+         _459_RepeatedSubstringPattern/index

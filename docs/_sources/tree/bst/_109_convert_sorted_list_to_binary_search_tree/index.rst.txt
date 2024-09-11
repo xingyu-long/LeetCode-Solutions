@@ -1,0 +1,84 @@
+==============================================
+ 109 Convert Sorted List To Binary Search Tree
+==============================================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   /*
+    * @Date: 11/14/2019 21:02:42
+    * @LastEditTime: 05/06/2021 08:45:58
+    * @Description: Divide and conquer
+    */
+   
+   package com.leetcode.tree.bst;
+   
+   
+   import com.leetcode.common.ListNode;
+   import com.leetcode.common.TreeNode;
+   
+   public class _109_ConvertSortedListToBinarySearchTree {
+       // time:O(NlogN) space:O(logN)
+       public TreeNode sortedListToBST(ListNode head) {
+           if (head == null) return null;
+           return helper(head, null);
+       }
+       
+       public TreeNode helper(ListNode start, ListNode end) {
+           if (start == end) return null;
+           ListNode mid = findMid(start, end);
+           TreeNode root = new TreeNode(mid.val);
+           root.left = helper(start, mid);
+           root.right = helper(mid.next, end);
+           return root;
+       }
+       
+       public ListNode findMid(ListNode head, ListNode tail) {
+           ListNode slow = head;
+           ListNode fast = head;
+           while (fast.next != tail && fast.next.next != tail) {
+               slow = slow.next;
+               fast = fast.next.next;
+           }
+           return slow;
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   from typing import Optional
+   from leetcode.common.py_utils import ListNode, TreeNode
+   
+   
+   class Solution:
+       def sortedListToBST(self, head: Optional[ListNode]) -> Optional[TreeNode]:
+   
+           def find_middle(start, end):
+               slow = start
+               fast = start
+               while fast != end and fast.next != end:
+                   slow = slow.next
+                   fast = fast.next.next
+               return slow
+   
+           def dfs(start, end):
+               if start == end:
+                   return None
+   
+               mid = find_middle(start, end)
+               left = dfs(start, mid)
+               right = dfs(mid.next, end)
+               root = TreeNode(mid.val)
+               root.left = left
+               root.right = right
+               return root
+   
+           return dfs(head, None)
+   
+

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>tree &#8212; LeetCode Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=12dfc556" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1026 Maximumdifferencebetweennodeandancestor" href="_1026_MaximumDifferenceBetweenNodeandAncestor/index.html" />
+    <link rel="prev" title="802 Findeventualsafestates" href="../topological_sort/_802_FindEventualSafeStates/index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="tree">
+<h1>tree<a class="headerlink" href="#tree" title="Link to this heading">¶</a></h1>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="_1026_MaximumDifferenceBetweenNodeandAncestor/index.html">1026 Maximumdifferencebetweennodeandancestor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_104_MaximumDepthOfBinaryTree/index.html">104 Maximumdepthofbinarytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_105_construct_binary_tree_from_preorder_and_inorder_traversal/index.html">105 Construct Binary Tree From Preorder And Inorder Traversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_106_ConstructBinaryTreefromInorderandPostorderTraversal/index.html">106 Constructbinarytreefrominorderandpostordertraversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1110_DeleteNodesAndReturnForest/index.html">1110 Deletenodesandreturnforest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_111_MinimumDepthOfBinaryTree/index.html">111 Minimumdepthofbinarytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1130_MinimumCostTreeFromLeafValues/index.html">1130 Minimumcosttreefromleafvalues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1145_BinaryTreeColoringGame/index.html">1145 Binarytreecoloringgame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_114_FlattenBinaryTreetoLinkedList/index.html">114 Flattenbinarytreetolinkedlist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_116_populating_next_right_pointers_In_each_node/index.html">116 Populating Next Right Pointers In Each Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_117_PopulatingNextRightPointersInEachNodeII/index.html">117 Populatingnextrightpointersineachnodeii</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1302_DeepestLeavesSum/index.html">1302 Deepestleavessum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1315_SumofNodeswithEvenValuedGrandparent/index.html">1315 Sumofnodeswithevenvaluedgrandparent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1339_MaximumProductOfSplittedBinaryTree/index.html">1339 Maximumproductofsplittedbinarytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1343_MaximumProductofSplittedBinaryTree/index.html">1343 Maximumproductofsplittedbinarytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1361_ValidateBinaryTreeNodes/index.html">1361 Validatebinarytreenodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1367_LinkedListinBinaryTree/index.html">1367 Linkedlistinbinarytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1372_LongestZigZagPathinaBinaryTree/index.html">1372 Longestzigzagpathinabinarytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1379_FindACorrespondingNodeOfABinaryTreeInACloneOfThatTree/index.html">1379 Findacorrespondingnodeofabinarytreeinacloneofthattree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1457_PseudoPalindromicPathsInABinaryTree/index.html">1457 Pseudopalindromicpathsinabinarytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_156_BinaryTreeUpsideDown/index.html">156 Binarytreeupsidedown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1650_lowest_common_ancestor_of_a_binary_tree_iii/index.html">1650 Lowest Common Ancestor Of A Binary Tree Iii</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1676_lowestcommon_ancestor_of_a_binary_tree_iv/index.html">1676 Lowestcommon Ancestor Of A Binary Tree Iv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1740_FindDistanceinaBinaryTree/index.html">1740 Finddistanceinabinarytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_199_BinaryTreeRightSideView/index.html">199 Binarytreerightsideview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_2096_step_by_step_directions_from_a_binary_tree_node_to_another/index.html">2096 Step By Step Directions From A Binary Tree Node To Another</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_222_CountCompleteTreeNodes/index.html">222 Countcompletetreenodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_2265_count_nodes_equal_to_average_of_subtree/index.html">2265 Count Nodes Equal To Average Of Subtree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_226_InvertBinaryTree/index.html">226 Invertbinarytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_2331_evaluate_boolean_binary_tree/index.html">2331 Evaluate Boolean Binary Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_236_LowestCommonAncestorOfABinaryTree/index.html">236 Lowestcommonancestorofabinarytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_255_VerifyPreorderSequenceinBinarySearchTree/index.html">255 Verifypreordersequenceinbinarysearchtree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_270_ClosestBinarySearchTreeValue/index.html">270 Closestbinarysearchtreevalue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_272_ClosestBinarySearchTreeValueII/index.html">272 Closestbinarysearchtreevalueii</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_297_SerializeandDeserializeBinaryTree/index.html">297 Serializeanddeserializebinarytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_298_BinaryTreeLongestConsecutiveSequence/index.html">298 Binarytreelongestconsecutivesequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_314_BinaryTreeVerticalOrderTraversal/index.html">314 Binarytreeverticalordertraversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_331_VerifyPreorderSerializationofaBinaryTree/index.html">331 Verifypreorderserializationofabinarytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_337_HouseRobberIII/index.html">337 Houserobberiii</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_404_SumofLeftLeaves/index.html">404 Sumofleftleaves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_429_Nary_Tree_Level_Order_Traversal/index.html">429 Nary Tree Level Order Traversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_437_PathSumIII/index.html">437 Pathsumiii</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_508_MostFrequentSubtreeSum/index.html">508 Mostfrequentsubtreesum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_513_FindBottomLeftTreeValue/index.html">513 Findbottomlefttreevalue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_515_FindLargestValueinEachTreeRow/index.html">515 Findlargestvalueineachtreerow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_545_Boundary_of_Binary_Tree/index.html">545 Boundary Of Binary Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_559_MaximumDepthofNaryTree/index.html">559 Maximumdepthofnarytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_563_BinaryTreeTilt/index.html">563 Binarytreetilt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_606_ConstructStringfromBinaryTree/index.html">606 Constructstringfrombinarytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_623_AddOneRowToTree/index.html">623 Addonerowtotree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_637_AverageofLevelsinBinaryTree/index.html">637 Averageoflevelsinbinarytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_652_FindDuplicateSubtrees/index.html">652 Findduplicatesubtrees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_654_MaximumBinaryTree/index.html">654 Maximumbinarytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_662_MaximumWidthofBinaryTree/index.html">662 Maximumwidthofbinarytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_666_PathSumIV/index.html">666 Pathsumiv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_671_SecondMinimumNodeInaBinaryTree/index.html">671 Secondminimumnodeinabinarytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_814_BinaryTreePruning/index.html">814 Binarytreepruning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_863_all_nodes_distance_k_in_binary_tree/index.html">863 All Nodes Distance K In Binary Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_865_SmallestSubtreewithalltheDeepestNodes/index.html">865 Smallestsubtreewithallthedeepestnodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_897_IncreasingOrderSearchTree/index.html">897 Increasingordersearchtree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_958_CheckCompletenessofaBinaryTree/index.html">958 Checkcompletenessofabinarytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_95_UniqueBinarySearchTreesII/index.html">95 Uniquebinarysearchtreesii</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_971_FlipBinaryTreeToMatchPreorderTraversal/index.html">971 Flipbinarytreetomatchpreordertraversal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_987_vertical_order_traversal_of_a_binary_tree/index.html">987 Vertical Order Traversal Of A Binary Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_993_CousinsinBinaryTree/index.html">993 Cousinsinbinarytree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_998_MaximumBinaryTreeII/index.html">998 Maximumbinarytreeii</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bst/index.html">bst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="construct/index.html">construct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inorder/index.html">inorder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postorder/index.html">postorder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preorder/index.html">preorder</a></li>
+</ul>
+</div>
+</div></blockquote>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">LeetCode Solutions</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../_1056_ConfusingNumber/index.html">1056 Confusingnumber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_1088_ConfusingNumberII/index.html">1088 Confusingnumberii</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_1207_UniqueNumberOfOccurrences/index.html">1207 Uniquenumberofoccurrences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_1222_QueensThatCanAttacktheKing/index.html">1222 Queensthatcanattacktheking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_1266_MinimumTimeVisitingAllPoints/index.html">1266 Minimumtimevisitingallpoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_1267_CountServersthatCommunicate/index.html">1267 Countserversthatcommunicate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_1298_MaximumCandiesYouCanGetfromBoxes/index.html">1298 Maximumcandiesyoucangetfromboxes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_1441_BuildanArrayWithStackOperations/index.html">1441 Buildanarraywithstackoperations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_30_SubstringWithConcatenationOfAllWords/index.html">30 Substringwithconcatenationofallwords</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_43_MultiplyStrings/index.html">43 Multiplystrings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_609_FindDuplicateFileinSystem/index.html">609 Findduplicatefileinsystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_65_valid_number/index.html">65 Valid Number</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_779_KthSymbolInGrammar/index.html">779 Kthsymbolingrammar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_819_MostCommonWord/index.html">819 Mostcommonword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_829_ConsecutiveNumbersSum/index.html">829 Consecutivenumberssum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_937_ReorderDatainLogFiles/index.html">937 Reorderdatainlogfiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../array/index.html">array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backtracking/index.html">backtracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bfs_and_dfs/index.html">bfs_and_dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binary_search/index.html">binary_search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bit_manipulation/index.html">bit_manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concurrency/index.html">concurrency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dynamic_programming/index.html">dynamic_programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geometry/index.html">geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graph/index.html">graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../greedy/index.html">greedy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hashmap/index.html">hashmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linkedList/index.html">linkedList</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/index.html">math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../matrix/index.html">matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ood/index.html">ood</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../random/index.html">random</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../range_sum/index.html">range_sum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/index.html">simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stack_priority_queue/index.html">stack_priority_queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../string/index.html">string</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_sort/index.html">topological_sort</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../trie/index.html">trie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../two_pointer/index.html">two_pointer</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../topological_sort/_802_FindEventualSafeStates/index.html" title="previous chapter">802 Findeventualsafestates</a></li>
+      <li>Next: <a href="_1026_MaximumDifferenceBetweenNodeandAncestor/index.html" title="next chapter">1026 Maximumdifferencebetweennodeandancestor</a></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2023, Your Name.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/tree/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

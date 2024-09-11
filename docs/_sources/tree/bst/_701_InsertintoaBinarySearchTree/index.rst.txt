@@ -1,0 +1,95 @@
+================================
+ 701 Insertintoabinarysearchtree
+================================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   package com.leetcode.tree.bst;
+   
+   import com.leetcode.common.TreeNode;
+   
+   public class _701_InsertintoaBinarySearchTree {
+       // time: O(logN)
+       public TreeNode insertIntoBST(TreeNode root, int val) {
+           if (root == null)
+               return new TreeNode(val);
+           if (root.val < val) {
+               // go right;
+               if (root.right == null) {
+                   root.right = new TreeNode(val);
+               } else {
+                   root.right = insertIntoBST(root.right, val);
+               }
+           } else {
+               // go left;
+               if (root.left == null) {
+                   root.left = new TreeNode(val);
+               } else {
+                   root.left = insertIntoBST(root.left, val);
+               }
+           }
+           return root;
+       }
+   
+       public TreeNode insertIntoBST2(TreeNode root, int val) {
+           if (root == null)
+               return new TreeNode(val);
+           if (root.val < val) {
+               // go right;
+               root.right = insertIntoBST2(root.right, val);
+           } else {
+               // go left;
+               root.left = insertIntoBST2(root.left, val);
+           }
+           return root;
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   from typing import Optional
+   from leetcode.common.py_utils import TreeNode
+   
+   
+   class Solution:
+       def insertIntoBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+           if not root:
+               return TreeNode(val)
+   
+           if root.val < val:
+               root.right = self.insertIntoBST(root.right, val)
+           else:
+               root.left = self.insertIntoBST(root.left, val)
+   
+           return root
+   
+   
+   class Solution2:
+       # iterative
+       def insertIntoBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+           if not root:
+               return TreeNode(val)
+   
+           curr = root
+           prev = curr
+           while curr:
+               prev = curr
+               if curr.val < val:
+                   curr = curr.right
+                   if curr == None:
+                       prev.right = TreeNode(val)
+               else:
+                   curr = curr.left
+                   if curr == None:
+                       prev.left = TreeNode(val)
+   
+           return root
+   
+

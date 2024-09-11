@@ -1,0 +1,48 @@
+stack_priority_queue
+====================
+
+   .. toctree::
+      :maxdepth: 1
+
+      Calculator/index
+      Parentheses/index
+      TopK/index
+      _1003_check_if_word_is_valid_after_substitutions/index
+      _1046_last_stone_weight/index
+      _1047_RemoveAllAdjacentDuplicatesInString/index
+      _1057_CampusBike/index
+      _1167_Minimum_Cost_to_Connect_Sticks/index
+      _1209_RemoveAllAdjacentDuplicatesinStringII/index
+      _1381_DesignaStackWithIncrementOperation/index
+      _150_EvaluateReversePolishNotation/index
+      _151_min_stack/index
+      _155_MinStack/index
+      _1675_MinimizeDeviationInArray/index
+      _2102_SequentiallyOrdinalRankTracker/index
+      _225_ImplementStackusingQueues/index
+      _232_ImplementQueueusingStacks/index
+      _295_find_median_from_data_stream/index
+      _3092_MostFrequentIDs/index
+      _313_SuperUglyNumber/index
+      _316_RemoveDuplicateLetters/index
+      _32_LongestValidParentheses/index
+      _332_reconstruct_itinerary/index
+      _341_flatten_nested_list_iterator/index
+      _373_FindKPairswithSmallestSums/index
+      _385_MiniParser/index
+      _388_LongestAbsoluteFilePath/index
+      _394_DecodeString/index
+      _621_task_scheduler/index
+      _678_valid_parenthesis_string/index
+      _682_Baseball_Game/index
+      _703_KthLargestElementinaStream/index
+      _716_max_stack/index
+      _71_simplify_path/index
+      _735_Asteroid_Collision/index
+      _768_MaxChunksToMakeSortedII/index
+      _853_car_fleet/index
+      _895_MaximumFrequencyStack/index
+      _946_ValidateStackSequences/index
+      _950_RevealCardsInIncreasingOrder/index
+      monoQueue/index
+      monoStack/index

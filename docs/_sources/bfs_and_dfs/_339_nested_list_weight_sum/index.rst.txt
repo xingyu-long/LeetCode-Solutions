@@ -1,0 +1,118 @@
+===========================
+ 339 Nested List Weight Sum
+===========================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   package com.leetcode.bfs_and_dfs;
+   
+   import com.leetcode.common.NestedInteger;
+   
+   import java.util.LinkedList;
+   import java.util.List;
+   import java.util.Queue;
+   
+   public class _339_NestedListWeightSum {
+       /**
+        * 339. Nested List Weight Sum
+        * 1/1/2020
+        * solution:
+        * 记录层数 然后和当前的是integer的情况相加
+        *
+        * @param nestedList
+        * @return
+        */
+       // time:O(n) space:O(n)
+       //如何弄出数据并且决定层数
+       public int depthSum(List<NestedInteger> nestedList) {
+           if (nestedList == null) return 0;
+           return helper(nestedList, 1);
+       }
+   
+       //time:O(n) space:O(n)
+       public int helper(List<NestedInteger> nestedList, int depth) {
+           int res = 0;
+           for (NestedInteger nest : nestedList) {
+               if (nest.isInteger()) {
+                   res += nest.getInteger() * depth;
+               } else {
+                   res += helper(nest.getList(), depth + 1);
+               }
+           }
+           return res;
+       }
+   
+       // BFS
+       // time:O(n) space:O(n)
+       public int depthSum2(List<NestedInteger> nestedList) {
+           if (nestedList == null) return 0;
+           int depth = 1;
+           int res = 0;
+           Queue<NestedInteger> queue = new LinkedList<>(nestedList);
+           while (!queue.isEmpty()) {
+               int size = queue.size();
+               for (int i = 0; i < size; i++) {
+                   NestedInteger nest = queue.poll();
+                   if (nest.isInteger()) {
+                       res += nest.getInteger() * depth;
+                   } else {
+                       queue.addAll(nest.getList());
+                   }
+               }
+               depth++; // 下一波的integer
+           }
+           return res;
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   from collections import deque
+   from typing import List
+   
+   from leetcode.common.py_utils import NestedInteger
+   
+   
+   class Solution:
+       def depthSum(self, nestedList: List[NestedInteger]) -> int:
+           # use BFS
+           queue = deque()
+           level, res = 0, 0
+           for l in nestedList:
+               queue.append(l)
+           while queue:
+               size = len(queue)
+               level += 1
+               for _ in range(size):
+                   curr = queue.popleft()
+                   if curr.isInteger():
+                       res += curr.getInteger() * level
+                   else:
+                       queue.extend(curr.getList())
+           return res
+   
+   
+   class Solution2:
+       def depthSum(self, nestedList: List[NestedInteger]) -> int:
+           res = 0
+   
+           def dfs(depth, curr_list):
+               nonlocal res
+   
+               for curr in curr_list:
+                   if not curr.isInteger():
+                       dfs(depth + 1, curr.getList())
+                   else:
+                       res += curr.getInteger() * depth
+   
+           dfs(1, nestedList)
+           return res
+   
+

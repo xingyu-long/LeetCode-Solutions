@@ -1,0 +1,104 @@
+===========================
+ 360 Sort Transformed Array
+===========================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   /*
+    * @Date: 12/21/2019 20:10:32
+    * @LastEditTime: 12/15/2020 10:11:32
+    * @Description: Math, Two pointer
+    */
+   package com.leetcode.math;
+   
+   public class _360_SortTransformedArray {
+   
+       // 分为a > 0, a < 0, a = 0(合并为>=)
+       public static int[] sortTransformedArray(int[] nums, int a, int b, int c) {
+           int n = nums.length;
+           int[] res = new int[n];
+           int start = 0;
+           int end = n - 1;
+           int index = (a >= 0) ? n - 1 : 0;
+           while (start <= end) {
+               int startNum = getNum(nums[start], a, b, c);
+               int endNum = getNum(nums[end], a, b, c);
+               if (a >= 0) {
+                   if (startNum >= endNum) {
+                       res[index--] = startNum;
+                       start++;
+                   } else {
+                       res[index--] = endNum;
+                       end--;
+                   }
+               } else {
+                   if (startNum >= endNum) {
+                       res[index++] = endNum;
+                       end--;
+                   } else {
+                       res[index++] = startNum;
+                       start++;
+                   }
+               }
+           }
+           return res;
+       }
+   
+       public static int getNum(int x, int a, int b, int c) {
+           return a * x * x + b * x + c;
+       }
+   
+       public static void main(String[] args) {
+           int[] nums = { -4, -2, 2, 4 };
+           int a = 1, b = 3, c = 5;
+           int[] res = sortTransformedArray(nums, a, b, c);
+           for (int num : res) {
+               System.out.print(num + " ");
+           }
+   
+       }
+   }
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   from typing import List
+   
+   
+   class Solution:
+       def sortTransformedArray(
+           self, nums: List[int], a: int, b: int, c: int
+       ) -> List[int]:
+           f = lambda x: a * x * x + b * x + c
+           n = len(nums)
+           res = [0] * n
+           start, end = 0, n - 1
+           index = n - 1 if a >= 0 else 0
+           while start <= end:
+               start_num = f(nums[start])
+               end_num = f(nums[end])
+               if a >= 0:
+                   if start_num > end_num:
+                       res[index] = start_num
+                       start += 1
+                   else:
+                       res[index] = end_num
+                       end -= 1
+                   index -= 1
+               else:
+                   if start_num < end_num:
+                       res[index] = start_num
+                       start += 1
+                   else:
+                       res[index] = end_num
+                       end -= 1
+                   index += 1
+   
+           return res
+   
+

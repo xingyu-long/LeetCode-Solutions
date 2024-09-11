@@ -1,0 +1,21 @@
+monoStack
+=========
+
+      .. toctree::
+         :maxdepth: 1
+
+         _1475_FinalPricesWithaSpecialDiscountinaShop/index
+         _1673_FindTheMostCompetitiveSubsequence/index
+         _1996_TheNumberofWeakCharactersintheGame/index
+         _2104_SumofSubarrayRanges/index
+         _2281_Sum_of_Total_Strength_of_Wizards/index
+         _321_CreateMaximumNumber/index
+         _456_132Pattern/index
+         _496_NextGreaterElementI/index
+         _503_NextGreaterElementII/index
+         _556_NextGreaterElementIII/index
+         _739_daily_temperatures/index
+         _84_LargestRectangleinHistogram/index
+         _85_maximal_rectangle/index
+         _901_online_stock_span/index
+         _907_SumofSubarrayMinimums/index

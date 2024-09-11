@@ -1,0 +1,65 @@
+==============
+ 67 Add Binary
+==============
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   package com.leetcode.bit_manipulation;
+   
+   /**
+    * @Date: 2019/04/04, 2019/7/24, 04/07/2020, 05/11/2020
+    * @Description: Add,
+    **/
+   public class _67_AddBinary {
+   
+       public String addBinary(String a, String b) {
+           StringBuilder sb = new StringBuilder();
+           int i = a.length() - 1;
+           int j = b.length() - 1;
+           int remain = 0;
+           while (i >= 0 || j >= 0 || remain != 0) {
+               int sum = remain;
+               if (i >= 0) {
+                   sum += a.charAt(i--) - '0';
+               }
+               if (j >= 0) {
+                   sum += b.charAt(j--) - '0';
+               }
+               sb.append(sum % 2);
+               remain = sum / 2;
+           }
+           return sb.reverse().toString();
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   class Solution:
+       def addBinary(self, a: str, b: str) -> str:
+           res = []
+           i = len(a) - 1
+           j = len(b) - 1
+           carry = 0
+           while i >= 0 or j >= 0 or carry != 0:
+               if i >= 0:
+                   num_a = ord(a[i]) - ord("0")
+                   carry += num_a
+                   i -= 1
+               if j >= 0:
+                   num_b = ord(b[j]) - ord("0")
+                   carry += num_b
+                   j -= 1
+   
+               res.append(str(carry % 2))
+               carry //= 2
+   
+           return "".join(reversed(res))
+   
+

@@ -1,0 +1,28 @@
+sliding_window
+==============
+
+      .. toctree::
+         :maxdepth: 1
+
+         _1004_MaxConsecutiveOnesIII/index
+         _1052_grumpy_bookstore_owner/index
+         _1208_GetEqualSubstringsWithinBudget/index
+         _1234_ReplacetheSubstringforBalancedString/index
+         _1297_MaximumNumberofOccurrencesofaSubstring/index
+         _1358_NumberofSubstringsContainingAllThreeCharacters/index
+         _1493_LongestSubarrayof1sAfterDeletingOneElement/index
+         _159_LongestSubstringwithAtMostTwoDistinctCharacters/index
+         _3090_MaximumLengthSubstringWithTwoOccurrences/index
+         _340_LongestSubstringwithAtMostKDistinctCharacters/index
+         _395_LongestSubstringwithAtLeastKRepeatingCharacters/index
+         _3_longest_substring_without_repeating_characters/index
+         _424_LongestRepeatingCharacterReplacement/index
+         _438_FindAllAnagramsinaString/index
+         _480_SlidingWindowMedian/index
+         _485_MaxConsecutiveOnes/index
+         _487_MaxConsecutiveOnesII/index
+         _567_PermutationinString/index
+         _713_SubarrayProductLessThanK/index
+         _76_minimum_window_substring/index
+         _992_SubarrayswithKDifferentIntegers/index
+         _995_minimum_number_of_k_consecutive_bit_flips/index

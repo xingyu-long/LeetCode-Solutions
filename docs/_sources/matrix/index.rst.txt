@@ -1,0 +1,32 @@
+matrix
+======
+
+   .. toctree::
+      :maxdepth: 1
+
+      _1260_Shift_2D_Grid/index
+      _1292_MaximumSideLengthofaSquarewithSumLessthanorEqualtoThreshold/index
+      _1329_SorttheMatrixDiagonally/index
+      _1341_TheKWeakestRowsinaMatrix/index
+      _1351_CountNegativeNumbersinaSortedMatrix/index
+      _1380_LuckyNumbersinaMatrix/index
+      _1424_DiagonalTraverseII/index
+      _1504_CountSubmatricesWithAllOnes/index
+      _2128_RemoveAllOnesWithRowandColumnFlips/index
+      _2326_spiral_matrix_iv/index
+      _240_search_2d_matrix_ii/index
+      _2428_maximum_sum_of_an_hourglass/index
+      _296_BestMeetingPoint/index
+      _302_SmallestRectangleEnclosingBlackPixels/index
+      _311_SparseMatrixMultiplication/index
+      _329_LongestIncreasingPathinaMatrix/index
+      _36_Valid_Sudoku/index
+      _378_KthSmallestElementinaSortedMatrix/index
+      _37_SudokuSolver/index
+      _48_RotateImage/index
+      _498_DiagonalTraverse/index
+      _54_SpiralMatrix/index
+      _59_SpiralMatrixII/index
+      _73_SetMatrixZeroes/index
+      _74_Searcha2DMatrix/index
+      _766_toeplitz_matrix/index

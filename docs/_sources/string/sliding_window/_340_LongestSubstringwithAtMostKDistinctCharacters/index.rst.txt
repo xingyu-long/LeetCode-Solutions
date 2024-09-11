@@ -1,0 +1,77 @@
+==================================================
+ 340 Longestsubstringwithatmostkdistinctcharacters
+==================================================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   package com.leetcode.string.sliding_window;
+   
+   public class _340_LongestSubstringwithAtMostKDistinctCharacters {
+   
+       /**
+        * 340. Longest Substring with At Most K Distinct Characters
+        * When:11/3/2019
+        * Difficulty: Medium
+        * @param s
+        * @param k
+        * @return
+        */
+       // 可以算出最长长度和对应的字符串
+       public static String getStringNoMoreTwoDistinct(String s, int k) {
+           if (s == null || s.length() == 0) return "";
+           int[] counter = new int[128];
+           int end = 0;
+           int start = 0;
+           int num = 0;
+           int max = 0;
+           String res = "";
+           while (end < s.length()) {
+               if (counter[s.charAt(end)]++ == 0) num++;
+               while (num > k) {
+                   counter[s.charAt(start)]--;
+                   if (counter[s.charAt(start)] == 0) num--;
+                   start++;
+               }
+               end++;
+               if (end - start > max) {
+                   max = end - start;
+                   res = s.substring(start, end);
+               }
+           }
+           return res;
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   from collections import Counter
+   
+   
+   class Solution:
+       def lengthOfLongestSubstringKDistinct(self, s: str, k: int) -> int:
+           counter = Counter()
+           start, end = 0, 0
+           n = len(s)
+           res = 0
+           while end < n:
+               if counter[s[end]] == 0:
+                   k -= 1
+               counter[s[end]] -= 1
+   
+               while k < 0:
+                   counter[s[start]] += 1
+                   if counter[s[start]] == 0:
+                       k += 1
+                   start += 1
+               res = max(res, end - start + 1)
+               end += 1
+           return res
+   
+

@@ -1,0 +1,69 @@
+=======================
+ 1046 Last Stone Weight
+=======================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   package com.leetcode.stack_priority_queue;
+   
+   import java.util.PriorityQueue;
+   
+   /**
+    * @Date: 04/12/2020
+    * @Description: PriorityQueue
+    **/
+   public class _1046_LastStoneWeight {
+   
+       // time:O(nlogn) space:O(n)
+       public int lastStoneWeight(int[] stones) {
+           // use the heap
+           PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> (b - a));
+           for (int stone : stones) {
+               pq.offer(stone);
+           }
+   
+           while (pq.size() > 1) {
+               int max = pq.poll();
+               int max2 = pq.poll();
+               if (max == max2) {
+                   continue;
+               } else {
+                   pq.offer(max - max2);
+               }
+           }
+           if (pq.isEmpty()) {
+               return 0;
+           } else {
+               return pq.peek();
+           }
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   from heapq import heapify, heappop, heappush
+   from typing import List
+   
+   
+   class Solution:
+       def lastStoneWeight(self, stones: List[int]) -> int:
+           # max heap
+           heap = [-s for s in stones]
+           heapify(heap)
+           while len(heap) > 1:
+               first = -heappop(heap)
+               second = -heappop(heap)
+               if first == second:
+                   continue
+               else:
+                   heappush(heap, -abs(first - second))
+           return -heap[0] if heap else 0
+   
+

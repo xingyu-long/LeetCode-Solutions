@@ -1,0 +1,59 @@
+======================================
+ 26 Remove Duplicate From Sorted Array
+======================================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   package com.leetcode.array.twoPointer;
+   import java.util.Arrays;
+   
+   public class _26_RemoveDuplicateFromSortedArray {
+       /**
+        * 26. Remove Duplicate From Sorted Array
+          When: 2019/2/11
+          review 1: 2019/6/30
+          review 2: 2019/8/20
+        */
+   
+       // two pointer，待插入前面一个就是需要比较的数
+       public int removeDuplicates(int[] nums) {
+           if (nums == null || nums.length == 0) return 0;
+           int slow = 1;
+           for (int fast = 1; fast < nums.length; fast++) {
+               if (nums[fast] != nums[slow - 1]) {
+                   nums[slow++] = nums[fast];
+               }
+           }
+           return slow;
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   '''
+   Date: 02/06/2022 19:06:07
+   LastEditTime: 02/06/2022 19:15:56
+   Description: Two Pointer
+   '''
+   
+   
+   from ast import List
+   
+   
+   class Solution:
+       def removeDuplicates(self, nums: List[int]) -> int:
+           res = 0
+           for i in range(1, len(nums)):
+               if nums[i] != nums[res]:
+                   res += 1
+                   nums[res] = nums[i]
+           return res + 1
+   
+

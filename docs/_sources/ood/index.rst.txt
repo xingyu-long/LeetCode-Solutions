@@ -1,0 +1,36 @@
+ood
+===
+
+   .. toctree::
+      :maxdepth: 1
+
+      _1146_SnapshotArray/index
+      _1244_Design_A_Leaderboard/index
+      _1357_ApplyDiscountEverynOrders/index
+      _1396_DesignUndergroundSystem/index
+      _1476_SubrectangleQueries/index
+      _1603_design_parking_system/index
+      _1628_design_an_expression_tree_with_evaluate_function/index
+      _170_TwoSumIII_Datastructuredesign/index
+      _2034_StockPriceFluctuation/index
+      _2353_DesignaFoodRatingSystem/index
+      _251_Flatten2DVector/index
+      _281_ZigzagIterator/index
+      _284_PeekingIterator/index
+      _288_UniqueWordAbbreviation/index
+      _346_moving_average_from_data_stream/index
+      _348_DesignTicTacToe/index
+      _353_DesignSnakeGame/index
+      _355_DesignTwitter/index
+      _359_LoggerRateLimiter/index
+      _362_DesignHitCounter/index
+      _379_DesignPhoneDirectory/index
+      _432_all_oone_data_structure/index
+      _622_DesignCircularQueue/index
+      _641_DesignCircularDeque/index
+      _676_ImplementMagicDictionary/index
+      _705_DesignHashSet/index
+      _706_DesignHashMap/index
+      _855_ExamRoom/index
+      _900_RLEIterator/index
+      doubly_linkedlist/index

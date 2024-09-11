@@ -1,0 +1,109 @@
+==============================
+ 465 Optimal Account Balancing
+==============================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   package com.leetcode.backtracking;
+   
+   import java.util.ArrayList;
+   import java.util.HashMap;
+   import java.util.List;
+   
+   /**
+    * @Date: 07/14/2020
+    * @Description: Backtracking
+    **/
+   public class _465_OptimalAccountBalancing {
+   
+       public int res;
+   
+       // time: exponential
+       public int minTransfers(int[][] transactions) {
+           res = Integer.MAX_VALUE;
+           HashMap<Integer, Integer> map = new HashMap<>();
+           for (int[] trans : transactions) {
+               map.put(trans[0], map.getOrDefault(trans[0], 0) - trans[2]);
+               map.put(trans[1], map.getOrDefault(trans[1], 0) + trans[2]);
+           }
+           List<Integer> debt = new ArrayList<>();
+           for (int val : map.values()) {
+               if (val != 0) {
+                   debt.add(val);
+               }
+           }
+           helper(debt, 0, 0);
+           return res;
+       }
+   
+       public void helper(List<Integer> debt, int start, int count) {
+           while (start < debt.size() && debt.get(start) == 0) {
+               start++;// 因为backtracking的时候有修改值。
+           }
+           if (start == debt.size()) {
+               res = Math.min(res, count);
+               return;
+           }
+   
+           for (int i = start + 1; i < debt.size(); i++) {
+               // 这里的backtracking一个元素只能被用一次。
+               // 表示当前和下一个的符号相反，可以尝试发生一次交易
+               if (debt.get(start) * debt.get(i) < 0) {
+                   debt.set(i, debt.get(i) + debt.get(start));
+                   // 走到下一个，但是和保留在i上面。
+                   helper(debt, start + 1, count + 1);
+                   debt.set(i, debt.get(i) - debt.get(start));
+               }
+           }
+       }
+   
+   
+   }
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   from collections import defaultdict
+   from math import inf
+   from typing import List
+   
+   
+   class Solution:
+       def minTransfers(self, transactions: List[List[int]]) -> int:
+   
+           def build_debt(transactions) -> List[int]:
+               m = defaultdict(int)
+               for t in transactions:
+                   u, v, w = t
+                   m[u] -= w
+                   m[v] += w
+               debt = []
+               for k, v in m.items():
+                   if v != 0:
+                       debt.append(v)
+               return debt
+   
+           def helper(curId: int, debt: List[int]) -> int:
+               while curId < len(debt) and debt[curId] == 0:
+                   curId += 1
+               if curId == len(debt):
+                   return 0
+   
+               # try different cases: settle debt[curId] and debt[i]
+               min_transfer = inf
+               for i in range(curId + 1, len(debt)):
+                   if debt[curId] * debt[i] < 0:
+                       debt[i] += debt[curId]
+                       min_transfer = min(min_transfer, helper(curId + 1, debt) + 1)
+                       debt[i] -= debt[curId]
+               return min_transfer
+   
+           debt = build_debt(transactions)
+           return helper(0, debt)
+   
+

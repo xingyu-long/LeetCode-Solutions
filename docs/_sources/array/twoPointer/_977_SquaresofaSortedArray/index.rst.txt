@@ -1,0 +1,70 @@
+==========================
+ 977 Squaresofasortedarray
+==========================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   /*
+    * @Date: 01/22/2020 09:25:26
+    * @LastEditTime: 12/15/2020 10:08:18
+    * @Description: Two pointer
+    */
+   package com.leetcode.array.twoPointer;
+   
+   public class _977_SquaresofaSortedArray {
+       public int[] sortedSquares(int[] A) {
+           // time:O(n) space:O(n)
+           // 因为是填充，需要先比较。
+           if (A == null || A.length == 0) return new int[]{};
+           int[] res = new int[A.length];
+           int k = res.length - 1;
+           int left = 0;
+           int right = k;
+           while (left <= right) { // 取到最后
+               if (A[left] * A[left] < A[right] * A[right]) {
+                   res[k--] = A[right] * A[right];
+                   right--;
+               } else  {
+                   res[k--] = A[left] * A[left];
+                   left++;
+               }
+           }
+           return res;
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   '''
+   Date: 12/15/2020 10:07:48
+   LastEditTime: 12/15/2020 10:09:00
+   Description: Two pointer
+   '''
+   
+   
+   class Solution:
+       # Time: O(N) space: O(N)
+       def sortedSquares(self, nums: List[int]) -> List[int]:
+           if not nums:
+               return None
+           left, right = 0, len(nums) - 1
+           res = [0 for _ in range(len(nums))]
+           index = right
+           while left <= right:
+               if abs(nums[left]) > abs(nums[right]):
+                   res[index] = nums[left]**2
+                   left += 1
+               else:
+                   res[index] = nums[right]**2
+                   right -= 1
+               index -= 1
+           return res
+   
+

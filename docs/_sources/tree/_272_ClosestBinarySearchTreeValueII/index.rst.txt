@@ -1,0 +1,160 @@
+===================================
+ 272 Closestbinarysearchtreevalueii
+===================================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   /*
+    * @Date: 2019-11-15 21:15:05
+    * @LastEditors: Please set LastEditors
+    * @LastEditTime: 07/21/2022 10:43:31
+    */
+   package com.leetcode.tree;
+   
+   import com.leetcode.common.TreeNode;
+   
+   import java.util.ArrayList;
+   import java.util.Deque;
+   import java.util.LinkedList;
+   import java.util.List;
+   
+   public class _272_ClosestBinarySearchTreeValueII {
+   
+       public List<Integer> closestKValues(TreeNode root, double target, int k) {
+           Deque<Integer> deque = new LinkedList<>();
+           dfs(root, target, k, deque);
+           return new ArrayList<>(deque);
+       }
+       
+       public void dfs(TreeNode root, double target, int k, Deque<Integer> deque) {
+           if (root == null) {
+               return;
+           }
+           
+           dfs(root.left, target, k, deque);
+           if (deque.size() == k) {
+               if (Math.abs(root.val - target) < Math.abs(deque.peekFirst() - target)) {
+                   deque.pollFirst();
+               } else {
+                   return;
+                   // 因为是用中序遍历，后面的只会越来越大，所以直接结束
+               }
+           }
+           deque.offerLast(root.val);
+           
+           dfs(root.right, target, k, deque);
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   from collections import deque
+   from heapq import heappop, heappush
+   from typing import List, Optional
+   
+   from leetcode.common.py_utils import TreeNode
+   
+   
+   class Solution:
+       def closestKValues(
+           self, root: Optional[TreeNode], target: float, k: int
+       ) -> List[int]:
+           # klogk + N of tree
+           # how to traversal it more efficiently?
+           heap = []
+           stack = []
+           curr = root
+           while stack or curr:
+               while curr:
+                   stack.append(curr)
+                   curr = curr.left
+   
+               curr = stack.pop()
+               heappush(heap, (-abs(curr.val - target), curr.val))
+               if len(heap) > k:
+                   heappop(heap)
+               curr = curr.right
+   
+           return [x[1] for x in heap]
+   
+   
+   class Solution2:
+       # time: O(N)
+       def closestKValues(
+           self, root: Optional[TreeNode], target: float, k: int
+       ) -> List[int]:
+           queue = deque()
+           stack = []
+           curr = root
+           while stack or curr:
+               while curr:
+                   stack.append(curr)
+                   curr = curr.left
+               curr = stack.pop()
+   
+               if len(queue) == k:
+                   if abs(curr.val - target) < abs(queue[0] - target):
+                       queue.popleft()
+                   else:
+                       # earlier return
+                       return queue
+               queue.append(curr.val)
+               curr = curr.right
+           return queue
+   
+   
+   class Solution3:
+       # O(logN + K)
+       def closestKValues(
+           self, root: Optional[TreeNode], target: float, k: int
+       ) -> List[int]:
+           pre, succ = [], []
+           curr = root
+           while curr:
+               if curr.val <= target:
+                   pre.append(curr)
+                   curr = curr.right
+               else:
+                   succ.append(curr)
+                   curr = curr.left
+   
+           def get_predecessor(pre):
+               curr = pre.pop()
+               if curr.left:
+                   pre.append(curr.left)
+                   curr = curr.left
+                   while curr and curr.right:
+                       pre.append(curr.right)
+                       curr = curr.right
+   
+           def get_successor(succ):
+               curr = succ.pop()
+               if curr.right:
+                   succ.append(curr.right)
+                   curr = curr.right
+                   while curr and curr.left:
+                       succ.append(curr.left)
+                       curr = curr.left
+   
+           total = 0
+           res = []
+           while total < k:
+               if not succ or (pre and target - pre[-1].val < succ[-1].val - target):
+                   res.append(pre[-1].val)
+                   get_predecessor(pre)
+               else:
+                   res.append(succ[-1].val)
+                   get_successor(succ)
+   
+               total += 1
+   
+           return res
+   
+

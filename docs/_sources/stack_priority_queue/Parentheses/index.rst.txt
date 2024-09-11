@@ -1,0 +1,15 @@
+Parentheses
+===========
+
+      .. toctree::
+         :maxdepth: 1
+
+         _1021_RemoveOutermostParentheses/index
+         _1190_ReverseSubstringsBetweenEachPairofParentheses/index
+         _1249_Minimum_Remove_to_Make_Valid_Parentheses/index
+         _1541_Minimum_Insertions_to_Balance_a_Parentheses_String/index
+         _20_valid_parentheses/index
+         _241_DifferentWaystoAddParentheses/index
+         _301_remove_invalid_parentheses/index
+         _856_ScoreofParentheses/index
+         _921_MinimumAddtoMakeParenthesesValid/index

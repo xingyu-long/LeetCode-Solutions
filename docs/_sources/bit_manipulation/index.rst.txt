@@ -1,0 +1,23 @@
+bit_manipulation
+================
+
+   .. toctree::
+      :maxdepth: 1
+
+      _1310_XORQueriesofaSubarray/index
+      _136_SingleNumber/index
+      _137_single_number_ii/index
+      _190_ReverseBits/index
+      _191_Numberof1Bits/index
+      _201_BitwiseANDofNumbersRange/index
+      _2220_minimum_bit_flips_to_convert_number/index
+      _260_SingleNumberIII/index
+      _268_MissingNumber/index
+      _318_MaximumProductofWordLengths/index
+      _338_CountingBits/index
+      _371_SumofTwoIntegers/index
+      _389_FindTheDifference/index
+      _461_HammingDistance/index
+      _476_Number_Complement/index
+      _67_add_binary/index
+      _89_GrayCode/index

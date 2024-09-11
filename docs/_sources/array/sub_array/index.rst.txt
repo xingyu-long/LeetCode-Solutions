@@ -1,0 +1,18 @@
+sub_array
+=========
+
+      .. toctree::
+         :maxdepth: 1
+
+         _1186_MaximumSubarraySumwithOneDeletion/index
+         _1477_FindTwoNonoverlappingSubarraysEachWithTargetSum/index
+         _152_MaximumProductSubarray/index
+         _1567_MaximumLengthofSubarrayWithPositiveProduct/index
+         _1658_MinimumOperationsToReduceXToZero/index
+         _2272_SubstringWithLargestVariance/index
+         _325_maximum_size_subarray_sum_equals_k/index
+         _523_ContinuousSubarraySum/index
+         _525_contiguous_array/index
+         _548_SplitArraywithEqualSum/index
+         _560_subarray_sum_equals_k/index
+         _974_subarray_sums_divisible_by_k/index

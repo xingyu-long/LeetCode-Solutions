@@ -1,0 +1,10 @@
+Subsequence
+===========
+
+      .. toctree::
+         :maxdepth: 1
+
+         _1055_ShortestWaytoFormString/index
+         _392_IsSubsequence/index
+         _524_LongestWordinDictionarythroughDeleting/index
+         _792_NumberofMatchingSubsequences/index

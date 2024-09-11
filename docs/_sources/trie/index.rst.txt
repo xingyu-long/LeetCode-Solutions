@@ -1,0 +1,18 @@
+trie
+====
+
+   .. toctree::
+      :maxdepth: 1
+
+      _1268_SearchSuggestionsSystem/index
+      _1707_MaximumXORWithAnElementFromArray/index
+      _208_implement_trie/index
+      _211_add_and_search_word/index
+      _212_word_search_II/index
+      _2416_SumofPrefixScoresofStrings/index
+      _421_MaximumXOROfTwoNumbersInAnArray/index
+      _588_Design_In_Memory_File_System/index
+      _642_DesignSearchAutocompleteSystem/index
+      _648_replace_words/index
+      _677_MapSumPairs/index
+      _Match_star_symbol/index

@@ -1,0 +1,60 @@
+========================
+ 240 Search 2d Matrix Ii
+========================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   package com.leetcode.matrix;
+   
+   /**
+    * @Date: 2019/05/29 review1:2019/8/9 07/08/2020
+    * @Description: Traversal.
+    **/
+   public class _240_Searcha2DMatrixII {
+   
+       // time : O(m + n) space: O(1)
+       public boolean searchMatrix(int[][] matrix, int target) {
+           if (matrix == null || matrix.length == 0) {
+               return false;
+           }
+           int row = 0;
+           int col = matrix[0].length - 1; // 从右边顶点开始
+           while (col >= 0 && row <= matrix.length - 1) {
+               if (target == matrix[row][col]) {
+                   return true;
+               } else if (target < matrix[row][col]) {
+                   col--;
+               } else {
+                   row++;
+               }
+           }
+           return false;
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   from typing import List
+   
+   
+   class Solution:
+       def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+           rows, cols = len(matrix), len(matrix[0])
+           x, y = 0, cols - 1
+           while 0 <= x < rows and 0 <= y < cols:
+               if matrix[x][y] == target:
+                   return True
+               elif matrix[x][y] > target:
+                   y -= 1
+               else:
+                   x += 1
+           return False
+   
+

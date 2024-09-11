@@ -1,0 +1,83 @@
+===============================
+ 725 Split Linked List In Parts
+===============================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   package com.leetcode.linkedList;
+   
+   import com.leetcode.common.ListNode;
+   
+   public class _725_SplitLinkedListinParts {
+       // 先看整除情况下每个能有几个，然后再diff每次添加一个给它。
+       public ListNode[] splitListToParts(ListNode root, int k) {
+           ListNode[] res = new ListNode[k];
+           int total = numOfNodes(root);
+           int num = total / k ;
+           int diff = total % k;
+           ListNode cur = root;
+           ListNode prev = null;
+           for (int i = 0; i < k && cur != null; i++, diff--) {
+               res[i] = cur;
+               for (int j = 0; j < num + (diff > 0 ? 1: 0); j++) {
+                   prev = cur;
+                   cur = cur.next;
+               }
+               prev.next = null;
+           }
+           return res;
+       }
+   
+       public int numOfNodes(ListNode head) {
+           int count = 0;
+           while (head != null) {
+               count++;
+               head = head.next;
+           }
+           return count;
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   from typing import List, Optional
+   from leetcode.common.py_utils import ListNode
+   
+   
+   # similar to 2028. Find Missing Observations
+   class Solution:
+       def splitListToParts(
+           self, head: Optional[ListNode], k: int
+       ) -> List[Optional[ListNode]]:
+           if not head:
+               return [None] * k
+   
+           num = 0
+           curr = head
+           while curr:
+               num += 1
+               curr = curr.next
+   
+           # calculate the length of each part
+           avg = num // k
+           remain = num % k
+   
+           res = []
+           prev, curr = None, head
+           for _ in range(k):
+               res.append(curr)
+               for _ in range(avg + (1 if remain > 0 else 0)):
+                   prev, curr = curr, curr.next
+               prev.next = None
+               remain -= 1
+   
+           return res
+   
+

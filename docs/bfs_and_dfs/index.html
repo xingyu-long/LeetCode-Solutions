@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>bfs_and_dfs &#8212; LeetCode Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=12dfc556" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1036 Escapealargemaze" href="_1036_EscapeaLargeMaze/index.html" />
+    <link rel="prev" title="Thepowersum" href="../backtracking/_ThePowerSum/index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="bfs-and-dfs">
+<h1>bfs_and_dfs<a class="headerlink" href="#bfs-and-dfs" title="Link to this heading">¶</a></h1>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="_1036_EscapeaLargeMaze/index.html">1036 Escapealargemaze</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1087_BraceExpansion/index.html">1087 Braceexpansion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1091_shortest_path_in_binary_matrix/index.html">1091 Shortest Path In Binary Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1096_BraceExpansionII/index.html">1096 Braceexpansionii</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1162_AsFarfromLandasPossible/index.html">1162 Asfarfromlandaspossible</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1197_minimum_knight_moves/index.html">1197 Minimum Knight Moves</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1219_PathwithMaximumGold/index.html">1219 Pathwithmaximumgold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1245_TreeDiameter/index.html">1245 Treediameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1254_NumberofClosedIslands/index.html">1254 Numberofclosedislands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_126_WordLadderII/index.html">126 Wordladderii</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1274_NumberofShipsinaRectangle/index.html">1274 Numberofshipsinarectangle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_127_word_ladder/index.html">127 Word Ladder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1293_ShortestPathinaGridwithObstaclesElimination/index.html">1293 Shortestpathinagridwithobstacleselimination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_130_SurroundedRegions/index.html">130 Surroundedregions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1345_JumpGameIV/index.html">1345 Jumpgameiv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1376_TimeNeededtoInformAllEmployees/index.html">1376 Timeneededtoinformallemployees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1391_CheckifThereisaValidPathinaGrid/index.html">1391 Checkifthereisavalidpathinagrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1443_MinimumTimetoCollectAllApplesinaTree/index.html">1443 Minimumtimetocollectallapplesinatree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1730_ShortestPathtoGetFood/index.html">1730 Shortestpathtogetfood</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1778_shortest_path_in_a_hidden_grid/index.html">1778 Shortest Path In A Hidden Grid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_1905_count_sub_islands/index.html">1905 Count Sub Islands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_200_NumberofIslands/index.html">200 Numberofislands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_2290_MinimumObstacleRemovaltoReachCorner/index.html">2290 Minimumobstacleremovaltoreachcorner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_286_walls_and_gates/index.html">286 Walls And Gates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_317_shortest_distance_from_all_buildings/index.html">317 Shortest Distance From All Buildings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_339_nested_list_weight_sum/index.html">339 Nested List Weight Sum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_364_nested_list_weight_sum_ii/index.html">364 Nested List Weight Sum Ii</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_417_PacificAtlanticWaterFlow/index.html">417 Pacificatlanticwaterflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_419_BattleshipsinaBoard/index.html">419 Battleshipsinaboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_433_MinimumGeneticMutation/index.html">433 Minimumgeneticmutation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_463_IslandPerimeter/index.html">463 Islandperimeter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_473_MatchstickstoSquare/index.html">473 Matchstickstosquare</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_489_robot_room_cleaner/index.html">489 Robot Room Cleaner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_490_TheMaze/index.html">490 Themaze</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_505_TheMazeII/index.html">505 Themazeii</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_529_Minesweeper/index.html">529 Minesweeper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_52_NQueensII/index.html">52 Nqueensii</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_542_0_1_Matrix/index.html">542 0 1 Matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_675_CutOffTreesforGolfEvent/index.html">675 Cutofftreesforgolfevent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_690_employee_importance/index.html">690 Employee Importance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_694_NumberofDistinctIslands/index.html">694 Numberofdistinctislands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_695_max_area_of_island/index.html">695 Max Area Of Island</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_698_PartitionToKEqualSumSubsets/index.html">698 Partitiontokequalsumsubsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_721_accounts_merge/index.html">721 Accounts Merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_733_FloodFill/index.html">733 Floodfill</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_737_SentenceSimilarityII/index.html">737 Sentencesimilarityii</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_752_OpentheLock/index.html">752 Openthelock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_753_CrackingtheSafe/index.html">753 Crackingthesafe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_778_SwiminRisingWater/index.html">778 Swiminrisingwater</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_805_SplitArrayWithSameAverage/index.html">805 Splitarraywithsameaverage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_815_BusRoutes/index.html">815 Busroutes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_827_making_a_large_island/index.html">827 Making A Large Island</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_841_KeysAndRooms/index.html">841 Keysandrooms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_847_ShortestPathVisitingAllNodes/index.html">847 Shortestpathvisitingallnodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_909_snakes_and_ladders/index.html">909 Snakes And Ladders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_934_ShortestBridge/index.html">934 Shortestbridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_947_MostStonesRemovedwithSameRoworColumn/index.html">947 Moststonesremovedwithsameroworcolumn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_967_numbers_with_same_consecutive_differences/index.html">967 Numbers With Same Consecutive Differences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_994_RottingOranges/index.html">994 Rottingoranges</a></li>
+</ul>
+</div>
+</div></blockquote>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">LeetCode Solutions</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../_1056_ConfusingNumber/index.html">1056 Confusingnumber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_1088_ConfusingNumberII/index.html">1088 Confusingnumberii</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_1207_UniqueNumberOfOccurrences/index.html">1207 Uniquenumberofoccurrences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_1222_QueensThatCanAttacktheKing/index.html">1222 Queensthatcanattacktheking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_1266_MinimumTimeVisitingAllPoints/index.html">1266 Minimumtimevisitingallpoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_1267_CountServersthatCommunicate/index.html">1267 Countserversthatcommunicate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_1298_MaximumCandiesYouCanGetfromBoxes/index.html">1298 Maximumcandiesyoucangetfromboxes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_1441_BuildanArrayWithStackOperations/index.html">1441 Buildanarraywithstackoperations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_30_SubstringWithConcatenationOfAllWords/index.html">30 Substringwithconcatenationofallwords</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_43_MultiplyStrings/index.html">43 Multiplystrings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_609_FindDuplicateFileinSystem/index.html">609 Findduplicatefileinsystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_65_valid_number/index.html">65 Valid Number</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_779_KthSymbolInGrammar/index.html">779 Kthsymbolingrammar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_819_MostCommonWord/index.html">819 Mostcommonword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_829_ConsecutiveNumbersSum/index.html">829 Consecutivenumberssum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_937_ReorderDatainLogFiles/index.html">937 Reorderdatainlogfiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../array/index.html">array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../backtracking/index.html">backtracking</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">bfs_and_dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binary_search/index.html">binary_search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bit_manipulation/index.html">bit_manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concurrency/index.html">concurrency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dynamic_programming/index.html">dynamic_programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geometry/index.html">geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../graph/index.html">graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../greedy/index.html">greedy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hashmap/index.html">hashmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linkedList/index.html">linkedList</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/index.html">math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../matrix/index.html">matrix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ood/index.html">ood</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../random/index.html">random</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../range_sum/index.html">range_sum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/index.html">simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stack_priority_queue/index.html">stack_priority_queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../string/index.html">string</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topological_sort/index.html">topological_sort</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tree/index.html">tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../trie/index.html">trie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../two_pointer/index.html">two_pointer</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../backtracking/_ThePowerSum/index.html" title="previous chapter">Thepowersum</a></li>
+      <li>Next: <a href="_1036_EscapeaLargeMaze/index.html" title="next chapter">1036 Escapealargemaze</a></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2023, Your Name.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="../_sources/bfs_and_dfs/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

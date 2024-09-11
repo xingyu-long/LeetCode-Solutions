@@ -1,0 +1,17 @@
+range_sum
+=========
+
+   .. toctree::
+      :maxdepth: 1
+
+      _1352_ProductoftheLastKNumbers/index
+      _1442_CountTripletsThatCanFormTwoArraysofEqualXOR/index
+      _1524_NumberofSubarraysWithOddSum/index
+      _2483_minimum_penalty_for_a_shop/index
+      _303_RangeSumQueryImmutable/index
+      _304_RangeSumQuery2DImmutable/index
+      _307_RangeSumQueryMutable/index
+      _308_RangeSumQuery2DMutable/index
+      _370_RangeAddition/index
+      _724_FindPivotIndex/index
+      _825_FriendsOfAppropriateAges/index

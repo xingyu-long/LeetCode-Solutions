@@ -1,0 +1,91 @@
+=======================
+ 697 Degree Of An Array
+=======================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   package com.leetcode.hashmap;
+   
+   import java.util.HashMap;
+   import java.util.Map;
+   
+   public class _697_Degree_of_an_Array {
+       public int findShortestSubArray(int[] nums) {
+           if (nums == null || nums.length == 0) {
+               return 0;
+           }
+           int n = nums.length;
+           Map<Integer, Integer> map = new HashMap<>();
+           Map<Integer, Integer> first = new HashMap<>();
+           int degree = 0;
+           int res = 0;
+           for (int i = 0; i < n; i++) {
+               if (!first.containsKey(nums[i])) {
+                   first.put(nums[i], i);
+               }
+   
+               map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+               if (map.get(nums[i]) > degree) {
+                   // 就直接更新
+                   res = i - first.get(nums[i]) + 1;
+                   degree = map.get(nums[i]);
+               } else if (map.get(nums[i]) == degree) {
+                   // 比较同样的degree下面的长度最小
+                   res = Math.min(res, i - first.get(nums[i]) + 1);
+               }
+           }
+           return res;
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   from math import inf
+   from typing import Counter, List
+   
+   
+   class Solution:
+       def findShortestSubArray(self, nums: List[int]) -> int:
+           # sliding window?
+           c = Counter(nums)
+           freq = max(c.values())
+           res = inf
+           start, end = 0, 0
+           n = len(nums)
+           counter = Counter()
+           while end < n:
+               counter[nums[end]] += 1
+               while counter[nums[end]] == freq:
+                   res = min(res, end - start + 1)
+                   counter[nums[start]] -= 1
+                   start += 1
+               end += 1
+           return res
+   
+   
+   class Solution2:
+       # hash table
+       def findShortestSubArray(self, nums: List[int]) -> int:
+           m = Counter()
+           first = {}
+           degree, res = 0, 0
+           for i, num in enumerate(nums):
+               if num not in first:
+                   first[num] = i
+               m[num] += 1
+               if m[num] > degree:
+                   degree = m[num]
+                   res = i - first[num] + 1
+               elif m[num] == degree:
+                   res = min(res, i - first[num] + 1)
+   
+           return res
+   
+

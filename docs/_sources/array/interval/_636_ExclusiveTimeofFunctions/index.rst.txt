@@ -1,0 +1,76 @@
+=============================
+ 636 Exclusivetimeoffunctions
+=============================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   package com.leetcode.array.interval;
+   
+   import java.util.List;
+   import java.util.Stack;
+   
+   /**
+    * @Date: 05/17/2020
+    * @Description: Interval, Stack
+    **/
+   public class _636_ExclusiveTimeofFunctions {
+       // time:O(len(logs)) space:O(n + len(logs))
+       public int[] exclusiveTime(int n, List<String> logs) {
+           // 用prev来interval的开始
+           int[] res = new int[n];
+           Stack<Integer> stack = new Stack<>();
+           int prev = 0;// the start of the interval
+           for (String log : logs) {
+               String[] str = log.split(":");
+               if (str[1].equals("start")) {
+                   if (!stack.isEmpty()) {
+                       res[stack.peek()] += Integer.parseInt(str[2]) - prev;
+                   }
+                   stack.push(Integer.parseInt(str[0]));
+                   prev = Integer.parseInt(str[2]);
+               } else { // end
+                   res[stack.pop()] += Integer.parseInt(str[2]) - prev + 1;
+                   prev = Integer.parseInt(str[2]) + 1;
+               }
+           }
+           return res;
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   from typing import List
+   
+   
+   class Solution:
+       # time: O(len(logs))
+       # time: O(len(logs) // 2)
+       def exclusiveTime(self, n: int, logs: List[str]) -> List[int]:
+           # stack
+           stack = []
+           res = [0] * n
+           prev = 0
+           for log in logs:
+               i, status, time = log.split(":")
+               if status == "start":
+                   if stack:
+                       # s1 -> s2 -> e2 -> e1
+                       # this is for time between s1 -> s2
+                       res[stack[-1]] += int(time) - prev
+                   stack.append(int(i))
+                   prev = int(time)
+               elif status == "end":
+                   idx = stack.pop()
+                   res[idx] += int(time) - prev + 1
+                   # because each task is squentially connected
+                   prev = int(time) + 1
+           return res
+   
+

@@ -1,0 +1,83 @@
+=====================
+ 486 Predictthewinner
+=====================
+
+Java Solution
+-------------
+
+.. code-block:: java
+
+   /*
+    * @Date: 10/07/2020 10:06:21
+    * @LastEditTime: 12/12/2020 16:26:07
+    * @Description: MinMax, Top-down + Memo
+    */
+   package com.leetcode.dynamic_programming.game_theory;
+   
+   import java.util.Arrays;
+   
+   public class _486_PredictTheWinner {
+       int[][] memo;
+   
+       public boolean PredictTheWinner(int[] nums) {
+           // 博弈的那个题，可以算相对值
+           if (nums == null || nums.length == 0) {
+               return false;
+           }
+   
+           int n = nums.length;
+           memo = new int[n + 1][n + 1];
+           for (int[] temp : memo) {
+               Arrays.fill(temp, -1);
+           }
+           int diff = dfs(nums, 0, n - 1);
+           return diff >= 0; // equal的话，就是player1赢
+       }
+   
+       public int dfs(int[] nums, int start, int end) {
+           if (start > end) {
+               return 0;
+           }
+           if (memo[start][end] != -1)
+               return memo[start][end];
+           int takeLeft = nums[start] - dfs(nums, start + 1, end);
+           int takeRight = nums[end] - dfs(nums, start, end - 1);
+           int res = Math.max(takeLeft, takeRight);
+           memo[start][end] = res;
+           return res;
+       }
+   }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   '''
+   Date: 12/12/2020 16:21:32
+   LastEditTime: 12/12/2020 16:21:47
+   Description: MinMax, Top-down + Memo
+   '''
+   
+   
+   class Solution:
+       def PredictTheWinner(self, nums: List[int]) -> bool:
+           if not nums:
+               return False
+           memo = [[-1 for _ in range(len(nums) + 1)]
+                   for _ in range(len(nums) + 1)]
+           return self.dfs(nums, 0, len(nums) - 1, memo) >= 0
+   
+       def dfs(self, nums, left, right, memo):
+           if left > right:
+               return 0
+           if memo[left][right] != -1:
+               return memo[left][right]
+           take_left = nums[left] - self.dfs(nums, left + 1, right, memo)
+           take_right = nums[right] - self.dfs(nums, left, right - 1, memo)
+           better = max(take_left, take_right)
+           memo[left][right] = better
+           return better
+   
+
