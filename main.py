@@ -48,12 +48,17 @@ def generate_rst_files(solutions_dir, output_dir):
             os.makedirs(problem_dir, exist_ok=True)
             
             problem_title = format_problem_title(os.path.basename(root))
-            rst_file = os.path.join(problem_dir, f"{problem_title}.rst")
+            # rst_file = os.path.join(problem_dir, f"{problem_title}.rst")
+            rst_file = os.path.join(problem_dir, f"index.rst")
             
             with open(rst_file, 'w') as f:
+                f.write("=" * len(problem_title) + "\n")
                 f.write(f"{problem_title}\n")
                 f.write("=" * len(problem_title) + "\n\n")
-                
+    
+                # f.write(f"{problem_title} Solution\n")
+                # f.write("*" * (len(problem_title) + 9) + "\n\n")
+
                 for solution_file in files:
                     if solution_file.endswith(('.py', '.java', '.cpp', '.js')):
                         language = os.path.splitext(solution_file)[1][1:]
@@ -88,15 +93,22 @@ def generate_index(solutions_dir, output_dir):
         
         for dir in dirs:
             dir_path = os.path.join(directory, dir)
-            content.append(f"{'   ' * (level+1)}{dir}/index")
+            if any(os.path.isdir(os.path.join(dir_path, subdir)) for subdir in os.listdir(dir_path)):
+    
+                content.append(f"{'   ' * (level+1)}{dir}/index")
             
-            # Create index.rst for subdirectory
-            subdir_index = os.path.join(dir_path, 'index.rst')
-            with open(subdir_index, 'w') as f:
-                f.write(f"{dir}\n")
-                f.write("=" * len(dir) + "\n\n")
-                f.write("\n".join(create_toctree(dir_path, level+1)))
-        
+                # Create index.rst for subdirectory
+                subdir_index = os.path.join(dir_path, 'index.rst')
+                with open(subdir_index, 'w') as f:
+                    f.write(f"{dir}\n")
+                    f.write("=" * len(dir) + "\n\n")
+                    f.write("\n".join(create_toctree(dir_path, level+1)))
+            else:
+                content.append(f"{'   ' * (level+1)}{dir}/index")
+            # else:
+            #     problem_title = format_problem_title(dir)
+            #     content.append(f"{'   ' * (level+1)}{dir}/{problem_title.strip()}")
+
         return content
 
     # Write main index.rst
