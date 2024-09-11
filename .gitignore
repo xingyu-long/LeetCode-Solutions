@@ -7,3 +7,6 @@
 Leetcode/.idea/*
 Leetcode/.vscode/*
 Leetcode/out/*
+.DS_Store
+__pycache__/*
+# build/*
