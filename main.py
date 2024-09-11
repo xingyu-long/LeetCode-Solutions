@@ -148,13 +148,13 @@ def create_solution_structure(solutions_dir, output_dir):
 
 
 if __name__ == "__main__":
-    solutions_dir = os.path.join(os.path.dirname(__file__), "leetcode", "src", "com", "leetcode")
-    # # solutions_dir = os.path.join(os.path.dirname(__file__), "leetcode", "src", "com", "leetcode")
-    output_dir = "organized_solutions"
+    # solutions_dir = os.path.join(os.path.dirname(__file__), "leetcode", "src", "com", "leetcode")
+    # # # solutions_dir = os.path.join(os.path.dirname(__file__), "leetcode", "src", "com", "leetcode")
+    # output_dir = "organized_solutions"
 
-    create_solution_structure(solutions_dir, output_dir)
-    import sys
-    sys.exit()
+    # create_solution_structure(solutions_dir, output_dir)
+    # import sys
+    # sys.exit()
 
     solutions_dir = "organized_solutions"
     # solutions_dir = "leetcode_solutions"
