@@ -2,7 +2,7 @@
 name = "leetcode-solutions"
 version = "0.1.0"
 description = ""
-authors = ["Xingyu Long <halolong@hotmail.com>"]
+authors = ["Xingyu Long <xingyulong97@gmail.com>"]
 readme = "README.md"
 packages = [{include = "leetcode_solutions"}]
 
@@ -11,6 +11,7 @@ python = "^3.11"
 tqdm = "^4.64.1"
 pytablewriter = "^0.64.2"
 gitpython = "^3.1.29"
+sphinx = "^8.0.2"
 
 
 [build-system]
