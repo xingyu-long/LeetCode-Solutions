@@ -19,7 +19,7 @@ class MyCalendar:
         return True
 
 
-class MyCalendar:
+class MyCalendar2:
 
     def __init__(self):
         self.data = SortedList(
@@ -33,3 +33,44 @@ class MyCalendar:
             return False
         self.data.add((start, end))
         return True
+
+
+class Node:
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+        self.left = None
+        self.right = None
+
+
+class MyCalendar3:
+
+    def __init__(self):
+        self.root = None
+
+    def helper(self, start: int, end: int, node: Node) -> bool:
+        if start >= node.end:
+            # go to the right tree
+            if node.right:
+                return self.helper(start, end, node.right)
+            else:
+                node.right = Node(start, end)
+                return True
+        elif end <= node.start:
+            # go to the left tree
+            if node.left:
+                return self.helper(start, end, node.left)
+            else:
+                node.left = Node(start, end)
+                return True
+        else:
+            return False
+
+    # time: O(logN)
+    def book(self, start: int, end: int) -> bool:
+        # use binary search tree to keep it sorted
+        if not self.root:
+            self.root = Node(start, end)
+            return True
+
+        return self.helper(start, end, self.root)
