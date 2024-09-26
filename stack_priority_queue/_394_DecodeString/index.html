@@ -33,43 +33,6 @@
             
   <section id="decodestring">
 <h1>394 Decodestring<a class="headerlink" href="#decodestring" title="Permalink to this heading">¶</a></h1>
-<section id="py-solution">
-<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">decodeString</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="n">idx</span><span class="p">,</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
-        <span class="n">count_stack</span><span class="p">,</span> <span class="n">s_stack</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-        <span class="n">curr</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-        <span class="k">while</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-            <span class="n">ch</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
-            <span class="k">if</span> <span class="n">ch</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
-                <span class="k">while</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="ow">and</span> <span class="n">s</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
-                    <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
-                    <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="n">count_stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
-                <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="k">elif</span> <span class="n">ch</span> <span class="o">==</span> <span class="s2">&quot;[&quot;</span><span class="p">:</span>
-                <span class="n">s_stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">curr</span><span class="p">)</span>
-                <span class="n">curr</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-                <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="k">elif</span> <span class="n">ch</span> <span class="o">==</span> <span class="s2">&quot;]&quot;</span><span class="p">:</span>
-                <span class="c1"># get the string whatever before &quot;[&quot;</span>
-                <span class="c1"># 3[a][...], then the prefix for the second &quot;[&quot; would be &quot;aaa&quot;</span>
-                <span class="n">prefix</span> <span class="o">=</span> <span class="n">s_stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-                <span class="n">times</span> <span class="o">=</span> <span class="n">count_stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">times</span><span class="p">):</span>
-                    <span class="n">prefix</span> <span class="o">+=</span> <span class="n">curr</span>
-                <span class="n">curr</span> <span class="o">=</span> <span class="n">prefix</span>
-                <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="c1"># letters</span>
-                <span class="n">curr</span> <span class="o">+=</span> <span class="n">ch</span>
-                <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
-
-        <span class="k">return</span> <span class="n">curr</span>
-</pre></div>
-</div>
-</section>
 <section id="java-solution">
 <h2>Java Solution<a class="headerlink" href="#java-solution" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
@@ -160,6 +123,43 @@
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="py-solution">
+<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">decodeString</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">idx</span><span class="p">,</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+        <span class="n">count_stack</span><span class="p">,</span> <span class="n">s_stack</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+        <span class="n">curr</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">while</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+            <span class="n">ch</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">ch</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+                <span class="k">while</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="ow">and</span> <span class="n">s</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+                    <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+                    <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">count_stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+                <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">elif</span> <span class="n">ch</span> <span class="o">==</span> <span class="s2">&quot;[&quot;</span><span class="p">:</span>
+                <span class="n">s_stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">curr</span><span class="p">)</span>
+                <span class="n">curr</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">elif</span> <span class="n">ch</span> <span class="o">==</span> <span class="s2">&quot;]&quot;</span><span class="p">:</span>
+                <span class="c1"># get the string whatever before &quot;[&quot;</span>
+                <span class="c1"># 3[a][...], then the prefix for the second &quot;[&quot; would be &quot;aaa&quot;</span>
+                <span class="n">prefix</span> <span class="o">=</span> <span class="n">s_stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                <span class="n">times</span> <span class="o">=</span> <span class="n">count_stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">times</span><span class="p">):</span>
+                    <span class="n">prefix</span> <span class="o">+=</span> <span class="n">curr</span>
+                <span class="n">curr</span> <span class="o">=</span> <span class="n">prefix</span>
+                <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># letters</span>
+                <span class="n">curr</span> <span class="o">+=</span> <span class="n">ch</span>
+                <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">curr</span>
 </pre></div>
 </div>
 </section>

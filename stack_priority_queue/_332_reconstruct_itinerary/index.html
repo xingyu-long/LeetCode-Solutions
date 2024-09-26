@@ -33,35 +33,6 @@
             
   <section id="reconstruct-itinerary">
 <h1>332 Reconstruct Itinerary<a class="headerlink" href="#reconstruct-itinerary" title="Permalink to this heading">¶</a></h1>
-<section id="py-solution">
-<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
-
-
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="c1"># time: O(Elog(E/V))</span>
-    <span class="k">def</span> <span class="nf">findItinerary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tickets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="n">graph</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">tickets</span><span class="p">:</span>
-            <span class="n">graph</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-
-        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">v</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
-
-        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">curr</span><span class="p">):</span>
-            <span class="n">nxts</span> <span class="o">=</span> <span class="n">graph</span><span class="p">[</span><span class="n">curr</span><span class="p">]</span>
-            <span class="k">while</span> <span class="n">nxts</span><span class="p">:</span>
-                <span class="n">nxt</span> <span class="o">=</span> <span class="n">nxts</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-                <span class="n">dfs</span><span class="p">(</span><span class="n">nxt</span><span class="p">)</span>
-            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">curr</span><span class="p">)</span>
-
-        <span class="n">dfs</span><span class="p">(</span><span class="s2">&quot;JFK&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">res</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</section>
 <section id="java-solution">
 <h2>Java Solution<a class="headerlink" href="#java-solution" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.leetcode.stack_priority_queue</span><span class="p">;</span>
@@ -138,6 +109,35 @@
 <span class="w">    </span><span class="p">}</span>
 
 <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="py-solution">
+<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+
+
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="c1"># time: O(Elog(E/V))</span>
+    <span class="k">def</span> <span class="nf">findItinerary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tickets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="n">graph</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">tickets</span><span class="p">:</span>
+            <span class="n">graph</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">v</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">curr</span><span class="p">):</span>
+            <span class="n">nxts</span> <span class="o">=</span> <span class="n">graph</span><span class="p">[</span><span class="n">curr</span><span class="p">]</span>
+            <span class="k">while</span> <span class="n">nxts</span><span class="p">:</span>
+                <span class="n">nxt</span> <span class="o">=</span> <span class="n">nxts</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                <span class="n">dfs</span><span class="p">(</span><span class="n">nxt</span><span class="p">)</span>
+            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">curr</span><span class="p">)</span>
+
+        <span class="n">dfs</span><span class="p">(</span><span class="s2">&quot;JFK&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>

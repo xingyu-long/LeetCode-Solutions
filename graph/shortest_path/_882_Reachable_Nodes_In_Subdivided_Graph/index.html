@@ -33,44 +33,6 @@
             
   <section id="reachable-nodes-in-subdivided-graph">
 <h1>882 Reachable Nodes In Subdivided Graph<a class="headerlink" href="#reachable-nodes-in-subdivided-graph" title="Permalink to this heading">¶</a></h1>
-<section id="py-solution">
-<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">Date: 09/12/2021 18:25:12</span>
-<span class="sd">LastEditTime: 09/12/2021 18:32:58</span>
-<span class="sd">Description: Djistra&#39;s Algo</span>
-<span class="sd">&#39;&#39;&#39;</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
-<span class="kn">import</span> <span class="nn">heapq</span>
-
-
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">reachableNodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">edges</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span> <span class="n">maxMoves</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="n">d</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
-            <span class="n">d</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span>
-        <span class="n">pq</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="n">maxMoves</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span> <span class="c1"># 利用负数来达到 max heap的效果</span>
-        <span class="n">HP</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># node-&gt; hp</span>
-        <span class="k">while</span> <span class="n">pq</span><span class="p">:</span>
-            <span class="n">hp</span><span class="p">,</span> <span class="n">node</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">pq</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">node</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">HP</span><span class="p">:</span>
-                <span class="n">HP</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">hp</span> <span class="c1"># 这个还是保持之前的正数</span>
-                <span class="k">for</span> <span class="n">next_node</span> <span class="ow">in</span> <span class="n">d</span><span class="p">[</span><span class="n">node</span><span class="p">]:</span>
-                    <span class="n">next_hp</span> <span class="o">=</span> <span class="o">-</span><span class="n">hp</span> <span class="o">-</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">node</span><span class="p">][</span><span class="n">next_node</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-                    <span class="k">if</span> <span class="n">next_node</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">HP</span> <span class="ow">and</span> <span class="n">next_hp</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
-                        <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">pq</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">next_hp</span><span class="p">,</span> <span class="n">next_node</span><span class="p">))</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">HP</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
-            <span class="n">res</span> <span class="o">+=</span> <span class="nb">min</span><span class="p">(</span><span class="n">HP</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">HP</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">w</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">res</span>
-
-
-<span class="n">s</span> <span class="o">=</span> <span class="n">Solution</span><span class="p">()</span>
-<span class="n">s</span><span class="o">.</span><span class="n">reachableNodes</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]],</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
 <section id="java-solution">
 <h2>Java Solution<a class="headerlink" href="#java-solution" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
@@ -130,6 +92,44 @@
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="py-solution">
+<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Date: 09/12/2021 18:25:12</span>
+<span class="sd">LastEditTime: 09/12/2021 18:32:58</span>
+<span class="sd">Description: Djistra&#39;s Algo</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">import</span> <span class="nn">heapq</span>
+
+
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">reachableNodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">edges</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span> <span class="n">maxMoves</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span>
+        <span class="n">pq</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="n">maxMoves</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span> <span class="c1"># 利用负数来达到 max heap的效果</span>
+        <span class="n">HP</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># node-&gt; hp</span>
+        <span class="k">while</span> <span class="n">pq</span><span class="p">:</span>
+            <span class="n">hp</span><span class="p">,</span> <span class="n">node</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">pq</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">node</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">HP</span><span class="p">:</span>
+                <span class="n">HP</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">hp</span> <span class="c1"># 这个还是保持之前的正数</span>
+                <span class="k">for</span> <span class="n">next_node</span> <span class="ow">in</span> <span class="n">d</span><span class="p">[</span><span class="n">node</span><span class="p">]:</span>
+                    <span class="n">next_hp</span> <span class="o">=</span> <span class="o">-</span><span class="n">hp</span> <span class="o">-</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">node</span><span class="p">][</span><span class="n">next_node</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">next_node</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">HP</span> <span class="ow">and</span> <span class="n">next_hp</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">pq</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">next_hp</span><span class="p">,</span> <span class="n">next_node</span><span class="p">))</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">HP</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="nb">min</span><span class="p">(</span><span class="n">HP</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">HP</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">w</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">Solution</span><span class="p">()</span>
+<span class="n">s</span><span class="o">.</span><span class="n">reachableNodes</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]],</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

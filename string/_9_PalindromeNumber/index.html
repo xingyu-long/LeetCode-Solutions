@@ -33,22 +33,6 @@
             
   <section id="palindromenumber">
 <h1>9 Palindromenumber<a class="headerlink" href="#palindromenumber" title="Permalink to this heading">¶</a></h1>
-<section id="py-solution">
-<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">isPalindrome</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
-
-        <span class="n">num</span> <span class="o">=</span> <span class="n">x</span>
-        <span class="n">reverse_num</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">while</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">reverse_num</span> <span class="o">=</span> <span class="n">reverse_num</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">10</span>
-            <span class="n">num</span> <span class="o">//=</span> <span class="mi">10</span>
-        <span class="k">return</span> <span class="n">reverse_num</span> <span class="o">==</span> <span class="n">x</span>
-</pre></div>
-</div>
-</section>
 <section id="java-solution">
 <h2>Java Solution<a class="headerlink" href="#java-solution" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.leetcode.string</span><span class="p">;</span>
@@ -81,6 +65,22 @@
 <span class="w">    </span><span class="c1">// https://www.bilibili.com/video/av51692387/?p=6</span>
 <span class="w">    </span><span class="c1">// 前后减掉的操作</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="py-solution">
+<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">isPalindrome</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="n">num</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="n">reverse_num</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">reverse_num</span> <span class="o">=</span> <span class="n">reverse_num</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">10</span>
+            <span class="n">num</span> <span class="o">//=</span> <span class="mi">10</span>
+        <span class="k">return</span> <span class="n">reverse_num</span> <span class="o">==</span> <span class="n">x</span>
 </pre></div>
 </div>
 </section>

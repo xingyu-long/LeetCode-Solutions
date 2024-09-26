@@ -33,38 +33,6 @@
             
   <section id="reversenodesinkgroup">
 <h1>25 Reversenodesinkgroup<a class="headerlink" href="#reversenodesinkgroup" title="Permalink to this heading">¶</a></h1>
-<section id="py-solution">
-<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
-
-<span class="kn">from</span> <span class="nn">leetcode.common.py_utils</span> <span class="kn">import</span> <span class="n">ListNode</span>
-
-
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="c1"># time:O(n)</span>
-    <span class="c1"># space: O(1)</span>
-    <span class="k">def</span> <span class="nf">reverseKGroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span>
-        <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="n">head</span><span class="p">):</span>
-            <span class="n">size</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="k">while</span> <span class="n">head</span><span class="p">:</span>
-                <span class="n">size</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="n">head</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span>
-            <span class="k">return</span> <span class="n">size</span>
-
-        <span class="n">dummy</span> <span class="o">=</span> <span class="n">prev</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="nb">next</span><span class="o">=</span><span class="n">head</span><span class="p">)</span>
-        <span class="n">total</span> <span class="o">=</span> <span class="n">count</span><span class="p">(</span><span class="n">head</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">total</span> <span class="o">//</span> <span class="n">k</span><span class="p">):</span>
-            <span class="n">curr</span> <span class="o">=</span> <span class="n">prev</span><span class="o">.</span><span class="n">next</span>
-            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-                <span class="n">temp</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">next</span>
-                <span class="n">curr</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">next</span>
-                <span class="n">temp</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">prev</span><span class="o">.</span><span class="n">next</span>
-                <span class="n">prev</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">temp</span>
-            <span class="n">prev</span> <span class="o">=</span> <span class="n">curr</span>
-        <span class="k">return</span> <span class="n">dummy</span><span class="o">.</span><span class="n">next</span>
-</pre></div>
-</div>
-</section>
 <section id="java-solution">
 <h2>Java Solution<a class="headerlink" href="#java-solution" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.leetcode.linkedList</span><span class="p">;</span>
@@ -144,6 +112,38 @@
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="py-solution">
+<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="kn">from</span> <span class="nn">leetcode.common.py_utils</span> <span class="kn">import</span> <span class="n">ListNode</span>
+
+
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="c1"># time:O(n)</span>
+    <span class="c1"># space: O(1)</span>
+    <span class="k">def</span> <span class="nf">reverseKGroup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span>
+        <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="n">head</span><span class="p">):</span>
+            <span class="n">size</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">while</span> <span class="n">head</span><span class="p">:</span>
+                <span class="n">size</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">head</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span>
+            <span class="k">return</span> <span class="n">size</span>
+
+        <span class="n">dummy</span> <span class="o">=</span> <span class="n">prev</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="nb">next</span><span class="o">=</span><span class="n">head</span><span class="p">)</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">count</span><span class="p">(</span><span class="n">head</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">total</span> <span class="o">//</span> <span class="n">k</span><span class="p">):</span>
+            <span class="n">curr</span> <span class="o">=</span> <span class="n">prev</span><span class="o">.</span><span class="n">next</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">temp</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">next</span>
+                <span class="n">curr</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">next</span>
+                <span class="n">temp</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">prev</span><span class="o">.</span><span class="n">next</span>
+                <span class="n">prev</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">temp</span>
+            <span class="n">prev</span> <span class="o">=</span> <span class="n">curr</span>
+        <span class="k">return</span> <span class="n">dummy</span><span class="o">.</span><span class="n">next</span>
 </pre></div>
 </div>
 </section>

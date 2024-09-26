@@ -33,36 +33,6 @@
             
   <section id="decodeways">
 <h1>91 Decodeways<a class="headerlink" href="#decodeways" title="Permalink to this heading">¶</a></h1>
-<section id="py-solution">
-<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="c1"># time: O(n)</span>
-    <span class="k">def</span> <span class="nf">numDecodings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-
-        <span class="n">memo</span> <span class="o">=</span> <span class="p">{}</span>
-
-        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">memo</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-                <span class="k">return</span> <span class="mi">1</span>
-            <span class="k">if</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">memo</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-
-            <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="n">single_digit</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-            <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">single_digit</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-                <span class="n">res</span> <span class="o">+=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">memo</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-                <span class="n">two_digits</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">index</span> <span class="p">:</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span>
-                <span class="k">if</span> <span class="mi">10</span> <span class="o">&lt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">two_digits</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">26</span><span class="p">:</span>
-                    <span class="n">res</span> <span class="o">+=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">memo</span><span class="p">)</span>
-
-            <span class="n">memo</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span>
-            <span class="k">return</span> <span class="n">res</span>
-
-        <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">memo</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
 <section id="java-solution">
 <h2>Java Solution<a class="headerlink" href="#java-solution" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
@@ -148,6 +118,36 @@
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">memo</span><span class="o">[</span><span class="n">start</span><span class="o">]</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="py-solution">
+<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="c1"># time: O(n)</span>
+    <span class="k">def</span> <span class="nf">numDecodings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+
+        <span class="n">memo</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">memo</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+                <span class="k">return</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">memo</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+            <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">single_digit</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+            <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">single_digit</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+                <span class="n">res</span> <span class="o">+=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">memo</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+                <span class="n">two_digits</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">index</span> <span class="p">:</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span>
+                <span class="k">if</span> <span class="mi">10</span> <span class="o">&lt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">two_digits</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">26</span><span class="p">:</span>
+                    <span class="n">res</span> <span class="o">+=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">memo</span><span class="p">)</span>
+
+            <span class="n">memo</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span>
+            <span class="k">return</span> <span class="n">res</span>
+
+        <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">memo</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

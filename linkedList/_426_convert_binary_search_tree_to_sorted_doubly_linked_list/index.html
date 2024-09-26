@@ -33,46 +33,6 @@
             
   <section id="convert-binary-search-tree-to-sorted-doubly-linked-list">
 <h1>426 Convert Binary Search Tree To Sorted Doubly Linked List<a class="headerlink" href="#convert-binary-search-tree-to-sorted-doubly-linked-list" title="Permalink to this heading">¶</a></h1>
-<section id="py-solution">
-<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definition for a Node.</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
-
-<span class="kn">from</span> <span class="nn">leetcode.common.py_utils</span> <span class="kn">import</span> <span class="n">TreeNode</span> <span class="k">as</span> <span class="n">Node</span>
-
-
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">treeToDoublyList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="s2">&quot;Optional[Node]&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Optional[Node]&quot;</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">None</span>
-
-        <span class="c1"># in-order traversal</span>
-        <span class="n">curr</span> <span class="o">=</span> <span class="n">root</span>
-        <span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">prev</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="n">first</span><span class="p">,</span> <span class="n">last</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
-        <span class="k">while</span> <span class="n">stack</span> <span class="ow">or</span> <span class="n">curr</span><span class="p">:</span>
-            <span class="k">while</span> <span class="n">curr</span><span class="p">:</span>
-                <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">curr</span><span class="p">)</span>
-                <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">left</span>
-
-            <span class="n">curr</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-            <span class="k">if</span> <span class="n">first</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">first</span> <span class="o">=</span> <span class="n">curr</span>
-            <span class="k">if</span> <span class="n">prev</span><span class="p">:</span>
-                <span class="n">curr</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">prev</span>
-                <span class="n">prev</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">curr</span>
-
-            <span class="n">prev</span> <span class="o">=</span> <span class="n">curr</span>
-            <span class="n">last</span> <span class="o">=</span> <span class="n">curr</span>
-            <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">right</span>
-
-        <span class="n">first</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">last</span>
-        <span class="n">last</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">first</span>
-        <span class="k">return</span> <span class="n">first</span>
-</pre></div>
-</div>
-</section>
 <section id="java-solution">
 <h2>Java Solution<a class="headerlink" href="#java-solution" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.leetcode.linkedList</span><span class="p">;</span>
@@ -119,6 +79,46 @@
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="py-solution">
+<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definition for a Node.</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="kn">from</span> <span class="nn">leetcode.common.py_utils</span> <span class="kn">import</span> <span class="n">TreeNode</span> <span class="k">as</span> <span class="n">Node</span>
+
+
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">treeToDoublyList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="s2">&quot;Optional[Node]&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Optional[Node]&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="c1"># in-order traversal</span>
+        <span class="n">curr</span> <span class="o">=</span> <span class="n">root</span>
+        <span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">prev</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">first</span><span class="p">,</span> <span class="n">last</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+        <span class="k">while</span> <span class="n">stack</span> <span class="ow">or</span> <span class="n">curr</span><span class="p">:</span>
+            <span class="k">while</span> <span class="n">curr</span><span class="p">:</span>
+                <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">curr</span><span class="p">)</span>
+                <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">left</span>
+
+            <span class="n">curr</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">first</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">first</span> <span class="o">=</span> <span class="n">curr</span>
+            <span class="k">if</span> <span class="n">prev</span><span class="p">:</span>
+                <span class="n">curr</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">prev</span>
+                <span class="n">prev</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">curr</span>
+
+            <span class="n">prev</span> <span class="o">=</span> <span class="n">curr</span>
+            <span class="n">last</span> <span class="o">=</span> <span class="n">curr</span>
+            <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">right</span>
+
+        <span class="n">first</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">last</span>
+        <span class="n">last</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">first</span>
+        <span class="k">return</span> <span class="n">first</span>
 </pre></div>
 </div>
 </section>

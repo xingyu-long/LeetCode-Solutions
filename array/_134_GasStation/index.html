@@ -33,6 +33,39 @@
             
   <section id="gasstation">
 <h1>134 Gasstation<a class="headerlink" href="#gasstation" title="Permalink to this heading">¶</a></h1>
+<section id="java-solution">
+<h2>Java Solution<a class="headerlink" href="#java-solution" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.leetcode.greedy</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * @Date: 2019/03/12, 2019/6/2, 2019/8/24, 08/25/2020</span>
+<span class="cm"> * @Description: Greedy</span>
+<span class="cm"> **/</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">_134_GasStation</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="c1">// 解题思路：</span>
+<span class="w">    </span><span class="c1">// 1. 首先通过累积和（总加油-总耗油）来计算是否存在这样的成立的情况</span>
+<span class="w">    </span><span class="c1">// 2. 只要能够总的算下来 &gt; 0 即可</span>
+<span class="w">    </span><span class="c1">// 这个方法主要是表示只要在这个点之后的debt+remain都能做到 那就是从这个点出发即可</span>
+<span class="w">    </span><span class="c1">//time: O(n) space:O(1)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">canCompleteCircuit</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">gas</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">cost</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">//起始位置</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">remain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">//当前剩余燃料</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">debt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 前面没能走完的路上欠的债</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">gas</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">remain</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">gas</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cost</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">remain</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">debt</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">remain</span><span class="p">;</span>
+<span class="w">                </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">                </span><span class="n">remain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">remain</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">debt</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
 <section id="py-solution">
 <h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
@@ -91,39 +124,6 @@
                 <span class="n">remain</span> <span class="o">=</span> <span class="mi">0</span>
 
         <span class="k">return</span> <span class="n">res</span> <span class="k">if</span> <span class="n">debt</span> <span class="o">+</span> <span class="n">remain</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span>
-</pre></div>
-</div>
-</section>
-<section id="java-solution">
-<h2>Java Solution<a class="headerlink" href="#java-solution" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.leetcode.greedy</span><span class="p">;</span>
-
-<span class="cm">/**</span>
-<span class="cm"> * @Date: 2019/03/12, 2019/6/2, 2019/8/24, 08/25/2020</span>
-<span class="cm"> * @Description: Greedy</span>
-<span class="cm"> **/</span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">_134_GasStation</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="c1">// 解题思路：</span>
-<span class="w">    </span><span class="c1">// 1. 首先通过累积和（总加油-总耗油）来计算是否存在这样的成立的情况</span>
-<span class="w">    </span><span class="c1">// 2. 只要能够总的算下来 &gt; 0 即可</span>
-<span class="w">    </span><span class="c1">// 这个方法主要是表示只要在这个点之后的debt+remain都能做到 那就是从这个点出发即可</span>
-<span class="w">    </span><span class="c1">//time: O(n) space:O(1)</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">canCompleteCircuit</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">gas</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">cost</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">//起始位置</span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">remain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">//当前剩余燃料</span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">debt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 前面没能走完的路上欠的债</span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">gas</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">remain</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">gas</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cost</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">remain</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="n">debt</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">remain</span><span class="p">;</span>
-<span class="w">                </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="w">                </span><span class="n">remain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">remain</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">debt</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
 </pre></div>
 </div>
 </section>

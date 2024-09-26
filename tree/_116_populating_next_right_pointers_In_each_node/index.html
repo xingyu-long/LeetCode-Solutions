@@ -33,58 +33,6 @@
             
   <section id="populating-next-right-pointers-in-each-node">
 <h1>116 Populating Next Right Pointers In Each Node<a class="headerlink" href="#populating-next-right-pointers-in-each-node" title="Permalink to this heading">¶</a></h1>
-<section id="py-solution">
-<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definition for a Node.</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
-
-
-<span class="k">class</span> <span class="nc">Node</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span>
-        <span class="n">val</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="n">left</span><span class="p">:</span> <span class="s2">&quot;Node&quot;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">right</span><span class="p">:</span> <span class="s2">&quot;Node&quot;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="nb">next</span><span class="p">:</span> <span class="s2">&quot;Node&quot;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">val</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="nb">next</span>
-
-
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="s2">&quot;Optional[Node]&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Optional[Node]&quot;</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">None</span>
-
-        <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">left</span> <span class="ow">and</span> <span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">:</span>
-            <span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">right</span>
-
-        <span class="c1"># 没有考虑到中间链接的情况</span>
-        <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">right</span> <span class="ow">and</span> <span class="n">root</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
-            <span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">left</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">root</span>
-
-    <span class="k">def</span> <span class="nf">connect2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="s2">&quot;Optional[Node]&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Optional[Node]&quot;</span><span class="p">:</span>
-        <span class="n">curr</span> <span class="o">=</span> <span class="n">root</span>
-        <span class="k">while</span> <span class="n">curr</span><span class="p">:</span>
-            <span class="n">next_level</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">left</span>
-            <span class="k">while</span> <span class="n">curr</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">curr</span><span class="o">.</span><span class="n">left</span> <span class="ow">and</span> <span class="n">curr</span><span class="o">.</span><span class="n">right</span><span class="p">:</span>
-                    <span class="n">curr</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">right</span>
-                <span class="k">if</span> <span class="n">curr</span><span class="o">.</span><span class="n">right</span> <span class="ow">and</span> <span class="n">curr</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
-                    <span class="n">curr</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">left</span>
-                <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">next</span>
-            <span class="n">curr</span> <span class="o">=</span> <span class="n">next_level</span>
-        <span class="k">return</span> <span class="n">root</span>
-</pre></div>
-</div>
-</section>
 <section id="java-solution">
 <h2>Java Solution<a class="headerlink" href="#java-solution" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
@@ -176,6 +124,58 @@
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="py-solution">
+<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definition for a Node.</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+
+<span class="k">class</span> <span class="nc">Node</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">val</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">left</span><span class="p">:</span> <span class="s2">&quot;Node&quot;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">right</span><span class="p">:</span> <span class="s2">&quot;Node&quot;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="nb">next</span><span class="p">:</span> <span class="s2">&quot;Node&quot;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="nb">next</span>
+
+
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="s2">&quot;Optional[Node]&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Optional[Node]&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">left</span> <span class="ow">and</span> <span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">:</span>
+            <span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">right</span>
+
+        <span class="c1"># 没有考虑到中间链接的情况</span>
+        <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">right</span> <span class="ow">and</span> <span class="n">root</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
+            <span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">left</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">root</span>
+
+    <span class="k">def</span> <span class="nf">connect2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="s2">&quot;Optional[Node]&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Optional[Node]&quot;</span><span class="p">:</span>
+        <span class="n">curr</span> <span class="o">=</span> <span class="n">root</span>
+        <span class="k">while</span> <span class="n">curr</span><span class="p">:</span>
+            <span class="n">next_level</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">left</span>
+            <span class="k">while</span> <span class="n">curr</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">curr</span><span class="o">.</span><span class="n">left</span> <span class="ow">and</span> <span class="n">curr</span><span class="o">.</span><span class="n">right</span><span class="p">:</span>
+                    <span class="n">curr</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">right</span>
+                <span class="k">if</span> <span class="n">curr</span><span class="o">.</span><span class="n">right</span> <span class="ow">and</span> <span class="n">curr</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
+                    <span class="n">curr</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">left</span>
+                <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">next</span>
+            <span class="n">curr</span> <span class="o">=</span> <span class="n">next_level</span>
+        <span class="k">return</span> <span class="n">root</span>
 </pre></div>
 </div>
 </section>

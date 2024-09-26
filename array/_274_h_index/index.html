@@ -33,67 +33,6 @@
             
   <section id="h-index">
 <h1>274 H Index<a class="headerlink" href="#h-index" title="Permalink to this heading">¶</a></h1>
-<section id="py-solution">
-<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
-
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">274. H-Index</span>
-<span class="sd">---</span>
-
-<span class="sd">Given an array of integers citations where citations[i] is the number of citations a researcher received for their ith paper, return the researcher&#39;s h-index.</span>
-<span class="sd">According to the definition of h-index on Wikipedia: The h-index is defined as the maximum value of h such that the given researcher has published at least h papers that have each been cited at least h times.</span>
-<span class="sd">---</span>
-
-<span class="sd">Example 1:</span>
-
-<span class="sd">Input: citations = [3,0,6,1,5]</span>
-<span class="sd">Output: 3</span>
-<span class="sd">Explanation: [3,0,6,1,5] means the researcher has 5 papers in total and each of them had received 3, 0, 6, 1, 5 citations respectively.</span>
-<span class="sd">Since the researcher has 3 papers with at least 3 citations each and the remaining two with no more than 3 citations each, their h-index is 3.</span>
-
-<span class="sd">Example 2:</span>
-
-<span class="sd">Input: citations = [1,3,1]</span>
-<span class="sd">Output: 1</span>
-<span class="sd">&quot;&quot;&quot;</span>
-
-
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="c1"># time: O(nlogn)</span>
-    <span class="c1"># space: O(1)</span>
-    <span class="k">def</span> <span class="nf">hIndex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">citations</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="n">arr</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">citations</span><span class="p">)</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">res</span> <span class="o">&gt;=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
-                <span class="k">return</span> <span class="n">res</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="c1"># so we have res(&quot;number&quot;) papers which have been cited at least res times</span>
-                <span class="n">res</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="n">res</span>
-
-
-<span class="k">class</span> <span class="nc">Solution2</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">hIndex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">citations</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">citations</span><span class="p">)</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
-        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">citations</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">c</span> <span class="o">&gt;=</span> <span class="n">n</span><span class="p">:</span>
-                <span class="n">count</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">count</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-            <span class="n">total</span> <span class="o">+=</span> <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-            <span class="c1"># we have total (number) of papers which have been cited more than i times.</span>
-            <span class="k">if</span> <span class="n">total</span> <span class="o">&gt;=</span> <span class="n">i</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">i</span>
-        <span class="k">return</span> <span class="mi">0</span>
-</pre></div>
-</div>
-</section>
 <section id="java-solution">
 <h2>Java Solution<a class="headerlink" href="#java-solution" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.leetcode.array</span><span class="p">;</span>
@@ -158,6 +97,67 @@
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="py-solution">
+<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">274. H-Index</span>
+<span class="sd">---</span>
+
+<span class="sd">Given an array of integers citations where citations[i] is the number of citations a researcher received for their ith paper, return the researcher&#39;s h-index.</span>
+<span class="sd">According to the definition of h-index on Wikipedia: The h-index is defined as the maximum value of h such that the given researcher has published at least h papers that have each been cited at least h times.</span>
+<span class="sd">---</span>
+
+<span class="sd">Example 1:</span>
+
+<span class="sd">Input: citations = [3,0,6,1,5]</span>
+<span class="sd">Output: 3</span>
+<span class="sd">Explanation: [3,0,6,1,5] means the researcher has 5 papers in total and each of them had received 3, 0, 6, 1, 5 citations respectively.</span>
+<span class="sd">Since the researcher has 3 papers with at least 3 citations each and the remaining two with no more than 3 citations each, their h-index is 3.</span>
+
+<span class="sd">Example 2:</span>
+
+<span class="sd">Input: citations = [1,3,1]</span>
+<span class="sd">Output: 1</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="c1"># time: O(nlogn)</span>
+    <span class="c1"># space: O(1)</span>
+    <span class="k">def</span> <span class="nf">hIndex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">citations</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">citations</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">res</span> <span class="o">&gt;=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="n">res</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># so we have res(&quot;number&quot;) papers which have been cited at least res times</span>
+                <span class="n">res</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+
+<span class="k">class</span> <span class="nc">Solution2</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">hIndex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">citations</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">citations</span><span class="p">)</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">citations</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">c</span> <span class="o">&gt;=</span> <span class="n">n</span><span class="p">:</span>
+                <span class="n">count</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">count</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="c1"># we have total (number) of papers which have been cited more than i times.</span>
+            <span class="k">if</span> <span class="n">total</span> <span class="o">&gt;=</span> <span class="n">i</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">i</span>
+        <span class="k">return</span> <span class="mi">0</span>
 </pre></div>
 </div>
 </section>

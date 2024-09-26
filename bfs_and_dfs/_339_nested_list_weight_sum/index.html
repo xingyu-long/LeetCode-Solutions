@@ -33,51 +33,6 @@
             
   <section id="nested-list-weight-sum">
 <h1>339 Nested List Weight Sum<a class="headerlink" href="#nested-list-weight-sum" title="Permalink to this heading">¶</a></h1>
-<section id="py-solution">
-<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
-
-<span class="kn">from</span> <span class="nn">leetcode.common.py_utils</span> <span class="kn">import</span> <span class="n">NestedInteger</span>
-
-
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">depthSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nestedList</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">NestedInteger</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="c1"># use BFS</span>
-        <span class="n">queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
-        <span class="n">level</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">nestedList</span><span class="p">:</span>
-            <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
-        <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
-            <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
-            <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
-                <span class="n">curr</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
-                <span class="k">if</span> <span class="n">curr</span><span class="o">.</span><span class="n">isInteger</span><span class="p">():</span>
-                    <span class="n">res</span> <span class="o">+=</span> <span class="n">curr</span><span class="o">.</span><span class="n">getInteger</span><span class="p">()</span> <span class="o">*</span> <span class="n">level</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">queue</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">curr</span><span class="o">.</span><span class="n">getList</span><span class="p">())</span>
-        <span class="k">return</span> <span class="n">res</span>
-
-
-<span class="k">class</span> <span class="nc">Solution2</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">depthSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nestedList</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">NestedInteger</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
-
-        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="n">curr_list</span><span class="p">):</span>
-            <span class="k">nonlocal</span> <span class="n">res</span>
-
-            <span class="k">for</span> <span class="n">curr</span> <span class="ow">in</span> <span class="n">curr_list</span><span class="p">:</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="n">curr</span><span class="o">.</span><span class="n">isInteger</span><span class="p">():</span>
-                    <span class="n">dfs</span><span class="p">(</span><span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">curr</span><span class="o">.</span><span class="n">getList</span><span class="p">())</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">res</span> <span class="o">+=</span> <span class="n">curr</span><span class="o">.</span><span class="n">getInteger</span><span class="p">()</span> <span class="o">*</span> <span class="n">depth</span>
-
-        <span class="n">dfs</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nestedList</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">res</span>
-</pre></div>
-</div>
-</section>
 <section id="java-solution">
 <h2>Java Solution<a class="headerlink" href="#java-solution" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.leetcode.bfs_and_dfs</span><span class="p">;</span>
@@ -140,6 +95,51 @@
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="py-solution">
+<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="kn">from</span> <span class="nn">leetcode.common.py_utils</span> <span class="kn">import</span> <span class="n">NestedInteger</span>
+
+
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">depthSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nestedList</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">NestedInteger</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="c1"># use BFS</span>
+        <span class="n">queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+        <span class="n">level</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">nestedList</span><span class="p">:</span>
+            <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
+            <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
+            <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+                <span class="n">curr</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">curr</span><span class="o">.</span><span class="n">isInteger</span><span class="p">():</span>
+                    <span class="n">res</span> <span class="o">+=</span> <span class="n">curr</span><span class="o">.</span><span class="n">getInteger</span><span class="p">()</span> <span class="o">*</span> <span class="n">level</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">queue</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">curr</span><span class="o">.</span><span class="n">getList</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+
+<span class="k">class</span> <span class="nc">Solution2</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">depthSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nestedList</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">NestedInteger</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="n">curr_list</span><span class="p">):</span>
+            <span class="k">nonlocal</span> <span class="n">res</span>
+
+            <span class="k">for</span> <span class="n">curr</span> <span class="ow">in</span> <span class="n">curr_list</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">curr</span><span class="o">.</span><span class="n">isInteger</span><span class="p">():</span>
+                    <span class="n">dfs</span><span class="p">(</span><span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">curr</span><span class="o">.</span><span class="n">getList</span><span class="p">())</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">res</span> <span class="o">+=</span> <span class="n">curr</span><span class="o">.</span><span class="n">getInteger</span><span class="p">()</span> <span class="o">*</span> <span class="n">depth</span>
+
+        <span class="n">dfs</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nestedList</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span>
 </pre></div>
 </div>
 </section>

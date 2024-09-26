@@ -33,46 +33,6 @@
             
   <section id="add-and-search-word">
 <h1>211 Add And Search Word<a class="headerlink" href="#add-and-search-word" title="Permalink to this heading">¶</a></h1>
-<section id="py-solution">
-<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">leetcode.common.py_utils</span> <span class="kn">import</span> <span class="n">TrieNode</span>
-
-<span class="k">class</span> <span class="nc">WordDictionary</span><span class="p">:</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">TrieNode</span><span class="p">()</span>
-
-    <span class="k">def</span> <span class="nf">addWord</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">curr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
-        <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">ch</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">curr</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
-                <span class="n">curr</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span> <span class="o">=</span> <span class="n">TrieNode</span><span class="p">()</span>
-            <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span>
-        <span class="n">curr</span><span class="o">.</span><span class="n">is_word</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="n">curr</span><span class="o">.</span><span class="n">word</span> <span class="o">=</span> <span class="n">word</span>
-
-    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-
-        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">curr</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
-                <span class="k">return</span> <span class="n">curr</span><span class="o">.</span><span class="n">is_word</span>
-
-            <span class="k">if</span> <span class="n">word</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;.&quot;</span><span class="p">:</span>
-                <span class="c1"># iterate all possible keys</span>
-                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">curr</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                    <span class="k">if</span> <span class="n">dfs</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">curr</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="n">key</span><span class="p">]):</span>
-                        <span class="k">return</span> <span class="kc">True</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">word</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">curr</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="kc">False</span>
-                <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="n">word</span><span class="p">[</span><span class="n">index</span><span class="p">]]</span>
-                <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">curr</span><span class="p">)</span>
-
-        <span class="n">curr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
-        <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">curr</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
 <section id="java-solution">
 <h2>Java Solution<a class="headerlink" href="#java-solution" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.leetcode.trie</span><span class="p">;</span>
@@ -138,6 +98,46 @@
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="py-solution">
+<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">leetcode.common.py_utils</span> <span class="kn">import</span> <span class="n">TrieNode</span>
+
+<span class="k">class</span> <span class="nc">WordDictionary</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">TrieNode</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">addWord</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">curr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
+        <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ch</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">curr</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
+                <span class="n">curr</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span> <span class="o">=</span> <span class="n">TrieNode</span><span class="p">()</span>
+            <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span>
+        <span class="n">curr</span><span class="o">.</span><span class="n">is_word</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">curr</span><span class="o">.</span><span class="n">word</span> <span class="o">=</span> <span class="n">word</span>
+
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+
+        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">curr</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">curr</span><span class="o">.</span><span class="n">is_word</span>
+
+            <span class="k">if</span> <span class="n">word</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;.&quot;</span><span class="p">:</span>
+                <span class="c1"># iterate all possible keys</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">curr</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="n">dfs</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">curr</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="n">key</span><span class="p">]):</span>
+                        <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">word</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">curr</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+                <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="n">word</span><span class="p">[</span><span class="n">index</span><span class="p">]]</span>
+                <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">curr</span><span class="p">)</span>
+
+        <span class="n">curr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span>
+        <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">curr</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

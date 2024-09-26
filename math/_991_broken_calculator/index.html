@@ -33,22 +33,6 @@
             
   <section id="broken-calculator">
 <h1>991 Broken Calculator<a class="headerlink" href="#broken-calculator" title="Permalink to this heading">¶</a></h1>
-<section id="py-solution">
-<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="c1"># time: O(O(log(target/startValue)))</span>
-    <span class="k">def</span> <span class="nf">brokenCalc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">startValue</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">while</span> <span class="n">target</span> <span class="o">&gt;</span> <span class="n">startValue</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">target</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">target</span> <span class="o">//=</span> <span class="mi">2</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">target</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">res</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="n">res</span> <span class="o">+</span> <span class="n">startValue</span> <span class="o">-</span> <span class="n">target</span>
-</pre></div>
-</div>
-</section>
 <section id="java-solution">
 <h2>Java Solution<a class="headerlink" href="#java-solution" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.leetcode.math</span><span class="p">;</span>
@@ -73,6 +57,22 @@
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Y</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="py-solution">
+<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="c1"># time: O(O(log(target/startValue)))</span>
+    <span class="k">def</span> <span class="nf">brokenCalc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">startValue</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">target</span> <span class="o">&gt;</span> <span class="n">startValue</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">target</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">target</span> <span class="o">//=</span> <span class="mi">2</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">target</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">res</span> <span class="o">+</span> <span class="n">startValue</span> <span class="o">-</span> <span class="n">target</span>
 </pre></div>
 </div>
 </section>

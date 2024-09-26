@@ -33,37 +33,6 @@
             
   <section id="permutationinstring">
 <h1>567 Permutationinstring<a class="headerlink" href="#permutationinstring" title="Permalink to this heading">¶</a></h1>
-<section id="py-solution">
-<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
-
-
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="c1"># time: O(n)</span>
-    <span class="c1"># space: O(n)</span>
-    <span class="k">def</span> <span class="nf">checkInclusion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">s2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="c1"># slding window</span>
-        <span class="n">counter</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
-        <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
-        <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
-        <span class="k">while</span> <span class="n">end</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
-            <span class="n">counter</span><span class="p">[</span><span class="n">s2</span><span class="p">[</span><span class="n">end</span><span class="p">]]</span> <span class="o">-=</span> <span class="mi">1</span>
-            <span class="k">if</span> <span class="n">counter</span><span class="p">[</span><span class="n">s2</span><span class="p">[</span><span class="n">end</span><span class="p">]]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">size</span> <span class="o">-=</span> <span class="mi">1</span>
-            <span class="k">while</span> <span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="c1"># ^ this is the key and keep reduce the size</span>
-                <span class="k">if</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">):</span>
-                    <span class="k">return</span> <span class="kc">True</span>
-                <span class="n">counter</span><span class="p">[</span><span class="n">s2</span><span class="p">[</span><span class="n">start</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="k">if</span> <span class="n">counter</span><span class="p">[</span><span class="n">s2</span><span class="p">[</span><span class="n">start</span><span class="p">]]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                    <span class="n">size</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="n">start</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">end</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="kc">False</span>
-</pre></div>
-</div>
-</section>
 <section id="java-solution">
 <h2>Java Solution<a class="headerlink" href="#java-solution" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.leetcode.string.sliding_window</span><span class="p">;</span>
@@ -98,6 +67,37 @@
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="py-solution">
+<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="c1"># time: O(n)</span>
+    <span class="c1"># space: O(n)</span>
+    <span class="k">def</span> <span class="nf">checkInclusion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">s2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="c1"># slding window</span>
+        <span class="n">counter</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+        <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">end</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+            <span class="n">counter</span><span class="p">[</span><span class="n">s2</span><span class="p">[</span><span class="n">end</span><span class="p">]]</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">counter</span><span class="p">[</span><span class="n">s2</span><span class="p">[</span><span class="n">end</span><span class="p">]]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">size</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">while</span> <span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># ^ this is the key and keep reduce the size</span>
+                <span class="k">if</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+                <span class="n">counter</span><span class="p">[</span><span class="n">s2</span><span class="p">[</span><span class="n">start</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">counter</span><span class="p">[</span><span class="n">s2</span><span class="p">[</span><span class="n">start</span><span class="p">]]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">size</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">start</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">end</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="kc">False</span>
 </pre></div>
 </div>
 </section>

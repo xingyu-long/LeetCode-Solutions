@@ -2,29 +2,6 @@
  322 Coinchange
 ===============
 
-Py Solution
------------
-
-.. code-block:: py
-
-   from math import inf
-   from typing import List
-   
-   
-   class Solution:
-       def coinChange(self, coins: List[int], amount: int) -> int:
-           dp = [0] * (amount + 1)
-           for i in range(1, amount + 1):
-               # from 1 to amount
-               best = float(inf)
-               for coin in coins:
-                   if i >= coin and dp[i - coin] != -1:
-                       best = min(best, dp[i - coin] + 1)
-               dp[i] = -1 if best == inf else best
-   
-           return dp[amount]
-   
-
 Java Solution
 -------------
 
@@ -88,5 +65,28 @@ Java Solution
            return memo[amount]; // 这里是这个才对，不要直接返回min， min如果等于MAX的话，就会返回错误
        }
    }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   from math import inf
+   from typing import List
+   
+   
+   class Solution:
+       def coinChange(self, coins: List[int], amount: int) -> int:
+           dp = [0] * (amount + 1)
+           for i in range(1, amount + 1):
+               # from 1 to amount
+               best = float(inf)
+               for coin in coins:
+                   if i >= coin and dp[i - coin] != -1:
+                       best = min(best, dp[i - coin] + 1)
+               dp[i] = -1 if best == inf else best
+   
+           return dp[amount]
    
 

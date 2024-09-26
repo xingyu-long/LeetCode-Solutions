@@ -33,44 +33,6 @@
             
   <section id="jumpgame">
 <h1>55 Jumpgame<a class="headerlink" href="#jumpgame" title="Permalink to this heading">¶</a></h1>
-<section id="py-solution">
-<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">55. Jump Game</span>
-<span class="sd">---</span>
-
-<span class="sd">You are given an integer array nums. You are initially positioned at the array&#39;s first index, and each element in the array represents your maximum jump length at that position.</span>
-
-<span class="sd">Return true if you can reach the last index, or false otherwise.</span>
-<span class="sd">---</span>
-
-<span class="sd">Example 1:</span>
-<span class="sd">Input: nums = [2,3,1,1,4]</span>
-<span class="sd">Output: true</span>
-<span class="sd">Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.</span>
-
-<span class="sd">Example 2:</span>
-<span class="sd">Input: nums = [3,2,1,0,4]</span>
-<span class="sd">Output: false</span>
-<span class="sd">Explanation: You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.</span>
-<span class="sd">&quot;&quot;&quot;</span>
-
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
-
-
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">canJump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="n">can_reach</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">idx</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-        <span class="k">while</span> <span class="n">can_reach</span> <span class="o">&gt;=</span> <span class="n">idx</span><span class="p">:</span>
-            <span class="n">can_reach</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">can_reach</span><span class="p">,</span> <span class="n">idx</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
-            <span class="k">if</span> <span class="n">can_reach</span> <span class="o">&gt;=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="k">return</span> <span class="kc">True</span>
-            <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="kc">False</span>
-</pre></div>
-</div>
-</section>
 <section id="java-solution">
 <h2>Java Solution<a class="headerlink" href="#java-solution" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.leetcode.greedy</span><span class="p">;</span>
@@ -124,6 +86,44 @@
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="py-solution">
+<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">55. Jump Game</span>
+<span class="sd">---</span>
+
+<span class="sd">You are given an integer array nums. You are initially positioned at the array&#39;s first index, and each element in the array represents your maximum jump length at that position.</span>
+
+<span class="sd">Return true if you can reach the last index, or false otherwise.</span>
+<span class="sd">---</span>
+
+<span class="sd">Example 1:</span>
+<span class="sd">Input: nums = [2,3,1,1,4]</span>
+<span class="sd">Output: true</span>
+<span class="sd">Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.</span>
+
+<span class="sd">Example 2:</span>
+<span class="sd">Input: nums = [3,2,1,0,4]</span>
+<span class="sd">Output: false</span>
+<span class="sd">Explanation: You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">canJump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="n">can_reach</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">idx</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">can_reach</span> <span class="o">&gt;=</span> <span class="n">idx</span><span class="p">:</span>
+            <span class="n">can_reach</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">can_reach</span><span class="p">,</span> <span class="n">idx</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">can_reach</span> <span class="o">&gt;=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="kc">False</span>
 </pre></div>
 </div>
 </section>

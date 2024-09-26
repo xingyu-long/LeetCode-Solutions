@@ -2,26 +2,6 @@
  71 Simplify Path
 =================
 
-Py Solution
------------
-
-.. code-block:: py
-
-   class Solution:
-       def simplifyPath(self, path: str) -> str:
-           # stack
-           text = path.replace("//", "/")
-           ops = text.split("/")
-           stack = []
-           for op in ops:
-               if op == "..":
-                   if stack:
-                       stack.pop()
-               elif op != "." and op != "":
-                   stack.append(op)
-           return "/" + "/".join(stack)
-   
-
 Java Solution
 -------------
 
@@ -64,5 +44,25 @@ Java Solution
        }
        // 也可以用deque来模拟stack，输出的时候感觉会方便些
    }
+   
+
+Py Solution
+-----------
+
+.. code-block:: py
+
+   class Solution:
+       def simplifyPath(self, path: str) -> str:
+           # stack
+           text = path.replace("//", "/")
+           ops = text.split("/")
+           stack = []
+           for op in ops:
+               if op == "..":
+                   if stack:
+                       stack.pop()
+               elif op != "." and op != "":
+                   stack.append(op)
+           return "/" + "/".join(stack)
    
 

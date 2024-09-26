@@ -33,34 +33,6 @@
             
   <section id="targetsum">
 <h1>494 Targetsum<a class="headerlink" href="#targetsum" title="Permalink to this heading">¶</a></h1>
-<section id="py-solution">
-<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
-
-
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">findTargetSumWays</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-
-        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">memo</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
-                <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">target</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
-
-            <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">memo</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-
-            <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="n">res</span> <span class="o">+=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">target</span> <span class="o">-</span> <span class="n">nums</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">memo</span><span class="p">)</span>
-            <span class="n">res</span> <span class="o">+=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">target</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">memo</span><span class="p">)</span>
-
-            <span class="n">memo</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span>
-            <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-
-        <span class="n">memo</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">memo</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
 <section id="java-solution">
 <h2>Java Solution<a class="headerlink" href="#java-solution" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.leetcode.dynamic_programming</span><span class="p">;</span>
@@ -104,6 +76,34 @@
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="py-solution">
+<h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">findTargetSumWays</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+
+        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">memo</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+                <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">target</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+
+            <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">memo</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+            <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">target</span> <span class="o">-</span> <span class="n">nums</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">memo</span><span class="p">)</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">target</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">memo</span><span class="p">)</span>
+
+            <span class="n">memo</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span>
+            <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+        <span class="n">memo</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">memo</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
