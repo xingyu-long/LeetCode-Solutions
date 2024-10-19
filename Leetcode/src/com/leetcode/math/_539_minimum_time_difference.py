@@ -1,6 +1,5 @@
 from typing import List
 
-
 """
 corner case:
 ["12:12","00:13"]
@@ -9,28 +8,25 @@ corner case:
 
 
 class Solution:
-    # time: O(NlogN)
     def findMinDifference(self, timePoints: List[str]) -> int:
-        def convert(a):
-            hours, mins = a.split(":")
-            hours, mins = int(hours), int(mins)
-            return hours * 60 + mins
 
-        def cal_diff(a, b):
-            return abs(convert(a) - convert(b))
+        def compute_time(s: str) -> int:
+            hr, mins = s.split(":")
+            hr, mins = int(hr), int(mins)
+            return hr * 60 + mins
 
         n = len(timePoints)
-        # sort
-        timePoints.sort(key=lambda x: convert(x))
-
+        timePoints.sort(key=lambda x: compute_time(x))
         res = float("inf")
-        for i in range(1, n):
-            diff = cal_diff(timePoints[i], timePoints[i - 1])
-            res = min(res, diff, 24 * 60 - diff)
+        for i in range(n):
+            prev = i - 1
+            if prev < 0:
+                prev += n
+            # image this as circle, we also need to compare the last
+            # one with the first one.
+            t1, t2 = map(compute_time, (timePoints[prev], timePoints[i]))
+            res = min(res, abs(t1 - t2), 24 * 60 - abs(t1 - t2))
 
-        # image it as the circle
-        last_diff = cal_diff(timePoints[n - 1], timePoints[0])
-        res = min(res, last_diff, 24 * 60 - last_diff)
         return res
 
 
