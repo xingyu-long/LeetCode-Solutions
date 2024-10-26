@@ -1,4 +1,6 @@
+from collections import defaultdict
 from functools import cache
+from typing import List, Optional
 
 from common.py_utils import TreeNode
 
