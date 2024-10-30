@@ -1,3 +1,6 @@
+__pycache__/
+*.py[cod]
+*$py.class
 
 *.xml
 *.iml
@@ -8,6 +11,5 @@ Leetcode/.idea/*
 Leetcode/.vscode/*
 Leetcode/out/*
 .DS_Store
-__pycache__/*
 build/*
 source/*
