@@ -2,6 +2,25 @@
  946 Validatestacksequences
 ===========================
 
+Py Solution
+-----------
+
+.. code-block:: py
+
+   from typing import List
+   
+   
+   class Solution:
+       def validateStackSequences(self, pushed: List[int], popped: List[int]) -> bool:
+           stack = []
+           for item in pushed:
+               stack.append(item)
+               while stack and stack[-1] == popped[j]:
+                   stack.pop()
+                   j += 1
+           return len(stack) == 0
+   
+
 Java Solution
 -------------
 
@@ -40,24 +59,5 @@ Java Solution
            System.out.println(validateStackSequences(new int[]{}, new int[]{}));
        }
    }
-   
-
-Py Solution
------------
-
-.. code-block:: py
-
-   from typing import List
-   
-   
-   class Solution:
-       def validateStackSequences(self, pushed: List[int], popped: List[int]) -> bool:
-           stack = []
-           for item in pushed:
-               stack.append(item)
-               while stack and stack[-1] == popped[j]:
-                   stack.pop()
-                   j += 1
-           return len(stack) == 0
    
 

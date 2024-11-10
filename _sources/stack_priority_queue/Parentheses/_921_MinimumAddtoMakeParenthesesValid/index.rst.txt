@@ -2,6 +2,27 @@
  921 Minimumaddtomakeparenthesesvalid
 =====================================
 
+Py Solution
+-----------
+
+.. code-block:: py
+
+   class Solution:
+       # time: O(n)
+       # space: O(1)
+       def minAddToMakeValid(self, s: str) -> int:
+           left, right = 0, 0
+           for ch in s:
+               if ch == "(":
+                   right += 1
+               else:
+                   if right > 0:
+                       right -= 1
+                   else:
+                       left += 1
+           return left + right
+   
+
 Java Solution
 -------------
 
@@ -55,26 +76,5 @@ Java Solution
            return count + stack;
        }
    }
-   
-
-Py Solution
------------
-
-.. code-block:: py
-
-   class Solution:
-       # time: O(n)
-       # space: O(1)
-       def minAddToMakeValid(self, s: str) -> int:
-           left, right = 0, 0
-           for ch in s:
-               if ch == "(":
-                   right += 1
-               else:
-                   if right > 0:
-                       right -= 1
-                   else:
-                       left += 1
-           return left + right
    
 

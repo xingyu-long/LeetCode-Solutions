@@ -2,6 +2,34 @@
  115 Distinctsubsequences
 =========================
 
+Py Solution
+-----------
+
+.. code-block:: py
+
+   class Solution:
+       # time: O(m * n)
+       # space: O(m * n)
+       def numDistinct(self, s: str, t: str) -> int:
+           """
+           1) 用当前的i去用来作为t里的j 2）或者我们不用这个i去组成
+           rabb -> rab
+           1) 2nd b -> b
+           1) 1st b -> b
+           """
+           m, n = len(s), len(t)
+           dp = [[0] * (n + 1) for _ in range(m + 1)]
+           for i in range(m + 1):
+               dp[i][0] = 1
+           for i in range(1, m + 1):
+               for j in range(1, n + 1):
+                   if s[i - 1] == t[j - 1]:
+                       dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j]
+                   else:
+                       dp[i][j] = dp[i - 1][j]
+           return dp[m][n]
+   
+
 Java Solution
 -------------
 
@@ -72,32 +100,4 @@ Java Solution
            return res;
        }
    }
-
-Py Solution
------------
-
-.. code-block:: py
-
-   class Solution:
-       # time: O(m * n)
-       # space: O(m * n)
-       def numDistinct(self, s: str, t: str) -> int:
-           """
-           1) 用当前的i去用来作为t里的j 2）或者我们不用这个i去组成
-           rabb -> rab
-           1) 2nd b -> b
-           1) 1st b -> b
-           """
-           m, n = len(s), len(t)
-           dp = [[0] * (n + 1) for _ in range(m + 1)]
-           for i in range(m + 1):
-               dp[i][0] = 1
-           for i in range(1, m + 1):
-               for j in range(1, n + 1):
-                   if s[i - 1] == t[j - 1]:
-                       dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j]
-                   else:
-                       dp[i][j] = dp[i - 1][j]
-           return dp[m][n]
-   
 
