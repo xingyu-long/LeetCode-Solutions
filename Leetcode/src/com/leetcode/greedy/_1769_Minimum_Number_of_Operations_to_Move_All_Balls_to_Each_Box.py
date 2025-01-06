@@ -1,9 +1,8 @@
-'''
+"""
 Date: 12/05/2021 20:00:16
 LastEditTime: 12/05/2021 20:03:53
 Description: Greedy
-'''
-
+"""
 
 from typing import List
 
@@ -24,17 +23,19 @@ class Solution:
 
     # Time: O(n)
     def minOperations2(self, boxes: str) -> List[int]:
-        res = [0] * len(boxes)
-        left_count, left_cost = 0, 0
-        right_count, right_cost = 0, 0
         n = len(boxes)
+        res = [0] * n
+        left_count = left_cost = 0
+        right_count = right_cost = 0
+        # scan it forward
         for i in range(1, n):
-            if boxes[i - 1] == '1':
+            if boxes[i - 1] == "1":
                 left_count += 1
             left_cost += left_count
             res[i] += left_cost
+        # scan it backward
         for i in range(n - 2, -1, -1):
-            if boxes[i + 1] == '1':
+            if boxes[i + 1] == "1":
                 right_count += 1
             right_cost += right_count
             res[i] += right_cost
