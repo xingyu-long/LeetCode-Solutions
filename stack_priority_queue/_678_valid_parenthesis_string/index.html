@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>678 Valid Parenthesis String &#8212; LeetCode Solutions  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=6625fa76" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
@@ -35,12 +35,12 @@
 <h1>678 Valid Parenthesis String<a class="headerlink" href="#valid-parenthesis-string" title="Permalink to this heading">¶</a></h1>
 <section id="py-solution">
 <h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
     <span class="c1"># time: n^2</span>
-    <span class="k">def</span> <span class="nf">checkValidString</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">checkValidString</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="n">memo</span> <span class="o">=</span> <span class="p">{}</span>
 
-        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">left</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">left</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="k">return</span> <span class="kc">False</span>
             <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
@@ -62,8 +62,8 @@
         <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
 
-<span class="k">class</span> <span class="nc">Solution2</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">checkValidString</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution2</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">checkValidString</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="c1"># 计算左括号可能存在的情况</span>
         <span class="c1"># https://leetcode.com/problems/valid-parenthesis-string/discuss/543521/Java-Count-Open-Parenthesis-O(n)-time-O(1)-space-Picture-Explain</span>
         <span class="n">left_min</span><span class="p">,</span> <span class="n">left_max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>1603 Design Parking System &#8212; LeetCode Solutions  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=6625fa76" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
@@ -40,23 +40,23 @@
 <span class="sd">LastEditTime: 08/19/2022 10:32:24</span>
 <span class="sd">Description: Enum, dict</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
 
 
-<span class="k">class</span> <span class="nc">CarSize</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CarSize</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
     <span class="n">BIG</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">MEDIUM</span> <span class="o">=</span> <span class="mi">2</span>
     <span class="n">SMALL</span> <span class="o">=</span> <span class="mi">3</span>
 
-<span class="k">class</span> <span class="nc">ParkingSystem</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ParkingSystem</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">big</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">medium</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">small</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">big</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">medium</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">small</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">d</span><span class="p">[</span><span class="n">CarSize</span><span class="o">.</span><span class="n">BIG</span><span class="p">]</span> <span class="o">=</span> <span class="n">big</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">d</span><span class="p">[</span><span class="n">CarSize</span><span class="o">.</span><span class="n">MEDIUM</span><span class="p">]</span> <span class="o">=</span> <span class="n">medium</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">d</span><span class="p">[</span><span class="n">CarSize</span><span class="o">.</span><span class="n">SMALL</span><span class="p">]</span> <span class="o">=</span> <span class="n">small</span>
 
-    <span class="k">def</span> <span class="nf">addCar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">carType</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">addCar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">carType</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">d</span><span class="p">[</span><span class="n">CarSize</span><span class="p">(</span><span class="n">carType</span><span class="p">)]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">d</span><span class="p">[</span><span class="n">CarSize</span><span class="p">(</span><span class="n">carType</span><span class="p">)]</span> <span class="o">-=</span> <span class="mi">1</span>
             <span class="k">return</span> <span class="kc">True</span>

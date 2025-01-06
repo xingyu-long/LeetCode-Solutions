@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>23 Merge Sorted Lists &#8212; LeetCode Solutions  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=6625fa76" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
@@ -35,15 +35,15 @@
 <h1>23 Merge Sorted Lists<a class="headerlink" href="#merge-sorted-lists" title="Permalink to this heading">¶</a></h1>
 <section id="py-solution">
 <h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">heapq</span> <span class="kn">import</span> <span class="n">heappop</span><span class="p">,</span> <span class="n">heappush</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">heapq</span><span class="w"> </span><span class="kn">import</span> <span class="n">heappop</span><span class="p">,</span> <span class="n">heappush</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
 
-<span class="kn">from</span> <span class="nn">leetcode.common.py_utils</span> <span class="kn">import</span> <span class="n">ListNode</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">leetcode.common.py_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">ListNode</span>
 
 
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
     <span class="c1"># Time: O(M * K * logK), where K &lt;= 10^4 is length of lists, M &lt;= 500 is number of elements each list.</span>
-    <span class="k">def</span> <span class="nf">mergeKLists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lists</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mergeKLists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lists</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span>
         <span class="c1"># use heap</span>
         <span class="n">ListNode</span><span class="o">.</span><span class="fm">__lt__</span> <span class="o">=</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">val</span>
 
@@ -63,10 +63,10 @@
         <span class="k">return</span> <span class="n">dummy</span><span class="o">.</span><span class="n">next</span>
 
 
-<span class="k">class</span> <span class="nc">Solution2</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">mergeKLists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lists</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution2</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mergeKLists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lists</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span>
 
-        <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span>
             <span class="n">list1</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">],</span> <span class="n">list2</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]</span>
         <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">list1</span><span class="p">:</span>
@@ -80,7 +80,7 @@
                 <span class="n">list2</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">merge</span><span class="p">(</span><span class="n">list1</span><span class="p">,</span> <span class="n">list2</span><span class="o">.</span><span class="n">next</span><span class="p">)</span>
                 <span class="k">return</span> <span class="n">list2</span>
 
-        <span class="k">def</span> <span class="nf">sort</span><span class="p">(</span><span class="n">lists</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">],</span> <span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="n">lists</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">],</span> <span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span>
             <span class="k">if</span> <span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">:</span>
                 <span class="k">return</span> <span class="kc">None</span>
             <span class="k">if</span> <span class="n">start</span> <span class="o">==</span> <span class="n">end</span><span class="p">:</span>

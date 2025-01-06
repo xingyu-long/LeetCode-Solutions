@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>909 Snakes And Ladders &#8212; LeetCode Solutions  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=6625fa76" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
@@ -40,11 +40,11 @@
 <span class="sd">LastEditTime: 08/24/2022 16:59:44</span>
 <span class="sd">Description: BFS, shortest path</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">deque</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
 
 
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Solution:</span>
 <span class="sd">    这个是个典型的BFS的题目，但是需要理解的是如果去寻找</span>
@@ -52,9 +52,9 @@
 <span class="sd">    可以直接跳跃到下一个点）没有的话就去尝试接下来的6个值</span>
 <span class="sd">    依次加入到queue里面去</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">snakesAndLadders</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">board</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">snakesAndLadders</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">board</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 
-        <span class="k">def</span> <span class="nf">get_position</span><span class="p">(</span><span class="n">curr</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">get_position</span><span class="p">(</span><span class="n">curr</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
             <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="p">(</span><span class="n">curr</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">size</span><span class="p">,</span> <span class="p">(</span><span class="n">curr</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">size</span>
             <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="n">j</span> <span class="o">=</span> <span class="n">size</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">j</span>

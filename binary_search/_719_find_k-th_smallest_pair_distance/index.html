@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>719 Find K-th Smallest Pair Distance &#8212; LeetCode Solutions  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=6625fa76" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
@@ -40,10 +40,10 @@
 <span class="sd">LastEditTime: 08/28/2022 17:36:36</span>
 <span class="sd">Description: Binary Search</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
 
 
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Solution:</span>
 <span class="sd">    一开始想到的是利用heap来构建关系，但是发现</span>
@@ -51,11 +51,11 @@
 <span class="sd">    去找最小的绝对值差值，其能够构成的pair数目大于等于k</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># time:O(log(maxDiff) * nlogn (find right bound) + nlogn(sorting) )</span>
-    <span class="k">def</span> <span class="nf">smallestDistancePair</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">smallestDistancePair</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns number of pairs with absolute difference less than or equal to mid.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">def</span> <span class="nf">count_pairs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">mid</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">count_pairs</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">mid</span><span class="p">):</span>
             <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
                 <span class="n">j</span> <span class="o">=</span> <span class="n">i</span>
@@ -65,7 +65,7 @@
                 <span class="n">count</span> <span class="o">+=</span> <span class="n">j</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span>
             <span class="k">return</span> <span class="n">count</span>
 
-        <span class="k">def</span> <span class="nf">find_right_bound</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">prev_idx</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">find_right_bound</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">prev_idx</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
             <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">prev_idx</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
             <span class="k">while</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">:</span>
                 <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="p">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
@@ -79,7 +79,7 @@
                 <span class="k">return</span> <span class="n">left</span>
             <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
 
-        <span class="k">def</span> <span class="nf">count_pairs_with_binary_search</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">mid</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">count_pairs_with_binary_search</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">mid</span><span class="p">):</span>
             <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
                 <span class="n">right_idx</span> <span class="o">=</span> <span class="n">find_right_bound</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">mid</span><span class="p">)</span>

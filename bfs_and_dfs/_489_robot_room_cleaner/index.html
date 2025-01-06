@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>489 Robot Room Cleaner &#8212; LeetCode Solutions  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=6625fa76" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
@@ -68,8 +68,8 @@
 <span class="c1">#        &quot;&quot;&quot;</span>
 
 
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">cleanRoom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">robot</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cleanRoom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">robot</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :type robot: Robot</span>
 <span class="sd">        :rtype: None</span>
@@ -77,14 +77,14 @@
         <span class="n">dirs</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
         <span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 
-        <span class="k">def</span> <span class="nf">go_back</span><span class="p">():</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">go_back</span><span class="p">():</span>
             <span class="n">robot</span><span class="o">.</span><span class="n">turnRight</span><span class="p">()</span>
             <span class="n">robot</span><span class="o">.</span><span class="n">turnRight</span><span class="p">()</span>
             <span class="n">robot</span><span class="o">.</span><span class="n">move</span><span class="p">()</span>
             <span class="n">robot</span><span class="o">.</span><span class="n">turnRight</span><span class="p">()</span>
             <span class="n">robot</span><span class="o">.</span><span class="n">turnRight</span><span class="p">()</span>
 
-        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">curr_dir</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">curr_dir</span><span class="p">):</span>
             <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
             <span class="n">robot</span><span class="o">.</span><span class="n">clean</span><span class="p">()</span>
 

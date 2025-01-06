@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>545 Boundary Of Binary Tree &#8212; LeetCode Solutions  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=6625fa76" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
@@ -43,17 +43,17 @@
 
 
 <span class="c1"># Definition for a binary tree node.</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
 
 
-<span class="k">class</span> <span class="nc">TreeNode</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TreeNode</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">val</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span>
 
 
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    解题思路：</span>
 <span class="sd">    这个题一开始被这个结果所迷惑，会觉得特别难，但是只要是树的问题，始终</span>
@@ -61,10 +61,10 @@
 <span class="sd">    一个是收集所有的叶子节点，最后一个则是利用后序遍历去收集右子树的情况</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="c1"># time: O(n) space: O(1) except result list</span>
-    <span class="k">def</span> <span class="nf">boundaryOfBinaryTree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TreeNode</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">boundaryOfBinaryTree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TreeNode</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
         <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
 
-        <span class="k">def</span> <span class="nf">collect_left</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">collect_left</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="p">:</span>
                 <span class="k">return</span>
             <span class="c1"># all leaves will be handled by collect_leaves</span>
@@ -76,7 +76,7 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">collect_left</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">collect_right</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">collect_right</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="p">:</span>
                 <span class="k">return</span>
             <span class="c1"># all leaves will be handled by collect_leaves</span>
@@ -90,7 +90,7 @@
             <span class="c1"># should be add anti-clockwise</span>
             <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">collect_leaves</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">collect_leaves</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="p">:</span>
                 <span class="k">return</span>
             <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">):</span>

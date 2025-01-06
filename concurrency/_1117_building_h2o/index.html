@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>1117 Building H2o &#8212; LeetCode Solutions  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=6625fa76" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
@@ -35,23 +35,23 @@
 <h1>1117 Building H2o<a class="headerlink" href="#building-h2o" title="Permalink to this heading">¶</a></h1>
 <section id="py-solution">
 <h2>Py Solution<a class="headerlink" href="#py-solution" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Barrier</span><span class="p">,</span> <span class="n">Semaphore</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">Barrier</span><span class="p">,</span> <span class="n">Semaphore</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
 
 
-<span class="k">class</span> <span class="nc">H2O</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">H2O</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="n">Semaphore</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">o</span> <span class="o">=</span> <span class="n">Semaphore</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">Barrier</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">hydrogen</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">releaseHydrogen</span><span class="p">:</span> <span class="s2">&quot;Callable[[], None]&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">hydrogen</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">releaseHydrogen</span><span class="p">:</span> <span class="s2">&quot;Callable[[], None]&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
             <span class="n">releaseHydrogen</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">oxygen</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">releaseOxygen</span><span class="p">:</span> <span class="s2">&quot;Callable[[], None]&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">oxygen</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">releaseOxygen</span><span class="p">:</span> <span class="s2">&quot;Callable[[], None]&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">o</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
             <span class="n">releaseOxygen</span><span class="p">()</span>

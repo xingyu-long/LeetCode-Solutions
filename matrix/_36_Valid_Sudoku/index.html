@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>36 Valid Sudoku &#8212; LeetCode Solutions  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=6625fa76" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
@@ -40,24 +40,24 @@
 <span class="sd">LastEditTime: 09/05/2022 15:46:04</span>
 <span class="sd">Description: loop</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
 
 
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">isValidSudoku</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">board</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="k">def</span> <span class="nf">is_valid_row</span><span class="p">(</span><span class="n">board</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">isValidSudoku</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">board</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">is_valid_row</span><span class="p">(</span><span class="n">board</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">board</span><span class="p">:</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">is_valid</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
                     <span class="k">return</span> <span class="kc">False</span>
             <span class="k">return</span> <span class="kc">True</span>
 
-        <span class="k">def</span> <span class="nf">is_valid_col</span><span class="p">(</span><span class="n">board</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">is_valid_col</span><span class="p">(</span><span class="n">board</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">board</span><span class="p">):</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">is_valid</span><span class="p">(</span><span class="n">col</span><span class="p">):</span>
                     <span class="k">return</span> <span class="kc">False</span>
             <span class="k">return</span> <span class="kc">True</span>
 
-        <span class="k">def</span> <span class="nf">is_valid_square</span><span class="p">(</span><span class="n">board</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">is_valid_square</span><span class="p">(</span><span class="n">board</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
                 <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
                     <span class="n">square</span> <span class="o">=</span> <span class="p">[</span><span class="n">board</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span>
@@ -66,7 +66,7 @@
                         <span class="k">return</span> <span class="kc">False</span>
             <span class="k">return</span> <span class="kc">True</span>
 
-        <span class="k">def</span> <span class="nf">is_valid</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">is_valid</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
             <span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">value</span> <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="s1">&#39;.&#39;</span><span class="p">]</span>
             <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">res</span><span class="p">))</span>
 
