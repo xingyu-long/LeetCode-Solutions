@@ -15,6 +15,7 @@ class Solution:
                 return False
 
         # scan from right to left again to solve ["))((", "0011"]
+        # check `)`
         balance = 0
         for i in range(n)[::-1]:
             if locked[i] == "0" or s[i] == ")":
