@@ -66,3 +66,24 @@ class NestedInteger:
         Return None if this NestedInteger holds a single integer
         :rtype List[NestedInteger]
         """
+
+class FenwickTree:
+
+    def __init__(self, n: int) -> None:
+        self.tree = [0] * (n + 1)
+
+    @staticmethod
+    def _low_bit(x: int) -> int:
+        return x & (-x)
+
+    def update(self, i: int, delta: int) -> None:
+        while i < len(self.tree):
+            self.tree[i] += delta
+            i += self._low_bit(i)
+
+    def query(self, i: int) -> int:
+        total = 0
+        while i > 0:
+            total += self.tree[i]
+            i -= self._low_bit(i)
+        return total
