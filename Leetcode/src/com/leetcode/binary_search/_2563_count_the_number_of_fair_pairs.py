@@ -58,3 +58,24 @@ class Solution:
                 continue
             res += last - first + 1
         return res
+
+
+class Solution2:
+    # time: O(NlogN)
+    # space: O(1)
+    def countFairPairs(self, nums: List[int], lower: int, upper: int) -> int:
+        def lower_bound(val: int) -> int:
+            # find # of pairs which total sum would be strictly less than val.
+            left, right = 0, len(nums) - 1
+            pairs = 0
+            while left < right:
+                total = nums[left] + nums[right]
+                if total < val:
+                    pairs += right - left
+                    left += 1
+                else:
+                    right -= 1
+            return pairs
+
+        nums.sort()
+        return lower_bound(upper + 1) - lower_bound(lower)
