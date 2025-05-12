@@ -1,4 +1,5 @@
 from typing import Optional
+
 from Leetcode.src.com.leetcode.common.py_utils import ListNode
 
 

@@ -1,5 +1,6 @@
 from collections import defaultdict
 from typing import Optional
+
 from leetcode.common.py_utils import TreeNode
 
 

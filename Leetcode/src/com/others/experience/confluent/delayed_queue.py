@@ -1,11 +1,9 @@
 import logging
 import time
-
 from datetime import datetime, timedelta
-from functools import total_ordering, partial
+from functools import partial, total_ordering
 from heapq import heappop, heappush
 from threading import Condition, Lock, Thread
-
 
 logger = logging.getLogger(__name__)
 

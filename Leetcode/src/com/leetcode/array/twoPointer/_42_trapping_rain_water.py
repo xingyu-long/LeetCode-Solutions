@@ -1,6 +1,5 @@
 from typing import List
 
-
 """
 42. Trapping Rain Water
 ---

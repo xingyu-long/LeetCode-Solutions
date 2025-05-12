@@ -22,6 +22,7 @@
 
 
 from typing import Generator
+
 from leetcode.common.py_utils import NestedInteger
 
 

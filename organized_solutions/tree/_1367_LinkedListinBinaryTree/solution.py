@@ -1,5 +1,6 @@
 from typing import Optional
-from leetcode.common.py_utils import TreeNode, ListNode
+
+from leetcode.common.py_utils import ListNode, TreeNode
 
 
 class Solution:

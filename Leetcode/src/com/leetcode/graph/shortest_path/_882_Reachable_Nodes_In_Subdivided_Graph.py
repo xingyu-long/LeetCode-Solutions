@@ -3,9 +3,9 @@ Date: 09/12/2021 18:25:12
 LastEditTime: 09/12/2021 18:32:58
 Description: Djistra's Algo
 '''
+import heapq
 from collections import defaultdict
 from typing import List
-import heapq
 
 
 class Solution:

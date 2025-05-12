@@ -1,5 +1,5 @@
-from typing import List
 from math import inf
+from typing import List
 
 
 class Solution:

@@ -8,8 +8,8 @@ import os
 import re
 from operator import itemgetter
 
-from tqdm import tqdm
 from pytablewriter import MarkdownTableWriter
+from tqdm import tqdm
 
 
 def iter_all_files(path):

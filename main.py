@@ -1,10 +1,12 @@
 import os
 import re
-from sphinx.application import Sphinx
-from sphinx.util.docutils import SphinxDirective
+import shutil
+
 from docutils import nodes
 from docutils.parsers.rst import directives
-import shutil
+from sphinx.application import Sphinx
+from sphinx.util.docutils import SphinxDirective
+
 
 # Custom directive for code blocks
 class LeetCodeSolution(SphinxDirective):

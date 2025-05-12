@@ -1,5 +1,6 @@
 from leetcode.common.py_utils import TrieNode
 
+
 class WordDictionary:
 
     def __init__(self):

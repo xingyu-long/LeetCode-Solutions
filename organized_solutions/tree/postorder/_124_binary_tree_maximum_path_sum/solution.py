@@ -1,5 +1,5 @@
-from typing import Optional
 from math import inf
+from typing import Optional
 
 from leetcode.common.py_utils import TreeNode
 

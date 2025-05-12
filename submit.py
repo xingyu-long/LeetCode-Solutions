@@ -4,9 +4,9 @@ LastEditTime: 08/10/2021 16:12:06
 Description: Push changes to git with useful comments automatically.
 '''
 import re
-from subprocess import Popen, PIPE
-from shlex import split
 from datetime import datetime
+from shlex import split
+from subprocess import PIPE, Popen
 
 from git import Repo
 

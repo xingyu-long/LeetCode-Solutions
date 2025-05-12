@@ -5,7 +5,6 @@ Description: heapq, simulation
 '''
 import heapq
 
-
 """
 银行有多个agency服务，他们分别有不同服务时间，比如[2,5,3]，
 然后你前面有n个人，求要等到多少时间后才轮到自己。用queue来模拟做就好了。跟其他面经类似

@@ -3,8 +3,8 @@ Date: 01/30/2022 17:40:16
 LastEditTime: 08/14/2022 20:33:47
 Description: Math, Queue
 '''
-from typing import List
 from collections import deque
+from typing import List
 
 
 class Solution:

@@ -1,7 +1,6 @@
 import logging
+from threading import Barrier, Condition, Semaphore, Thread
 from time import sleep
-from threading import Condition, Thread, Semaphore, Barrier
-
 
 logging.basicConfig(
     format="%(asctime)s %(levelname)-3s %(message)s",
