@@ -1,12 +1,12 @@
-from collections import Counter
+from collections import Counter, defaultdict
 
 
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        c = Counter(s)
+        m = defaultdict(int)
+        for ch in s:
+            m[ch] += 1
         for ch in t:
-            c[ch] -= 1
-            if c[ch] < 0:
-                return False
+            m[ch] -= 1
 
-        return False if any([value != 0 for value in c.values()]) else True
+        return all([v == 0 for v in m.values()])
