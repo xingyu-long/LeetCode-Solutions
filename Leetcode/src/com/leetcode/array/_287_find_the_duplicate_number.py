@@ -17,18 +17,20 @@ class Solution:
             fast = nums[fast]
         return slow
 
+
 class Solution2:
     # mark it visited
     # time: O(n) space: O(1)
     def findDuplicate(self, nums: List[int]) -> int:
-        n = len(nums)
         for num in nums:
             idx = abs(num)
             if nums[idx] < 0:
                 return idx
-            nums[idx] = -nums[idx]
-        return n
+            nums[idx] *= -1
+        return -1
+
 
 class Solution3:
     # TODO: binary search
     pass
+
