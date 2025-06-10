@@ -2,7 +2,6 @@ from leetcode.common.py_utils import TrieNode
 
 
 class WordDictionary:
-
     def __init__(self):
         self.root = TrieNode()
 
@@ -15,22 +14,25 @@ class WordDictionary:
         curr.is_word = True
         curr.word = word
 
+    def _search(self, curr: TrieNode, word: str, index: int) -> bool:
+        if index > len(word):
+            return False
+
+        if index == len(word):
+            # NOTE: don't need to check with word, since it's not exact match.
+            return curr.is_word
+
+        ch = word[index]
+        if ch == ".":
+            for k in curr.children:
+                if self._search(curr.children[k], word, index + 1):
+                    return True
+            return False
+        else:
+            if ch not in curr.children:
+                return False
+            # move forward with next children
+            return self._search(curr.children[ch], word, index + 1)
+
     def search(self, word: str) -> bool:
-
-        def dfs(index, curr):
-            if index == len(word):
-                return curr.is_word
-
-            if word[index] == ".":
-                # iterate all possible keys
-                for key in curr.children.keys():
-                    if dfs(index + 1, curr.children[key]):
-                        return True
-            else:
-                if word[index] not in curr.children:
-                    return False
-                curr = curr.children[word[index]]
-                return dfs(index + 1, curr)
-
-        curr = self.root
-        return dfs(0, curr)
+        return self._search(self.root, word, 0)

@@ -20,9 +20,9 @@ class Node:
 
 class TrieNode:
     def __init__(self):
-        self.children = dict()
+        self.children: dict[str, "TrieNode"] = {}
         self.is_word = False
-        self.word = None
+        self.word: str | None = None
 
     def __repr__(self):
         return f"children={self.children}, is_word={self.is_word}, word={self.word}"
@@ -67,8 +67,8 @@ class NestedInteger:
         :rtype List[NestedInteger]
         """
 
-class FenwickTree:
 
+class FenwickTree:
     def __init__(self, n: int) -> None:
         self.tree = [0] * (n + 1)
 
