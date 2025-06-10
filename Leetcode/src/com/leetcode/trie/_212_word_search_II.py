@@ -35,9 +35,12 @@ class Solution:
             if ch not in curr.children:
                 return
             curr = curr.children[ch]
+            # WARN: check if this is word earlier
             if curr.is_word:
                 res.append(curr.word)
-                # remove the mark since we already found this word
+                # WARN: remove the mark since we already found this word
+                # and don't return it early since we may have the case like
+                # `oath`, `oathe` and etc.
                 curr.is_word = False
 
             visited[row][col] = True

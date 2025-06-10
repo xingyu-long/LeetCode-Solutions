@@ -8,7 +8,7 @@ class Solution:
         visited = dict()
 
         def dfs(i: int, j: int, word_idx: int) -> bool:
-            # to handle the case like [[a]], so we need to compare with word first.
+            # WARN: to handle the case like [[a]], so we need to compare with word first.
             if word_idx == len(word):
                 return True
             if i < 0 or i >= m or j < 0 or j >= n:
