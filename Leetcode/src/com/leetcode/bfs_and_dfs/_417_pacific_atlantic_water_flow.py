@@ -26,6 +26,9 @@ class Solution:
             dfs(arr, i - 1, j, prev)
             dfs(arr, i + 1, j, prev)
 
+        # NOTE: we don't need to pre-populate the True
+        # since it was handled by `if arr[i][j]` in `def dfs(...)`
+
         # populate atlantic and pacific arr
         for i in range(m):
             dfs(atlantic, i, n - 1, None)

@@ -16,6 +16,7 @@ class Solution:
                 elif grid[i][j] == 1:
                     fresh += 1
 
+        # WARN: for the case: grid = [[0]]
         if fresh == 0:
             return 0
         res = -1
