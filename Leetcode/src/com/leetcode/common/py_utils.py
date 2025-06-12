@@ -87,3 +87,32 @@ class FenwickTree:
             total += self.tree[i]
             i -= self._low_bit(i)
         return total
+
+
+class UnionFind:
+    def __init__(self, n: int) -> None:
+        self.id = [i for i in range(n)]
+        self.size = [1 for _ in range(n)]
+        self.count = n
+
+    def find(self, p: int) -> int:
+        while p != self.id[p]:
+            # path compression
+            self.id[p] = self.id[self.id[p]]
+            p = self.id[p]
+        return p
+
+    def union(self, p: int, q: int) -> bool:
+        p_id, q_id = self.find(p), self.find(q)
+        if p_id == q_id:
+            # already connected
+            return False
+
+        if self.size[p] > self.size[q]:
+            self.size[p] += self.size[q]
+            self.id[q_id] = p_id
+        else:
+            self.size[q] += self.size[p]
+            self.id[p_id] = q_id
+        self.count -= 1
+        return True
