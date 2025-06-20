@@ -21,7 +21,6 @@ class Solution:
                     return False
                 for j in range(min(len(prev), len(curr))):
                     c1, c2 = prev[j], curr[j]
-                    print(c1, c2)
                     if c1 != c2:
                         if c2 not in graph[c1]:
                             graph[c1].add(c2)
@@ -49,7 +48,7 @@ class Solution:
 
             return "".join(res) if total == len(res) else ""
 
-        succ = build_graph(graph, indegree)
-        if not succ:
+        success = build_graph(graph, indegree)
+        if not success:
             return ""
         return bfs(graph, indegree)
