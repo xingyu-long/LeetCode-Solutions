@@ -1,33 +1,38 @@
-'''
-Date: 09/12/2021 18:25:12
-LastEditTime: 09/12/2021 18:32:58
-Description: Djistra's Algo
-'''
-import heapq
 from collections import defaultdict
+from heapq import heappop, heappush
 from typing import List
 
 
 class Solution:
     def reachableNodes(self, edges: List[List[int]], maxMoves: int, n: int) -> int:
-        d = defaultdict(dict)
+        # undirected graph
+        graph = [[-1] * n for _ in range(n)]
         for u, v, w in edges:
-            d[u][v] = d[v][u] = w
-        pq = [(-maxMoves, 0)] # 利用负数来达到 max heap的效果
-        HP = {}  # node-> hp
-        while pq:
-            hp, node = heapq.heappop(pq)
-            if node not in HP:
-                HP[node] = -hp # 这个还是保持之前的正数
-                for next_node in d[node]:
-                    next_hp = -hp - (d[node][next_node] + 1)
-                    if next_node not in HP and next_hp >= 0:
-                        heapq.heappush(pq, (-next_hp, next_node))
-        res = len(HP)
-        for u, v, w in edges:
-            res += min(HP.get(u, 0) + HP.get(v, 0), w)
+            graph[u][v] = graph[v][u] = w
+
+        visited = set()
+        heap = [(-maxMoves, 0)]
+        res = 0
+        while heap:
+            curr_left, curr = heappop(heap)
+            moves = -curr_left
+            if curr in visited:
+                continue
+            # visited curr location and add 1 into result.
+            visited.add(curr)
+            res += 1
+            for i in range(n):
+                # no edge from curr to i
+                if graph[curr][i] == -1:
+                    continue
+                if moves > graph[curr][i] and i not in visited:
+                    # we need to reduce 1 more due to the V[i]
+                    new_left = moves - graph[curr][i] - 1
+                    heappush(heap, (-new_left, i))
+                # we either use all moves or graph[curr][i] if graph[curr][i] < moves
+                cost = min(moves, graph[curr][i])
+                # prevent going back, i.e. from i to curr
+                graph[i][curr] -= cost
+                res += cost
         return res
 
-
-s = Solution()
-s.reachableNodes([[0,1,10],[0,2,1],[1,2,2]], 6, 3)

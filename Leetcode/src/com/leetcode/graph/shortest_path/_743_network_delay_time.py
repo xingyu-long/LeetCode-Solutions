@@ -1,4 +1,4 @@
-from collections import defaultdict
+from collections import defaultdict, deque
 from heapq import heappop, heappush
 from math import inf
 from typing import List
@@ -78,3 +78,28 @@ class Solution3:
         for i in range(1, n + 1):
             res = max(res, dist[i])
         return -1 if res == inf else res
+
+
+class Solution4:
+    # time: O(V*E)
+    # space: O(V)
+    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+        dist = [inf] * (n + 1)
+        graph = defaultdict(list)
+        for u, v, w in times:
+            graph[u].append((v, w))
+        dist[k] = 0
+        queue = deque()
+        queue.append((k, 0))
+        while queue:
+            size = len(queue)
+            for _ in range(size):
+                curr, curr_w = queue.popleft()
+                for neigh, w in graph[curr]:
+                    new_w = curr_w + w
+                    if new_w < dist[neigh]:
+                        dist[neigh] = new_w
+                        queue.append((neigh, new_w))
+
+        res = max(dist[1:])
+        return res if res != inf else -1

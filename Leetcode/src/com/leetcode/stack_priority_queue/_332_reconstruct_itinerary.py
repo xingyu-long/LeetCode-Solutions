@@ -8,18 +8,19 @@ class Solution:
         graph = defaultdict(list)
         for u, v in tickets:
             graph[u].append(v)
-
-        for k, v in graph.items():
+        for _, v in graph.items():
             v.sort(reverse=True)
+
         res = []
 
-        def dfs(curr):
-            nxts = graph[curr]
-            while nxts:
-                nxt = nxts.pop()
-                dfs(nxt)
-            res.append(curr)
+        def build(start: str):
+            while graph[start]:
+                neighbor = graph[start].pop()
+                build(neighbor)
+            res.append(start)
 
-        dfs("JFK")
+        build("JFK")
         return res[::-1]
- 
+
+    # see DFS with backtracking: https://neetcode.io/solutions/reconstruct-itinerary
+

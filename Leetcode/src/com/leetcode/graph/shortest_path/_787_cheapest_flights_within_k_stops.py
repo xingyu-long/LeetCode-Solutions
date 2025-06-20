@@ -5,6 +5,7 @@ from typing import List
 
 
 class Solution:
+    # this will timed out
     def findCheapestPrice(
         self, n: int, flights: List[List[int]], src: int, dst: int, k: int
     ) -> int:
@@ -28,7 +29,7 @@ class Solution:
         return -1
 
 
-class Solution:
+class Solution2:
     def findCheapestPrice(
         self, n: int, flights: List[List[int]], src: int, dst: int, k: int
     ) -> int:
