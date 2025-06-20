@@ -34,3 +34,7 @@ class Solution:
                     heappush(heap, (dist, neighbor))
 
         return res
+
+    # Kruskal's Algorithm
+    # 1. find all edges and sort them by manhattan distance
+    # 2. try to union them one by one
