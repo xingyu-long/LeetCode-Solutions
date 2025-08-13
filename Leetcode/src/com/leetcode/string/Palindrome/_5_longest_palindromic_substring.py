@@ -5,7 +5,7 @@ class Solution:
         dp = [[False] * n for _ in range(n)]
         res = ""
         for j in range(n):
-            # i can be equal to j
+            # WARN: i can be equal to j
             for i in range(j + 1):
                 dp[i][j] = (s[i] == s[j]) and (j - i <= 1 or dp[i + 1][j - 1])
                 if dp[i][j]:
@@ -16,7 +16,7 @@ class Solution:
 
 class Solution2:
     # 扩散法
-    # time: O(n)
+    # time: O(n^2)
     def longestPalindrome(self, s: str) -> str:
         n = len(s)
         res = ""

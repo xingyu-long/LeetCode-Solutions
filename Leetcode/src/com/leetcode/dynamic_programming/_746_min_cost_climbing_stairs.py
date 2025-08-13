@@ -2,6 +2,7 @@ from typing import List
 
 
 class Solution:
+    # time: O(N)
     def minCostClimbingStairs(self, cost: List[int]) -> int:
         memo = {}
 
@@ -19,7 +20,9 @@ class Solution:
         return min(dfs(0, memo), dfs(1, memo))
 
 
-class Solution:
+class Solution2:
+    # time: O(N)
+    # space: O(N)
     def minCostClimbingStairs(self, cost: List[int]) -> int:
         n = len(cost)
         dp = [0] * n

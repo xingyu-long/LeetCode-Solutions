@@ -3,6 +3,37 @@ from typing import List
 
 class Solution:
     # time: O(target * n)
+    # space: O(target * n)
+    # top-down dynamic programming with memoization
+    def canPartition(self, nums: List[int]) -> bool:
+        # either include or not into the sum
+        total = sum(nums)
+        if total % 2 != 0:
+            return False
+        target = total // 2
+
+        n = len(nums)
+        memo = {}
+
+        def dfs(index, target):
+            if target == 0:
+                return True
+            if index >= n or target < 0:
+                return False
+
+            key = (index, target)
+            if key in memo:
+                return memo[key]
+
+            result = dfs(index + 1, target) or dfs(index + 1, target - nums[index])
+            memo[key] = result
+            return result
+
+        return dfs(0, target)
+
+
+class Solution2:
+    # time: O(target * n)
     # time: O(target * n)
     def canPartition(self, nums: List[int]) -> bool:
         total = sum(nums)

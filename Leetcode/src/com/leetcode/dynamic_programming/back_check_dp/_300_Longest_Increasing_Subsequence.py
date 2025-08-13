@@ -2,6 +2,7 @@ from typing import List
 
 
 class Solution:
+    # time: O(n^2)
     def lengthOfLIS(self, nums: List[int]) -> int:
         n = len(nums)
         dp = [0] * n
@@ -21,33 +22,33 @@ class Solution2:
     # space: O(n)
     def lengthOfLIS(self, nums: List[int]) -> int:
         n = len(nums)
-        arr = [0] * n
+        sorted_array = [0] * n
         res = 0
 
-        def find_insert_pos(arr, target, l, r):
-            while l + 1 < r:
-                mid = l + (r - l) // 2
-                if arr[mid] > target:
-                    r = mid
+        def find_insert_pos(array, target, left, right):
+            while left + 1 < right:
+                mid = left + (right - left) // 2
+                if array[mid] > target:
+                    right = mid
                 else:
-                    l = mid
-            if target <= arr[l]:
-                return l
-            if target > arr[r]:
-                return r + 1
-            return r
+                    left = mid
+            if target <= array[left]:
+                return left
+            if target > array[right]:
+                return right + 1
+            return right
 
-        for index, num in enumerate(nums):
+        for _, num in enumerate(nums):
             if res > 0:
-                if num > arr[res - 1]:
-                    arr[res] = num
+                if num > sorted_array[res - 1]:
+                    sorted_array[res] = num
                     res += 1
                 else:
                     # find the place and insert
-                    correct_idx = find_insert_pos(arr, num, 0, res - 1)
-                    arr[correct_idx] = num
+                    correct_idx = find_insert_pos(sorted_array, num, 0, res - 1)
+                    sorted_array[correct_idx] = num
             else:
-                arr[res] = num
+                sorted_array[res] = num
                 res += 1
 
         return res

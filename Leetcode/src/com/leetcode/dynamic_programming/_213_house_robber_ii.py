@@ -7,11 +7,11 @@ class Solution:
         if n == 1:
             return nums[0]
 
-        def rob_with_range(i, j):
+        def rob_with_range(start, end):
             rob = not_rob = 0
-            for k in range(i, j):
+            for i in range(start, end):
                 temp = max(rob, not_rob)
-                rob = not_rob + nums[k]
+                rob = not_rob + nums[i]
                 not_rob = temp
             return max(rob, not_rob)
 

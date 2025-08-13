@@ -3,6 +3,18 @@ from typing import List
 
 
 class Solution:
+    """
+              |-------|
+          |---|
+        |-----|
+    ------------------------------
+     0  1  2  3  4  5  6  7  8  9
+              *  *  *  *
+    """
+
+    # time: O(NlogN  + QlogQ)
+    # N: len(intervals)
+    # Q: len(queries)
     def minInterval(self, intervals: List[List[int]], queries: List[int]) -> List[int]:
         intervals.sort(key=lambda x: x[0])
         res, i = {}, 0
