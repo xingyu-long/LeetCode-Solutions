@@ -8,13 +8,13 @@ class Solution:
         start = end = 0
         res = 0
         n = len(nums)
-        count = k
+        count_zero = k
         while end < n:
             if nums[end] == 0:
-                count -= 1
-            while count < 0:
+                count_zero -= 1
+            while count_zero < 0:
                 if nums[start] == 0:
-                    count += 1
+                    count_zero += 1
                 start += 1
             res = max(res, end - start + 1)
             end += 1

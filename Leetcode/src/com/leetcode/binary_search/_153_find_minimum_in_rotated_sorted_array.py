@@ -2,6 +2,7 @@ from typing import List
 
 
 class Solution:
+    # time: O(logN)
     def findMin(self, nums: List[int]) -> int:
         n = len(nums)
         left, right = 0, n - 1

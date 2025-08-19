@@ -71,5 +71,5 @@ class Solution2:
         for p in union:
             curr = sorted(list(union[p]))
             curr.insert(0, email_name[p])
-            res.append(list(curr))
+            res.append(curr)
         return res

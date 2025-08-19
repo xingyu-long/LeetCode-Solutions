@@ -3,7 +3,6 @@ from random import randrange
 
 
 class RandomizedCollection:
-
     def __init__(self):
         self.arr = []
         # val -> {idx0, idx1... idxN}
@@ -26,6 +25,7 @@ class RandomizedCollection:
             del self.map[val]
 
         if idx != tail_idx:
+            # WARN: don't forget to remove the old index.
             self.map[tail_val].remove(tail_idx)
             self.map[tail_val].add(idx)
             self.arr[idx] = tail_val

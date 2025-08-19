@@ -36,13 +36,13 @@ class AllOne:
         self.tail.prev = self.head
 
         # key -> block
-        self.m = {}
+        self.mp = {}
 
     def inc(self, key: str) -> None:
-        if key not in self.m:
+        if key not in self.mp:
             current_block = self.head
         else:
-            current_block = self.m[key]
+            current_block = self.mp[key]
             current_block.keys.remove(key)
 
         # check if we have next block (freq will be increased by 1)
@@ -53,20 +53,20 @@ class AllOne:
             new_block = current_block.next
 
         new_block.keys.add(key)
-        self.m[key] = new_block
+        self.mp[key] = new_block
 
         # if block is empty and its not head or tail, let's remove it
         if not current_block.keys and current_block.freq != 0:
             current_block.remove()
 
     def dec(self, key: str) -> None:
-        if key not in self.m:
+        if key not in self.mp:
             return
 
-        current_block = self.m[key]
+        current_block = self.mp[key]
         current_block.keys.remove(key)
         # we need to remove key from self.m
-        del self.m[key]
+        del self.mp[key]
 
         # if freq == 1, we will put things in self.head which is unexpected.
         if current_block.freq != 1:
@@ -77,7 +77,7 @@ class AllOne:
                 new_block = current_block.prev
 
             new_block.keys.add(key)
-            self.m[key] = new_block
+            self.mp[key] = new_block
 
         if not current_block.keys:
             current_block.remove()
