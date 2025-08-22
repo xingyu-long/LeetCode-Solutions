@@ -15,7 +15,7 @@ class Solution:
         self.nums = nums
 
     def pick(self, target: int) -> int:
-        res = None
+        res = -1
         count = 0
         for i, num in enumerate(self.nums):
             if num == target:

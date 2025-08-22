@@ -16,6 +16,7 @@ class Solution:
 
             for i in range(idx, len(num)):
                 # "012"
+                # to avoid 105 -> 1*5 (invalid)
                 if i != idx and num[idx] == "0":
                     break
                 curr = int(num[idx : i + 1])
@@ -26,6 +27,9 @@ class Solution:
                 else:
                     dfs(i + 1, total + curr, path + "+" + str(curr), curr)
                     dfs(i + 1, total - curr, path + "-" + str(curr), -curr)
+                    # example: 1 - 2 * 2 + 3
+                    # total = -1, prev = -2
+                    # curr = 2
                     dfs(
                         i + 1,
                         (total - prev) + prev * curr,

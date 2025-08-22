@@ -1,97 +1,104 @@
 class Block:
-    def __init__(self, freq=0):
+    def __init__(self, freq: int = 0):
         self.freq = freq
         self.keys = set()
         self.prev = None
         self.next = None
 
-    def remove(self):
-        # remove itself
-        prev, nxt = self.prev, self.next
+    def insert(self, block: "Block"):
+        # insert it after the self
+        nxt = self.next
+
+        block.next = nxt
+        nxt.prev = block
+
+        self.next = block
+        block.prev = self
+
+    def insert_before(self, block: "Block"):
+        prev = self.prev
+
+        prev.next = block
+        block.prev = prev
+
+        block.next = self
+        self.prev = block
+
+    def delete(self):
+        # delete self from the doubly linked list
+        prev = self.prev
+        nxt = self.next
+
         prev.next = nxt
         nxt.prev = prev
 
-    def insert_after(self, new_block):
-        """
-        [head] -> ... -> [current block] -> [new block] ... ->[tail]
-        """
-        tmp = self.next
-        self.next = new_block
-        new_block.prev = self
-
-        new_block.next = tmp
-        tmp.prev = new_block
-
     def __repr__(self):
-        return f"Block(freq={self.freq})"
+        return f"Block[freq={self.freq}, keys={self.keys}]"
 
 
 class AllOne:
-
     def __init__(self):
+        # key -> block
+        self.mp = dict()
+
         self.head = Block()
         self.tail = Block()
-
         self.head.next = self.tail
         self.tail.prev = self.head
 
-        # key -> block
-        self.mp = {}
-
     def inc(self, key: str) -> None:
+        # need to handle the case like inc(a), inc(b), the 2nd one should start from head
         if key not in self.mp:
-            current_block = self.head
+            block = self.head
         else:
-            current_block = self.mp[key]
-            current_block.keys.remove(key)
+            block = self.mp[key]
+            block.keys.remove(key)
 
-        # check if we have next block (freq will be increased by 1)
-        if current_block.freq + 1 != current_block.next.freq:
-            new_block = Block(current_block.freq + 1)
-            current_block.insert_after(new_block)
+        if block.next != self.tail and block.freq + 1 == block.next.freq:
+            next_block = block.next
         else:
-            new_block = current_block.next
+            next_block = Block(block.freq + 1)
+            block.insert(next_block)
 
-        new_block.keys.add(key)
-        self.mp[key] = new_block
+        next_block.keys.add(key)
+        self.mp[key] = next_block
 
-        # if block is empty and its not head or tail, let's remove it
-        if not current_block.keys and current_block.freq != 0:
-            current_block.remove()
+        # clean up the block if no keys in it
+        # and also make sure this is not HEAD
+        if not block.keys and block != self.head:
+            block.delete()
 
     def dec(self, key: str) -> None:
-        if key not in self.mp:
-            return
-
-        current_block = self.mp[key]
-        current_block.keys.remove(key)
-        # we need to remove key from self.m
+        block = self.mp[key]
+        block.keys.remove(key)
         del self.mp[key]
 
-        # if freq == 1, we will put things in self.head which is unexpected.
-        if current_block.freq != 1:
-            if current_block.freq - 1 != current_block.prev.freq:
-                new_block = Block(current_block.freq - 1)
-                current_block.prev.insert_after(new_block)
+        if block.freq > 1:
+            # we will try to find/create the prev
+            # there is no point to do so for block.freq = 1 since we don't need block with freq = 0
+            if block.prev != self.head and block.prev.freq + 1 == block.freq:
+                prev_block = block.prev
             else:
-                new_block = current_block.prev
+                # create one with small freq
+                prev_block = Block(block.freq - 1)
+                block.insert_before(prev_block)
 
-            new_block.keys.add(key)
-            self.mp[key] = new_block
+            prev_block.keys.add(key)
+            self.mp[key] = prev_block
 
-        if not current_block.keys:
-            current_block.remove()
+        if not block.keys:
+            block.delete()
 
     def getMaxKey(self) -> str:
-        if self.tail.prev.freq == 0:
+        max_block = self.tail.prev
+        if max_block == self.head:
             return ""
-        key = self.tail.prev.keys.pop()
-        self.tail.prev.keys.add(key)
-        return key
+        val = next(iter(max_block.keys))
+        return val
 
     def getMinKey(self) -> str:
-        if self.head.next.freq == 0:
+        min_block = self.head.next
+        if min_block == self.tail:
             return ""
-        key = self.head.next.keys.pop()
-        self.head.next.keys.add(key)
-        return key
+        val = next(iter(min_block.keys))
+        return val
