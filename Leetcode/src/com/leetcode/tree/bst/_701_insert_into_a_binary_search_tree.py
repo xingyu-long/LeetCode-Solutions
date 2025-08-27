@@ -4,6 +4,8 @@ from leetcode.common.py_utils import TreeNode
 
 
 class Solution:
+    # Time: O(logN)
+    # space: O(1)
     def insertIntoBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
         if not root:
             return TreeNode(val)

@@ -24,3 +24,24 @@ class Solution:
                 if j >= coins[i - 1]:
                     dp[i][j] += dp[i][j - coins[i - 1]]
         return dp[m][n]
+
+
+class Solution2:
+    def change(self, amount: int, coins: List[int]) -> int:
+        memo = dict()
+
+        def dfs(target, choice):
+            if target == 0:
+                return 1
+            if target < 0 or choice < 0:
+                return 0
+            if (target, choice) in memo:
+                return memo[(target, choice)]
+
+            res = 0
+            res += dfs(target - coins[choice], choice)
+            res += dfs(target, choice - 1)
+            memo[(target, choice)] = res
+            return res
+
+        return dfs(amount, len(coins) - 1)

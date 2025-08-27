@@ -1,9 +1,8 @@
-'''
+"""
 Date: 12/06/2021 17:04:31
 LastEditTime: 12/06/2021 17:04:31
 Description: BST, delete node
-'''
-
+"""
 
 from typing import Optional
 
@@ -18,22 +17,23 @@ class TreeNode:
 
 class Solution:
     def deleteNode(self, root: Optional[TreeNode], key: int) -> Optional[TreeNode]:
-        if not root:
-            return root
-        if key > root.val:
-            root.right = self.deleteNode(root.right, key)
-        elif key < root.val:
-            root.left = self.deleteNode(root.left, key)
-        else:
-            if not root.left:
+        if root is None:
+            return None
+        if root.val == key:
+            # need to consider how to return the value
+            if root.right:
+                # find the smallest node in root.right
+                curr = root.right
+                while curr.left:
+                    curr = curr.left
+                curr.left = root.left
                 return root.right
-            elif not root.right:
-                return root.left
             else:
-                min_root = root.right
-                # find the min
-                while min_root.left:
-                    min_root = min_root.left
-                root.val = min_root.val
-                root.right = self.deleteNode(root.right, root.val)
+                return root.left
+
+        if root.val < key:
+            root.right = self.deleteNode(root.right, key)
+        else:
+            root.left = self.deleteNode(root.left, key)
+
         return root
