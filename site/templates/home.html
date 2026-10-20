@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>LeetCode Solutions</h1>
+<p class="lede">{{ stats.problems|comma }} problems in {{ stats.categories }} categories. {{ stats.java }} have a Java solution and {{ stats.python }} have a Python one. Pick a category to start.</p>
+<div class="cards">
+  {% for c in categories %}
+  <a class="card" href="{{ c.slug }}/index.html"><span class="card-name">{{ c.name }}</span><span class="count">{{ c.count }}</span></a>
+  {% endfor %}
+</div>
+<section id="book" class="book-box">
+  <h2>Book</h2>
+  <p>All solutions as one book, filed by technique. The full PDF is large, so each chapter is also available on its own.</p>
+  <p class="actions">
+    <a class="btn primary" href="book/leetcode-solutions.pdf">Full book (PDF)</a>
+    <a class="btn" href="book/leetcode-solutions.epub">EPUB</a>
+  </p>
+  <ul class="chapter-links">
+    {% for c in chapters %}<li><a href="book/chapters/{{ c.slug }}.pdf">{{ c.name }}</a> <span class="muted">{{ c.count }}</span></li>{% endfor %}
+  </ul>
+</section>
+{% endblock %}

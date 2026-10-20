@@ -1,34 +1,54 @@
-name: Deploy Sphinx documentation to Pages
+name: Deploy site to GitHub Pages
 
 on:
   push:
-    branches: [main]  # Set a branch to deploy
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  pages:
-    runs-on: ubuntu-20.04
+  build:
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-    - name: Setup Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.8'
+      - uses: astral-sh/setup-uv@v5
 
-    - name: Upgrade pip
-      run: |
-        python3 -m pip install --upgrade pip
+      - name: Install dependencies
+        run: uv sync
 
-    - name: Install dependencies
-      run: |
-        python3 -m pip install sphinx
+      - name: Install system packages
+        # pandoc builds the EPUB; pango for WeasyPrint; Noto CJK keeps the Chinese comments readable in the PDF
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc libpango-1.0-0 libpangoft2-1.0-0 fonts-noto-cjk
 
-    - name: Build documentation
-      run: |
-        python3 main.py
+      - name: Fetch any missing problem titles
+        run: uv run python site/fetch_titles.py --missing-only || true
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
+      - name: Build site and book
+        run: uv run python site/build.py
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

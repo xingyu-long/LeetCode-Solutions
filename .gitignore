@@ -4,12 +4,11 @@ __pycache__/
 
 *.xml
 *.iml
-*.iml
 *.class
 *.json
 Leetcode/.idea/*
 Leetcode/.vscode/*
 Leetcode/out/*
 .DS_Store
-build/*
-source/*
+_site/
+!site/data/titles.json
