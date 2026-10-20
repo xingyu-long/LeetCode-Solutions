@@ -8,7 +8,7 @@ package com.leetcode.hashmap;
 import java.util.HashSet;
 import java.util.Set;
 
-public class _804UniqueMorseCodeWords {
+public class _804_UniqueMorseCodeWords {
     public int uniqueMorseRepresentations(String[] words) {
         if (words == null || words.length == 0) {
             return 0;
