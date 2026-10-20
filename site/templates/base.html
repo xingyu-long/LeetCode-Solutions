@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page != "home" %}{{ title }} · {% endif %}LeetCode Solutions</title>
+{% block head %}{% endblock %}
+<link rel="stylesheet" href="{{ root }}static/site.css">
+<link rel="stylesheet" href="{{ root }}static/pygments.css">
+<link rel="icon" href="{{ root }}static/favicon.svg" type="image/svg+xml">
+<script>document.documentElement.className += " js";</script>
+</head>
+<body data-root="{{ root }}">
+<header class="topbar">
+  <button class="menu-btn" type="button" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">&#9776;</button>
+  <a class="brand" href="{{ root }}index.html"><span class="logo" aria-hidden="true">LC</span><span class="brand-name">LeetCode Solutions</span></a>
+  <div class="search" role="search">
+    <input id="search-input" type="search" placeholder="Search by number or title" aria-label="Search problems" autocomplete="off">
+    <kbd class="kbd">/</kbd>
+    <ul id="search-results" class="search-results" hidden></ul>
+  </div>
+  <nav class="toplinks">
+    <a href="{{ root }}index.html#book">Download book</a>
+    <a href="{{ github }}">GitHub</a>
+  </nav>
+</header>
+<div class="shell">
+  <aside id="sidebar" class="sidebar" aria-label="Categories">
+    <nav>
+      <a class="side-link{% if page == 'home' %} active{% endif %}" href="{{ root }}index.html">Overview</a>
+      {% for c in sidebar %}
+      <a class="side-link{% if active == c.slug %} active{% endif %}" href="{{ root }}{{ c.slug }}/index.html"><span>{{ c.name }}</span><span class="count">{{ c.count }}</span></a>
+      {% if active == c.slug and subtopics %}
+      <ul class="side-sub">
+        {% for anchor, name in subtopics %}<li><a href="{{ root }}{{ c.slug }}/index.html#{{ anchor }}">{{ name }}</a></li>{% endfor %}
+      </ul>
+      {% endif %}
+      {% endfor %}
+    </nav>
+  </aside>
+  <main class="main">
+    {% block content %}{% endblock %}
+    <footer class="footer">Source on <a href="{{ github }}">GitHub</a> · built from <code>Leetcode/src/com/leetcode/</code></footer>
+  </main>
+</div>
+<script src="{{ root }}static/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+Self-hosted fonts, all licensed under the SIL Open Font License 1.1 (https://openfontlicense.org):
+  Inter (Rasmus Andersson), JetBrains Mono (JetBrains), Newsreader (Production Type), IBM Plex Mono (IBM).
+Latin subsets taken from the @fontsource packages (https://fontsource.org).

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{ book_title }}{% if only %} · {{ chapters[0].name }}{% endif %}</title>
+<meta name="author" content="{{ author }}">
+<style>
+@font-face{font-family:Newsreader;font-weight:400;src:url({{ fonts }}/newsreader-latin-400-normal.woff2)}
+@font-face{font-family:Newsreader;font-weight:400;font-style:italic;src:url({{ fonts }}/newsreader-latin-400-italic.woff2)}
+@font-face{font-family:Newsreader;font-weight:600;src:url({{ fonts }}/newsreader-latin-600-normal.woff2)}
+@font-face{font-family:Newsreader;font-weight:700;src:url({{ fonts }}/newsreader-latin-700-normal.woff2)}
+@font-face{font-family:"IBM Plex Mono";font-weight:400;src:url({{ fonts }}/ibm-plex-mono-latin-400-normal.woff2)}
+@font-face{font-family:"IBM Plex Mono";font-weight:500;src:url({{ fonts }}/ibm-plex-mono-latin-500-normal.woff2)}
+
+:root{--ink:#16213a;--accent:#c2410c;--code-bg:#f6f7f9}
+@page{size:A4;margin:24mm 20mm 22mm;
+  @top-left{content:string(chapter) string(sub);font:8pt "IBM Plex Mono",monospace;color:#6b7280}
+  @top-right{content:string(purl);font:8pt "IBM Plex Mono",monospace;color:#6b7280}
+  @bottom-center{content:counter(page);font:9pt Newsreader,serif;color:var(--ink)}}
+@page cover{margin:0;background:var(--accent);@top-left{content:none}@top-right{content:none}@bottom-center{content:none}}
+@page front{@top-left{content:none}@top-right{content:none}}
+@page chapter:first{@top-left{content:string(chapter)}@top-right{content:none}}
+
+html{font:11pt/1.5 Newsreader,"Noto Serif CJK SC","PingFang SC",serif;color:var(--ink)}
+body{margin:0}
+h1,h2,h3{font-weight:600;margin:0}
+a{color:inherit;text-decoration:none}
+
+.cover{page:cover;height:297mm;padding:34mm 24mm;box-sizing:border-box;color:#fff;position:relative;break-after:page}
+.cover .label{font:500 10pt "IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.cover h1{font-size:56pt;line-height:1.02;margin:40mm 0 10mm;font-weight:700}
+.cover .subtitle{font-size:18pt;font-style:italic;max-width:120mm;opacity:.95}
+.cover .byline{position:absolute;left:24mm;bottom:30mm;font:500 10pt "IBM Plex Mono",monospace;letter-spacing:.06em}
+
+.front{page:front}
+.toc{break-after:page}
+.toc h1{font-size:26pt;margin-bottom:8mm}
+.toc .ch{break-inside:avoid}
+.toc h2{font-size:12pt;margin:6mm 0 2mm;color:var(--accent);font:500 8.5pt "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase}
+.toc ol{list-style:none;margin:0;padding:0;columns:1}
+.toc li{display:flex;gap:2mm;font-size:9.5pt;line-height:1.55}
+.toc li a{flex:1}
+.toc li .t{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.toc a::after{content:leader(".") target-counter(attr(href), page);color:#6b7280}
+.toc h2 a::after{content:leader(" ") target-counter(attr(href), page);color:#6b7280}
+
+.chapter{break-before:page;page:chapter}
+.chapter-open{break-after:page}
+.chapter-open .label{font:500 9pt "IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.chapter-open h1{font-size:34pt;margin:4mm 0 2mm;string-set:chapter content(), sub ""}
+.chapter-open .count{font-style:italic;color:#6b7280;margin-bottom:8mm}
+.chapter-open h3{font:500 8.5pt "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:5mm 0 1.5mm;border-bottom:.4pt solid #d6d9de;padding-bottom:1mm}
+.chapter-open ol{list-style:none;margin:0;padding:0}
+.chapter-open li{font-size:10pt;line-height:1.55}
+.chapter-open li a::after{content:leader(".") target-counter(attr(href), page);color:#6b7280}
+
+.problem{break-before:page;string-set:purl attr(data-url), sub attr(data-sub)}
+.problem .kicker{font:500 8.5pt "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.problem h2{font-size:21pt;line-height:1.2;margin:2mm 0 2mm}
+.problem .info{font:400 8.5pt "IBM Plex Mono",monospace;color:#4b5563;margin-bottom:6mm}
+.problem .lang{font:500 8pt "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:5mm 0 1.5mm}
+.problem .lang span{color:#6b7280;text-transform:none;letter-spacing:0}
+.code{background:var(--code-bg);border-left:2pt solid var(--accent);padding:3mm 4mm}
+.code pre{margin:0;font:400 8.5pt/1.45 "IBM Plex Mono","Noto Sans Mono CJK SC","PingFang SC",monospace;white-space:pre-wrap;word-break:break-all;overflow-wrap:anywhere}
+.code .highlight{background:none}
+{{ pygments|safe }}
+</style>
+</head>
+<body>
+{% if not only %}
+<section class="cover">
+  <div class="label">{{ edition }}</div>
+  <h1>{{ book_title }}</h1>
+  <div class="subtitle">{{ subtitle }}</div>
+  <div class="byline">{{ author }} · {{ site_url }}</div>
+</section>
+<section class="toc front">
+  <h1>Contents</h1>
+  {% for ch in chapters %}
+  <div class="ch">
+    <h2><a href="#ch-{{ ch.slug }}">{{ ch.name }} · {{ ch.count }}</a></h2>
+    <ol>
+      {% for g in ch.groups %}{% for p in g.problems %}
+      <li><a href="#p-{{ ch.slug }}-{{ p.number }}"><span class="t">{{ p.number }}. {{ p.title }}</span></a></li>
+      {% endfor %}{% endfor %}
+    </ol>
+  </div>
+  {% endfor %}
+</section>
+{% else %}
+<section class="cover" style="background:var(--accent)">
+  <div class="label">{{ book_title }} · {{ edition }}</div>
+  <h1>{{ chapters[0].name }}</h1>
+  <div class="subtitle">{{ chapters[0].count }} problems in Java and Python</div>
+  <div class="byline">{{ author }} · {{ site_url }}</div>
+</section>
+{% endif %}
+
+{% for ch in chapters %}
+<section class="chapter" id="ch-{{ ch.slug }}">
+  <div class="chapter-open">
+    <div class="label">Chapter {{ loop.index if not only else 1 }}</div>
+    <h1>{{ ch.name }}</h1>
+    <div class="count">{{ ch.count }} problems</div>
+    {% for g in ch.groups %}
+    <h3>{{ g.name }}</h3>
+    <ol>
+      {% for p in g.problems %}<li><a href="#p-{{ ch.slug }}-{{ p.number }}">{{ p.number }}. {{ p.title }}</a></li>{% endfor %}
+    </ol>
+    {% endfor %}
+  </div>
+  {% for g in ch.groups %}{% for p in g.problems %}
+  <article class="problem" id="p-{{ ch.slug }}-{{ p.number }}" data-url="{{ p.lc_url }}" data-sub="{{ ' · ' ~ g.name if g.name != 'General' else '' }}">
+    <div class="kicker">{{ ch.name }}{% if g.name != 'General' %} · {{ g.name }}{% endif %}</div>
+    <h2>{{ p.number }}. {{ p.title }}</h2>
+    <div class="info">{% if p.difficulty %}{{ p.difficulty }}{% endif %}{% if p.lc_url %} · {{ p.lc_url }}{% endif %}</div>
+    {% for lang, fs in p.tabs() %}{% for f in fs %}
+    <div class="lang">{{ lang }} <span>· {{ f.rel.split('/')[-1] }}</span></div>
+    <div class="code">{{ f.html|safe }}</div>
+    {% endfor %}{% endfor %}
+  </article>
+  {% endfor %}{% endfor %}
+</section>
+{% endfor %}
+</body>
+</html>

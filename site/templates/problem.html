@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block head %}<link rel="canonical" href="{{ canonical_url }}">{% endblock %}
+{% block content %}
+<div class="problem-layout">
+<article class="problem">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">{{ cat.name }}</a>{% if prob.sub_name %} / <a href="../index.html#{{ anchor(prob.subtopic) }}">{{ prob.sub_name }}</a>{% endif %}</nav>
+  <h1>{{ prob.number }}. {{ prob.title }}</h1>
+  <p class="meta">
+    {% if prob.difficulty %}<span class="pill {{ prob.difficulty|lower }}">{{ prob.difficulty }}</span>{% endif %}
+    {% if prob.also_in %}<span class="muted">Also in</span>{% for q in prob.also_in %}<a class="pill link" href="../../{{ q.dir }}/index.html">{{ cat_name(q.category) }}</a>{% endfor %}{% endif %}
+  </p>
+  <p class="actions">
+    {% if prob.lc_url %}<a class="btn primary" href="{{ prob.lc_url }}">Open on LeetCode ↗</a>{% endif %}
+    <a class="btn" href="{{ github_blob }}{{ tabs[0][1][0].rel }}">View source</a>
+  </p>
+
+  <div class="code-card">
+    <div class="card-bar">
+      <div class="tabs" role="tablist">
+        {% for lang, fs in tabs %}
+        <button type="button" class="tab" role="tab" id="tab-{{ loop.index }}" data-target="panel-{{ loop.index }}" aria-selected="{{ 'true' if loop.first else 'false' }}">{{ lang }}{% if fs|length > 1 %} ({{ fs|length }}){% endif %}</button>
+        {% endfor %}
+      </div>
+      {% if tabs|length > 1 %}
+      <div class="viewswitch" role="group" aria-label="View">
+        <button type="button" class="vs" data-view="tabs" aria-pressed="true">Tabs</button>
+        <button type="button" class="vs" data-view="split" aria-pressed="false">Side by side</button>
+      </div>
+      {% endif %}
+    </div>
+    <div class="panels">
+      {% for lang, fs in tabs %}
+      <section class="panel" id="panel-{{ loop.index }}" role="tabpanel" aria-labelledby="tab-{{ loop.index }}" data-lang="{{ lang }}">
+        {% for f in fs %}
+        <div class="file">
+          <div class="file-bar"><span class="file-path">{{ f.rel }}</span><button type="button" class="copy" aria-label="Copy {{ f.rel }}">Copy</button></div>
+          <div class="code-wrap">{{ f.html|safe }}</div>
+          <textarea class="src" hidden>{{ f.code }}</textarea>
+        </div>
+        {% endfor %}
+      </section>
+      {% endfor %}
+    </div>
+  </div>
+
+  <nav class="pager" aria-label="Previous and next">
+    {% if prev %}<a class="prev" href="../{{ prev.number }}-{{ prev.slug }}/index.html"><span class="muted">← Previous</span><br>{{ prev.number }}. {{ prev.title }}</a>{% else %}<span></span>{% endif %}
+    {% if next %}<a class="next" href="../{{ next.number }}-{{ next.slug }}/index.html"><span class="muted">Next →</span><br>{{ next.number }}. {{ next.title }}</a>{% endif %}
+  </nav>
+</article>
+<aside class="rail" aria-label="More in this topic">
+  {% if more %}
+  <h2>More in {{ prob.sub_name or "General" }}</h2>
+  <ul>
+    {% for q in more %}<li><a href="../{{ q.number }}-{{ q.slug }}/index.html">{{ q.number }}. {{ q.title }}</a></li>{% endfor %}
+  </ul>
+  {% endif %}
+</aside>
+</div>
+{% endblock %}

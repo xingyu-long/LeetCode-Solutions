@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ cat.name }}</h1>
+<p class="muted">{{ cat.problems|length }} problems{% if subtopics %} · {{ subtopics|length }} subtopics{% endif %}</p>
+<div class="filter-row">
+  <input id="cat-filter" type="search" placeholder="Filter this category" aria-label="Filter problems in this category" autocomplete="off">
+</div>
+{% if subtopics %}
+<div class="chips">
+  {% for a, name in subtopics %}<a class="chip" href="#{{ a }}">{{ name }}</a>{% endfor %}
+</div>
+{% endif %}
+{% for raw, name, probs in groups %}
+<section class="group"{% if raw %} id="{{ anchor(raw) }}"{% endif %}>
+  <h2 class="group-title">{{ name }} <span class="muted">{{ probs|length }}</span></h2>
+  <ul class="rows">
+    {% for p in probs %}
+    <li class="row" data-text="{{ p.number }} {{ p.title|lower }}">
+      <a class="row-link" href="{{ p.number }}-{{ p.slug }}/index.html">
+        <span class="num">{{ p.number }}</span>
+        <span class="row-title">{{ p.title }}</span>
+        {% if p.difficulty %}<span class="pill {{ p.difficulty|lower }}">{{ p.difficulty }}</span>{% endif %}
+        <span class="langs">{% for l in p.lang_names() %}<span class="badge">{{ l }}</span>{% endfor %}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}
+<p id="no-match" class="muted" hidden>No problems match.</p>
+{% endblock %}
