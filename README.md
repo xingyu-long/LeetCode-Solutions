@@ -3,11 +3,10 @@
 My LeetCode solutions in Java and Python, filed by technique.
 
 - **Site:** https://xingyu-long.github.io/LeetCode-Solutions/
-- **Book (PDF and EPUB):** https://xingyu-long.github.io/LeetCode-Solutions/#book
 
 ## Adding a solution
 
-The only source is `Leetcode/src/com/leetcode/`. Add a correctly named file in the right folder, push, and it shows up on the site and in the book.
+The only source is `Leetcode/src/com/leetcode/`. Add a correctly named file in the right folder, push, and it shows up on the site.
 
 | What you add | Result |
 |---|---|
@@ -24,9 +23,19 @@ The filename must match `^_(\d+)_(.+)\.([A-Za-z0-9]+)$`; both `_56_MergeInterval
 ```bash
 uv sync
 uv run pytest
-uv run python site/build.py --no-book      # site only, fast
-uv run python site/build.py                # site + PDF + EPUB (needs pandoc and pango)
+uv run python site/build.py                # site only, into _site/
 uv run python -m http.server -d _site 8000
 ```
+
+### Optional: build the book
+
+The PDF and EPUB are not part of the website or the deploy. Build them locally when you want them (needs `pandoc` and `pango`, e.g. `brew install pandoc pango`):
+
+```bash
+uv run python site/build.py --book         # site, plus the book in _book/
+uv run python site/build.py --book-only    # only the book, leaves _site/ alone
+```
+
+The full PDF runs well past 1,500 pages and takes several minutes. Output goes to `_book/`: `leetcode-solutions.pdf`, `leetcode-solutions.epub`, and one PDF per chapter in `_book/chapters/`.
 
 Official titles and difficulty live in `site/data/titles.json`; refresh with `uv run python site/fetch_titles.py`.

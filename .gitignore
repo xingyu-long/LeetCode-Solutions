@@ -11,4 +11,5 @@ Leetcode/.vscode/*
 Leetcode/out/*
 .DS_Store
 _site/
+_book/
 !site/data/titles.json

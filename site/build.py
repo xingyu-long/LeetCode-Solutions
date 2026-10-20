@@ -1,8 +1,8 @@
-"""Build the static site and the book from Leetcode/src/com/leetcode/.
+"""Build the static site (and optionally a book) from Leetcode/src/com/leetcode/.
 
-    uv run python site/build.py              # site + book
-    uv run python site/build.py --no-book    # site only
-    uv run python site/build.py --book-only  # book only
+    uv run python site/build.py              # site only, into _site/ (what CI deploys)
+    uv run python site/build.py --book       # site, plus PDF and EPUB in _book/
+    uv run python site/build.py --book-only  # just the book, in _book/
 """
 
 from __future__ import annotations
@@ -41,6 +41,7 @@ HERE = Path(__file__).resolve().parent
 REPO = HERE.parent
 SRC = REPO / "Leetcode" / "src" / "com" / "leetcode"
 OUT = REPO / "_site"
+BOOK_OUT = REPO / "_book"
 TITLES_PATH = HERE / "data" / "titles.json"
 
 GITHUB = "https://github.com/xingyu-long/LeetCode-Solutions"
@@ -363,11 +364,10 @@ def build_site(categories, problems, stats):
     write(static_out / "pygments.css", pygments_css())
 
     # home
-    book_chapters = [{"slug": c.slug, "name": c.name, "count": len(c.problems)} for c in categories]
     write(
         OUT / "index.html",
         env.get_template("home.html").render(
-            root="", page="home", title="LeetCode Solutions", categories=side, chapters=book_chapters, **common
+            root="", page="home", title="LeetCode Solutions", categories=side, **common
         ),
     )
 
@@ -447,7 +447,7 @@ def build_book(categories, problems, stats):
     from weasyprint import HTML
 
     env = make_env()
-    book_dir = OUT / "book"
+    book_dir = BOOK_OUT
     (book_dir / "chapters").mkdir(parents=True, exist_ok=True)
     html_text = render_book_html(env, categories, stats)
     write(book_dir / "_book.html", html_text)
@@ -521,9 +521,9 @@ def compute_stats(categories, problems):
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--no-book", action="store_true")
-    ap.add_argument("--book-only", action="store_true")
+    ap = argparse.ArgumentParser(description="Build the static site, and optionally the PDF/EPUB book.")
+    ap.add_argument("--book", action="store_true", help="also build the book into _book/ (needs pandoc and pango)")
+    ap.add_argument("--book-only", action="store_true", help="build only the book, leave _site/ alone")
     args = ap.parse_args(argv)
 
     titles = json.loads(TITLES_PATH.read_text(encoding="utf-8")) if TITLES_PATH.exists() else {}
@@ -536,9 +536,8 @@ def main(argv=None):
     if not args.book_only:
         shutil.rmtree(OUT, ignore_errors=True)
         build_site(categories, problems, stats)
-    if not args.no_book:
-        if args.book_only:
-            shutil.rmtree(OUT / "book", ignore_errors=True)
+    if args.book or args.book_only:
+        shutil.rmtree(BOOK_OUT, ignore_errors=True)
         # book pages use plain highlighting without the line-number table
         for p in problems.values():
             for f in p.files:

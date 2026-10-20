@@ -29,16 +29,10 @@ jobs:
       - name: Install dependencies
         run: uv sync
 
-      - name: Install system packages
-        # pandoc builds the EPUB; pango for WeasyPrint; Noto CJK keeps the Chinese comments readable in the PDF
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pandoc libpango-1.0-0 libpangoft2-1.0-0 fonts-noto-cjk
-
       - name: Fetch any missing problem titles
         run: uv run python site/fetch_titles.py --missing-only || true
 
-      - name: Build site and book
+      - name: Build site
         run: uv run python site/build.py
 
       - uses: actions/configure-pages@v5

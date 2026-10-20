@@ -1,5 +1,7 @@
 # Static site and book: implementation plan
 
+> **Update:** the book is now opt-in and CLI-only. `site/build.py` builds just the site by default; `--book` / `--book-only` write the PDF and EPUB to `_book/`. The website has no book links and CI doesn't build it. Where this plan says otherwise (sections 2, 3 and 4), this note wins.
+
 Turn this repo into a static site at **https://xingyu-long.github.io/LeetCode-Solutions/**, where you browse solutions by category. The same build also produces a downloadable book (PDF and EPUB).
 
 Mockups (private canvas, owner's account): https://claude.ai/artifact/QcZJuc6SPF4RcvVUsznJz9

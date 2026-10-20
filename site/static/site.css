@@ -53,9 +53,6 @@ h2{font-size:18px;margin:0 0 12px}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:24px 0 40px}
 .card{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border:1px solid var(--border);border-radius:10px;color:var(--text);font-weight:500}
 .card:hover{border-color:var(--accent);text-decoration:none}
-.book-box{border:1px solid var(--border);border-radius:12px;padding:20px 24px;background:var(--subtle)}
-.chapter-links{columns:3 180px;list-style:none;padding:0;margin:12px 0 0}
-.chapter-links li{padding:2px 0}
 
 .filter-row{margin:16px 0 12px}
 .filter-row input{width:100%;max-width:360px;height:36px;padding:0 12px;border:1px solid var(--border);border-radius:8px;font:inherit}
