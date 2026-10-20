@@ -3,6 +3,10 @@ name: Deploy site to GitHub Pages
 on:
   push:
     branches: [main]
+    paths:
+      - "Leetcode/src/**"
+      - "site/**"
+      - ".github/workflows/docs.yml"
   workflow_dispatch:
 
 permissions:
